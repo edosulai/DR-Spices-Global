@@ -17,14 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/', function () {
-//     return view('temp.landing');
-// });
-
-// Route::get('/checkout', function () {
-//     return view('temp.checkout');
-// });
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
