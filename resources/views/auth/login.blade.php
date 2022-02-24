@@ -2,6 +2,7 @@
     <x-jet-authentication-card>
         {{-- <x-slot name="logo">
             <x-jet-authentication-card-logo />
+            <x-jet-validation-errors class="mb-3" />
         </x-slot> --}}
 
         <div class="row justify-content-center">
@@ -26,13 +27,13 @@
                                         @csrf
 
                                         <div class="form-group">
-                                            {{-- <x-jet-label value="{{ __('Email') }}" /> --}}
+                                            <x-jet-label value="{{ __('Email') }}" />
                                             <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" placeholder="Enter Email Address..." aria-describedby="emailHelp" :value="old('email')" required />
                                             <x-jet-input-error for="email"></x-jet-input-error>
                                         </div>
                                         <div class="form-group">
-                                            {{-- <x-jet-label value="{{ __('Password') }}" /> --}}
-                                            <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" required autocomplete="current-password" />
+                                            <x-jet-label value="{{ __('Password') }}" />
+                                            <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Enter Password..." required autocomplete="current-password" />
                                             <x-jet-input-error for="password"></x-jet-input-error>
                                         </div>
                                         <div class="form-group">
@@ -55,7 +56,7 @@
                                     @endif
                                     @if (Route::has('register'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
                                     </div>
                                     @endif
                                 </div>
