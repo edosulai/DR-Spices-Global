@@ -8,7 +8,7 @@
 
             <x-jet-validation-errors class="mb-3" />
 
-            <form method="POST" action="/reset-password">
+            <form method="POST" action="{{ route('password.reset') }}">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
