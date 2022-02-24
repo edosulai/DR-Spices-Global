@@ -12,6 +12,12 @@
                     <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
+                            @if (session('status'))
+                            <div class="alert alert-success mb-3 rounded-0" role="alert">
+                                {{ session('status') }}
+                            </div>
+                            @endif
+                            
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>

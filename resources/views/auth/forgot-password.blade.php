@@ -16,6 +16,12 @@
                             <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
+                                    @if (session('status'))
+                                    <div class="alert alert-success mb-3 rounded-0" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                    @endif
+                                    
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-2">{{ __('Forgot your password?') }}</h1>
                                         <p class="mb-4">{{ __('No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}</p>
