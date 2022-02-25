@@ -2,12 +2,12 @@
 
 @php
 $classes = ($active ?? false)
-            ? 'nav-link active font-weight-bolder'
-            : 'nav-link';
+            ? 'nav-item active font-weight-bolder'
+            : 'nav-item';
 @endphp
 
-<li class="nav-item">
-    <a {{ $attributes->merge(['class' => $classes]) }}>
+<li {{ $attributes->merge(['class' => $classes]) }}>
+    <a class="nav-link" href="{{$attributes['href']}}">
         {{ $slot }}
     </a>
 </li>
