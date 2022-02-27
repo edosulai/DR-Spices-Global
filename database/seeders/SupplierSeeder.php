@@ -15,14 +15,6 @@ class SupplierSeeder extends Seeder
      */
     public function run()
     {
-        Supplier::insert([
-            [
-                'nama' => 'Sulai',
-                'alamat' => 'Jl. Ikua Koto, Jorong Ampang Gadang',
-                'telp' => '0823-8600-7722',
-            ]
-        ]);
-
-        Supplier::factory()->count(100)->create();
+        Supplier::factory(10)->create();
     }
 }

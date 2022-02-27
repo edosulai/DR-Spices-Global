@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('faktur');
             $table->foreignId('spice_id')->references('id')->on('spices');
             $table->integer('jumlah');
-            $table->date('tanggal');
+            $table->dateTime('tanggal');
             $table->text('ket')->nullable();
             $table->timestamps();
         });

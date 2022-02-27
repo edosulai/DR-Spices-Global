@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
         ]);
         $admin->assignRole('admin');
 
-        User::factory()->count(50)->create();
+        User::factory(20)->create();
     }
 }

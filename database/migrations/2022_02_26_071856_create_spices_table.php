@@ -16,11 +16,9 @@ return new class extends Migration
         Schema::create('spices', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('hrg_beli');
             $table->integer('hrg_jual');
             $table->integer('stok');
-            $table->date('tgl_masuk');
-            $table->json('spek');
+            $table->text('ket');
             $table->timestamps();
         });
     }

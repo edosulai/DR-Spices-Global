@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use App\Models\Income;
 use App\Models\User;
 use App\Models\Spice;
 
@@ -21,12 +22,26 @@ class IncomeFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
+            'user_id' => $this->faker->numberBetween(1, User::count()),
             'faktur' => $this->faker->numerify('FAK.######'),
-            'spice_id' => Spice::factory(),
+            'spice_id' => $this->faker->numberBetween(1, Spice::count()),
             'jumlah' => $this->faker->numberBetween(1, 10),
-            'tanggal' => Carbon::now()->format('Y-m-d'),
+            'tanggal' => Carbon::now()->format('Y-m-d H:i:s'),
             'ket' => 'pas',
         ];
+    }
+
+    /**
+     * Configure the model factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function (Income $income) {
+            $spice = Spice::find($income->spice_id);
+            $spice->stok = $spice->stok - $income->jumlah;
+            $spice->save();
+        });
     }
 }

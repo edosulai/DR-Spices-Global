@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
+use App\Models\Expenditure;
 use App\Models\Supplier;
 use App\Models\Spice;
 
@@ -20,12 +21,26 @@ class ExpenditureFactory extends Factory
     public function definition()
     {
         return [
-            'supplier_id' => Supplier::factory(),
+            'supplier_id' => $this->faker->numberBetween(1, Supplier::count()),
             'faktur' => $this->faker->numerify('FAK.######'),
-            'spice_id' => Spice::factory(),
+            'spice_id' => $this->faker->numberBetween(1, Spice::count()),
             'jumlah' => $this->faker->numberBetween(1, 10),
-            'tanggal' => Carbon::now()->format('Y-m-d'),
+            'tanggal' => Carbon::now()->format('Y-m-d H:i:s'),
             'ket' => 'pas',
         ];
+    }
+
+    /**
+     * Configure the model factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function (Expenditure $expenditure) {
+            $spice = Spice::find($expenditure->spice_id);
+            $spice->stok = $spice->stok + $expenditure->jumlah;
+            $spice->save();
+        });
     }
 }
