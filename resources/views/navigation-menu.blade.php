@@ -51,8 +51,8 @@
         </div>
     </x-jet-nav-link>
 
-    <x-jet-nav-link :active="request()->routeIs('dashboard.rempah')">
-        <a class="nav-link" href="{{ route('dashboard.rempah') }}">
+    <x-jet-nav-link :active="request()->routeIs('rempah.index')">
+        <a class="nav-link" href="{{ route('rempah.index') }}">
             <i class="fas fa-fw fa-mortar-pestle"></i>
             <span>{{ __('Rempah') }}</span>
         </a>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SpiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -61,10 +62,6 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
         ]);
     })->name('dashboard.supply');
 
-    Route::get('/dashboard/rempah', function () {
-        return view('dashboard.rempah',[
-            'title' => 'Rempah',
-        ]);
-    })->name('dashboard.rempah');
+    Route::resource('/dashboard/rempah', SpiceController::class);
 
 });

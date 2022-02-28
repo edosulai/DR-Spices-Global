@@ -15,7 +15,9 @@ class SpiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.rempah', [
+            'title' => 'Rempah',
+        ]);
     }
 
     /**
