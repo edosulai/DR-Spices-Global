@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('incomes', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('faktur');
-            $table->foreignId('spice_id')->references('id')->on('spices');
-            $table->integer('jumlah');
-            $table->text('ket')->nullable();
+            $table->string('nama');
+            $table->string('ket');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incomes');
+        Schema::dropIfExists('statuses');
     }
 };

@@ -17,8 +17,9 @@ class SpiceFactory extends Factory
     public function definition()
     {
         return [
-            'nama' => $this->faker->name(),
+            'nama' => $this->faker->unique()->randomElement(['Cengkeh', 'Coklat', 'Kayu Manis', 'Lada', 'Pala']),
             'hrg_jual' => $this->faker->numberBetween(10000, 20000),
+            // 'hrg_jual' => 10000,
             'stok' => 0,
             'ket' => $this->faker->paragraph(),
         ];

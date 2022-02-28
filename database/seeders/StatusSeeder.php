@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Expenditure;
+use App\Models\Status;
 
-class ExpenditureSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class ExpenditureSeeder extends Seeder
      */
     public function run()
     {
-        Expenditure::factory(150)->create();
+        Status::factory(4)->create();
     }
 }

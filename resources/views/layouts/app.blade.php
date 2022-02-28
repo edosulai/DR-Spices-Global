@@ -110,13 +110,11 @@
 
                                 <div class="dropdown-divider"></div>
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                                <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     {{ __('Log out') }}
                                 </x-jet-dropdown-link>
-                                <form method="POST" id="logout-form" action="{{ route('logout') }}">
-                                    @csrf
-                                </form>
+                                <form method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
                             </div>
                         </li>
 

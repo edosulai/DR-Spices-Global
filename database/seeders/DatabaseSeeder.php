@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RequestBuy;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -21,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SupplierSeeder::class);
         $this->call(ExpenditureSeeder::class);
         $this->call(IncomeSeeder::class);
+        $this->call(StatusSeeder::class);
+        $this->call(RequestBuySeeder::class);
     }
 }

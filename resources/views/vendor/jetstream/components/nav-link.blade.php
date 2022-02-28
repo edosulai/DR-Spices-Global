@@ -7,7 +7,5 @@ $classes = ($active ?? false)
 @endphp
 
 <li {{ $attributes->merge(['class' => $classes]) }}>
-    <a class="nav-link" href="{{$attributes['href']}}">
-        {{ $slot }}
-    </a>
+    {{ $slot }}
 </li>

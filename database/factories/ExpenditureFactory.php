@@ -25,7 +25,6 @@ class ExpenditureFactory extends Factory
             'faktur' => $this->faker->numerify('FAK.######'),
             'spice_id' => $this->faker->numberBetween(1, Spice::count()),
             'jumlah' => $this->faker->numberBetween(1, 10),
-            'tanggal' => Carbon::now()->format('Y-m-d H:i:s'),
             'ket' => 'pas',
         ];
     }

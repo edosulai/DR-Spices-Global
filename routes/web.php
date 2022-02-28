@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,55 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
+Route::get('/detail', function () {
+    return view('detail');
+});
+
+Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/dashboard/pending', function () {
+        return view('dashboard.pending',[
+            'title' => 'Permintaan Tertunda',
+        ]);
+    })->name('dashboard.pending');
+
+    Route::get('/dashboard/outcome', function () {
+        return view('dashboard.outcome',[
+            'title' => 'Supplier',
+        ]);
+    })->name('dashboard.outcome');
+
+    Route::get('/dashboard/income', function () {
+        return view('dashboard.income',[
+            'title' => 'Pendapatan',
+        ]);
+    })->name('dashboard.income');
+
+    Route::get('/dashboard/user', function () {
+        return view('dashboard.user',[
+            'title' => 'Pengguna',
+        ]);
+    })->name('dashboard.user');
+
+    Route::get('/dashboard/supply', function () {
+        return view('dashboard.supply',[
+            'title' => 'Supplier',
+        ]);
+    })->name('dashboard.supply');
+
+    Route::get('/dashboard/rempah', function () {
+        return view('dashboard.rempah',[
+            'title' => 'Rempah',
+        ]);
+    })->name('dashboard.rempah');
+
 });

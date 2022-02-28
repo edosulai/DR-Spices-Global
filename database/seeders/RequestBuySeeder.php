@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Expenditure;
+use App\Models\RequestBuy;
 
-class ExpenditureSeeder extends Seeder
+class RequestBuySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class ExpenditureSeeder extends Seeder
      */
     public function run()
     {
-        Expenditure::factory(150)->create();
+        RequestBuy::factory(5)->create();
     }
 }
