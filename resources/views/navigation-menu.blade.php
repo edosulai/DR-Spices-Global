@@ -30,7 +30,7 @@
         <div id="collapseTransaction" class="collapse" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Riwayat Transaksi : </h6>
-                <a class="collapse-item {{ request()->routeIs('dashboard.pending') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.pending') }}">Permintaan</a>
+                <a class="collapse-item {{ request()->routeIs('dashboard.pending') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.pending') }}">Order</a>
                 <a class="collapse-item {{ request()->routeIs('dashboard.outcome') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.outcome') }}">Outcome</a>
                 <a class="collapse-item {{ request()->routeIs('dashboard.income') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.income') }}">Income</a>
             </div>
