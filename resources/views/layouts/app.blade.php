@@ -116,11 +116,10 @@
 
                                 <div class="dropdown-divider"></div>
 
-                                <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    {{ __('Log out') }}
-                                </x-jet-dropdown-link>
-                                <form method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
+                                    {{ __('Keluar') }}
+                                </a>
                             </div>
                         </li>
 
@@ -158,20 +157,19 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" tabindex="-1" id="logoutModal" aria-labelledby="logoutModal" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    <h5 class="modal-title">{{ __('Ready to Leave?') }}</h5>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
+                <div class="modal-body">
+                    {{ __('Select "Logout" below if you are ready to end your current session.') }}
+                </div>
+                <div class="modal-footer bg-light">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <form method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
                 </div>
             </div>
         </div>

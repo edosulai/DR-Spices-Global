@@ -1,4 +1,11 @@
 require('./bootstrap')
+
+import Alpine from 'alpinejs'
+
+window.Alpine = Alpine
+
+Alpine.start()
+
 require('../vendor/bootstrap/js/bootstrap.bundle.js')
 
 // Toggle the side navigation
@@ -51,10 +58,6 @@ $(document).on('click', 'a.scroll-to-top', function (e) {
     scrollTop: ($($anchor.attr('href')).offset().top)
   }, 1000, 'easeInOutExpo')
   e.preventDefault()
-})
-
-$(document).ready(function () {
-  $('#dataTable').DataTable()
 })
 
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'

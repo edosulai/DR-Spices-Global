@@ -25,29 +25,29 @@
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <x-jet-label value="{{ __('First Name') }}" />
+                                        <x-jet-label value="{{ __('Nama depan') }}" />
                                         <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" placeholder="First Name" :value="old('name')" required autofocus autocomplete="name" />
-                                        <x-jet-input-error for="name"></x-jet-input-error>
+                                        <x-jet-input-error for="name" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <x-jet-label value="{{ __('Last Name') }}" />
+                                        <x-jet-label value="{{ __('Nama belakang') }}" />
                                         <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" placeholder="Last Name" :value="old('name')" required autofocus autocomplete="name" />
-                                        <x-jet-input-error for="name"></x-jet-input-error>
+                                        <x-jet-input-error for="name" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <x-jet-label value="{{ __('Email') }}" />
                                     <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" placeholder="Email Address" :value="old('email')" required />
-                                    <x-jet-input-error for="email"></x-jet-input-error>
+                                    <x-jet-input-error for="email" />
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <x-jet-label value="{{ __('Password') }}" />
                                         <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
-                                        <x-jet-input-error for="password"></x-jet-input-error>
+                                        <x-jet-input-error for="password" />
                                     </div>
                                     <div class="col-sm-6">
-                                        <x-jet-label value="{{ __('Confirm Password') }}" />
+                                        <x-jet-label value="{{ __('Konfirmasi Password') }}" />
                                         <x-jet-input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
                                     </div>
                                 </div>
@@ -57,9 +57,9 @@
                                     <div class="custom-control custom-checkbox">
                                         <x-jet-checkbox id="terms" name="terms" />
                                         <label class="custom-control-label" for="terms">
-                                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'">'.__('Terms of Service').'</a>',
-                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'">'.__('Privacy Policy').'</a>',
+                                            {!! __('Saya setuju dengan :terms_of_service dan :privacy_policy', [
+                                            'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'">'.__('Persyaratan Layanan').'</a>',
+                                            'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'">'.__('Kebijakan pribadi').'</a>',
                                             ]) !!}
                                         </label>
                                     </div>
@@ -67,18 +67,18 @@
                                 @endif
 
                                 <x-jet-button>
-                                    {{ __('Register Account') }}
+                                    {{ __('Daftar Akun') }}
                                 </x-jet-button>
                             </form>
                             <hr>
                             @if (Route::has('password.request'))
                             <div class="text-center">
-                                <a class="small" href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
+                                <a class="small" href="{{ route('password.request') }}">{{ __('Lupa kata sandi Anda?') }}</a>
                             </div>
                             @endif
                             @if (Route::has('register'))
                             <div class="text-center">
-                                <a class="small" href="{{ route('login') }}">{{ __('Already have an account? Login!') }}</a>
+                                <a class="small" href="{{ route('login') }}">{{ __('Sudah memiliki akun? Masuk!') }}</a>
                             </div>
                             @endif
                         </div>

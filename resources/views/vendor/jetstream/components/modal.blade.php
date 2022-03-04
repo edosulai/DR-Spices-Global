@@ -14,14 +14,11 @@ $maxWidth = [
 <!-- Modal -->
 <div
     x-data="{
-        show: @entangle($attributes->wire('model')).defer,
+        show: @entangle($attributes->wire('model')),
     }"
     x-init="() => {
-
         let el = document.querySelector('#modal-id-{{ $id }}')
-
         let modal = new bootstrap.Modal(el);
-
         $watch('show', value => {
             if (value) {
                 modal.show()
@@ -29,10 +26,6 @@ $maxWidth = [
                 modal.hide()
             }
         });
-
-        el.addEventListener('hide.bs.modal', function (event) {
-          show = false
-        })
     }"
     wire:ignore.self
     class="modal fade"
@@ -42,7 +35,7 @@ $maxWidth = [
     aria-hidden="true"
     x-ref="modal-id-{{ $id }}"
 >
-    <div class="modal-dialog{{ $maxWidth }}">
+    <div class="modal-dialog{{ $maxWidth }}" @click.away="show = false">
         {{ $slot }}
     </div>
 </div>

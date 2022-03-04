@@ -23,8 +23,8 @@
                                     @endif
                                     
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">{{ __('Forgot your password?') }}</h1>
-                                        <p class="mb-4">{{ __('No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}</p>
+                                        <h1 class="h4 text-gray-900 mb-2">{{ __('Lupa kata sandi Anda?') }}</h1>
+                                        <p class="mb-4">{{ __('Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirim email kepada Anda tautan pengaturan ulang kata sandi yang memungkinkan Anda memilih yang baru.') }}</p>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('password.request') }}">
                                         @csrf
@@ -33,18 +33,18 @@
                                             <x-jet-input type="email" name="email" placeholder="Enter Email Address..." :value="old('email')" required autofocus />
                                         </div>
                                         <x-jet-button>
-                                            {{ __('Email Password Reset Link') }}
+                                            {{ __('Tautan Atur Ulang Kata Sandi Email') }}
                                         </x-jet-button>
                                     </form>
                                     <hr>
                                     @if (Route::has('register'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
+                                        <a class="small" href="{{ route('register') }}">{{ __('Buat sebuah akun!') }}</a>
                                     </div>
                                     @endif
                                     @if (Route::has('register'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('login') }}">{{ __('Already have an account? Login!') }}</a>
+                                        <a class="small" href="{{ route('login') }}">{{ __('Sudah memiliki akun? Masuk!') }}</a>
                                     </div>
                                     @endif
                                 </div>

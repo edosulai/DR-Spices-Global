@@ -8,7 +8,7 @@
                     @auth
                     <a href="{{ url('/dashboard') }}" class="text-muted">Dashboard</a>
                     @else
-                    <a href="{{ route('login') }}" class="text-muted">Log in</a>
+                    <a href="{{ route('login') }}" class="text-muted">{{ __('Masuk') }}</a>
 
                     @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="ms-4 text-muted">Register</a>

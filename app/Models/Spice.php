@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Spice extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama',
+        'hrg_jual',
+        'stok',
+        'ket'
+    ];
 }

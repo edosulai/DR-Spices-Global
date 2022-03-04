@@ -23,7 +23,7 @@
                                     @endif
 
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Renew your password.</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">{{ __('Perbarui kata sandi Anda.') }}</h1>
                                     </div>
 
                                     <form class="user" method="POST" action="{{ route('password.update') }}">
@@ -34,19 +34,19 @@
                                         <div class="form-group">
                                             <x-jet-label value="{{ __('Email') }}" />
                                             <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-                                            <x-jet-input-error for="email"></x-jet-input-error>
+                                            <x-jet-input-error for="email" />
                                         </div>
 
                                         <div class="form-group">
                                             <x-jet-label value="{{ __('Password') }}" />
                                             <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" required autocomplete="new-password" />
-                                            <x-jet-input-error for="password"></x-jet-input-error>
+                                            <x-jet-input-error for="password" />
                                         </div>
                         
                                         <div class="form-group">
-                                            <x-jet-label value="{{ __('Confirm Password') }}" />
+                                            <x-jet-label value="{{ __('Konfirmasi Password') }}" />
                                             <x-jet-input class="{{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password" name="password_confirmation" required autocomplete="new-password" />
-                                            <x-jet-input-error for="password_confirmation"></x-jet-input-error>
+                                            <x-jet-input-error for="password_confirmation" />
                                         </div>
                                         <x-jet-button>
                                             {{ __('Reset Password') }}

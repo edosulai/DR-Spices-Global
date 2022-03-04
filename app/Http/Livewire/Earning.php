@@ -52,10 +52,10 @@ class Earning extends ChartComponent
 
         $datasets = new Collection([
             'incomes' => $incomes->map(function (Income $income, $key) {
-                return number_format($income->income_price, 0, '.', '');
+                return number_format($income->income_price, 0, ',', '.');
             }),
             'outcomes' => $outcomes->map(function (Expenditure $expenditure, $key) {
-                return number_format($expenditure->outcome_price, 0, '.', '');
+                return number_format($expenditure->outcome_price, 0, ',', '.');
             })
         ]);
 

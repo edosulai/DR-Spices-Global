@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->integer('hrg_jual');
             $table->integer('stok');
-            $table->text('ket');
+            $table->text('ket')->nullable();
             $table->timestamps();
         });
     }

@@ -35,12 +35,12 @@
                                         <div class="form-group">
                                             <x-jet-label value="{{ __('Email') }}" />
                                             <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" placeholder="Enter Email Address..." aria-describedby="emailHelp" :value="old('email')" required />
-                                            <x-jet-input-error for="email"></x-jet-input-error>
+                                            <x-jet-input-error for="email" />
                                         </div>
                                         <div class="form-group">
                                             <x-jet-label value="{{ __('Password') }}" />
                                             <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Enter Password..." required autocomplete="current-password" />
-                                            <x-jet-input-error for="password"></x-jet-input-error>
+                                            <x-jet-input-error for="password" />
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -51,18 +51,18 @@
                                             </div>
                                         </div>
                                         <x-jet-button>
-                                            {{ __('Log in') }}
+                                            {{ __('Masuk') }}
                                         </x-jet-button>
                                     </form>
                                     <hr>
                                     @if (Route::has('password.request'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
+                                        <a class="small" href="{{ route('password.request') }}">{{ __('Lupa kata sandi Anda?') }}</a>
                                     </div>
                                     @endif
                                     @if (Route::has('register'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Create an Account!') }}</a>
+                                        <a class="small" href="{{ route('register') }}">{{ __('Buat sebuah akun!') }}</a>
                                     </div>
                                     @endif
                                 </div>

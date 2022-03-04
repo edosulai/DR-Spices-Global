@@ -7,11 +7,11 @@
         <div class="card-body">
             <div x-data="{ recovery: false }">
                 <div class="mb-3" x-show="! recovery">
-                    {{ __('Please confirm access to your account by entering the authentication code provided by your authenticator application.') }}
+                    {{ __('Harap konfirmasi akses ke akun Anda dengan memasukkan kode otentikasi yang disediakan oleh aplikasi authenticator Anda.') }}
                 </div>
 
                 <div class="mb-3" x-show="recovery">
-                    {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
+                    {{ __('Harap konfirmasikan akses ke akun Anda dengan memasukkan salah satu kode pemulihan darurat Anda.') }}
                 </div>
 
                 <x-jet-validation-errors class="mb-3" />
@@ -20,17 +20,17 @@
                     @csrf
 
                     <div class="mb-3" x-show="! recovery">
-                        <x-jet-label value="{{ __('Code') }}" />
+                        <x-jet-label value="{{ __('Kode') }}" />
                         <x-jet-input class="{{ $errors->has('code') ? 'is-invalid' : '' }}" type="text"
                                      inputmode="numeric" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
-                        <x-jet-input-error for="code"></x-jet-input-error>
+                        <x-jet-input-error for="code" />
                     </div>
 
                     <div class="mb-3" x-show="recovery">
-                        <x-jet-label value="{{ __('Recovery Code') }}" />
+                        <x-jet-label value="{{ __('Kode Pemulihan') }}" />
                         <x-jet-input class="{{ $errors->has('recovery_code') ? 'is-invalid' : '' }}" type="text"
                                      name="recovery_code" x-ref="recovery_code" autocomplete="one-time-code" />
-                        <x-jet-input-error for="recovery_code"></x-jet-input-error>
+                        <x-jet-input-error for="recovery_code" />
                     </div>
 
                     <div class="d-flex justify-content-end mt-3">
@@ -40,7 +40,7 @@
                                             recovery = true;
                                             $nextTick(() => { $refs.recovery_code.focus() })
                                         ">
-                            {{ __('Use a recovery code') }}
+                            {{ __('Gunakan kode pemulihan') }}
                         </button>
 
                         <button type="button" class="btn btn-outline-secondary"
@@ -49,11 +49,11 @@
                                             recovery = false;
                                             $nextTick(() => { $refs.code.focus() })
                                         ">
-                            {{ __('Use an authentication code') }}
+                            {{ __('Gunakan kode otentikasi') }}
                         </button>
 
                         <x-jet-button>
-                            {{ __('Log in') }}
+                            {{ __('Masuk') }}
                         </x-jet-button>
                     </div>
                 </form>

@@ -1,16 +1,16 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Informasi Profil') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Perbarui informasi profil dan alamat email akun Anda.') }}
     </x-slot>
 
     <x-slot name="form">
 
         <x-jet-action-message on="saved">
-            {{ __('Saved.') }}
+            {{ __('Disimpan.') }}
         </x-jet-action-message>
 
         <!-- Profile Photo -->
@@ -48,7 +48,7 @@
 				@if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         <div wire:loading wire:target="deleteProfilePhoto" class="spinner-border spinner-border-sm" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            
                         </div>
 
                         {{ __('Remove Photo') }}
@@ -80,10 +80,10 @@
 		<div class="d-flex align-items-baseline">
 			<x-jet-button>
                 <div wire:loading class="spinner-border spinner-border-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                    
                 </div>
 
-				{{ __('Save') }}
+				{{ __('Simpan') }}
 			</x-jet-button>
 		</div>
     </x-slot>

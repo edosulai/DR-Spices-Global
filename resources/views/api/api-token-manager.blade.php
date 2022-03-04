@@ -2,16 +2,16 @@
     <!-- Generate API Token -->
     <x-jet-form-section submit="createApiToken">
         <x-slot name="title">
-            {{ __('Create API Token') }}
+            {{ __('Buat Token API') }}
         </x-slot>
 
         <x-slot name="description">
-            {{ __('API tokens allow third-party services to authenticate with our application on your behalf.') }}
+            {{ __('Token API memungkinkan layanan pihak ketiga untuk mengautentikasi dengan aplikasi kami atas nama Anda.') }}
         </x-slot>
 
         <x-slot name="form">
             <x-jet-action-message on="created">
-                {{ __('Created.') }}
+                {{ __('Dibuat.') }}
             </x-jet-action-message>
 
             <div class="w-md-75">
@@ -153,11 +153,11 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Batal') }}
             </x-jet-secondary-button>
 
             <x-jet-button wire:click="updateApiToken" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('Simpan') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
@@ -174,7 +174,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('Batal') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteApiToken">

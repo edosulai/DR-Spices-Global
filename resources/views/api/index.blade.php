@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('API Tokens') }}
+            {{ __('Token API') }}
         </h2>
     </x-slot>
 
