@@ -18,6 +18,8 @@
     <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('vendor/jasonday-printThis/printThis.js') }}"></script>
+    <script src="{{ asset('vendor/jQuery.print/dist/jQuery.print.min.js') }}"></script>
 
 </head>
 

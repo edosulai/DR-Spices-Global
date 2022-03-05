@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('request_buys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('spice_id')->references('id')->on('spices');
-            $table->foreignId('status_id')->references('id')->on('statuses');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
             $table->integer('jumlah');
             $table->timestamps();
         });

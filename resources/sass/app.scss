@@ -33,3 +33,9 @@
 @import "login.scss";
 @import "error.scss";
 @import "footer.scss";
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}

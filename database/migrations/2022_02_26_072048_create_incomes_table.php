@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('faktur');
-            $table->foreignId('spice_id')->references('id')->on('spices');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
             $table->integer('jumlah');
             $table->text('ket')->nullable();
             $table->timestamps();

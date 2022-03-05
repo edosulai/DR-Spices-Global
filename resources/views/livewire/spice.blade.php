@@ -47,14 +47,40 @@
                     </x-slot>
 
                     <x-slot name="footer">
-                        <x-jet-button class="ms-2" wire:click="tambahSpice" wire:loading.attr="disabled">
-                            <div wire:loading wire:target="tambahSpice" class="spinner-border spinner-border-sm" role="status">
+                        <div class="d-flex">
+                            <x-jet-secondary-button class="mr-2" wire:click="$toggle('spiceModal')" wire:loading.attr="disabled">
+                                {{ __('Batal') }}
+                            </x-jet-secondary-button>
 
-                            </div>
-                            {{ __('Tambah') }}
-                        </x-jet-button>
+                            <x-jet-button class="ms-2" wire:click="{{ $aksiSpiceModal }}" wire:loading.attr="disabled">
+                                <div wire:loading wire:target="{{ $aksiSpiceModal }}" class="spinner-border spinner-border-sm" role="status">
+
+                                </div>
+                                {{ __($buttonSpiceModal) }}
+                            </x-jet-button>
+                        </div>
                     </x-slot>
                 </x-jet-dialog-modal>
+
+                <x-jet-confirmation-modal wire:model="deleteSpiceModalConfirm">
+                    <x-slot name="title">
+                        {{ __("Hapus Data Rempah ") }}<i>{{$nama}}</i>
+                    </x-slot>
+
+                    <x-slot name="content">
+                        {{ __("Apakah Anda yakin ingin menghapus data rempah ") }}<i>{{$nama}} ?</i>
+                    </x-slot>
+
+                    <x-slot name="footer">
+                        <x-jet-secondary-button wire:click="$toggle('deleteSpiceModalConfirm')" wire:loading.attr="disabled">
+                            {{ __('Batal') }}
+                        </x-jet-secondary-button>
+
+                        <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteSpice">
+                            {{ __('Hapus') }}
+                        </x-jet-danger-button>
+                    </x-slot>
+                </x-jet-confirmation-modal>
             </div>
         </div>
     </div>
@@ -64,11 +90,11 @@
                 <thead>
                     @foreach ($headers as $key => $value)
                     @if ($key == 'aksi')
-                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" class="text-center cursor-pointer">
+                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" role="button" class="text-center no-print">
                         {{ is_array($value) ? $value['label'] : $value }}
                     </th>
                     @else
-                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" class="text-center cursor-pointer" wire:click="sort('{{ $key }}')">
+                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" role="button" class="text-center" wire:click="sort('{{ $key }}')">
                         {{ is_array($value) ? $value['label'] : $value }}
                         @if($sortColumn == $key)
                         <span>{!! $sortDirection == 'asc' ? '&#8659;':'&#8657;' !!}</span>
@@ -82,15 +108,21 @@
                     @foreach ($data as $item)
                     <tr>
                         @foreach ($headers as $key => $value)
-                        <td class="text-nowrap text-truncate">
-                            {!! is_array($value) ? $value['func']($item->$key) : $item->$key !!}
+                        @if ($key == 'aksi')
+                        <td class="text-nowrap text-truncate no-print">
+                            {!! is_array($value) ? $value['func']($item) : $item->$key !!}
                         </td>
+                        @else
+                        <td class="text-nowrap text-truncate">
+                            {!! is_array($value) ? $value['func']($item) : $item->$key !!}
+                        </td>
+                        @endif
                         @endforeach
                     </tr>
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="{{ count($headers) }}">
+                        <td colspan="{{ count($headers) }}" class="text-center">
                             <h2>No Results Found!</h2>
                         </td>
                     </tr>
@@ -98,12 +130,13 @@
                 </tbody>
             </table>
             {{ $data->links() }}
-
-            <script>
-                $(document).ready(function () {
-                  $('#dataTable_rempah').DataTable()
-                })
-            </script>
+            
         </div>
     </div>
 </div>
+
+{{-- @push('scripts')
+<script>
+    $('#dataTable_rempah').DataTable()
+</script>
+@endpush --}}

@@ -49,7 +49,7 @@
 
         <x-slot name="actions">
             <x-jet-button>
-                {{ __('Create') }}
+                {{ __('Tambah') }}
             </x-jet-button>
         </x-slot>
     </x-jet-form-section>
@@ -91,7 +91,7 @@
                                     @endif
 
                                     <button class="btn btn-link text-danger text-decoration-none" wire:click="confirmApiTokenDeletion({{ $token->id }})">
-                                        {{ __('Delete') }}
+                                        {{ __('Hapus') }}
                                     </button>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
             </x-jet-secondary-button>
 
             <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteApiToken">
-                {{ __('Delete') }}
+                {{ __('Hapus') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

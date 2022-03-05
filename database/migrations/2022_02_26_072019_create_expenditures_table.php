@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('supplier_id')->references('id')->on('suppliers');
             $table->string('faktur');
-            $table->foreignId('spice_id')->references('id')->on('spices');
+            $table->foreignId('supplier_id')->constrained('suppliers')->onDelete('cascade');
+            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
             $table->integer('jumlah');
             $table->text('ket')->nullable();
             $table->timestamps();

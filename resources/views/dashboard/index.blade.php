@@ -2,8 +2,26 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</a> --}}
         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="cetak_dashboard"><i class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</button>
+
+        <script>
+            $('#cetak_dashboard').on('click', function() {
+                const printContents = document.getElementById("main_dash").innerHTML
+    
+                const earning_chart = document.querySelector("#earning_chart canvas");
+                const stok_chart = document.querySelector("#stok_chart canvas");
+    
+                document.body.innerHTML = printContents
+                document.body.querySelector("#earning_chart").innerHTML = "<img src='" + earning_chart.toDataURL() + "'/>"
+                document.body.querySelector("#stok_chart").innerHTML = "<img src='" + stok_chart.toDataURL() + "'/>"
+    
+                setTimeout(() => {
+                    window.print()
+                    location.reload()
+                }, 0);
+            });
+        </script>
+        
     </div>
 
     <div id="main_dash">
@@ -131,23 +149,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $('#cetak_dashboard').on('click', function() {
-            const printContents = document.getElementById("main_dash").innerHTML
-
-            const earning_chart = document.querySelector("#earning_chart canvas");
-            const stok_chart = document.querySelector("#stok_chart canvas");
-
-            document.body.innerHTML = printContents
-            document.body.querySelector("#earning_chart").innerHTML = "<img src='" + earning_chart.toDataURL() + "'/>"
-            document.body.querySelector("#stok_chart").innerHTML = "<img src='" + stok_chart.toDataURL() + "'/>"
-
-            setTimeout(() => {
-                window.print()
-                location.reload()
-            }, 0);
-        });
-    </script>
 
 </x-app-layout>
