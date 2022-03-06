@@ -30,13 +30,16 @@ $confirmableId = md5($attributes->wire('then'));
     </x-slot>
 
     <x-slot name="footer">
-        <x-jet-button class="ms-2" wire:click="confirmPassword" wire:loading.attr="disabled">
-            <div wire:loading wire:target="confirmPassword" class="spinner-border spinner-border-sm" role="status">
-                
-            </div>
+        <div class="d-flex">
+            <x-jet-secondary-button class="mr-2" wire:click="$toggle('confirmingPassword')" wire:loading.attr="disabled">
+                {{ __('Batal') }}
+            </x-jet-secondary-button>
 
-            {{ $button }}
-        </x-jet-button>
+            <x-jet-button class="d-flex align-items-center" wire:click="confirmPassword" wire:loading.attr="disabled">
+                <span wire:loading wire:target="confirmPassword" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                {{ __($button) }}
+            </x-jet-button>
+        </div>
     </x-slot>
 </x-jet-dialog-modal>
 @endonce

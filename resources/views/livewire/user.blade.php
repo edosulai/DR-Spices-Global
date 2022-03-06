@@ -52,10 +52,8 @@
                                 {{ __('Batal') }}
                             </x-jet-secondary-button>
 
-                            <x-jet-button class="ms-2" wire:click="{{ $aksiUserModal }}" wire:loading.attr="disabled">
-                                <div wire:loading wire:target="{{ $aksiUserModal }}" class="spinner-border spinner-border-sm" role="status">
-
-                                </div>
+                            <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiUserModal }}" wire:loading.attr="disabled">
+                                <span wire:loading wire:target="{{ $aksiUserModal }}" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                                 {{ __($buttonUserModal) }}
                             </x-jet-button>
                         </div>
@@ -76,7 +74,8 @@
                             {{ __('Batal') }}
                         </x-jet-secondary-button>
 
-                        <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteUser">
+                        <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteUser">
+                            <span wire:loading wire:target="deleteUser" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                             {{ __('Hapus') }}
                         </x-jet-danger-button>
                     </x-slot>

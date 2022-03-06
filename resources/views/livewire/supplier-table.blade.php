@@ -1,12 +1,12 @@
 <x-livewire-tables::bs4.table.cell>
-    {{ $index }}
+    {{ $row->no }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
     {{ $row->nama }}
 </x-livewire-tables::bs4.table.cell>
 
-<x-livewire-tables::bs4.table.cell>
+<x-livewire-tables::bs4.table.cell class="text-truncate">
     {{ $row->alamat }}
 </x-livewire-tables::bs4.table.cell>
 

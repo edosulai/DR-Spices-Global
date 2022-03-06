@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('supplier_id')->constrained('suppliers')->onDelete('cascade');
             $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
             $table->integer('jumlah');
-            $table->text('ket')->nullable();
             $table->timestamps();
         });
     }

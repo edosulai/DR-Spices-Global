@@ -177,7 +177,8 @@
                 {{ __('Batal') }}
             </x-jet-secondary-button>
 
-            <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteApiToken">
+            <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteApiToken">
+                <span wire:loading wire:target="deleteApiToken" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                 {{ __('Hapus') }}
             </x-jet-danger-button>
         </x-slot>

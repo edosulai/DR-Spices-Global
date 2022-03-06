@@ -15,7 +15,9 @@ class StatusController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.status', [
+            'title' => 'Status Pengiriman',
+        ]);
     }
 
     /**

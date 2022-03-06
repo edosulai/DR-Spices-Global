@@ -1,4 +1,4 @@
-<div style="height: 20rem" id="stok_chart">
+<div class="canvas_container" style="height: 20rem" id="stok_chart">
     @if($chart)
     {!! $chart->container() !!}
     @endif

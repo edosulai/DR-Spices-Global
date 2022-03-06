@@ -33,12 +33,11 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-jet-button>
-            <div wire:loading class="spinner-border spinner-border-sm" role="status">
-                
-            </div>
-
-            {{ __('Simpan') }}
-        </x-jet-button>
+		<div class="d-flex align-items-baseline">
+            <x-jet-button class="d-flex align-items-center justify-content-center">
+                <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                {{ __('Simpan') }}
+            </x-jet-button>
+		</div>
     </x-slot>
 </x-jet-form-section>

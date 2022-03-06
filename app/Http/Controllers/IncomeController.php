@@ -17,7 +17,6 @@ class IncomeController extends Controller
     {
         return view('dashboard.income', [
             'title' => 'Pendapatan',
-            'users' => Income::all(),
         ]);
     }
 

@@ -16,7 +16,6 @@ class UserController extends Controller
     {
         return view('dashboard.user', [
             'title' => 'Pengguna',
-            'users' => User::all(),
         ]);
     }
 

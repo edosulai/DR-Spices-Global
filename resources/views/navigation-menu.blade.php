@@ -58,6 +58,24 @@
         </a>
     </x-jet-nav-link>
 
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-heading">Lainnya</div>
+
+    <x-jet-nav-link :active="request()->routeIs('status.index')">
+        <a class="nav-link" href="{{ route('status.index') }}">
+            <i class="fas fa-fw fa-truck-loading"></i>
+            <span>{{ __('Status Pengiriman') }}</span>
+        </a>
+    </x-jet-nav-link>
+
+    <x-jet-nav-link>
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-money-check"></i>
+            <span>{{ __('Metode Pembayaran') }}</span>
+        </a>
+    </x-jet-nav-link>
+
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->

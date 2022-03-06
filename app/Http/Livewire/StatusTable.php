@@ -2,26 +2,25 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Supplier;
+use App\Models\Status;
 use Livewire\Component;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class SupplierTable extends DataTableComponent
+class StatusTable extends DataTableComponent
 {
     protected $listeners = [
-        'supplierTableColumns' => 'columns',
+        'statusTableColumns' => 'columns',
     ];
 
     public function columns(): array
     {
         return [
             Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
-            Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-25'),
-            Column::make('Alamat', 'alamat')->sortable()->searchable(),
-            Column::make('Telp', 'telp')->sortable()->searchable()->addClass('w-15'),
+            Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-10'),
+            Column::make('Keterangan', 'ket')->sortable()->searchable(),
             Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
         ];
     }
@@ -29,21 +28,21 @@ class SupplierTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Supplier::query()->selectRaw('*, @row:=@row+1 as no');
+        return Status::query()->selectRaw('*, @row:=@row+1 as no');
     }
 
     public function rowView(): string
     {
-        return 'livewire.supplier-table';
+        return 'livewire.status-table';
     }
 
     public function openModal($id = null)
     {
-        $this->emit('supplierModal', $id);
+        $this->emit('statusModal', $id);
     }
 
     public function openDeleteModal($id)
     {
-        $this->emit('deleteSupplierModal', $id);
+        $this->emit('deleteStatusModal', $id);
     }
 }

@@ -47,39 +47,31 @@
         <div class="mt-3">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-jet-button type="button" wire:loading.attr="disabled">
+                    <x-jet-button class="d-flex align-items-center justify-content-center" type="button" wire:loading.attr="disabled">
+                        <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
                         {{ __('Aktifkan') }}
                     </x-jet-button>
                 </x-jet-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
                     <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-jet-secondary-button class="me-3">
-                            <div wire:loading wire:target="regenerateRecoveryCodes" class="spinner-border spinner-border-sm" role="status">
-                                
-                            </div>
-
+                        <x-jet-secondary-button class="mr-2">
+                            <span wire:loading wire:target="regenerateRecoveryCodes" class="spinner-border spinner-border-sm" role="status"></span>
                             {{ __('Buat Ulang Kode Pemulihan') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @else
                     <x-jet-confirms-password wire:then="showRecoveryCodes">
-                        <x-jet-secondary-button class="me-3">
-                            <div wire:loading wire:target="showRecoveryCodes" class="spinner-border spinner-border-sm" role="status">
-                                
-                            </div>
-
+                        <x-jet-secondary-button class="mr-2">
+                            <span wire:loading wire:target="showRecoveryCodes" class="spinner-border spinner-border-sm" role="status"></span>
                             {{ __('Tampilkan Kode Pemulihan') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @endif
 
                 <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
-                    <x-jet-danger-button wire:loading.attr="disabled">
-                        <div wire:loading wire:target="disableTwoFactorAuthentication" class="spinner-border spinner-border-sm" role="status">
-                            
-                        </div>
-
+                    <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="disableTwoFactorAuthentication">
+                        <span wire:loading wire:target="disableTwoFactorAuthentication" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                         {{ __('Nonaktifkan') }}
                     </x-jet-danger-button>
                 </x-jet-confirms-password>

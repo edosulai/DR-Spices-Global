@@ -1,5 +1,5 @@
 <x-livewire-tables::bs4.table.cell>
-    {{ $index }}
+    {{ $row->no }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
@@ -7,11 +7,11 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->user_id }}
+    {{ $row->user_name }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->spice_id }}
+    {{ $row->spice_name }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
@@ -19,5 +19,9 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->ket }}
+    Rp. {{ number_format($row->hrg_jual, 0, ',', '.') }}
+</x-livewire-tables::bs4.table.cell>
+
+<x-livewire-tables::bs4.table.cell>
+    Rp. {{ number_format($row->outcome_price, 0, ',', '.') }}
 </x-livewire-tables::bs4.table.cell>

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Spice;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
@@ -22,18 +23,19 @@ class SpiceTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('No.')->format(fn () => ++$this->index),
-            Column::make('Nama', 'nama')->sortable()->searchable(),
-            Column::make('Harga Jual', 'hrg_jual')->sortable()->searchable(),
-            Column::make('Stok', 'stok')->sortable()->searchable(),
+            Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
+            Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-15'),
+            Column::make('Harga Jual', 'hrg_jual')->sortable()->searchable()->addClass('w-15'),
+            Column::make('Stok', 'stok')->sortable()->searchable()->addClass('w-10'),
             Column::make('Keterangan', 'ket')->sortable()->searchable(),
-            Column::make('Aksi')->addClass('no-print'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
         ];
     }
 
     public function query(): Builder
     {
-        return Spice::query();
+        DB::statement(DB::raw('set @row:=0'));
+        return Spice::query()->selectRaw('*, @row:=@row+1 as no');
     }
 
     public function rowView(): string

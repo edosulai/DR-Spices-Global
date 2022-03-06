@@ -5,6 +5,7 @@ use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\RequestBuyController;
 use App\Http\Controllers\SpiceController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -43,5 +44,6 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
     Route::resource('/dashboard/pengguna', UserController::class);
     Route::resource('/dashboard/pemasok', SupplierController::class);
     Route::resource('/dashboard/rempah', SpiceController::class);
+    Route::resource('/dashboard/status', StatusController::class);
 
 });

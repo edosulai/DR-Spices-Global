@@ -17,7 +17,6 @@ class SupplierController extends Controller
     {
         return view('dashboard.supplier', [
             'title' => 'Pemasok',
-            'users' => Supplier::all(),
         ]);
     }
 

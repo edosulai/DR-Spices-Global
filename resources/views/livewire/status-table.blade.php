@@ -6,14 +6,6 @@
     {{ $row->nama }}
 </x-livewire-tables::bs4.table.cell>
 
-<x-livewire-tables::bs4.table.cell>
-    Rp. {{ number_format($row->hrg_jual, 0, ',', '.') }}
-</x-livewire-tables::bs4.table.cell>
-
-<x-livewire-tables::bs4.table.cell>
-    {{ $row->stok }}
-</x-livewire-tables::bs4.table.cell>
-
 <x-livewire-tables::bs4.table.cell class="text-truncate">
     {{ $row->ket }}
 </x-livewire-tables::bs4.table.cell>

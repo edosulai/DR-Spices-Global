@@ -9,7 +9,7 @@
 
                 <x-jet-dialog-modal wire:model="supplierModal">
                     <x-slot name="title">
-                        {{ __('Tambah Data Rempah') }}
+                        {{ __('Tambah Data Supplier') }}
                     </x-slot>
 
                     <x-slot name="close">
@@ -46,10 +46,8 @@
                                 {{ __('Batal') }}
                             </x-jet-secondary-button>
 
-                            <x-jet-button class="ms-2" wire:click="{{ $aksiSupplierModal }}" wire:loading.attr="disabled">
-                                <div wire:loading wire:target="{{ $aksiSupplierModal }}" class="spinner-border spinner-border-sm" role="status">
-
-                                </div>
+                            <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiSupplierModal }}" wire:loading.attr="disabled">
+                                <span wire:loading wire:target="{{ $aksiSupplierModal }}" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                                 {{ __($buttonSupplierModal) }}
                             </x-jet-button>
                         </div>
@@ -58,11 +56,11 @@
 
                 <x-jet-confirmation-modal wire:model="deleteSupplierModalConfirm">
                     <x-slot name="title">
-                        {{ __("Hapus Data Rempah ") }}<i>{{$nama}}</i>
+                        {{ __("Hapus Data Supplier ") }}<i>{{$nama}}</i>
                     </x-slot>
 
                     <x-slot name="content">
-                        {{ __("Apakah Anda yakin ingin menghapus data rempah ") }}<i>{{$nama}} ?</i>
+                        {{ __("Apakah Anda yakin ingin menghapus data supplier ") }}<i>{{$nama}} ?</i>
                     </x-slot>
 
                     <x-slot name="footer">
@@ -70,7 +68,8 @@
                             {{ __('Batal') }}
                         </x-jet-secondary-button>
 
-                        <x-jet-danger-button wire:loading.attr="disabled" wire:click="deleteSupplier">
+                        <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteSupplier">
+                            <span wire:loading wire:target="deleteSupplier" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                             {{ __('Hapus') }}
                         </x-jet-danger-button>
                     </x-slot>

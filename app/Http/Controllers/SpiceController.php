@@ -17,7 +17,6 @@ class SpiceController extends Controller
     {
         return view('dashboard.spice', [
             'title' => 'Rempah',
-            'spices' => Spice::all(),
         ]);
     }
 

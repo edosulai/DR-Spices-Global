@@ -17,7 +17,6 @@ class ExpenditureController extends Controller
     {
         return view('dashboard.expenditure', [
             'title' => 'Pengeluaran',
-            'users' => Expenditure::all(),
         ]);
     }
 
