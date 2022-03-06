@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\supplier;
+use App\Models\Supplier;
 use App\Http\Requests\StoresupplierRequest;
 use App\Http\Requests\UpdatesupplierRequest;
 
@@ -15,7 +15,10 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.supplier', [
+            'title' => 'Pemasok',
+            'users' => Supplier::all(),
+        ]);
     }
 
     /**

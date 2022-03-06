@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Spice;
+use App\Models\Supplier;
 use Livewire\Component;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class SpiceTable extends DataTableComponent
+class SupplierTable extends DataTableComponent
 {
     protected $listeners = [
-        'spiceTableColumns' => 'columns',
+        'supplierTableColumns' => 'columns',
     ];
 
     public function mount()
@@ -24,30 +24,29 @@ class SpiceTable extends DataTableComponent
         return [
             Column::make(__('No.'))->format(fn () => ++$this->index),
             Column::make('Nama', 'nama')->sortable()->searchable(),
-            Column::make('Harga Jual', 'hrg_jual')->sortable()->searchable(),
-            Column::make('Stok', 'stok')->sortable()->searchable(),
-            Column::make('Keterangan', 'ket')->sortable()->searchable(),
+            Column::make('Alamat', 'alamat')->sortable()->searchable(),
+            Column::make('Telp', 'telp')->sortable()->searchable(),
             Column::make('Aksi')->addClass('no-print'),
         ];
     }
 
     public function query(): Builder
     {
-        return Spice::query();
+        return Supplier::query();
     }
 
     public function rowView(): string
     {
-        return 'livewire.spice-table';
+        return 'livewire.supplier-table';
     }
 
     public function openModal($id = null)
     {
-        $this->emit('spiceModal', $id);
+        $this->emit('supplierModal', $id);
     }
 
     public function openDeleteModal($id)
     {
-        $this->emit('deleteSpiceModal', $id);
+        $this->emit('deleteSupplierModal', $id);
     }
 }

@@ -32,7 +32,7 @@
                 <h6 class="collapse-header">Riwayat Transaksi : </h6>
                 <a class="collapse-item {{ request()->routeIs('dashboard.pending') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.pending') }}">Order</a>
                 <a class="collapse-item {{ request()->routeIs('dashboard.outcome') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.outcome') }}">Outcome</a>
-                <a class="collapse-item {{ request()->routeIs('dashboard.income') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.income') }}">Income</a>
+                <a class="collapse-item {{ request()->routeIs('pendapatan.index') ? 'active font-weight-bolder' : '' }}" href="{{ route('pendapatan.index') }}">Income</a>
             </div>
         </div>
     </x-jet-nav-link>
@@ -45,8 +45,8 @@
         <div id="collapseEntities" class="collapse" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Entitas : </h6>
-                <a class="collapse-item {{ request()->routeIs('user.index') ? 'active font-weight-bolder' : '' }}" href="{{ route('user.index') }}">Pengguna</a>
-                <a class="collapse-item {{ request()->routeIs('dashboard.supply') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.supply') }}">Supplier</a>
+                <a class="collapse-item {{ request()->routeIs('pengguna.index') ? 'active font-weight-bolder' : '' }}" href="{{ route('pengguna.index') }}">Pengguna</a>
+                <a class="collapse-item {{ request()->routeIs('pemasok.index') ? 'active font-weight-bolder' : '' }}" href="{{ route('pemasok.index') }}">Supplier</a>
             </div>
         </div>
     </x-jet-nav-link>

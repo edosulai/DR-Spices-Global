@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\SpiceController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,20 +47,9 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
         ]);
     })->name('dashboard.outcome');
 
-    Route::get('/dashboard/income', function () {
-        return view('dashboard.income',[
-            'title' => 'Pendapatan',
-        ]);
-    })->name('dashboard.income');
-
-    Route::resource('/dashboard/user', UserController::class);
-
-    Route::get('/dashboard/supply', function () {
-        return view('dashboard.supply',[
-            'title' => 'Supplier',
-        ]);
-    })->name('dashboard.supply');
-
+    Route::resource('/dashboard/pendapatan', IncomeController::class);
+    Route::resource('/dashboard/pengguna', UserController::class);
+    Route::resource('/dashboard/pemasok', SupplierController::class);
     Route::resource('/dashboard/rempah', SpiceController::class);
 
 });

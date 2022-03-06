@@ -27,6 +27,6 @@
 
   </div>
 
-  @livewire('user', ['title' => $title])
+  @livewire('supplier', ['title' => $title])
 
 </x-app-layout>
