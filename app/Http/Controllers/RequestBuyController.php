@@ -15,7 +15,10 @@ class RequestBuyController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.request-buy', [
+            'title' => 'Permintaan Pembelian',
+            'users' => RequestBuy::all(),
+        ]);
     }
 
     /**
