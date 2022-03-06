@@ -10,8 +10,8 @@ class Expenditure extends Model
     use HasFactory;
 
     protected $fillable = [
-        'supplier_id',
         'faktur',
+        'supplier_id',
         'spice_id',
         'jumlah',
         'ket'

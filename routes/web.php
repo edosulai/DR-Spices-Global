@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\RequestBuyController;
 use App\Http\Controllers\SpiceController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -35,18 +37,8 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/dashboard/pending', function () {
-        return view('dashboard.pending',[
-            'title' => 'Permintaan Tertunda',
-        ]);
-    })->name('dashboard.pending');
-
-    Route::get('/dashboard/outcome', function () {
-        return view('dashboard.outcome',[
-            'title' => 'Supplier',
-        ]);
-    })->name('dashboard.outcome');
-
+    Route::resource('/dashboard/tertunda', RequestBuyController::class);
+    Route::resource('/dashboard/pengeluaran', ExpenditureController::class);
     Route::resource('/dashboard/pendapatan', IncomeController::class);
     Route::resource('/dashboard/pengguna', UserController::class);
     Route::resource('/dashboard/pemasok', SupplierController::class);

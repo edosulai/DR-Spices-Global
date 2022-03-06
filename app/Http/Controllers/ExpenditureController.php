@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\expenditure;
+use App\Models\Expenditure;
 use App\Http\Requests\StoreexpenditureRequest;
 use App\Http\Requests\UpdateexpenditureRequest;
 
@@ -15,7 +15,10 @@ class ExpenditureController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.expenditure', [
+            'title' => 'Pengeluaran',
+            'users' => Expenditure::all(),
+        ]);
     }
 
     /**

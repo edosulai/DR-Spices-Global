@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\income;
+use App\Models\Income;
 use App\Http\Requests\StoreincomeRequest;
 use App\Http\Requests\UpdateincomeRequest;
 
@@ -15,7 +15,10 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.income', [
+            'title' => 'Pendapatan',
+            'users' => Income::all(),
+        ]);
     }
 
     /**

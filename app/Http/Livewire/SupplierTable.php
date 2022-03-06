@@ -22,7 +22,7 @@ class SupplierTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make(__('No.'))->format(fn () => ++$this->index),
+            Column::make('No.')->format(fn () => ++$this->index),
             Column::make('Nama', 'nama')->sortable()->searchable(),
             Column::make('Alamat', 'alamat')->sortable()->searchable(),
             Column::make('Telp', 'telp')->sortable()->searchable(),
