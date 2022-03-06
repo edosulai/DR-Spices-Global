@@ -21,7 +21,7 @@
                     <x-slot name="content">
 
                         <div class="mb-3">
-                            <x-jet-label for="nama" value="{{ __('Nama') }}" />
+                            <x-jet-label for="nama" value="{{ __('Nama Rempah') }}" />
                             <x-jet-input id="nama" type="text" class="{{ $errors->has('nama') ? 'is-invalid' : '' }}" wire:model="nama" autocomplete="nama" />
                             <x-jet-input-error for="nama" />
                         </div>
@@ -86,57 +86,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable_rempah" width="100%" cellspacing="0" style="table-layout: fixed;">
-                <thead>
-                    @foreach ($headers as $key => $value)
-                    @if ($key == 'aksi')
-                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" role="button" class="text-center no-print">
-                        {{ is_array($value) ? $value['label'] : $value }}
-                    </th>
-                    @else
-                    <th style="{!! is_array($value) ? $value['style'] : '' !!}" role="button" class="text-center" wire:click="sort('{{ $key }}')">
-                        {{ is_array($value) ? $value['label'] : $value }}
-                        @if($sortColumn == $key)
-                        <span>{!! $sortDirection == 'asc' ? '&#8659;':'&#8657;' !!}</span>
-                        @endif
-                    </th>
-                    @endif
-                    @endforeach
-                </thead>
-                <tbody>
-                    @if(count($data))
-                    @foreach ($data as $item)
-                    <tr>
-                        @foreach ($headers as $key => $value)
-                        @if ($key == 'aksi')
-                        <td class="text-nowrap text-truncate no-print">
-                            {!! is_array($value) ? $value['func']($item) : $item->$key !!}
-                        </td>
-                        @else
-                        <td class="text-nowrap text-truncate">
-                            {!! is_array($value) ? $value['func']($item) : $item->$key !!}
-                        </td>
-                        @endif
-                        @endforeach
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                        <td colspan="{{ count($headers) }}" class="text-center">
-                            <h2>No Results Found!</h2>
-                        </td>
-                    </tr>
-                    @endif
-                </tbody>
-            </table>
-            {{ $data->links() }}
-            
+            @livewire('spice-table')
         </div>
     </div>
 </div>
-
-{{-- @push('scripts')
-<script>
-    $('#dataTable_rempah').DataTable()
-</script>
-@endpush --}}

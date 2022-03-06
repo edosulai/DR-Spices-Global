@@ -6,7 +6,7 @@
 
     <script>
       $('#cetak_rempah').on('click', function() {
-          $('#dataTable_rempah').printThis({
+          $('table').printThis({
             debug: false,
             printContainer: true,
             pageTitle: "Rekap Data {{ $title }}",
@@ -27,6 +27,6 @@
 
   </div>
 
-  @livewire('spice', ['title' => $title])
+  @livewire('user', ['title' => $title])
 
 </x-app-layout>

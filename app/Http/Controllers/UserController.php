@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Spice;
-use App\Http\Requests\StoreSpiceRequest;
-use App\Http\Requests\UpdateSpiceRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class SpiceController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class SpiceController extends Controller
      */
     public function index()
     {
-        return view('dashboard.spice', [
-            'title' => 'Rempah',
-            'spices' => Spice::all(),
+        return view('dashboard.user', [
+            'title' => 'Pengguna',
+            'users' => User::all(),
         ]);
     }
 
@@ -34,10 +33,10 @@ class SpiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSpiceRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSpiceRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -45,10 +44,10 @@ class SpiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Spice  $spice
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Spice $spice)
+    public function show(User $user)
     {
         //
     }
@@ -56,10 +55,10 @@ class SpiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Spice  $spice
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Spice $spice)
+    public function edit(User $user)
     {
         //
     }
@@ -67,11 +66,11 @@ class SpiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSpiceRequest  $request
-     * @param  \App\Models\Spice  $spice
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSpiceRequest $request, Spice $spice)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -79,10 +78,10 @@ class SpiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Spice  $spice
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Spice $spice)
+    public function destroy(User $user)
     {
         //
     }

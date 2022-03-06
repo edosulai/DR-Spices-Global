@@ -45,7 +45,7 @@
         <div id="collapseEntities" class="collapse" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Entitas : </h6>
-                <a class="collapse-item {{ request()->routeIs('dashboard.user') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.user') }}">Pengguna</a>
+                <a class="collapse-item {{ request()->routeIs('user.index') ? 'active font-weight-bolder' : '' }}" href="{{ route('user.index') }}">Pengguna</a>
                 <a class="collapse-item {{ request()->routeIs('dashboard.supply') ? 'active font-weight-bolder' : '' }}" href="{{ route('dashboard.supply') }}">Supplier</a>
             </div>
         </div>

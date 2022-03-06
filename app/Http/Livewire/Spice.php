@@ -8,16 +8,9 @@ use Livewire\WithPagination;
 
 class Spice extends Component
 {
-    use WithPagination;
-    
-    public $searchTerm;
-    public $sortColumn = 'created_at';
-    public $sortDirection = 'asc';
-    public $perPage = 10;
-
     public $spiceModal = false;
     public $deleteSpiceModalConfirm = false;
-    public $id_rempah = 0;
+    public $id_spice = 0;
 
     public $title;
 
@@ -29,6 +22,11 @@ class Spice extends Component
     public $aksiSpiceModal = 'tambahSpice';
     public $buttonSpiceModal = 'Tambah';
 
+    protected $listeners = [
+        'spiceModal' => 'openSpiceModal',
+        'deleteSpiceModal' => 'openDeleteSpiceModal',
+    ];
+
     public $rules = [
         'nama' => 'required|unique:spices,nama|max:255',
         'hrg_jual' => 'required|integer',
@@ -36,87 +34,17 @@ class Spice extends Component
         'ket' => 'nullable'
     ];
 
-    private function headerConfig()
-    {
-        return [
-            'id' => [
-                'label' => 'ID',
-                'style' => 'width: 7% !important;',
-                'func' => function ($value) {
-                    return $value->id;
-                }
-            ],
-            'nama' => [
-                'label' => 'Nama',
-                'style' => 'width: 15% !important;',
-                'func' => function ($value) {
-                    return $value->nama;
-                }
-            ],
-            'hrg_jual' => [
-                'label' => 'Harga Jual',
-                'style' => 'width: 13% !important;',
-                'func' => function ($value) {
-                    return "Rp. " . number_format($value->hrg_jual, 0, ',', '.');
-                }
-            ],
-            'stok' => [
-                'label' => 'Stok',
-                'style' => 'width: 7% !important;',
-                'func' => function ($value) {
-                    return $value->stok;
-                }
-            ],
-            'ket' => [
-                'label' => 'Keterangan',
-                'style' => 'width: 39% !important;',
-                'func' => function ($value) {
-                    return $value->ket;
-                }
-            ],
-            'aksi' => [
-                'label' => 'Aksi',
-                'style' => 'width: 14% !important;',
-                'func' => function ($value) {
-                    return view('components.aksi', [
-                        'rempah' => $value,
-                    ]);
-                }
-            ]
-        ];
-    }
-
-    public function sort($column)
-    {
-        $this->sortColumn = $column;
-        $this->sortDirection = $this->sortDirection == 'asc' ? 'desc' : 'asc';
-    }
-
-    private function resultData()
-    {
-        return ModelsSpice::where(function ($query) {
-            if ($this->searchTerm != "") {
-                $query->where('nama', 'like', '%' . $this->searchTerm . '%');
-                $query->orWhere('hrg_jual', 'like', '%' . $this->searchTerm . '%');
-                $query->orWhere('stok', 'like', '%' . $this->searchTerm . '%');
-                $query->orWhere('ket', 'like', '%' . $this->searchTerm . '%');
-            }
-        })->orderBy($this->sortColumn, $this->sortDirection)->paginate($this->perPage);
-    }
-
     public function render()
     {
-        return view('livewire.spice', [
-            'data' => $this->resultData(),
-            'headers' => $this->headerConfig()
-        ]);
+        return view('livewire.spice');
     }
 
     public function openSpiceModal($id = null)
     {
-        if ($id) {
+        if (is_int($id)) {
             $spice = ModelsSpice::find($id);
-            $this->id_rempah = $spice->id;
+            if (!$spice) return;
+            $this->id_spice = $spice->id;
             $this->nama = $spice->nama;
             $this->hrg_jual = $spice->hrg_jual;
             $this->stok = $spice->stok;
@@ -137,9 +65,13 @@ class Spice extends Component
 
     public function openDeleteSpiceModal($id)
     {
-        $spice = ModelsSpice::find($id);
-        $this->id_rempah = $spice->id;
-        $this->nama = $spice->nama;
+        if (is_int($id)) {
+            $spice = ModelsSpice::find($id);
+            if (!$spice) return;
+            $this->id_spice = $spice->id;
+            $this->nama = $spice->nama;
+        }
+        
         $this->deleteSpiceModalConfirm = true;
     }
 
@@ -155,28 +87,34 @@ class Spice extends Component
         ]);
 
         $this->spiceModal = false;
+
+        $this->emit('spiceTableColumns');
     }
 
     public function editSpice()
     {
-        $this->rules['nama'] = "required|unique:spices,nama,$this->id_rempah|max:255";
+        $this->rules['nama'] = "required|unique:spices,nama,$this->id_spice|max:255";
         $this->validate();
 
-        $spice = ModelsSpice::find($this->id_rempah);
+        $spice = ModelsSpice::find($this->id_spice);
         $spice->nama = $this->nama;
         $spice->hrg_jual = $this->hrg_jual;
         $spice->stok = $this->stok;
         $spice->ket = $this->ket;
         $spice->save();
 
-        $this->id_rempah = 0;
+        $this->id_spice = 0;
         $this->spiceModal = false;
+
+        $this->emit('spiceTableColumns');
     }
 
     public function deleteSpice()
     {
-        ModelsSpice::destroy($this->id_rempah);
-        $this->id_rempah = 0;
+        ModelsSpice::destroy($this->id_spice);
+        $this->id_spice = 0;
         $this->deleteSpiceModalConfirm = false;
+
+        $this->emit('spiceTableColumns');
     }
 }

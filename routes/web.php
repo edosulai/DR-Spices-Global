@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SpiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -50,11 +51,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
         ]);
     })->name('dashboard.income');
 
-    Route::get('/dashboard/user', function () {
-        return view('dashboard.user',[
-            'title' => 'Pengguna',
-        ]);
-    })->name('dashboard.user');
+    Route::resource('/dashboard/user', UserController::class);
 
     Route::get('/dashboard/supply', function () {
         return view('dashboard.supply',[
