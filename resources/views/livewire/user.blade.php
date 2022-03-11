@@ -38,7 +38,7 @@
                             <x-jet-label for="role" value="{{ __('Role') }}" />
                             <select class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" wire:model="role" id="role" autocomplete="role">
                                 @foreach ($roles as $r)
-                                <option value="{!! $r->id !!}" wire:key="{{ $r->id }}" {!! $role == $r->id ? 'seledted' : '' !!}>{{ $r->name }}</option>
+                                <option value="{!! $r->id !!}" wire:key="{{ $r->id }}" {!! $role == $r->id ? 'selected' : '' !!}>{{ $r->name }}</option>
                                 @endforeach
                             </select>
                             <x-jet-input-error for="role" />

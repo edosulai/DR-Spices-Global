@@ -78,9 +78,8 @@ class User extends Component
         $this->validate();
 
         $user = ModelsUser::find($this->id_user);
-        $roles = Role::find($this->role);
-
-        if ($roles) $user->syncRoles($roles->name);
+        $role = Role::find($this->role);
+        $user->syncRoles($role->name);
 
         $this->id_user = 0;
         $this->userModal = false;

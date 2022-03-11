@@ -23,5 +23,5 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    Rp. {{ number_format($row->outcome_price, 0, ',', '.') }}
+    Rp. {{ number_format($row->income_price, 0, ',', '.') }}
 </x-livewire-tables::bs4.table.cell>
