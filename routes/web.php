@@ -24,15 +24,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('home');
 
 Route::get('/checkout', function () {
     return view('checkout');
-});
+})->name('checkout');
 
-Route::get('/detail', function () {
-    return view('detail');
-});
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
 
 Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], function () {
 
