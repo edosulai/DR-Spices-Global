@@ -98,7 +98,7 @@ $(document).ready(function () {
 
   setTimeout(function () {
     $("#page-preloader").fadeOut()
-  }, 1e3)
+  }, 500)
 
   setInterval(function () {
     let harleequinn = new Date("31 April 2018 9:56:00 GMT+01:00")

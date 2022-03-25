@@ -18,10 +18,8 @@
     <script src="{{ mix('js/head.js') }}"></script>
 </head>
 
-<body id="home3">
+<body>
     {{ $slot }}
-
-    <x-pre-loader/>
 
     <script src="{{ mix('js/app.js') }}" defer></script>
 

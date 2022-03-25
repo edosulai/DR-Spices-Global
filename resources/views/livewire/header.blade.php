@@ -10,7 +10,7 @@
 
             <!-- logo -->
             <div class="mobile-logo">
-                <a href="index-2.html">
+                <a href="{{ route('home') }}">
                     <img class="logo-mobile img-fluid" src="{{ asset('storage/images/home/logo-mobie.png') }}" alt="Prestashop_Furnitica">
                 </a>
             </div>
@@ -61,8 +61,8 @@
                                     <tr>
                                         <td colspan="3" class="d-flex justify-content-center">
                                             <div class="cart-button">
-                                                <a href="product-cart.html" title="View Cart">View Cart</a>
-                                                <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                <a href="{{ route('cart') }}" title="View Cart">View Cart</a>
+                                                <a href="{{ route('checkout') }}" title="Checkout">Checkout</a>
                                             </div>
                                         </td>
                                     </tr>
@@ -82,7 +82,7 @@
                 <!-- logo -->
                 <div class="col-sm-2 col-md-2 d-flex align-items-center">
                     <div id="logo">
-                        <a href="index-2.html">
+                        <a href="{{ route('home') }}">
                             <img class="img-fluid" src="{{ asset('storage/images/home/logo.png') }}" alt="logo">
                         </a>
                     </div>
@@ -104,17 +104,17 @@
                 <!-- search-->
                 <div id="search_widget" class="col-sm-6 col-md-5 align-items-center justify-content-end d-flex">
 
-                    <!-- acount  -->
+                    <!-- account  -->
                     @if (Auth::check())
                     <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
-                            <a href="#acount" data-toggle="collapse" class="acount">
+                            <a href="#account" data-toggle="collapse">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>{{ $user->name }}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
-                        <div id="acount" class="collapse">
+                        <div id="account" class="account collapse">
                             <div class="account-list-content">
                                 @foreach ($user_navs as $nav)
                                 <div>
@@ -124,6 +124,13 @@
                                     </a>
                                 </div>
                                 @endforeach
+                                <div>
+                                    <a href="#" rel="nofollow" title="Sign Out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span>Sign Out</span>
+                                    </a>
+                                    <form class="d-none" method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
+                                </div>
                                 <div id="desktop_language_selector" class="language-selector groups-selector hidden-sm-down">
                                     <ul class="list-inline">
                                         <li class="list-inline-item current">
@@ -144,7 +151,9 @@
                     <div class="desktop_cart">
                         <div class="blockcart block-cart cart-preview tiva-toggle">
                             <div class="header-cart tiva-toggle-btn">
-                                <span class="cart-products-count">1</span>
+                                @if (count($carts) > 0)
+                                <span class="cart-products-count">{{ count($carts) }}</span>
+                                @endif
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </div>
                             <div class="dropdown-content">
@@ -171,6 +180,7 @@
                                                 </td>
                                             </tr>
                                             @endforeach
+                                            @if (count($carts) > 0)
                                             <tr class="total">
                                                 <td colspan="2">Total:</td>
                                                 <td>Rp. {{ number_format($total, 0, ',', '.') }}</td>
@@ -179,11 +189,12 @@
                                             <tr>
                                                 <td colspan="3" class="d-flex justify-content-center">
                                                     <div class="cart-button">
-                                                        <a href="product-cart.html" title="View Cart">View Cart</a>
-                                                        <a href="product-checkout.html" title="Checkout">Checkout</a>
+                                                        <a href="{{ route('cart') }}" title="View Cart">View Cart</a>
+                                                        <a href="{{ route('checkout') }}" title="Checkout">Checkout</a>
                                                     </div>
                                                 </td>
                                             </tr>
+                                            @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -195,7 +206,7 @@
                     <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
                             <div>
-                                <a href="user-login.html" rel="nofollow" title="Log in to your customer account">
+                                <a href="{{ route('login') }}" rel="nofollow" title="Log in to your customer account">
                                     <i class="fas fa-sign-in-alt"></i>
                                     <span>Sign in</span>
                                 </a>

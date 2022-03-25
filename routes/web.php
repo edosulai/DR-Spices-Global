@@ -22,17 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-})->name('home');
+Route::get('/', fn () => view('landing'))->name('home');
+Route::get('/contact-us', fn () => view('contact-us'))->name('contact');
 
-Route::get('/checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/my-account', fn () => view('my-account'))->name('account');
+    Route::get('/cart', fn () => view('cart'))->name('cart');
+    Route::get('/checkout', fn () => view('checkout'))->name('checkout');
+});
 
 Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], function () {
 

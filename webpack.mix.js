@@ -11,13 +11,17 @@ const mix = require('laravel-mix')
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/head.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'js')
+    .js('resources/js/head.js', 'js')
+    .sass('resources/sass/app.scss', 'css')
+    .setPublicPath('public')
     .webpackConfig(require('./webpack.config'))
-// .options({
-//     processCssUrls: false
-// })
+    .options({
+        fileLoaderDirs: {
+            fonts: 'fonts',
+            images: 'storage/images',
+        },
+    })
 
 if (mix.inProduction()) {
     mix.version()

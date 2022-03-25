@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -24,7 +25,7 @@ class Header extends Component
                 'url' => route('home'),
             ], [
                 'name' => 'Contact Us',
-                'url' => '#contact-us',
+                'url' => route('contact'),
             ]
         ];
         $this->user_navs = [
@@ -32,35 +33,36 @@ class Header extends Component
                 'name' => 'My Account',
                 'title' => 'Account Details',
                 'icon' => 'fa fa-cog',
-                'url' => '#',
+                'url' => route('account'),
             ], [
                 'name' => 'Checkout',
                 'title' => 'Checkout Details',
                 'icon' => 'fa fa-check',
-                'url' => '#',
-            ], [
-                'name' => 'Sign Out',
-                'title' => 'Sign Out',
-                'icon' => 'fas fa-sign-out-alt',
-                'url' => '#',
+                'url' => route('checkout'),
             ]
         ];
-        $this->carts = [
-            [
-                'name' => 'Nature Close Tea',
-                'url' => '#',
-                'qty' => 2,
-                'price' => 12000,
-                'img_src' => asset('storage/images/product/4.jpg'),
-            ],[
-                'name' => 'Pink Wave Cup',
-                'url' => '#',
-                'qty' => 2,
-                'price' => 12000,
-                'img_src' => asset('storage/images/product/5.jpg'),
-            ]
-        ];
-        $this->total = 24000;
+        if ($this->user) {
+            $carts = Cart::join('users', 'carts.user_id', '=', 'users.id')
+            ->join('spices', 'carts.spice_id', '=', 'spices.id')
+            ->selectRaw('carts.*, spices.nama as spice_name, spices.harga as spice_price, users.name as user_name');
+
+            $this->carts = [
+                [
+                    'name' => 'Nature Close Tea',
+                    'url' => '#',
+                    'qty' => 2,
+                    'price' => 12000,
+                    'img_src' => asset('storage/images/product/4.jpg'),
+                ],[
+                    'name' => 'Pink Wave Cup',
+                    'url' => '#',
+                    'qty' => 2,
+                    'price' => 12000,
+                    'img_src' => asset('storage/images/product/5.jpg'),
+                ]
+            ];
+            $this->total = 24000;
+        }
     }
 
     public function render()
