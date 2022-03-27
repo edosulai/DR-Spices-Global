@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/images/favicon.png') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 

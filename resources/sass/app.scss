@@ -1,4 +1,4 @@
-@import '../vendor/fontawesome-free/css/all.css';
+// @import '../vendor/fontawesome-free/css/all.css';
 
 @import "../vendor/bootstrap/scss/bootstrap.scss";
 
@@ -15,7 +15,7 @@
 @import "error.scss";
 @import "footer.scss";
 
-@import "../vendor/font-material/css/material-design-iconic-font.min.css";
+// @import "../vendor/font-material/css/material-design-iconic-font.min.css";
 @import "../vendor/nivo-slider/css/nivo-slider.css";
 @import "../vendor/nivo-slider/css/animate.css";
 @import "../vendor/nivo-slider/css/style.css";
@@ -72,5 +72,12 @@
     width: 20% !important;
 }
 
+@media (max-width:767px) {
+	.text-xs-center {
+		text-align: center;
+	}
+}
+
 @import "custom.scss";
 @import "responsive.scss";
+@import "modal.scss";

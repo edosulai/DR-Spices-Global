@@ -21,7 +21,9 @@ mix.js('resources/js/app.js', 'js')
             fonts: 'fonts',
             images: 'storage/images',
         },
+        processCssUrls: false,
     })
+    .sourceMaps();
 
 if (mix.inProduction()) {
     mix.version()

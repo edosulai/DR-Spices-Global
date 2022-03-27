@@ -25,7 +25,7 @@ module.exports = {
                             name: 'storage/[path][name].[ext]?[hash]',
                             context: 'resources/assets',
                         }
-                    }
+                    },
                 ],
             }
         ]

@@ -6,12 +6,10 @@
 
         <div class="main-content">
             <div class="wrap-banner">
-
                 <x-breadcrumb :navs="[
                     ['title' => 'Home', 'url' => route('home')],
                     ['title' => 'Login', 'url' => route('login')],
                 ]" />
-
             </div>
 
             <!-- main -->

@@ -5,20 +5,28 @@ namespace App\Http\Livewire;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Header extends Component
 {
-    public $id_user = 0;
-
     public $user;
-    public $navs;
+    public $navs = [];
+    public $carts = [];
+    public $total = 0;
+    public $cart_exist = false;
 
-    public $carts;
-    public $total;
+    protected $listeners = [
+        'headerMount' => 'mount',
+    ];
 
     public function mount()
     {
+        $this->carts = [];
+        $this->cart_exist = false;
+        $this->total = 0;
+
         $this->user = Auth::user();
+
         $this->navs = [
             [
                 'name' => 'Home',
@@ -28,6 +36,7 @@ class Header extends Component
                 'url' => route('contact'),
             ]
         ];
+
         $this->user_navs = [
             [
                 'name' => 'My Account',
@@ -41,27 +50,32 @@ class Header extends Component
                 'url' => route('checkout'),
             ]
         ];
-        if ($this->user) {
-            $carts = Cart::join('users', 'carts.user_id', '=', 'users.id')
-            ->join('spices', 'carts.spice_id', '=', 'spices.id')
-            ->selectRaw('carts.*, spices.nama as spice_name, spices.harga as spice_price, users.name as user_name');
 
-            $this->carts = [
-                [
-                    'name' => 'Nature Close Tea',
-                    'url' => '#',
-                    'qty' => 2,
-                    'price' => 12000,
-                    'img_src' => asset('storage/images/product/4.jpg'),
-                ],[
-                    'name' => 'Pink Wave Cup',
-                    'url' => '#',
-                    'qty' => 2,
-                    'price' => 12000,
-                    'img_src' => asset('storage/images/product/5.jpg'),
-                ]
-            ];
-            $this->total = 24000;
+        if ($this->user) {
+            $carts = Cart::where('user_id', $this->user->id)
+                ->join('spices', 'carts.spice_id', '=', 'spices.id')
+                ->selectRaw('carts.*, spices.nama as spice_name, spices.hrg_jual as spice_price, spices.image as spice_image')
+                ->get();
+
+            if (count($carts) > 0) {
+
+                foreach ($carts as $cart) {
+                    $this->carts[] = [
+                        'id' => $cart->id,
+                        'name' => $cart->spice_name,
+                        'url' => Str::replace(' ', '-', $cart->spice_name),
+                        'qty' => $cart->jumlah,
+                        'price' => $cart->spice_price,
+                        'img_src' => asset("storage/images/product/$cart->spice_image"),
+                    ];
+
+                    $this->total = $this->total + ($cart->jumlah * $cart->spice_price);
+                }
+
+                $this->cart_exist = true;
+
+                return;
+            }
         }
     }
 
@@ -70,8 +84,9 @@ class Header extends Component
         return view('livewire.header');
     }
 
-    public function logoutUser()
+    public function deleteCart($id)
     {
-        //
+        Cart::where('id', $id)->delete();
+        $this->emit('headerMount');
     }
 }
