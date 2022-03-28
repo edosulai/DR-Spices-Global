@@ -112,6 +112,14 @@
                         </div>
                         <div id="account" class="account collapse">
                             <div class="account-list-content">
+                                @role('admin')
+                                <div>
+                                    <a href="{{ route('dashboard') }}" rel="nofollow" title="Dashboard">
+                                        <i class="fas fa-columns"></i>
+                                        <span>{{ __('Dashboard') }}</span>
+                                    </a>
+                                </div>
+                                @endif
                                 @foreach ($user_navs as $nav)
                                 <div>
                                     <a href="{{ $nav['url'] }}" rel="nofollow" title="{{ $nav['title'] }}">
@@ -239,6 +247,13 @@
                                 </a>
                                 <div class="subCategory collapse" id="home1" aria-expanded="true" role="status">
                                     <ul>
+                                        @role('admin')
+                                        <li class="item">
+                                            <a href="{{ route('dashboard') }}" title="Dashboard">
+                                                <span>{{ __('Dashboard') }}</span>
+                                            </a>
+                                        </li>
+                                        @endif
                                         @foreach ($user_navs as $nav)
                                         <li class="item">
                                             <a href="{{ $nav['url'] }}" title="{{ $nav['title'] }}">

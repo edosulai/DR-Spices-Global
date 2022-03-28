@@ -28,8 +28,8 @@
                                         </div>
 
                                         <div class="form-group no-gutters">
-                                            <div class="input-group js-parent-focus">
-                                                <x-jet-input class="js-child-focus js-visible-password {{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password..." required autocomplete="current-password" />
+                                            <div class="input-group">
+                                                <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password..." required autocomplete="current-password" />
                                                 <x-jet-input-error for="password" />
                                             </div>
                                         </div>

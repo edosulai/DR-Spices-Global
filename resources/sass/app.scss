@@ -73,11 +73,16 @@
 }
 
 @media (max-width:767px) {
-	.text-xs-center {
-		text-align: center;
-	}
+    .text-xs-center {
+        text-align: center;
+    }
 }
 
 @import "custom.scss";
 @import "responsive.scss";
 @import "modal.scss";
+
+html,
+a {
+    scroll-behavior: smooth;
+}

@@ -13,17 +13,21 @@ class ProductExhibition extends Component
     public $spices = [];
     public $navs = [];
     public $feedbackCartAddModal = false;
+    public $detailModal = false;
 
-    public $modalCartAddName;
-    public $modalCartAddPrice;
-    public $modalCartAddQty;
-    public $modalCartAddImage;
-    public $modalCartAddCount;
-    public $modalCartAddTotal;
+    public $modalSpiceId;
+    public $modalSpiceName;
+    public $modalSpicePrice;
+    public $modalSpiceQty;
+    public $modalSpiceImage;
+    public $modalSpiceDesc;
+    public $modalSpiceInStock;
+    public $modalSpiceCount;
+    public $modalSpiceTotal;
 
     public function mount()
     {
-        $this->spices = Spice::where('stok', '>', 0)->get();
+        $this->spices = Spice::all();
 
         $this->navs = [
             [
@@ -41,19 +45,21 @@ class ProductExhibition extends Component
         return view('livewire.product-exhibition');
     }
 
-    public function addToCart($id)
+    public function addToCart($id = null)
     {
-        $spice = Spice::find($id);
+        $spice = Spice::find($id ?? $this->modalSpiceId);
 
         if ($spice && $spice->stok > 0) {
 
-            $this->modalCartAddTotal = 0;
+            $this->modalSpiceTotal = 0;
+
+            $qty = $id ? 1 : $this->modalSpiceQty;
 
             Cart::updateOrCreate([
                 'user_id' => Auth::id(),
-                'spice_id' => $id
+                'spice_id' => $spice->id
             ], [
-                'jumlah' => DB::raw('jumlah + 1'),
+                'jumlah' => DB::raw('jumlah + ' . $qty),
             ]);
 
             $carts = Cart::where('user_id',  Auth::id())
@@ -61,18 +67,48 @@ class ProductExhibition extends Component
                 ->selectRaw('carts.*, spices.nama as spice_name, spices.hrg_jual as spice_price, spices.image as spice_image')
                 ->get();
 
-            $this->modalCartAddName = $spice->nama;
-            $this->modalCartAddPrice = $spice->hrg_jual;
-            $this->modalCartAddQty = 1;
-            $this->modalCartAddImage = $spice->image;
-            $this->modalCartAddCount = count($carts);
+            $this->modalSpiceName = $spice->nama;
+            $this->modalSpicePrice = $spice->hrg_jual;
+            $this->modalSpiceQty = $qty;
+            $this->modalSpiceImage = $spice->image;
+            $this->modalSpiceDesc = $spice->ket;
+            $this->modalSpiceCount = count($carts);
+            $this->modalSpiceInStock = $spice->stok;
+
             foreach ($carts as $cart) {
-                $this->modalCartAddTotal = $this->modalCartAddTotal + ($cart->spice_price * $cart->jumlah);
+                $this->modalSpiceTotal = $this->modalSpiceTotal + ($cart->spice_price * $cart->jumlah);
             }
 
+            $this->detailModal = false;
             $this->feedbackCartAddModal = true;
 
             $this->emit('headerMount');
+        }
+    }
+
+    public function detailSpice($id)
+    {
+        // $this->modalSpiceId = 0;
+        // $this->modalSpiceName = null;
+        // $this->modalSpicePrice = 0;
+        // $this->modalSpiceQty = 0;
+        // $this->modalSpiceImage = null;
+        // $this->modalSpiceDesc = null;
+        // $this->modalSpiceInStock = false;
+
+        $spice = Spice::find($id);
+
+        if ($spice) {
+
+            $this->modalSpiceId = $spice->id;
+            $this->modalSpiceName = $spice->nama;
+            $this->modalSpicePrice = $spice->hrg_jual;
+            $this->modalSpiceQty = 1;
+            $this->modalSpiceImage = $spice->image;
+            $this->modalSpiceDesc = $spice->ket;
+            $this->modalSpiceInStock = $spice->stok > 0 ? true : false;
+
+            $this->detailModal = true;
         }
     }
 }

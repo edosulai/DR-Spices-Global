@@ -21,7 +21,7 @@
                   <div class="col-md-9 col-xs-12 check-info">
                     <h1 class="title-page">Shopping Cart</h1>
                     <div class="cart-container">
-                      <div class="cart-overview js-cart">
+                      <div class="cart-overview">
                         <ul class="cart-items">
                           <li class="cart-item">
                             <div class="product-line-grid row justify-content-between">
@@ -57,10 +57,10 @@
                                       <input type="text" name="qty" value="1" class="input-group form-control">
 
                                       <span class="input-group-btn-vertical">
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                        <button class="btn bootstrap-touchspin-up" type="button">
                                           +
                                         </button>
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                        <button class="btn bootstrap-touchspin-down" type="button">
                                           -
                                         </button>
                                       </span>
@@ -118,10 +118,10 @@
                                       <input type="text" name="qty" value="2" class="input-group form-control">
 
                                       <span class="input-group-btn-vertical">
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                        <button class="btn bootstrap-touchspin-up" type="button">
                                           +
                                         </button>
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                        <button class="btn bootstrap-touchspin-down" type="button">
                                           -
                                         </button>
                                       </span>
@@ -178,10 +178,10 @@
                                       <input type="text" name="qty" value="3" class="input-group form-control">
 
                                       <span class="input-group-btn-vertical">
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                        <button class="btn bootstrap-touchspin-up" type="button">
                                           +
                                         </button>
-                                        <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                        <button class="btn bootstrap-touchspin-down" type="button">
                                           -
                                         </button>
                                       </span>
@@ -218,7 +218,7 @@
                           <div class="summary-label">There are 3 item in your cart</div>
                         </div>
                         <div class="cart-summary-line" id="cart-subtotal-products">
-                          <span class="label js-subtotal">
+                          <span class="label">
                             Total products:
                           </span>
                           <span class="value">£200.00</span>

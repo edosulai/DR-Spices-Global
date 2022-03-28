@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class="blog home3 about-us">
+    <div class="blog home3 about-us product-detail">
         @livewire('header')
 
         <!-- main content -->

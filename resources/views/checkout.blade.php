@@ -40,7 +40,7 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane fade in active show" id="checkout-guest-form" role="tabpanel">
-                            <form action="#" id="customer-form" class="js-customer-form" method="post">
+                            <form action="#" id="customer-form" method="post">
                               <div>
                                 <input type="hidden" name="id_customer" value="">
                                 <div class="form-group row">
@@ -59,8 +59,8 @@
                                   <span class="text-muted">And save time on your next order!</span>
                                 </div>
                                 <div class="form-group row">
-                                  <div class="input-group js-parent-focus">
-                                    <input class="form-control js-child-focus" name="password" type="password" placeholder=" Password">
+                                  <div class="input-group">
+                                    <input class="form-control" name="password" type="password" placeholder=" Password">
                                   </div>
                                 </div>
                                 <div class="hidden-comment">
@@ -105,8 +105,8 @@
                                   <input class="form-control" name="email" type="email" placeholder="Email">
                                 </div>
                                 <div class="form-group row">
-                                  <div class="input-group js-parent-focus">
-                                    <input class="form-control js-child-focus js-visible-password" name="password" type="password" placeholder="Password">
+                                  <div class="input-group">
+                                    <input class="form-control" name="password" type="password" placeholder="Password">
                                   </div>
                                 </div>
                                 <div class="row">
@@ -151,7 +151,7 @@
                             <div class="summary-label">There are 3 item in your cart</div>
                           </div>
                           <div class="cart-summary-line" id="cart-subtotal-products">
-                            <span class="label js-subtotal">
+                            <span class="label">
                               Total products:
                             </span>
                             <span class="value">£200.00</span>

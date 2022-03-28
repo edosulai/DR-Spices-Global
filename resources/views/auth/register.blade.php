@@ -18,7 +18,7 @@
                         <div class="container">
                             <h1 class="text-center title-page">{{ __('Create Account') }}</h1>
                             <div class="register-form text-center">
-                                <form class="user customer-form js-customer-form" method="POST" action="{{ route('register') }}">
+                                <form class="user customer-form" method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0 no-gutters">
@@ -35,12 +35,12 @@
                                         <x-jet-input-error for="email" />
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-sm-6 mb-3 mb-sm-0 no-gutters js-parent-focus">
-                                            <x-jet-input class="js-child-focus js-visible-password {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
+                                        <div class="col-sm-6 mb-3 mb-sm-0 no-gutters">
+                                            <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" placeholder="Password" required autocomplete="new-password" />
                                             <x-jet-input-error for="password" />
                                         </div>
-                                        <div class="col-sm-6 no-gutters js-parent-focus">
-                                            <x-jet-input class="js-child-focus js-visible-password form-control" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
+                                        <div class="col-sm-6 no-gutters">
+                                            <x-jet-input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password" />
                                         </div>
                                     </div>
 

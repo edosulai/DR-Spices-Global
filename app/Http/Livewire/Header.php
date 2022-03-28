@@ -32,6 +32,12 @@ class Header extends Component
                 'name' => 'Home',
                 'url' => route('home'),
             ], [
+                'name' => 'Our Product',
+                'url' => '#product-exhibition',
+            ], [
+                'name' => 'About Us',
+                'url' => '#about-us',
+            ], [
                 'name' => 'Contact Us',
                 'url' => route('contact'),
             ]

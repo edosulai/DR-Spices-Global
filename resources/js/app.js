@@ -88,8 +88,8 @@ $(window).on("scroll", function () {
   return false
 })
 
-$(".back-to-top a").on("click", function (jenniah) {
-  jenniah.preventDefault()
+$(".back-to-top a").on("click", function (e) {
+  e.preventDefault()
   $("html, body").animate({ scrollTop: 0 }, 600)
   return false
 })
@@ -139,7 +139,7 @@ $("ul.menu").on("click", ".more", function () {
   $(this).siblings("li.toggleable").slideToggle()
 })
 
-$(".category-product").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 30, autoplay: true, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
+$(".category-product").owlCarousel({ loop: false, autoplaytimeout: 6e3, margin: 30, autoplay: false, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 4, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
 
 // $(".category-product-index").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 30, autoplay: true, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
 
@@ -147,13 +147,13 @@ $(".category-product").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 3
 
 // $(".testimonial-type-home3").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 30, autoplay: true, dots: true, autoplayHoverPause: true, responsiveClass: true, nav: false, responsive: { 0: { items: 1 }, 600: { items: 3 }, 1e3: { items: 3 } } })
 
-// $("#manufacture").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 30, autoplay: true, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 3 }, 600: { items: 3 }, 1e3: { items: 6 } } })
+$("#manufacture").owlCarousel({ loop: false, autoplaytimeout: 6e3, margin: 30, autoplay: true, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 3 }, 600: { items: 3 }, 1e3: { items: 6 } } })
 
 // $(".category-product-item").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 15, autoplay: false, dots: true, autoplayHoverPause: true, responsiveClass: true, nav: false, responsive: { 0: { items: 1 }, 600: { items: 3 }, 1e3: { items: 3 } } })
 
 // $(".featured").owlCarousel({ loop: true, autoplaytimeout: 6e3, margin: 30, autoplay: false, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 5, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
 
-// $(".testimonials").owlCarousel({ loop: true, margin: 10, responsiveClass: true, autoplaytimeout: 6e3, autoplay: true, dots: true, autoplayHoverPause: true, nav: false, responsive: { 0: { items: 1 }, 600: { items: 1 }, 1e3: { items: 1 } } })
+$(".testimonials").owlCarousel({ loop: false, margin: 10, responsiveClass: true, autoplaytimeout: 6e3, autoplay: true, dots: true, autoplayHoverPause: true, nav: false, responsive: { 0: { items: 1 }, 600: { items: 1 }, 1e3: { items: 1 } } })
 
 // $(".lookbook").owlCarousel({ loop: true, margin: 0, responsiveClass: true, autoplaytimeout: 6e3, autoplay: true, dots: true, autoplayHoverPause: true, nav: false, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 2, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
 
