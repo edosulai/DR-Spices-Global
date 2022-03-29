@@ -20,6 +20,7 @@ class SpiceFactory extends Factory
             'nama' => $this->faker->unique()->randomElement(['Cengkeh', 'Coklat', 'Kayu Manis', 'Lada', 'Pala']),
             'hrg_jual' => $this->faker->numberBetween(10000, 20000),
             'stok' => 0,
+            'unit' => 'KG',
             // 'image' => $this->faker->image('public/storage/images/product', 600, 600, null, false),
             'image' => $this->faker->unique()->randomElement([
                 '1.jpg',

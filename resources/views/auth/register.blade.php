@@ -68,14 +68,14 @@
                                         @if (Route::has('password.request'))
                                         <div class="no-gutters text-center mb-1">
                                             <div class="forgot-password">
-                                                <a href="{{ route('password.request') }}" rel="nofollow">{{ __('Forgot your password ?') }}</a>
+                                                <a href="{{ route('password.request') }}">{{ __('Forgot your password ?') }}</a>
                                             </div>
                                         </div>
                                         @endif
                                         @if (Route::has('register'))
                                         <div class="no-gutters text-center">
                                             <div class="forgot-password">
-                                                <a href="{{ route('login') }}" rel="nofollow">{{ __('Already have an account?') }}</a>
+                                                <a href="{{ route('login') }}">{{ __('Already have an account?') }}</a>
                                             </div>
                                         </div>
                                         @endif

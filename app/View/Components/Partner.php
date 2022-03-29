@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class Partner extends Component
 {
+    public $partner_logos;
     /**
      * Create a new component instance.
      *
@@ -13,7 +14,14 @@ class Partner extends Component
      */
     public function __construct()
     {
-        //
+        $this->partner_logos = [
+            asset('storage/images/home/icon-logo1.jpg'),
+            asset('storage/images/home/icon-logo2.jpg'),
+            asset('storage/images/home/icon-logo3.jpg'),
+            asset('storage/images/home/icon-logo4.jpg'),
+            asset('storage/images/home/icon-logo5.jpg'),
+            asset('storage/images/home/icon-logo6.jpg'),
+        ];
     }
 
     /**

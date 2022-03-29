@@ -9,44 +9,26 @@
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
                         </div>
                         <div class="row mt-5">
+                            @foreach ($abouts as $key => $about)
+                            @if ($key % 2 == 0)
                             <div class="col-lg-6 col-md-6 col-sm-6 right">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ asset('storage/images/other/1.jpg') }}" alt="#" />
-                                </a>
+                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" />
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 left">
-                                <div class="cms-block f-right">
-                                    <h3 class="page-subheading">WHO WE ARE</h3>
-                                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben
-                                        dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis
-                                        sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit
-                                    amet nibh vultate cursus a sit amet mauris.</p>
-                                    <p>Proin gravida nibh vel velit auctor aliquet. nec sagittis sem nibh id elit. Duis
-                                        sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit
-                                    amet nibh vultate cursus a sit amet mauris.</p>
-                                    <a>
-                                        <img class="img-fluid" src="{{ asset('storage/images/other/4.png') }}" alt="#" />
-                                        <span>Mr. kwang shang - CEO</span>
-                                    </a>
+                            @endif
+                            <div class="col-lg-6 col-md-6 col-sm-6 {{ $key % 2 == 0 ? 'left' : 'right' }}">
+                                <div class="cms-block {{ $key % 2 == 0 ? 'f-right' : 'f-left' }} ">
+                                    <h3 class="page-subheading">{{ $about['title'] }}</h3>
+                                    @foreach ($about['desc'] as $a)
+                                    <p>{{ $a }}</p>
+                                    @endforeach
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 right">
-                                <div class="cms-block f-left">
-                                    <h3 class="page-subheading">WHAT WE DO</h3>
-                                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben
-                                        dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis
-                                        sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit
-                                    amet nibh vultate cursus a sit amet mauris.</p>
-                                    <p>Proin gravida nibh vel velit auctor aliquet, nec sagittis sem nibh id elit. Duis
-                                        sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit
-                                    amet nibh vultate cursus a sit amet mauris.</p>
-                                </div>
-                            </div>
+                            @if ($key % 2 == 1)
                             <div class="col-lg-6 col-md-6 col-sm-6 left">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ asset('storage/images/other/2.jpg') }}" alt="#" />
-                                </a>
+                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" />
                             </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

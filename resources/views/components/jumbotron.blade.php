@@ -1,14 +1,14 @@
 <div class="slideshow">
     <div class="tiva-slideshow-wrapper">
-        <div id="tiva-slideshow" class="nivoSlider">
-            <a href="#" title="Slideshow image">
-                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner.jpg') }}" title="#caption1" alt="Slideshowimage">
+        <div class="tiva-slideshow nivoSlider">
+            <a href="#" role="button">
+                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner.jpg') }}">
             </a>
-            <a href="#" title="Slideshow image">
-                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner2.jpg') }}" title="#caption2" alt="Slideshowimage">
+            <a href="#" role="button">
+                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner2.jpg') }}">
             </a>
-            <a href="#" title="Slideshow image">
-                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner3.jpg') }}" title="#caption3" alt="Slideshowimage">
+            <a href="#" role="button">
+                <img class="img-responsive" src="{{ asset('storage/images/home/home3-banner3.jpg') }}">
             </a>
         </div>
         <div id="caption1" class="nivo-html-caption">

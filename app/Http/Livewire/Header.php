@@ -9,11 +9,8 @@ use Illuminate\Support\Str;
 
 class Header extends Component
 {
-    public $user;
-    public $navs = [];
-    public $carts = [];
-    public $total = 0;
-    public $cart_exist = false;
+    public $navs;
+    public $carts;
 
     protected $listeners = [
         'headerMount' => 'mount',
@@ -21,25 +18,25 @@ class Header extends Component
 
     public function mount()
     {
-        $this->carts = [];
-        $this->cart_exist = false;
-        $this->total = 0;
-
-        $this->user = Auth::user();
+        $this->carts = collect();
 
         $this->navs = [
             [
                 'name' => 'Home',
                 'url' => route('home'),
+                'icon' => 'fas fa-home'
             ], [
                 'name' => 'Our Product',
                 'url' => '#product-exhibition',
+                'icon' => 'fab fa-product-hunt'
             ], [
                 'name' => 'About Us',
                 'url' => '#about-us',
+                'icon' => 'fas fa-address-card'
             ], [
                 'name' => 'Contact Us',
                 'url' => route('contact'),
+                'icon' => 'fas fa-address-book'
             ]
         ];
 
@@ -57,30 +54,24 @@ class Header extends Component
             ]
         ];
 
-        if ($this->user) {
-            $carts = Cart::where('user_id', $this->user->id)
+        if (Auth::check()) {
+            $carts = Cart::where('user_id', Auth::id())
                 ->join('spices', 'carts.spice_id', '=', 'spices.id')
                 ->selectRaw('carts.*, spices.nama as spice_name, spices.hrg_jual as spice_price, spices.image as spice_image')
                 ->get();
 
-            if (count($carts) > 0) {
-
+            if ($carts->isNotEmpty()) {
                 foreach ($carts as $cart) {
-                    $this->carts[] = [
+                    $this->carts->push([
                         'id' => $cart->id,
                         'name' => $cart->spice_name,
                         'url' => Str::replace(' ', '-', $cart->spice_name),
                         'qty' => $cart->jumlah,
                         'price' => $cart->spice_price,
                         'img_src' => asset("storage/images/product/$cart->spice_image"),
-                    ];
-
-                    $this->total = $this->total + ($cart->jumlah * $cart->spice_price);
+                        'unit' => 'KG',
+                    ]);
                 }
-
-                $this->cart_exist = true;
-
-                return;
             }
         }
     }

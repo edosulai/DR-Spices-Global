@@ -48,7 +48,7 @@
                                                 </div> --}}
                                                 <div class="product-group-price">
                                                     <div class="product-price-and-shipping">
-                                                        <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }}</span>
+                                                        <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }} <small>({{ $spice->unit }})</small></span>
                                                         {{-- <del class="regular-price">£28.68</del> --}}
                                                     </div>
                                                 </div>
@@ -84,16 +84,16 @@
                 </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body">    
                 <div class="row">
                     <div class="col-md-6 divide-right">
                         <div class="row no-gutters">
                             <div class="col-md-5">
-                                <img class="product-image img-fluid" src="{{ asset('/storage/images/product/'. $modalSpiceImage) }}">
+                                <img class="product-image img-fluid" src="{{ $modalSpiceImage }}">
                             </div>
                             <div class="col-md-7">
                                 <div class="h5 product-name">{{ $modalSpiceName }}</div>
-                                <div class="product-price">Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }}</div>
+                                <div class="product-price">Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }} <small>({{ $modalSpiceUnit }})</small></div>
                                 <p>Quantity:&nbsp;{{ $modalSpiceQty }}</p>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                     <div class="col-md-5 col-sm-5 divide-right">
                         <div class="images-container bottom_thumb">
                             <div class="product-cover">
-                                <img class="img-fluid" src="{{ asset('/storage/images/product/'. $modalSpiceImage) }}" style="width:100%;">
+                                <img class="img-fluid" src="{{ $modalSpiceImage }}" style="width:100%;">
                                 <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                     <i class="fa fa-expand"></i>
                                 </div>
@@ -144,7 +144,7 @@
                         <div class="product-prices">
                             <div class="product-price d-flex">
                                 <div class="current-price">
-                                    <span>Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }}</span>
+                                    <span>Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }} <small>({{ $modalSpiceUnit }})</small></span>
                                 </div>
                             </div>
                         </div>

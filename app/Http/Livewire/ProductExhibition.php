@@ -17,6 +17,7 @@ class ProductExhibition extends Component
 
     public $modalSpiceId;
     public $modalSpiceName;
+    public $modalSpiceUnit;
     public $modalSpicePrice;
     public $modalSpiceQty;
     public $modalSpiceImage;
@@ -47,6 +48,10 @@ class ProductExhibition extends Component
 
     public function addToCart($id = null)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
         $spice = Spice::find($id ?? $this->modalSpiceId);
 
         if ($spice && $spice->stok > 0) {
@@ -69,8 +74,9 @@ class ProductExhibition extends Component
 
             $this->modalSpiceName = $spice->nama;
             $this->modalSpicePrice = $spice->hrg_jual;
+            $this->modalSpiceUnit = $spice->unit;
             $this->modalSpiceQty = $qty;
-            $this->modalSpiceImage = $spice->image;
+            $this->modalSpiceImage = asset("/storage/images/product/$spice->image");;
             $this->modalSpiceDesc = $spice->ket;
             $this->modalSpiceCount = count($carts);
             $this->modalSpiceInStock = $spice->stok;
@@ -88,14 +94,6 @@ class ProductExhibition extends Component
 
     public function detailSpice($id)
     {
-        // $this->modalSpiceId = 0;
-        // $this->modalSpiceName = null;
-        // $this->modalSpicePrice = 0;
-        // $this->modalSpiceQty = 0;
-        // $this->modalSpiceImage = null;
-        // $this->modalSpiceDesc = null;
-        // $this->modalSpiceInStock = false;
-
         $spice = Spice::find($id);
 
         if ($spice) {
@@ -103,8 +101,9 @@ class ProductExhibition extends Component
             $this->modalSpiceId = $spice->id;
             $this->modalSpiceName = $spice->nama;
             $this->modalSpicePrice = $spice->hrg_jual;
+            $this->modalSpiceUnit = $spice->unit;
             $this->modalSpiceQty = 1;
-            $this->modalSpiceImage = $spice->image;
+            $this->modalSpiceImage = asset("/storage/images/product/$spice->image");
             $this->modalSpiceDesc = $spice->ket;
             $this->modalSpiceInStock = $spice->stok > 0 ? true : false;
 

@@ -12,7 +12,6 @@
                             <div class="cart-content">
                                 <table>
                                     <tbody>
-                                        @if ($cart_exist)
                                         @foreach ($carts as $cart)
                                         <tr>
                                             <td class="product-image">
@@ -24,18 +23,21 @@
                                                 <div class="product-name">
                                                     <a href="{{ $cart['url'] }}">{{ $cart['name'] }}</a>
                                                 </div>
-                                                <div>{{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
+                                                <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
                                             </td>
                                             <td class="action">
-                                                <a class="remove" href="#">
+                                                <a class="remove" href="#" role="button">
                                                     <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                                 </a>
                                             </td>
                                         </tr>
                                         @endforeach
+                                        @if ($carts->isNotEmpty())
                                         <tr class="total">
                                             <td colspan="2">Total:</td>
-                                            <td>Rp. {{ number_format($total, 0, ',', '.') }}</td>
+                                            <td>Rp. {{ number_format($carts->sum(function ($cart) {
+                                                return $cart['qty'] * $cart['price'];
+                                            }), 0, ',', '.') }}</td>
                                         </tr>
                                         @else
                                         <tr>
@@ -68,7 +70,7 @@
             </div>
 
             <div class="mobile-menutop" data-target="#mobile-pagemenu">
-                <i class="zmdi zmdi-more"></i>
+                <i class="fas fa-ellipsis-h"></i>
             </div>
         </div>
     </div>
@@ -104,9 +106,9 @@
                     @if (Auth::check())
                     <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
-                            <a href="#account" data-toggle="collapse">
+                            <a href="#account" data-toggle="collapse" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                <span>{{ $user->name }}</span>
+                                <span>{{ Auth::user()->name }}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -114,7 +116,7 @@
                             <div class="account-list-content">
                                 @role('admin')
                                 <div>
-                                    <a href="{{ route('dashboard') }}" rel="nofollow" title="Dashboard">
+                                    <a href="{{ route('dashboard') }}" title="Dashboard">
                                         <i class="fas fa-columns"></i>
                                         <span>{{ __('Dashboard') }}</span>
                                     </a>
@@ -122,14 +124,14 @@
                                 @endif
                                 @foreach ($user_navs as $nav)
                                 <div>
-                                    <a href="{{ $nav['url'] }}" rel="nofollow" title="{{ $nav['title'] }}">
+                                    <a href="{{ $nav['url'] }}" title="{{ $nav['title'] }}">
                                         <i class="{{ $nav['icon'] }}"></i>
                                         <span>{{ $nav['name'] }}</span>
                                     </a>
                                 </div>
                                 @endforeach
                                 <div>
-                                    <a href="#" rel="nofollow" title="Sign Out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a href="#" role="button" title="Sign Out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt"></i>
                                         <span>{{ __('Sign Out') }}</span>
                                     </a>
@@ -141,8 +143,8 @@
                     <div class="desktop_cart">
                         <div class="blockcart block-cart cart-preview tiva-toggle">
                             <div class="header-cart tiva-toggle-btn">
-                                @if ($carts)
-                                <span class="cart-products-count">{{ count($carts) }}</span>
+                                @if ($carts->isNotEmpty())
+                                <span class="cart-products-count">{{ $carts->count() }}</span>
                                 @endif
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </div>
@@ -150,7 +152,6 @@
                                 <div class="cart-content">
                                     <table>
                                         <tbody>
-                                            @if ($cart_exist)
                                             @foreach ($carts as $cart)
                                             <tr>
                                                 <td class="product-image">
@@ -162,18 +163,21 @@
                                                     <div class="product-name">
                                                         <a href="{{ $cart['url'] }}">{{ $cart['name'] }}</a>
                                                     </div>
-                                                    <div>{{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
+                                                    <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
                                                 </td>
                                                 <td class="action">
-                                                    <a class="remove" href="#" wire:click="deleteCart({{ $cart['id'] }})">
+                                                    <button class="remove btn p-0"  wire:click="deleteCart({{ $cart['id'] }})">
                                                         <i class="fas fa-trash-alt" aria-hidden="true"></i>
-                                                    </a>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             @endforeach
+                                            @if ($carts->isNotEmpty())
                                             <tr class="total">
                                                 <td colspan="2">Total:</td>
-                                                <td>Rp. {{ number_format($total, 0, ',', '.') }}</td>
+                                                <td>Rp. {{ number_format($carts->sum(function ($cart) {
+                                                    return $cart['qty'] * $cart['price'];
+                                                }), 0, ',', '.') }}</td>
                                             </tr>
                                             @else
                                             <tr>
@@ -203,7 +207,7 @@
                     <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
                             <div>
-                                <a href="{{ route('login') }}" rel="nofollow" title="Log in to your customer account">
+                                <a href="{{ route('login') }}" title="Log in to your customer account">
                                     <i class="fas fa-sign-in-alt"></i>
                                     <span>{{ __('Sign in') }}</span>
                                 </a>
@@ -230,7 +234,7 @@
                             @foreach ($navs as $nav)
                             <li class="item has-sub">
                                 <a href="{{ $nav['url'] }}" title="{{ $nav['name'] }}">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>{{ $nav['name'] }}
+                                    <i class="{{ $nav['icon'] }}" aria-hidden="true"></i>{{ $nav['name'] }}
                                 </a>
                             </li>
                             @endforeach
@@ -238,12 +242,12 @@
                             @if (Auth::check())
                             <li class="item has-sub">
                                 <span class="arrow collapsed" data-toggle="collapse" data-target="#home1" aria-expanded="true" role="status">
-                                    <i class="zmdi zmdi-minus"></i>
-                                    <i class="zmdi zmdi-plus"></i>
+                                    <i class="fas fa-minus"></i>
+                                    <i class="fas fa-plus"></i>
                                 </span>
                                 <a href="index-2.html" title="Home">
                                     <i class="fa fa-user" aria-hidden="true"></i>
-                                    <span>{{ $user->name }}</span>
+                                    <span>{{ Auth::user()->name }}</span>
                                 </a>
                                 <div class="subCategory collapse" id="home1" aria-expanded="true" role="status">
                                     <ul>

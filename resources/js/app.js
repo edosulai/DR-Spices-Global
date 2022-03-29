@@ -94,9 +94,9 @@ $(".back-to-top a").on("click", function (e) {
   return false
 })
 
-setTimeout(function () {
+$(document).ready(function () {
   $("#page-preloader").fadeOut()
-}, 500)
+})
 
 // setInterval(function () {
 //   let harleequinn = new Date("31 April 2018 9:56:00 GMT+01:00")
@@ -127,7 +127,7 @@ setTimeout(function () {
 //   $(".seconds").html(gradie + "<span>S</span>")
 // }, 1e3)
 
-$("#tiva-slideshow").nivoSlider({ effect: "random", animSpeed: 1e3, pauseTime: 5e3, directionNav: true, controlNav: true, pauseOnHover: true })
+$(".tiva-slideshow").nivoSlider({ effect: "random", animSpeed: 1e3, pauseTime: 5e3, directionNav: true, controlNav: true, pauseOnHover: true })
 
 $("ul.menu").on("click", ".more", function () {
   if ($(this).hasClass("hide")) {
@@ -157,19 +157,19 @@ $(".testimonials").owlCarousel({ loop: false, margin: 10, responsiveClass: true,
 
 // $(".lookbook").owlCarousel({ loop: true, margin: 0, responsiveClass: true, autoplaytimeout: 6e3, autoplay: true, dots: true, autoplayHoverPause: true, nav: false, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 2, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
 
-$("#mobile_mainmenu").on("click", function () { $(".mobile-top-menu").addClass("active-show") })
+// $("#mobile_mainmenu").on("click", function () { $(".mobile-top-menu").addClass("active-show") })
 
 $(".close").on("click", function () { $(".mobile-top-menu").removeClass("active-show") })
 
 $(".mobile-menutop").on("click", function () { $("#mobile-pagemenu").addClass("active-pagemenu") })
 
-// $(".close-box").on("click", function () { $("#mobile-pagemenu").removeClass("active-pagemenu") })
+$(".close-box").on("click", function () { $("#mobile-pagemenu").removeClass("active-pagemenu") })
 
 // $("#icon-menu").on("click", function () { $(".menu-banner").addClass("category-show") })
 
 // $(".btnov-lines-large").on("click", function () { $(".menu-banner").removeClass("category-show") })
 
-$("#dropdownMenuButton").on("click", function () { $(".vertical-dropdown").addClass("open") })
+// $("#dropdownMenuButton").on("click", function () { $(".vertical-dropdown").addClass("open") })
 
 // $("#nav_icon3").on("click", function () { $(this).toggleClass("open") })
 
@@ -179,7 +179,7 @@ $("#dropdownMenuButton").on("click", function () { $(".vertical-dropdown").addCl
 
 // $(".ml-3").on("click", function () { $(".flex-9").addClass("filter") })
 
-$(".hide-filter").on("click", function () { $(".flex-9").removeClass("filter") })
+// $(".hide-filter").on("click", function () { $(".flex-9").removeClass("filter") })
 
 // $(".search").on("click", function () { $("#tiva-searchBox ").css({ opacity: 1, visibility: "visible", right: 0 }) })
 
@@ -193,4 +193,6 @@ $(".hide-filter").on("click", function () { $(".flex-9").removeClass("filter") }
 //   $("#deal_of_day").slick({ autoplay: true, centerMode: true, centerPadding: "40px", slidesToShow: 3, autoplaySpeed: 1500, arrows: true, nextArrow: '<span class="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>', prevArrow: '<span class="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>', datanav: true, responsive: [{ breakpoint: 767, settings: { arrows: false, centerMode: true, slidesToShow: 1 } }, { breakpoint: 480, settings: { arrows: false, centerMode: true, centerPadding: "40px", slidesToShow: 1 } }] })
 // }
 
-$(document).on('click', function () { $('.collapse').collapse('hide') })
+$(document).on('click', function () {
+  $('.collapse').collapse('hide')
+})

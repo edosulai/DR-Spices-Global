@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama')->unique();
             $table->integer('hrg_jual');
             $table->integer('stok');
+            $table->string('unit');
             $table->string('image')->unique();
             $table->text('ket')->nullable();
             $table->timestamps();

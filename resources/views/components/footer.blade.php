@@ -9,7 +9,7 @@
             <div class="block">
               <div class="block-content">
                 <p class="logo-footer">
-                  <img src="{{ asset('storage/images/home/logo.png') }}" alt="img">
+                  <img src="{{ $logo }}" alt="img">
                 </p>
                 <p class="content-logo">{{ $short }}</p>
               </div>
@@ -23,13 +23,6 @@
                   </li>
                   @endforeach
                 </ul>
-              </div>
-            </div>
-            <div class="block">
-              <div class="block-content">
-                <p class="img-payment ">
-                  <img class="img-fluid" src="{{ asset('storage/images/home/payment-footer.png') }}" alt="img">
-                </p>
               </div>
             </div>
           </div>
@@ -82,52 +75,34 @@
           <div class="tiva-modules col-lg-4 col-md-6">
             <div class="block m-top">
               <div class="block-content">
-                <div class="title-block">Newsletter</div>
+                <div class="title-block">{{ __('Newsletter') }}</div>
                 <div class="sub-title">{{ $newsletter }}</div>
                 <div class="block-newsletter">
-                  <form action="#" method="post">
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="email" value="" placeholder="Enter Your Email">
-                      <span class="input-group-btn">
-                        <button class="effect-btn btn btn-secondary " name="submitNewsletter" type="submit">
-                          <span>subscribe</span>
-                        </button>
-                      </span>
-                    </div>
-                    <input type="hidden" name="action" value="0">
-                  </form>
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="email" value="" placeholder="Enter Your Email">
+                    <span class="input-group-btn">
+                      <button class="effect-btn btn btn-secondary " name="submitNewsletter" type="submit">
+                        <span>{{ __('subscribe') }}</span>
+                      </button>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="block m-top1">
               <div class="block-content">
                 <div class="social-content">
-                  <div class="title-block">
-                    Follow us on
-                  </div>
+                  <div class="title-block">{{ __('Follow us on') }}</div>
                   <div class="social-block">
                     <div class="social">
                       <ul class="list-inline mb-0 justify-content-end">
+                        @foreach ($medsoses as $medsos)
                         <li class="list-inline-item mb-0">
-                          <a href="#" target="_blank">
-                            <i class="fab fa-facebook"></i>
+                          <a href="{{ $medsos['url'] }}" target="_blank">
+                            <i class="{{ $medsos['icon'] }}"></i>
                           </a>
                         </li>
-                        <li class="list-inline-item mb-0">
-                          <a href="#" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item mb-0">
-                          <a href="#" target="_blank">
-                            <i class="fab fa-google"></i>
-                          </a>
-                        </li>
-                        <li class="list-inline-item mb-0">
-                          <a href="#" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                          </a>
-                        </li>
+                        @endforeach
                       </ul>
                     </div>
                   </div>
@@ -137,14 +112,11 @@
             <div class="block m-top1">
               <div class="block-content">
                 <div class="payment-content">
-                  <div class="title-block">
-                    Payment accept
-                  </div>
+                  <div class="title-block">{{ __('Payment accept') }}</div>
                   <div class="payment-image">
-                    <img class="img-fluid" src="{{ asset('storage/images/home/payment.png') }}" alt="img">
+                    <img class="img-fluid" src="{{ $payment }}" alt="img">
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
