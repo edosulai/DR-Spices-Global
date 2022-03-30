@@ -8,17 +8,6 @@
                             <h2>{{ __('Our Product') }}</h2>
                             <p>{{ __('LOREM IPSUM DOLOR SIT AMET CONSECTETUR') }}</p>
                         </div>
-                        {{-- <ul class="nav nav-tabs">
-                            <li>
-                                <a href="#new" class="active" data-toggle="tab">New Arrivals</a>
-                            </li>
-                            <li>
-                                <a href="#best" data-toggle="tab">Best Seller</a>
-                            </li>
-                            <li>
-                                <a href="#sale" data-toggle="tab">Featured Product</a>
-                            </li>
-                        </ul> --}}
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade in active show">
@@ -37,15 +26,13 @@
                                                 <div class="product-title">
                                                     <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">{{ $spice->nama }}</a>
                                                 </div>
-                                                {{-- <div class="rating">
+                                                <div class="rating">
                                                     <div class="star-content">
-                                                        <div class="star"></div>
-                                                        <div class="star"></div>
-                                                        <div class="star"></div>
-                                                        <div class="star"></div>
-                                                        <div class="star"></div>
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            <div class="star{{ $i < $spice->review_avg ? '' : ' hole'}}"></div>
+                                                        @endfor
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <div class="product-group-price">
                                                     <div class="product-price-and-shipping">
                                                         <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }} <small>({{ $spice->unit }})</small></span>
@@ -141,8 +128,17 @@
                                 <i class="fas {{ $modalSpiceInStock ? 'fa-check-square' : 'fa-times'}}"></i> {{ $modalSpiceInStock ? 'IN STOCK' : 'SOLD OUT'}}
                             </span>
                         </span>
+                        <div class="rating mb-2">
+                            <div class="star-content">
+                                @for ($i = 0; $i < 5; $i++)
+                                    <div class="star{{ $i < $modalSpiceRating ? '' : ' hole'}}"></div>
+                                @endfor
+                            </div>
+                            <small>({{ round($modalSpiceRating, 1) }})</small>
+                        </div>
+
                         <div class="product-prices">
-                            <div class="product-price d-flex">
+                            <div class="product-price">
                                 <div class="current-price">
                                     <span>Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }} <small>({{ $modalSpiceUnit }})</small></span>
                                 </div>

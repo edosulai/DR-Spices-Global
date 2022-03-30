@@ -8484,7 +8484,7 @@ footer {
         .star {
             display: block;
             position: relative;
-            float: right;
+            float: left;
             width: .114583333in;
             height: .208333333in;
             margin-left: .0625pc;
@@ -8494,35 +8494,15 @@ footer {
             overflow: hidden;
 
             &:after {
-                content: url(/storage/images/product/star.png);
+                content: url(/storage/images/product/star1.png);
+            }
+
+            &.hole:after {
+                content: url(/storage/images/product/star.png) !important;
                 display: inline-block;
                 position: absolute;
                 top: 0;
                 left: 0;
-            }
-
-            &:nth-child(5) {
-                &:after {
-                    content: url(/storage/images/product/star1.png);
-                }
-            }
-
-            &:nth-child(3) {
-                &:after {
-                    content: url(/storage/images/product/star1.png);
-                }
-            }
-
-            &:nth-child(4) {
-                &:after {
-                    content: url(/storage/images/product/star1.png);
-                }
-            }
-
-            &:nth-child(2) {
-                &:after {
-                    content: url(/storage/images/product/star1.png);
-                }
             }
         }
 

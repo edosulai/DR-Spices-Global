@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 use App\Models\Income;
+use App\Models\Review;
 use App\Models\User;
 use App\Models\Spice;
 
@@ -40,6 +41,13 @@ class IncomeFactory extends Factory
             $spice = Spice::find($income->spice_id);
             $spice->stok = $spice->stok - $income->jumlah;
             $spice->save();
+
+            Review::create([
+                'user_id' => $income->user_id,
+                'spice_id' => $income->spice_id,
+                'summary' => $this->faker->paragraph(),
+                'rating' => $this->faker->numberBetween(1, 5),
+            ]);
         });
     }
 }

@@ -44,3 +44,5 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
     Route::resource('/dashboard/status', StatusController::class);
 
 });
+
+Route::get('/{product}', fn () => view('detail'))->name('detail');

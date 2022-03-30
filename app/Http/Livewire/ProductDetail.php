@@ -3,15 +3,20 @@
 namespace App\Http\Livewire;
 
 use App\Models\Cart;
+use App\Models\Review;
 use App\Models\Spice;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
-class ProductExhibition extends Component
+class ProductDetail extends Component
 {
-    public $spices = [];
-    public $navs = [];
+    public $spice;
+    public $qty = 1;
+    public $spices;
+    public $reviews;
+
     public $feedbackCartAddModal = false;
     public $detailModal = false;
 
@@ -29,25 +34,29 @@ class ProductExhibition extends Component
 
     public function mount()
     {
-        $this->spices = Spice::join('reviews', 'spices.id', '=', 'reviews.spice_id')
+        $this->spice = Spice::where('nama', 'like', '%' . Str::replace('-', ' ', request()->product) . '%')
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id')
+            ->selectRaw('spices.*, AVG(reviews.rating) as review_avg')
+            ->groupBy('spices.id')
+            ->first();
+
+        if (!$this->spice) abort(404);
+
+        $this->reviews = Review::where('spice_id', $this->spice->id)
+            ->join('users', 'reviews.user_id', '=', 'users.id')
+            ->selectRaw('reviews.*, users.name as user_name')
+            ->get();
+
+        $this->spices = Spice::whereNot(fn ($query) => $query->where('spice_id', $this->spice->id))
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id')
             ->selectRaw('spices.*, AVG(reviews.rating) as review_avg')
             ->groupBy('spices.id')
             ->get();
-
-        $this->navs = [
-            [
-                'name' => 'Home',
-                'url' => route('home'),
-            ], [
-                'name' => 'Contact Us',
-                'url' => route('contact'),
-            ]
-        ];
     }
 
     public function render()
     {
-        return view('livewire.product-exhibition');
+        return view('livewire.product-detail');
     }
 
     public function addToCart($id = null)
@@ -56,13 +65,13 @@ class ProductExhibition extends Component
             return redirect()->route('login');
         }
 
-        $spice = Spice::find($id ?? $this->modalSpiceId);
+        $spice = Spice::find($id ?? ($this->detailModal ? $this->modalSpiceId : $this->spice->id));
 
         if ($spice && $spice->stok > 0) {
 
             $this->modalSpiceTotal = 0;
 
-            $qty = $id ? 1 : $this->modalSpiceQty;
+            $qty = $id ? 1 : ($this->detailModal ? $this->modalSpiceQty : $this->qty);
 
             Cart::updateOrCreate([
                 'user_id' => Auth::id(),
