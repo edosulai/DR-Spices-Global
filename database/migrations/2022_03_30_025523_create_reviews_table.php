@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
             $table->text('summary');
             $table->integer('rating');
             $table->timestamps();

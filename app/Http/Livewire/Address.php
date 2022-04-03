@@ -47,7 +47,10 @@ class Address extends Component
             $new->fill($this->modal);
             $new->save();
         } else {
-            ModelsAddress::create($this->modal);
+            $new = ModelsAddress::create($this->modal);
+            if (!ModelsAddress::where('primary', true)->where('user_id', Auth::id())->first()) {
+                $this->mainAddress($new->id);
+            }
         }
 
         $this->modal = [];

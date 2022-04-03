@@ -22,13 +22,7 @@ class SpiceFactory extends Factory
             'stok' => 0,
             'unit' => 'KG',
             // 'image' => $this->faker->image('public/storage/images/product', 600, 600, null, false),
-            'image' => $this->faker->unique()->randomElement([
-                '1.jpg',
-                '2.jpg',
-                '3.jpg',
-                '4.jpg',
-                '5.jpg'
-            ]),
+            'image' => $this->faker->unique()->randomElement(['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']),
             'ket' => $this->faker->paragraph(),
         ];
     }

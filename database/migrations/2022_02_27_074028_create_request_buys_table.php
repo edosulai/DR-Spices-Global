@@ -14,10 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('request_buys', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->string('invoice');
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
+            $table->json('spice_data');
+            $table->foreignUuid('status_id')->constrained('statuses')->onDelete('cascade');
             $table->integer('jumlah');
             $table->timestamps();
         });

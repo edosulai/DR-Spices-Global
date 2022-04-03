@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('nama');
-            $table->string('ket');
+            $table->text('ket');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->unique()->numberBetween(2, User::count()),
+            'user_id' => $this->faker->randomElements(User::all()->map(fn ($model) => $model->id))[0],
             'recipent' => $this->faker->name,
             'street' => $this->faker->streetName(),
             'other_street' => $this->faker->streetAddress(),
@@ -27,7 +27,6 @@ class AddressFactory extends Factory
             'city' => $this->faker->city(),
             'state' => $this->faker->citySuffix(),
             'zip' => $this->faker->postcode(),
-            // 'country_id' => $this->faker->numberBetween(1, Country::count()),
             'country' => $this->faker->country(),
             'phone' => $this->faker->phoneNumber(),
             'primary' => true,

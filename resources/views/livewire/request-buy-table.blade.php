@@ -41,6 +41,6 @@
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a href="#" class="btn btn-secondary" wire:click="openModal({{ $row->id }})" wire:loading.attr="disabled">Manage</a>
+        <a href="#" class="btn btn-secondary" wire:click="openModal('{{ $row->id }}')" wire:loading.attr="disabled">Manage</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

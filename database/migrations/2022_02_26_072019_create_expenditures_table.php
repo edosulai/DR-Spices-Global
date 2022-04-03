@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('expenditures', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('faktur');
-            $table->foreignId('supplier_id')->constrained('suppliers')->onDelete('cascade');
-            $table->foreignId('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->json('supplier_data');
+            $table->json('spice_data');
             $table->integer('jumlah');
             $table->timestamps();
         });

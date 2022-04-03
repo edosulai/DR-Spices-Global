@@ -6,6 +6,7 @@ use App\Observers\AddressObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Uuid;
 
 class Address extends Model
 {
@@ -24,11 +25,18 @@ class Address extends Model
         'phone'
     ];
 
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($query) {
-            $query->user_id = Auth::id();
+        static::creating(function ($model) {
+            $model->setAttribute($model->getKeyName(), Uuid::uuid4());
+            if (Auth::check()) {
+                $model->user_id = Auth::id();
+            }
         });
     }
 }

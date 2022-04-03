@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
             $table->string('recipent');
             $table->string('street');
             $table->string('other_street');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('zip');
-            // $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
+            // $table->foreignUuid('country_id')->constrained('countries')->onDelete('cascade');
             $table->string('country');
             $table->string('phone');
             $table->boolean('primary')->default(false);

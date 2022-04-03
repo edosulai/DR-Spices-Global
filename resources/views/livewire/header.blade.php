@@ -166,7 +166,7 @@
                                                     <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
                                                 </td>
                                                 <td class="action">
-                                                    <button class="remove btn p-0"  wire:click="deleteCart({{ $cart['id'] }})">
+                                                    <button class="remove btn p-0"  wire:click="deleteCart('{{ $cart['id'] }}')">
                                                         <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                                     </button>
                                                 </td>

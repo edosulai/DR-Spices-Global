@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Ramsey\Uuid\Uuid;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -60,4 +61,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->setAttribute($model->getKeyName(), Uuid::uuid4());
+        });
+    }
 }

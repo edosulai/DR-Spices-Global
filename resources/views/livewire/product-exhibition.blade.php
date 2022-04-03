@@ -41,11 +41,11 @@
                                                 </div>
                                             </div>
                                             <div class="product-buttons d-flex justify-content-center">
-                                                <button type="button" class="add-to-cart" wire:click="addToCart({{$spice->id}})">
+                                                <button type="button" class="add-to-cart" wire:click="addToCart('{{$spice->id}}')">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                 </button>
 
-                                                <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice({{$spice->id}})">
+                                                <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice('{{$spice->id}}')">
                                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                                 </button>
                                             </div>

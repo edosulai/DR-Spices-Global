@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col-md-2 col text-xs-right align-self-end">
                                         <div class="cart-line-product-actions ">
-                                            <button class="btn p-0 remove-from-cart" wire:click="deleteCart({{$cart['id']}})">
+                                            <button class="btn p-0 remove-from-cart" wire:click="deleteCart('{{$cart['id']}}')">
                                                 <i class="fas fa-trash-alt" aria-hidden="true"></i>
                                             </button>
                                         </div>

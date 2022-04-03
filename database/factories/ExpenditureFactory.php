@@ -21,9 +21,9 @@ class ExpenditureFactory extends Factory
     public function definition()
     {
         return [
-            'supplier_id' => $this->faker->numberBetween(1, Supplier::count()),
             'faktur' => $this->faker->numerify('FAK.######'),
-            'spice_id' => $this->faker->numberBetween(1, Spice::count()),
+            'supplier_data' => json_encode($this->faker->randomElements(Supplier::all()->toArray())[0]),
+            'spice_data' => json_encode($this->faker->randomElements(Spice::all()->toArray())[0]),
             'jumlah' => $this->faker->numberBetween(1, 10),
         ];
     }
@@ -36,7 +36,7 @@ class ExpenditureFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Expenditure $expenditure) {
-            $spice = Spice::find($expenditure->spice_id);
+            $spice = Spice::find(json_decode($expenditure->spice_data)->id);
             $spice->stok = $spice->stok + $expenditure->jumlah;
             $spice->save();
         });

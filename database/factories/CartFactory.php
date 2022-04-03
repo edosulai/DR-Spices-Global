@@ -20,8 +20,8 @@ class CartFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, User::count()),
-            'spice_id' => $this->faker->numberBetween(1, Spice::count()),
+            'user_id' => $this->withFaker()->randomElements(User::all()->map(fn ($model) => $model->id))[0],
+            'spice_id' => $this->withFaker()->randomElements(Spice::all()->map(fn ($model) => $model->id))[0],
             'jumlah' => $this->faker->numberBetween(1, 2),
         ];
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Supplier extends Model
 {
@@ -14,4 +15,16 @@ class Supplier extends Model
         'alamat',
         'telp'
     ];
+
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->setAttribute($model->getKeyName(), Uuid::uuid4());
+        });
+    }
 }

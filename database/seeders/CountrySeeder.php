@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Country;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CountrySeeder extends Seeder
 {
@@ -17,6 +18,7 @@ class CountrySeeder extends Seeder
     {
         Country::insert([
             [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AF',
                 'name' => 'AFGHANISTAN',
                 'nicename' => 'Afghanistan',
@@ -24,6 +26,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 4,
                 'phonecode' => 93
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AL',
                 'name' => 'ALBANIA',
                 'nicename' => 'Albania',
@@ -31,6 +34,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 8,
                 'phonecode' => 355
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DZ',
                 'name' => 'ALGERIA',
                 'nicename' => 'Algeria',
@@ -38,6 +42,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 12,
                 'phonecode' => 213
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AS',
                 'name' => 'AMERICAN SAMOA',
                 'nicename' => 'American Samoa',
@@ -45,6 +50,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 16,
                 'phonecode' => 1684
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AD',
                 'name' => 'ANDORRA',
                 'nicename' => 'Andorra',
@@ -52,6 +58,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 20,
                 'phonecode' => 376
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AO',
                 'name' => 'ANGOLA',
                 'nicename' => 'Angola',
@@ -59,6 +66,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 24,
                 'phonecode' => 244
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AI',
                 'name' => 'ANGUILLA',
                 'nicename' => 'Anguilla',
@@ -66,6 +74,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 660,
                 'phonecode' => 1264
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AQ',
                 'name' => 'ANTARCTICA',
                 'nicename' => 'Antarctica',
@@ -73,6 +82,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AG',
                 'name' => 'ANTIGUA AND BARBUDA',
                 'nicename' => 'Antigua and Barbuda',
@@ -80,6 +90,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 28,
                 'phonecode' => 1268
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AR',
                 'name' => 'ARGENTINA',
                 'nicename' => 'Argentina',
@@ -87,6 +98,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 32,
                 'phonecode' => 54
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AM',
                 'name' => 'ARMENIA',
                 'nicename' => 'Armenia',
@@ -94,6 +106,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 51,
                 'phonecode' => 374
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AW',
                 'name' => 'ARUBA',
                 'nicename' => 'Aruba',
@@ -101,6 +114,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 533,
                 'phonecode' => 297
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AU',
                 'name' => 'AUSTRALIA',
                 'nicename' => 'Australia',
@@ -108,6 +122,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 36,
                 'phonecode' => 61
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AT',
                 'name' => 'AUSTRIA',
                 'nicename' => 'Austria',
@@ -115,6 +130,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 40,
                 'phonecode' => 43
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AZ',
                 'name' => 'AZERBAIJAN',
                 'nicename' => 'Azerbaijan',
@@ -122,6 +138,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 31,
                 'phonecode' => 994
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BS',
                 'name' => 'BAHAMAS',
                 'nicename' => 'Bahamas',
@@ -129,6 +146,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 44,
                 'phonecode' => 1242
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BH',
                 'name' => 'BAHRAIN',
                 'nicename' => 'Bahrain',
@@ -136,6 +154,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 48,
                 'phonecode' => 973
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BD',
                 'name' => 'BANGLADESH',
                 'nicename' => 'Bangladesh',
@@ -143,6 +162,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 50,
                 'phonecode' => 880
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BB',
                 'name' => 'BARBADOS',
                 'nicename' => 'Barbados',
@@ -150,6 +170,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 52,
                 'phonecode' => 1246
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BY',
                 'name' => 'BELARUS',
                 'nicename' => 'Belarus',
@@ -157,6 +178,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 112,
                 'phonecode' => 375
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BE',
                 'name' => 'BELGIUM',
                 'nicename' => 'Belgium',
@@ -164,6 +186,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 56,
                 'phonecode' => 32
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BZ',
                 'name' => 'BELIZE',
                 'nicename' => 'Belize',
@@ -171,6 +194,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 84,
                 'phonecode' => 501
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BJ',
                 'name' => 'BENIN',
                 'nicename' => 'Benin',
@@ -178,6 +202,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 204,
                 'phonecode' => 229
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BM',
                 'name' => 'BERMUDA',
                 'nicename' => 'Bermuda',
@@ -185,6 +210,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 60,
                 'phonecode' => 1441
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BT',
                 'name' => 'BHUTAN',
                 'nicename' => 'Bhutan',
@@ -192,6 +218,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 64,
                 'phonecode' => 975
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BO',
                 'name' => 'BOLIVIA',
                 'nicename' => 'Bolivia',
@@ -199,6 +226,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 68,
                 'phonecode' => 591
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BA',
                 'name' => 'BOSNIA AND HERZEGOVINA',
                 'nicename' => 'Bosnia and Herzegovina',
@@ -206,6 +234,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 70,
                 'phonecode' => 387
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BW',
                 'name' => 'BOTSWANA',
                 'nicename' => 'Botswana',
@@ -213,6 +242,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 72,
                 'phonecode' => 267
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BV',
                 'name' => 'BOUVET ISLAND',
                 'nicename' => 'Bouvet Island',
@@ -220,6 +250,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BR',
                 'name' => 'BRAZIL',
                 'nicename' => 'Brazil',
@@ -227,6 +258,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 76,
                 'phonecode' => 55
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IO',
                 'name' => 'BRITISH INDIAN OCEAN TERRITORY',
                 'nicename' => 'British Indian Ocean Territory',
@@ -234,6 +266,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 246
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BN',
                 'name' => 'BRUNEI DARUSSALAM',
                 'nicename' => 'Brunei Darussalam',
@@ -241,6 +274,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 96,
                 'phonecode' => 673
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BG',
                 'name' => 'BULGARIA',
                 'nicename' => 'Bulgaria',
@@ -248,6 +282,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 100,
                 'phonecode' => 359
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BF',
                 'name' => 'BURKINA FASO',
                 'nicename' => 'Burkina Faso',
@@ -255,6 +290,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 854,
                 'phonecode' => 226
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'BI',
                 'name' => 'BURUNDI',
                 'nicename' => 'Burundi',
@@ -262,6 +298,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 108,
                 'phonecode' => 257
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KH',
                 'name' => 'CAMBODIA',
                 'nicename' => 'Cambodia',
@@ -269,6 +306,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 116,
                 'phonecode' => 855
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CM',
                 'name' => 'CAMEROON',
                 'nicename' => 'Cameroon',
@@ -276,6 +314,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 120,
                 'phonecode' => 237
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CA',
                 'name' => 'CANADA',
                 'nicename' => 'Canada',
@@ -283,6 +322,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 124,
                 'phonecode' => 1
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CV',
                 'name' => 'CAPE VERDE',
                 'nicename' => 'Cape Verde',
@@ -290,6 +330,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 132,
                 'phonecode' => 238
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KY',
                 'name' => 'CAYMAN ISLANDS',
                 'nicename' => 'Cayman Islands',
@@ -297,6 +338,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 136,
                 'phonecode' => 1345
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CF',
                 'name' => 'CENTRAL AFRICAN REPUBLIC',
                 'nicename' => 'Central African Republic',
@@ -304,6 +346,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 140,
                 'phonecode' => 236
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TD',
                 'name' => 'CHAD',
                 'nicename' => 'Chad',
@@ -311,6 +354,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 148,
                 'phonecode' => 235
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CL',
                 'name' => 'CHILE',
                 'nicename' => 'Chile',
@@ -318,6 +362,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 152,
                 'phonecode' => 56
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CN',
                 'name' => 'CHINA',
                 'nicename' => 'China',
@@ -325,6 +370,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 156,
                 'phonecode' => 86
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CX',
                 'name' => 'CHRISTMAS ISLAND',
                 'nicename' => 'Christmas Island',
@@ -332,6 +378,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 61
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CC',
                 'name' => 'COCOS [LING] ISLANDS',
                 'nicename' => 'Cocos [ling] Islands',
@@ -339,6 +386,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 672
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CO',
                 'name' => 'COLOMBIA',
                 'nicename' => 'Colombia',
@@ -346,6 +394,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 170,
                 'phonecode' => 57
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KM',
                 'name' => 'COMOROS',
                 'nicename' => 'Comoros',
@@ -353,6 +402,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 174,
                 'phonecode' => 269
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CG',
                 'name' => 'CONGO',
                 'nicename' => 'Congo',
@@ -360,6 +410,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 178,
                 'phonecode' => 242
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CD',
                 'name' => 'CONGO, THE DEMOCRATIC REPUBLIC OF THE',
                 'nicename' => 'Congo, the Democratic Republic of the',
@@ -367,6 +418,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 180,
                 'phonecode' => 242
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CK',
                 'name' => 'COOK ISLANDS',
                 'nicename' => 'Cook Islands',
@@ -374,6 +426,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 184,
                 'phonecode' => 682
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CR',
                 'name' => 'COSTA RICA',
                 'nicename' => 'Costa Rica',
@@ -381,6 +434,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 188,
                 'phonecode' => 506
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CI',
                 'name' => "COTE D''IVOIRE",
                 'nicename' => "Cote D''Ivoire",
@@ -388,6 +442,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 384,
                 'phonecode' => 225
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HR',
                 'name' => 'CROATIA',
                 'nicename' => 'Croatia',
@@ -395,6 +450,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 191,
                 'phonecode' => 385
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CU',
                 'name' => 'CUBA',
                 'nicename' => 'Cuba',
@@ -402,6 +458,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 192,
                 'phonecode' => 53
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CY',
                 'name' => 'CYPRUS',
                 'nicename' => 'Cyprus',
@@ -409,6 +466,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 196,
                 'phonecode' => 357
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CZ',
                 'name' => 'CZECH REPUBLIC',
                 'nicename' => 'Czech Republic',
@@ -416,6 +474,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 203,
                 'phonecode' => 420
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DK',
                 'name' => 'DENMARK',
                 'nicename' => 'Denmark',
@@ -423,6 +482,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 208,
                 'phonecode' => 45
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DJ',
                 'name' => 'DJIBOUTI',
                 'nicename' => 'Djibouti',
@@ -430,6 +490,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 262,
                 'phonecode' => 253
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DM',
                 'name' => 'DOMINICA',
                 'nicename' => 'Dominica',
@@ -437,6 +498,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 212,
                 'phonecode' => 1767
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DO',
                 'name' => 'DOMINICAN REPUBLIC',
                 'nicename' => 'Dominican Republic',
@@ -444,6 +506,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 214,
                 'phonecode' => 1809
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'EC',
                 'name' => 'ECUADOR',
                 'nicename' => 'Ecuador',
@@ -451,6 +514,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 218,
                 'phonecode' => 593
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'EG',
                 'name' => 'EGYPT',
                 'nicename' => 'Egypt',
@@ -458,6 +522,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 818,
                 'phonecode' => 20
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SV',
                 'name' => 'EL SALVADOR',
                 'nicename' => 'El Salvador',
@@ -465,6 +530,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 222,
                 'phonecode' => 503
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GQ',
                 'name' => 'EQUATORIAL GUINEA',
                 'nicename' => 'Equatorial Guinea',
@@ -472,6 +538,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 226,
                 'phonecode' => 240
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ER',
                 'name' => 'ERITREA',
                 'nicename' => 'Eritrea',
@@ -479,6 +546,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 232,
                 'phonecode' => 291
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'EE',
                 'name' => 'ESTONIA',
                 'nicename' => 'Estonia',
@@ -486,6 +554,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 233,
                 'phonecode' => 372
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ET',
                 'name' => 'ETHIOPIA',
                 'nicename' => 'Ethiopia',
@@ -493,6 +562,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 231,
                 'phonecode' => 251
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FK',
                 'name' => 'FALKLAND ISLANDS [VINAS]',
                 'nicename' => 'Falkland Islands [vinas] ',
@@ -500,6 +570,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 238,
                 'phonecode' => 500
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FO',
                 'name' => 'FAROE ISLANDS',
                 'nicename' => 'Faroe Islands',
@@ -507,6 +578,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 234,
                 'phonecode' => 298
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FJ',
                 'name' => 'FIJI',
                 'nicename' => 'Fiji',
@@ -514,6 +586,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 242,
                 'phonecode' => 679
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FI',
                 'name' => 'FINLAND',
                 'nicename' => 'Finland',
@@ -521,6 +594,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 246,
                 'phonecode' => 358
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FR',
                 'name' => 'FRANCE',
                 'nicename' => 'France',
@@ -528,6 +602,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 250,
                 'phonecode' => 33
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GF',
                 'name' => 'FRENCH GUIANA',
                 'nicename' => 'French Guiana',
@@ -535,6 +610,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 254,
                 'phonecode' => 594
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PF',
                 'name' => 'FRENCH POLYNESIA',
                 'nicename' => 'French Polynesia',
@@ -542,6 +618,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 258,
                 'phonecode' => 689
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TF',
                 'name' => 'FRENCH SOUTHERN TERRITORIES',
                 'nicename' => 'French Southern Territories',
@@ -549,6 +626,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GA',
                 'name' => 'GABON',
                 'nicename' => 'Gabon',
@@ -556,6 +634,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 266,
                 'phonecode' => 241
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GM',
                 'name' => 'GAMBIA',
                 'nicename' => 'Gambia',
@@ -563,6 +642,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 270,
                 'phonecode' => 220
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GE',
                 'name' => 'GEORGIA',
                 'nicename' => 'Georgia',
@@ -570,6 +650,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 268,
                 'phonecode' => 995
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'DE',
                 'name' => 'GERMANY',
                 'nicename' => 'Germany',
@@ -577,6 +658,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 276,
                 'phonecode' => 49
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GH',
                 'name' => 'GHANA',
                 'nicename' => 'Ghana',
@@ -584,6 +666,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 288,
                 'phonecode' => 233
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GI',
                 'name' => 'GIBRALTAR',
                 'nicename' => 'Gibraltar',
@@ -591,6 +674,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 292,
                 'phonecode' => 350
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GR',
                 'name' => 'GREECE',
                 'nicename' => 'Greece',
@@ -598,6 +682,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 300,
                 'phonecode' => 30
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GL',
                 'name' => 'GREENLAND',
                 'nicename' => 'Greenland',
@@ -605,6 +690,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 304,
                 'phonecode' => 299
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GD',
                 'name' => 'GRENADA',
                 'nicename' => 'Grenada',
@@ -612,6 +698,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 308,
                 'phonecode' => 1473
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GP',
                 'name' => 'GUADELOUPE',
                 'nicename' => 'Guadeloupe',
@@ -619,6 +706,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 312,
                 'phonecode' => 590
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GU',
                 'name' => 'GUAM',
                 'nicename' => 'Guam',
@@ -626,6 +714,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 316,
                 'phonecode' => 1671
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GT',
                 'name' => 'GUATEMALA',
                 'nicename' => 'Guatemala',
@@ -633,6 +722,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 320,
                 'phonecode' => 502
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GN',
                 'name' => 'GUINEA',
                 'nicename' => 'Guinea',
@@ -640,6 +730,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 324,
                 'phonecode' => 224
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GW',
                 'name' => 'GUINEA-BISSAU',
                 'nicename' => 'Guinea-Bissau',
@@ -647,6 +738,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 624,
                 'phonecode' => 245
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GY',
                 'name' => 'GUYANA',
                 'nicename' => 'Guyana',
@@ -654,6 +746,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 328,
                 'phonecode' => 592
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HT',
                 'name' => 'HAITI',
                 'nicename' => 'Haiti',
@@ -661,6 +754,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 332,
                 'phonecode' => 509
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HM',
                 'name' => 'HEARD ISLAND AND MCDONALD ISLANDS',
                 'nicename' => 'Heard Island and Mcdonald Islands',
@@ -668,6 +762,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VA',
                 'name' => 'HOLY SEE [ICAN CITY STATE]',
                 'nicename' => 'Holy See [ican City State] ',
@@ -675,6 +770,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 336,
                 'phonecode' => 39
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HN',
                 'name' => 'HONDURAS',
                 'nicename' => 'Honduras',
@@ -682,6 +778,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 340,
                 'phonecode' => 504
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HK',
                 'name' => 'HONG KONG',
                 'nicename' => 'Hong Kong',
@@ -689,6 +786,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 344,
                 'phonecode' => 852
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'HU',
                 'name' => 'HUNGARY',
                 'nicename' => 'Hungary',
@@ -696,6 +794,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 348,
                 'phonecode' => 36
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IS',
                 'name' => 'ICELAND',
                 'nicename' => 'Iceland',
@@ -703,6 +802,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 352,
                 'phonecode' => 354
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IN',
                 'name' => 'INDIA',
                 'nicename' => 'India',
@@ -710,6 +810,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 356,
                 'phonecode' => 91
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ID',
                 'name' => 'INDONESIA',
                 'nicename' => 'Indonesia',
@@ -717,6 +818,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 360,
                 'phonecode' => 62
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IR',
                 'name' => 'IRAN, ISLAMIC REPUBLIC OF',
                 'nicename' => 'Iran, Islamic Republic of',
@@ -724,6 +826,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 364,
                 'phonecode' => 98
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IQ',
                 'name' => 'IRAQ',
                 'nicename' => 'Iraq',
@@ -731,6 +834,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 368,
                 'phonecode' => 964
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IE',
                 'name' => 'IRELAND',
                 'nicename' => 'Ireland',
@@ -738,6 +842,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 372,
                 'phonecode' => 353
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IL',
                 'name' => 'ISRAEL',
                 'nicename' => 'Israel',
@@ -745,6 +850,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 376,
                 'phonecode' => 972
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'IT',
                 'name' => 'ITALY',
                 'nicename' => 'Italy',
@@ -752,6 +858,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 380,
                 'phonecode' => 39
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'JM',
                 'name' => 'JAMAICA',
                 'nicename' => 'Jamaica',
@@ -759,6 +866,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 388,
                 'phonecode' => 1876
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'JP',
                 'name' => 'JAPAN',
                 'nicename' => 'Japan',
@@ -766,6 +874,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 392,
                 'phonecode' => 81
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'JO',
                 'name' => 'JORDAN',
                 'nicename' => 'Jordan',
@@ -773,6 +882,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 400,
                 'phonecode' => 962
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KZ',
                 'name' => 'KAZAKHSTAN',
                 'nicename' => 'Kazakhstan',
@@ -780,6 +890,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 398,
                 'phonecode' => 7
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KE',
                 'name' => 'KENYA',
                 'nicename' => 'Kenya',
@@ -787,6 +898,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 404,
                 'phonecode' => 254
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KI',
                 'name' => 'KIRIBATI',
                 'nicename' => 'Kiribati',
@@ -794,6 +906,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 296,
                 'phonecode' => 686
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KP',
                 'name' => "KOREA, DEMOCRATIC PEOPLE''S REPUBLIC OF",
                 'nicename' => "Korea, Democratic People''s Republic of",
@@ -801,6 +914,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 408,
                 'phonecode' => 850
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KR',
                 'name' => 'KOREA, REPUBLIC OF',
                 'nicename' => 'Korea, Republic of',
@@ -808,6 +922,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 410,
                 'phonecode' => 82
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KW',
                 'name' => 'KUWAIT',
                 'nicename' => 'Kuwait',
@@ -815,6 +930,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 414,
                 'phonecode' => 965
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KG',
                 'name' => 'KYRGYZSTAN',
                 'nicename' => 'Kyrgyzstan',
@@ -822,6 +938,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 417,
                 'phonecode' => 996
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LA',
                 'name' => "LAO PEOPLE''S DEMOCRATIC REPUBLIC",
                 'nicename' => "Lao People''s Democratic Republic",
@@ -829,6 +946,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 418,
                 'phonecode' => 856
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LV',
                 'name' => 'LATVIA',
                 'nicename' => 'Latvia',
@@ -836,6 +954,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 428,
                 'phonecode' => 371
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LB',
                 'name' => 'LEBANON',
                 'nicename' => 'Lebanon',
@@ -843,6 +962,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 422,
                 'phonecode' => 961
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LS',
                 'name' => 'LESOTHO',
                 'nicename' => 'Lesotho',
@@ -850,6 +970,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 426,
                 'phonecode' => 266
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LR',
                 'name' => 'LIBERIA',
                 'nicename' => 'Liberia',
@@ -857,6 +978,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 430,
                 'phonecode' => 231
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LY',
                 'name' => 'LIBYAN ARAB JAMAHIRIYA',
                 'nicename' => 'Libyan Arab Jamahiriya',
@@ -864,6 +986,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 434,
                 'phonecode' => 218
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LI',
                 'name' => 'LIECHTENSTEIN',
                 'nicename' => 'Liechtenstein',
@@ -871,6 +994,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 438,
                 'phonecode' => 423
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LT',
                 'name' => 'LITHUANIA',
                 'nicename' => 'Lithuania',
@@ -878,6 +1002,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 440,
                 'phonecode' => 370
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LU',
                 'name' => 'LUXEMBOURG',
                 'nicename' => 'Luxembourg',
@@ -885,6 +1010,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 442,
                 'phonecode' => 352
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MO',
                 'name' => 'MACAO',
                 'nicename' => 'Macao',
@@ -892,6 +1018,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 446,
                 'phonecode' => 853
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MK',
                 'name' => 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF',
                 'nicename' => 'Macedonia, the Former Yugoslav Republic of',
@@ -899,6 +1026,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 807,
                 'phonecode' => 389
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MG',
                 'name' => 'MADAGASCAR',
                 'nicename' => 'Madagascar',
@@ -906,6 +1034,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 450,
                 'phonecode' => 261
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MW',
                 'name' => 'MALAWI',
                 'nicename' => 'Malawi',
@@ -913,6 +1042,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 454,
                 'phonecode' => 265
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MY',
                 'name' => 'MALAYSIA',
                 'nicename' => 'Malaysia',
@@ -920,6 +1050,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 458,
                 'phonecode' => 60
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MV',
                 'name' => 'MALDIVES',
                 'nicename' => 'Maldives',
@@ -927,6 +1058,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 462,
                 'phonecode' => 960
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ML',
                 'name' => 'MALI',
                 'nicename' => 'Mali',
@@ -934,6 +1066,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 466,
                 'phonecode' => 223
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MT',
                 'name' => 'MALTA',
                 'nicename' => 'Malta',
@@ -941,6 +1074,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 470,
                 'phonecode' => 356
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MH',
                 'name' => 'MARSHALL ISLANDS',
                 'nicename' => 'Marshall Islands',
@@ -948,6 +1082,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 584,
                 'phonecode' => 692
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MQ',
                 'name' => 'MARTINIQUE',
                 'nicename' => 'Martinique',
@@ -955,6 +1090,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 474,
                 'phonecode' => 596
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MR',
                 'name' => 'MAURITANIA',
                 'nicename' => 'Mauritania',
@@ -962,6 +1098,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 478,
                 'phonecode' => 222
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MU',
                 'name' => 'MAURITIUS',
                 'nicename' => 'Mauritius',
@@ -969,6 +1106,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 480,
                 'phonecode' => 230
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'YT',
                 'name' => 'MAYOTTE',
                 'nicename' => 'Mayotte',
@@ -976,6 +1114,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 269
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MX',
                 'name' => 'MEXICO',
                 'nicename' => 'Mexico',
@@ -983,6 +1122,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 484,
                 'phonecode' => 52
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'FM',
                 'name' => 'MICRONESIA, FEDERATED STATES OF',
                 'nicename' => 'Micronesia, Federated States of',
@@ -990,6 +1130,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 583,
                 'phonecode' => 691
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MD',
                 'name' => 'MOLDOVA, REPUBLIC OF',
                 'nicename' => 'Moldova, Republic of',
@@ -997,6 +1138,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 498,
                 'phonecode' => 373
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MC',
                 'name' => 'MONACO',
                 'nicename' => 'Monaco',
@@ -1004,6 +1146,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 492,
                 'phonecode' => 377
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MN',
                 'name' => 'MONGOLIA',
                 'nicename' => 'Mongolia',
@@ -1011,6 +1154,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 496,
                 'phonecode' => 976
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MS',
                 'name' => 'MONTSERRAT',
                 'nicename' => 'Montserrat',
@@ -1018,6 +1162,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 500,
                 'phonecode' => 1664
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MA',
                 'name' => 'MOROCCO',
                 'nicename' => 'Morocco',
@@ -1025,6 +1170,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 504,
                 'phonecode' => 212
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MZ',
                 'name' => 'MOZAMBIQUE',
                 'nicename' => 'Mozambique',
@@ -1032,6 +1178,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 508,
                 'phonecode' => 258
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MM',
                 'name' => 'MYANMAR',
                 'nicename' => 'Myanmar',
@@ -1039,6 +1186,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 104,
                 'phonecode' => 95
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NA',
                 'name' => 'NAMIBIA',
                 'nicename' => 'Namibia',
@@ -1046,6 +1194,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 516,
                 'phonecode' => 264
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NR',
                 'name' => 'NAURU',
                 'nicename' => 'Nauru',
@@ -1053,6 +1202,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 520,
                 'phonecode' => 674
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NP',
                 'name' => 'NEPAL',
                 'nicename' => 'Nepal',
@@ -1060,6 +1210,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 524,
                 'phonecode' => 977
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NL',
                 'name' => 'NETHERLANDS',
                 'nicename' => 'Netherlands',
@@ -1067,6 +1218,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 528,
                 'phonecode' => 31
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AN',
                 'name' => 'NETHERLANDS ANTILLES',
                 'nicename' => 'Netherlands Antilles',
@@ -1074,6 +1226,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 530,
                 'phonecode' => 599
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NC',
                 'name' => 'NEW CALEDONIA',
                 'nicename' => 'New Caledonia',
@@ -1081,6 +1234,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 540,
                 'phonecode' => 687
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NZ',
                 'name' => 'NEW ZEALAND',
                 'nicename' => 'New Zealand',
@@ -1088,6 +1242,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 554,
                 'phonecode' => 64
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NI',
                 'name' => 'NICARAGUA',
                 'nicename' => 'Nicaragua',
@@ -1095,6 +1250,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 558,
                 'phonecode' => 505
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NE',
                 'name' => 'NIGER',
                 'nicename' => 'Niger',
@@ -1102,6 +1258,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 562,
                 'phonecode' => 227
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NG',
                 'name' => 'NIGERIA',
                 'nicename' => 'Nigeria',
@@ -1109,6 +1266,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 566,
                 'phonecode' => 234
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NU',
                 'name' => 'NIUE',
                 'nicename' => 'Niue',
@@ -1116,6 +1274,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 570,
                 'phonecode' => 683
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NF',
                 'name' => 'NORFOLK ISLAND',
                 'nicename' => 'Norfolk Island',
@@ -1123,6 +1282,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 574,
                 'phonecode' => 672
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'MP',
                 'name' => 'NORTHERN MARIANA ISLANDS',
                 'nicename' => 'Northern Mariana Islands',
@@ -1130,6 +1290,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 580,
                 'phonecode' => 1670
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'NO',
                 'name' => 'NORWAY',
                 'nicename' => 'Norway',
@@ -1137,6 +1298,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 578,
                 'phonecode' => 47
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'OM',
                 'name' => 'OMAN',
                 'nicename' => 'Oman',
@@ -1144,6 +1306,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 512,
                 'phonecode' => 968
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PK',
                 'name' => 'PAKISTAN',
                 'nicename' => 'Pakistan',
@@ -1151,6 +1314,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 586,
                 'phonecode' => 92
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PW',
                 'name' => 'PALAU',
                 'nicename' => 'Palau',
@@ -1158,6 +1322,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 585,
                 'phonecode' => 680
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PS',
                 'name' => 'PALESTINIAN TERRITORY, OCCUPIED',
                 'nicename' => 'Palestinian Territory, Occupied',
@@ -1165,6 +1330,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 970
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PA',
                 'name' => 'PANAMA',
                 'nicename' => 'Panama',
@@ -1172,6 +1338,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 591,
                 'phonecode' => 507
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PG',
                 'name' => 'PAPUA NEW GUINEA',
                 'nicename' => 'Papua New Guinea',
@@ -1179,6 +1346,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 598,
                 'phonecode' => 675
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PY',
                 'name' => 'PARAGUAY',
                 'nicename' => 'Paraguay',
@@ -1186,6 +1354,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 600,
                 'phonecode' => 595
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PE',
                 'name' => 'PERU',
                 'nicename' => 'Peru',
@@ -1193,6 +1362,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 604,
                 'phonecode' => 51
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PH',
                 'name' => 'PHILIPPINES',
                 'nicename' => 'Philippines',
@@ -1200,6 +1370,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 608,
                 'phonecode' => 63
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PN',
                 'name' => 'PITCAIRN',
                 'nicename' => 'Pitcairn',
@@ -1207,6 +1378,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 612,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PL',
                 'name' => 'POLAND',
                 'nicename' => 'Poland',
@@ -1214,6 +1386,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 616,
                 'phonecode' => 48
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PT',
                 'name' => 'PORTUGAL',
                 'nicename' => 'Portugal',
@@ -1221,6 +1394,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 620,
                 'phonecode' => 351
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PR',
                 'name' => 'PUERTO RICO',
                 'nicename' => 'Puerto Rico',
@@ -1228,6 +1402,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 630,
                 'phonecode' => 1787
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'QA',
                 'name' => 'QATAR',
                 'nicename' => 'Qatar',
@@ -1235,6 +1410,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 634,
                 'phonecode' => 974
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'RE',
                 'name' => 'REUNION',
                 'nicename' => 'Reunion',
@@ -1242,6 +1418,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 638,
                 'phonecode' => 262
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'RO',
                 'name' => 'ROMANIA',
                 'nicename' => 'Romania',
@@ -1249,6 +1426,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 642,
                 'phonecode' => 40
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'RU',
                 'name' => 'RUSSIAN FEDERATION',
                 'nicename' => 'Russian Federation',
@@ -1256,6 +1434,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 643,
                 'phonecode' => 70
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'RW',
                 'name' => 'RWANDA',
                 'nicename' => 'Rwanda',
@@ -1263,6 +1442,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 646,
                 'phonecode' => 250
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SH',
                 'name' => 'SAINT HELENA',
                 'nicename' => 'Saint Helena',
@@ -1270,6 +1450,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 654,
                 'phonecode' => 290
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'KN',
                 'name' => 'SAINT KITTS AND NEVIS',
                 'nicename' => 'Saint Kitts and Nevis',
@@ -1277,6 +1458,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 659,
                 'phonecode' => 1869
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LC',
                 'name' => 'SAINT LUCIA',
                 'nicename' => 'Saint Lucia',
@@ -1284,6 +1466,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 662,
                 'phonecode' => 1758
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'PM',
                 'name' => 'SAINT PIERRE AND MIQUELON',
                 'nicename' => 'Saint Pierre and Miquelon',
@@ -1291,6 +1474,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 666,
                 'phonecode' => 508
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VC',
                 'name' => 'SAINT VINCENT AND THE GRENADINES',
                 'nicename' => 'Saint Vincent and the Grenadines',
@@ -1298,6 +1482,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 670,
                 'phonecode' => 1784
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'WS',
                 'name' => 'SAMOA',
                 'nicename' => 'Samoa',
@@ -1305,6 +1490,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 882,
                 'phonecode' => 684
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SM',
                 'name' => 'SAN MARINO',
                 'nicename' => 'San Marino',
@@ -1312,6 +1498,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 674,
                 'phonecode' => 378
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ST',
                 'name' => 'SAO TOME AND PRINCIPE',
                 'nicename' => 'Sao Tome and Principe',
@@ -1319,6 +1506,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 678,
                 'phonecode' => 239
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SA',
                 'name' => 'SAUDI ARABIA',
                 'nicename' => 'Saudi Arabia',
@@ -1326,6 +1514,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 682,
                 'phonecode' => 966
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SN',
                 'name' => 'SENEGAL',
                 'nicename' => 'Senegal',
@@ -1333,6 +1522,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 686,
                 'phonecode' => 221
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CS',
                 'name' => 'SERBIA AND MONTENEGRO',
                 'nicename' => 'Serbia and Montenegro',
@@ -1340,6 +1530,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 381
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SC',
                 'name' => 'SEYCHELLES',
                 'nicename' => 'Seychelles',
@@ -1347,6 +1538,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 690,
                 'phonecode' => 248
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SL',
                 'name' => 'SIERRA LEONE',
                 'nicename' => 'Sierra Leone',
@@ -1354,6 +1546,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 694,
                 'phonecode' => 232
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SG',
                 'name' => 'SINGAPORE',
                 'nicename' => 'Singapore',
@@ -1361,6 +1554,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 702,
                 'phonecode' => 65
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SK',
                 'name' => 'SLOVAKIA',
                 'nicename' => 'Slovakia',
@@ -1368,6 +1562,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 703,
                 'phonecode' => 421
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SI',
                 'name' => 'SLOVENIA',
                 'nicename' => 'Slovenia',
@@ -1375,6 +1570,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 705,
                 'phonecode' => 386
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SB',
                 'name' => 'SOLOMON ISLANDS',
                 'nicename' => 'Solomon Islands',
@@ -1382,6 +1578,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 90,
                 'phonecode' => 677
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SO',
                 'name' => 'SOMALIA',
                 'nicename' => 'Somalia',
@@ -1389,6 +1586,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 706,
                 'phonecode' => 252
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ZA',
                 'name' => 'SOUTH AFRICA',
                 'nicename' => 'South Africa',
@@ -1396,6 +1594,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 710,
                 'phonecode' => 27
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GS',
                 'name' => 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS',
                 'nicename' => 'South Georgia and the South Sandwich Islands',
@@ -1403,6 +1602,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 0
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ES',
                 'name' => 'SPAIN',
                 'nicename' => 'Spain',
@@ -1410,6 +1610,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 724,
                 'phonecode' => 34
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'LK',
                 'name' => 'SRI LANKA',
                 'nicename' => 'Sri Lanka',
@@ -1417,6 +1618,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 144,
                 'phonecode' => 94
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SD',
                 'name' => 'SUDAN',
                 'nicename' => 'Sudan',
@@ -1424,6 +1626,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 736,
                 'phonecode' => 249
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SR',
                 'name' => 'SURINAME',
                 'nicename' => 'Suriname',
@@ -1431,6 +1634,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 740,
                 'phonecode' => 597
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SJ',
                 'name' => 'SVALBARD AND JAN MAYEN',
                 'nicename' => 'Svalbard and Jan Mayen',
@@ -1438,6 +1642,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 744,
                 'phonecode' => 47
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SZ',
                 'name' => 'SWAZILAND',
                 'nicename' => 'Swaziland',
@@ -1445,6 +1650,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 748,
                 'phonecode' => 268
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SE',
                 'name' => 'SWEDEN',
                 'nicename' => 'Sweden',
@@ -1452,6 +1658,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 752,
                 'phonecode' => 46
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'CH',
                 'name' => 'SWITZERLAND',
                 'nicename' => 'Switzerland',
@@ -1459,6 +1666,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 756,
                 'phonecode' => 41
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'SY',
                 'name' => 'SYRIAN ARAB REPUBLIC',
                 'nicename' => 'Syrian Arab Republic',
@@ -1466,6 +1674,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 760,
                 'phonecode' => 963
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TW',
                 'name' => 'TAIWAN, PROVINCE OF CHINA',
                 'nicename' => 'Taiwan, Province of China',
@@ -1473,6 +1682,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 158,
                 'phonecode' => 886
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TJ',
                 'name' => 'TAJIKISTAN',
                 'nicename' => 'Tajikistan',
@@ -1480,6 +1690,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 762,
                 'phonecode' => 992
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TZ',
                 'name' => 'TANZANIA, UNITED REPUBLIC OF',
                 'nicename' => 'Tanzania, United Republic of',
@@ -1487,6 +1698,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 834,
                 'phonecode' => 255
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TH',
                 'name' => 'THAILAND',
                 'nicename' => 'Thailand',
@@ -1494,6 +1706,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 764,
                 'phonecode' => 66
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TL',
                 'name' => 'TIMOR-LESTE',
                 'nicename' => 'Timor-Leste',
@@ -1501,6 +1714,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 670
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TG',
                 'name' => 'TOGO',
                 'nicename' => 'Togo',
@@ -1508,6 +1722,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 768,
                 'phonecode' => 228
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TK',
                 'name' => 'TOKELAU',
                 'nicename' => 'Tokelau',
@@ -1515,6 +1730,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 772,
                 'phonecode' => 690
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TO',
                 'name' => 'TONGA',
                 'nicename' => 'Tonga',
@@ -1522,6 +1738,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 776,
                 'phonecode' => 676
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TT',
                 'name' => 'TRINIDAD AND TOBAGO',
                 'nicename' => 'Trinidad and Tobago',
@@ -1529,6 +1746,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 780,
                 'phonecode' => 1868
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TN',
                 'name' => 'TUNISIA',
                 'nicename' => 'Tunisia',
@@ -1536,6 +1754,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 788,
                 'phonecode' => 216
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TR',
                 'name' => 'TURKEY',
                 'nicename' => 'Turkey',
@@ -1543,6 +1762,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 792,
                 'phonecode' => 90
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TM',
                 'name' => 'TURKMENISTAN',
                 'nicename' => 'Turkmenistan',
@@ -1550,6 +1770,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 795,
                 'phonecode' => 7370
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TC',
                 'name' => 'TURKS AND CAICOS ISLANDS',
                 'nicename' => 'Turks and Caicos Islands',
@@ -1557,6 +1778,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 796,
                 'phonecode' => 1649
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'TV',
                 'name' => 'TUVALU',
                 'nicename' => 'Tuvalu',
@@ -1564,6 +1786,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 798,
                 'phonecode' => 688
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'UG',
                 'name' => 'UGANDA',
                 'nicename' => 'Uganda',
@@ -1571,6 +1794,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 800,
                 'phonecode' => 256
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'UA',
                 'name' => 'UKRAINE',
                 'nicename' => 'Ukraine',
@@ -1578,6 +1802,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 804,
                 'phonecode' => 380
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'AE',
                 'name' => 'UNITED ARAB EMIRATES',
                 'nicename' => 'United Arab Emirates',
@@ -1585,6 +1810,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 784,
                 'phonecode' => 971
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'GB',
                 'name' => 'UNITED KINGDOM',
                 'nicename' => 'United Kingdom',
@@ -1592,6 +1818,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 826,
                 'phonecode' => 44
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'US',
                 'name' => 'UNITED STATES',
                 'nicename' => 'United States',
@@ -1599,6 +1826,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 840,
                 'phonecode' => 1
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'UM',
                 'name' => 'UNITED STATES MINOR OUTLYING ISLANDS',
                 'nicename' => 'United States Minor Outlying Islands',
@@ -1606,6 +1834,7 @@ class CountrySeeder extends Seeder
                 'numcode' => NULL,
                 'phonecode' => 1
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'UY',
                 'name' => 'URUGUAY',
                 'nicename' => 'Uruguay',
@@ -1613,6 +1842,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 858,
                 'phonecode' => 598
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'UZ',
                 'name' => 'UZBEKISTAN',
                 'nicename' => 'Uzbekistan',
@@ -1620,6 +1850,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 860,
                 'phonecode' => 998
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VU',
                 'name' => 'VANUATU',
                 'nicename' => 'Vanuatu',
@@ -1627,6 +1858,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 548,
                 'phonecode' => 678
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VE',
                 'name' => 'VENEZUELA',
                 'nicename' => 'Venezuela',
@@ -1634,6 +1866,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 862,
                 'phonecode' => 58
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VN',
                 'name' => 'VIET NAM',
                 'nicename' => 'Viet Nam',
@@ -1641,6 +1874,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 704,
                 'phonecode' => 84
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VG',
                 'name' => 'VIRGIN ISLANDS, BRITISH',
                 'nicename' => 'Virgin Islands, British',
@@ -1648,6 +1882,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 92,
                 'phonecode' => 1284
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'VI',
                 'name' => 'VIRGIN ISLANDS, U.S.',
                 'nicename' => 'Virgin Islands, U.s.',
@@ -1655,6 +1890,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 850,
                 'phonecode' => 1340
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'WF',
                 'name' => 'WALLIS AND FUTUNA',
                 'nicename' => 'Wallis and Futuna',
@@ -1662,6 +1898,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 876,
                 'phonecode' => 681
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'EH',
                 'name' => 'WESTERN SAHARA',
                 'nicename' => 'Western Sahara',
@@ -1669,6 +1906,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 732,
                 'phonecode' => 212
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'YE',
                 'name' => 'YEMEN',
                 'nicename' => 'Yemen',
@@ -1676,6 +1914,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 887,
                 'phonecode' => 967
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ZM',
                 'name' => 'ZAMBIA',
                 'nicename' => 'Zambia',
@@ -1683,6 +1922,7 @@ class CountrySeeder extends Seeder
                 'numcode' => 894,
                 'phonecode' => 260
             ], [
+                'id' => Str::orderedUuid(),
                 'iso' => 'ZW',
                 'name' => 'ZIMBABWE',
                 'nicename' => 'Zimbabwe',

@@ -20,9 +20,10 @@ class RequestBuyFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween(1, User::count()),
-            'spice_id' => $this->faker->numberBetween(1, Spice::count()),
-            'status_id' => $this->faker->numberBetween(1, Status::count()),
+            'invoice' => $this->faker->uuid,
+            'user_id' => $this->faker->randomElements(User::all()->map(fn ($model) => $model->id))[0],
+            'spice_data' => json_encode($this->faker->randomElements(Spice::all()->toArray())[0]),
+            'status_id' => $this->faker->randomElements(Status::all()->map(fn ($model) => $model->id))[0],
             'jumlah' => $this->faker->numberBetween(1, 10),
         ];
     }
