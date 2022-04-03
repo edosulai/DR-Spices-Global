@@ -1,4 +1,4 @@
-@props(['title' => __('Konfirmasi Password'), 'content' => __('Demi keamanan Anda, harap konfirmasikan kata sandi Anda untuk melanjutkan.'), 'button' => __('Konfirmasi')])
+@props(['title' => __('Password confirmation'), 'content' => __('For your security, please confirm your password to continue.'), 'button' => __('Confirm')])
 
 @php
 $confirmableId = md5($attributes->wire('then'));
@@ -14,12 +14,6 @@ $confirmableId = md5($attributes->wire('then'));
         {{ $title }}
     </x-slot>
 
-    <x-slot name="close">
-        <x-jet-secondary-button wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
-            {{ __('x') }}
-        </x-jet-secondary-button>
-    </x-slot>
-
     <x-slot name="content">
         {{ $content }}
 
@@ -32,7 +26,7 @@ $confirmableId = md5($attributes->wire('then'));
     <x-slot name="footer">
         <div class="d-flex">
             <x-jet-secondary-button class="mr-2" wire:click="$toggle('confirmingPassword')" wire:loading.attr="disabled">
-                {{ __('Batal') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-button class="d-flex align-items-center" wire:click="confirmPassword" wire:loading.attr="disabled">

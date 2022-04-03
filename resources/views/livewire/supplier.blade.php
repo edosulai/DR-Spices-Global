@@ -21,19 +21,19 @@
                     <x-slot name="content">
 
                         <div class="mb-3">
-                            <x-jet-label for="nama" value="{{ __('Nama Supplier') }}" />
+                            <x-jet-label class="small" for="nama" value="{{ __('Nama Supplier') }}" />
                             <x-jet-input id="nama" type="text" class="{{ $errors->has('nama') ? 'is-invalid' : '' }}" wire:model="nama" autocomplete="nama" />
                             <x-jet-input-error for="nama" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="alamat" value="{{ __('Alamat') }}" />
+                            <x-jet-label class="small" for="alamat" value="{{ __('Alamat') }}" />
                             <x-jet-input id="alamat" type="text" class="{{ $errors->has('alamat') ? 'is-invalid' : '' }}" wire:model="alamat" autocomplete="alamat" />
                             <x-jet-input-error for="alamat" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="telp" value="{{ __('Telp') }}" />
+                            <x-jet-label class="small" for="telp" value="{{ __('Telp') }}" />
                             <x-jet-input id="telp" type="text" class="{{ $errors->has('telp') ? 'is-invalid' : '' }}" wire:model="telp" autocomplete="telp" />
                             <x-jet-input-error for="telp" />
                         </div>
@@ -43,7 +43,7 @@
                     <x-slot name="footer">
                         <div class="d-flex">
                             <x-jet-secondary-button class="mr-2" wire:click="$toggle('supplierModal')" wire:loading.attr="disabled">
-                                {{ __('Batal') }}
+                                {{ __('Cancel') }}
                             </x-jet-secondary-button>
 
                             <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiSupplierModal }}" wire:loading.attr="disabled">
@@ -65,12 +65,12 @@
 
                     <x-slot name="footer">
                         <x-jet-secondary-button wire:click="$toggle('deleteSupplierModalConfirm')" wire:loading.attr="disabled">
-                            {{ __('Batal') }}
+                            {{ __('Cancel') }}
                         </x-jet-secondary-button>
 
                         <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteSupplier">
                             <span wire:loading wire:target="deleteSupplier" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                            {{ __('Hapus') }}
+                            {{ __('Delete') }}
                         </x-jet-danger-button>
                     </x-slot>
                 </x-jet-confirmation-modal>

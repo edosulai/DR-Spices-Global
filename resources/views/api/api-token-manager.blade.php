@@ -1,5 +1,5 @@
 <div>
-    <!-- Generate API Token -->
+    
     <x-jet-form-section submit="createApiToken">
         <x-slot name="title">
             {{ __('Buat Token API') }}
@@ -15,18 +15,18 @@
             </x-jet-action-message>
 
             <div class="w-md-75">
-                <!-- Token Name -->
+                
                 <div class="mb-3">
-                    <x-jet-label for="name" value="{{ __('Token Name') }}" />
+                    <x-jet-label class="small" for="name" value="{{ __('Token Name') }}" />
                     <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
                                  wire:model.defer="createApiTokenForm.name" autofocus />
                     <x-jet-input-error for="name" />
                 </div>
 
-                <!-- Token Permissions -->
+                
                 @if (Laravel\Jetstream\Jetstream::hasPermissions())
                     <div>
-                        <x-jet-label for="permissions" value="{{ __('Permissions') }}" />
+                        <x-jet-label class="small" for="permissions" value="{{ __('Permissions') }}" />
 
                         <div class="mt-2 row">
                             @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
@@ -57,7 +57,7 @@
     @if ($this->user->tokens->isNotEmpty())
         <x-jet-section-border />
 
-        <!-- Manage API Tokens -->
+        
         <div>
             <x-jet-action-section>
                 <x-slot name="title">
@@ -68,7 +68,7 @@
                     {{ __('You may delete any of your existing tokens if they are no longer needed.') }}
                 </x-slot>
 
-                <!-- API Token List -->
+                
                 <x-slot name="content">
                     <div>
                         @foreach ($this->user->tokens->sortBy('name') as $token)
@@ -91,7 +91,7 @@
                                     @endif
 
                                     <button class="btn btn-link text-danger text-decoration-none" wire:click="confirmApiTokenDeletion({{ $token->id }})">
-                                        {{ __('Hapus') }}
+                                        {{ __('Delete') }}
                                     </button>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
         </div>
     @endif
 
-    <!-- Token Value Modal -->
+    
     <x-jet-dialog-modal wire:model="displayingToken">
         <x-slot name="title">
             {{ __('API Token') }}
@@ -128,7 +128,7 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    <!-- API Token Permissions Modal -->
+    
     <x-jet-dialog-modal wire:model="managingApiTokenPermissions">
         <x-slot name="title">
             {{ __('API Token Permissions') }}
@@ -153,16 +153,16 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
-                {{ __('Batal') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-button wire:click="updateApiToken" wire:loading.attr="disabled">
-                {{ __('Simpan') }}
+                {{ __('Save') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
 
-    <!-- Delete Token Confirmation Modal -->
+    
     <x-jet-confirmation-modal wire:model="confirmingApiTokenDeletion">
         <x-slot name="title">
             {{ __('Delete API Token') }}
@@ -174,12 +174,12 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
-                {{ __('Batal') }}
+                {{ __('Cancel') }}
             </x-jet-secondary-button>
 
             <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteApiToken">
                 <span wire:loading wire:target="deleteApiToken" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                {{ __('Hapus') }}
+                {{ __('Delete') }}
             </x-jet-danger-button>
         </x-slot>
     </x-jet-confirmation-modal>

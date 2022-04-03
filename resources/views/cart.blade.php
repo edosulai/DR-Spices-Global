@@ -5,7 +5,7 @@
     @livewire('header')
 
     <div class="main-content cart">
-      <!-- main -->
+      
       <div class="wrapper-site">
         
         <x-breadcrumb :navs="[

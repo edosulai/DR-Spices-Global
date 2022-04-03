@@ -1,22 +1,22 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Informasi Profil') }}
+        {{ __('Profile information') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Perbarui informasi profil dan alamat email akun Anda.') }}
+        {{ __('Update profile information and your account email address.') }}
     </x-slot>
 
     <x-slot name="form">
 
         <x-jet-action-message on="saved">
-            {{ __('Disimpan.') }}
+            {{ __('Saved') }}
         </x-jet-action-message>
 
-        <!-- Profile Photo -->
+        
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div class="mb-3" x-data="{photoName: null, photoPreview: null}">
-                <!-- Profile Photo File Input -->
+                
                 <input type="file" hidden
                        wire:model="photo"
                        x-ref="photo"
@@ -29,14 +29,14 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
+                <x-jet-label class="small" for="photo" value="{{ __('Photo') }}" />
 
-                <!-- Current Profile Photo -->
+                
                 <div class="mt-2" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" class="rounded-circle" height="80px" width="80px">
                 </div>
 
-                <!-- New Profile Photo Preview -->
+                
                 <div class="mt-2" x-show="photoPreview">
                     <img x-bind:src="photoPreview" class="rounded-circle" width="80px" height="80px">
                 </div>
@@ -57,16 +57,16 @@
         @endif
 
         <div class="w-md-75">
-            <!-- Name -->
+            
             <div class="mb-3">
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label class="small" for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model.defer="state.name" autocomplete="name" />
                 <x-jet-input-error for="name" />
             </div>
 
-            <!-- Email -->
+            
             <div class="mb-3">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-label class="small" for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model.defer="state.email" />
                 <x-jet-input-error for="email" />
             </div>
@@ -77,7 +77,7 @@
 		<div class="d-flex align-items-baseline">
             <x-jet-button class="d-flex align-items-center justify-content-center">
                 <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                {{ __('Simpan') }}
+                {{ __('Save') }}
             </x-jet-button>
 		</div>
     </x-slot>

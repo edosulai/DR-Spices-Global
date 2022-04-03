@@ -11,7 +11,7 @@
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
+                        
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
                             <div class="col-lg-6">
@@ -29,7 +29,7 @@
                                     <form class="user" method="POST" action="{{ route('password.request') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <x-jet-label value="Email" />
+                                            <x-jet-label class="small" value="Email" />
                                             <x-jet-input type="email" name="email" placeholder="Enter Email Address..." :value="old('email')" required autofocus />
                                         </div>
                                         <x-jet-button>

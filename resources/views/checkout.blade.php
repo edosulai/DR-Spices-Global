@@ -12,7 +12,7 @@
           ['title' => 'Checkout', 'url' => route('checkout')],
         ]" />
 
-        <!-- main -->
+        
         <div class="wrapper-site">
           <div class="container">
             <div class="row">
@@ -40,7 +40,7 @@
                         </ul>
                         <div class="tab-content">
                           <div class="tab-pane fade in active show" id="checkout-guest-form" role="tabpanel">
-                            <form action="#" id="customer-form" method="post">
+                            <form action="#" method="post">
                               <div>
                                 <input type="hidden" name="id_customer" value="">
                                 <div class="form-group row">
@@ -98,7 +98,7 @@
                             </form>
                           </div>
                           <div class="tab-pane fade" id="checkout-login-form" role="tabpanel">
-                            <form id="login-form" action="#" method="post" class="customer-form">
+                            <form id="login-form" action="#" method="post">
                               <div>
                                 <input type="hidden" name="back" value="">
                                 <div class="form-group row">

@@ -14,54 +14,80 @@
 
         <div class="acount head-acount">
           <div class="container">
-            <div class="main">
-              <h1 class="title-page">My Account</h1>
-              <div class="content" id="block-history">
-                <table class="std table">
-                  <tbody>
-                    <tr>
-                      <th class="first_item">My Name :</th>
-                      <td>David James</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">Company :</th>
-                      <td>TivaTheme</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">Address :</th>
-                      <td>123 canberra Street, New York, USA</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">City :</th>
-                      <td>New York</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">Postal/Zip Code :</th>
-                      <td>10001</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">Phone :</th>
-                      <td>0123456789</td>
-                    </tr>
-                    <tr>
-                      <th class="first_item">Country:</th>
-                      <td>USA</td>
-                    </tr>
-                  </tbody>
-                </table>
+            <div class="myaccount-page-wrapper mb-5">
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="#account-info" class="active" data-toggle="tab">
+                      <i class="fa fa-user"></i> {{ __('Account Details') }}
+                    </a>
+                    <a href="#address" data-toggle="tab">
+                      <i class="fa fa-map-marker"></i> {{ __('Address') }}
+                    </a>
+                    <a href="#orders" data-toggle="tab">
+                      <i class="fa fa-cart-arrow-down"></i> {{ __('Orders') }}
+                    </a>
+                    <a href="#payment-method" data-toggle="tab">
+                      <i class="fa fa-credit-card"></i> {{ __('Payment Method') }}
+                    </a>
+                  </div>
+                </div>
 
-              </div>
-              <button class="btn btn-primary" data-link-action="sign-in" type="submit">
-                view Address
-              </button>
-              <div class="order">
-                <h4>Order
-                  <span class="detail">History</span>
-                </h4>
-                <p>You haven't placed any orders yet.</p>
+                <div class="col-lg-9 mt-5 mt-lg-0">
+                  <div class="tab-content" id="myaccountContent">
+
+                    <div class="tab-pane fade" id="account-info" role="tabpanel">
+                      <div class="myaccount-content">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                          <h1 class="h3 mb-0 text-gray-800">{{ __('Account Details') }}</h1>
+                        </div>
+
+                        <div>
+                          @if (Laravel\Fortify\Features::canUpdateProfileInformation())
+                          @livewire('profile.update-profile-information-form')
+
+                          <x-jet-section-border />
+                          @endif
+
+                          @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
+                          @livewire('profile.update-password-form')
+
+                          <x-jet-section-border />
+                          @endif
+
+                          @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
+                          @livewire('profile.two-factor-authentication-form')
+
+                          <x-jet-section-border />
+                          @endif
+
+                          @livewire('profile.logout-other-browser-sessions-form')
+
+                          {{-- @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
+                          <x-jet-section-border />
+
+                          @livewire('profile.delete-user-form')
+                          @endif --}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="address" role="tabpanel">
+                      @livewire('address')
+                    </div>
+
+                    <div class="tab-pane fade show active" id="orders" role="tabpanel">
+                      @livewire('order')
+                    </div>
+                    
+                    <div class="tab-pane fade" id="payment-method" role="tabpanel">
+                      @livewire('payment')
+                    </div>
+                    
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

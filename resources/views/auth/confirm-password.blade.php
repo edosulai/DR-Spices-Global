@@ -7,7 +7,7 @@
         <div class="card-body">
 
             <div class="mb-3 text-sm text-muted">
-                {{ __('Ini adalah area aplikasi yang aman. Harap konfirmasi sandi Anda sebelum melanjutkan.') }}
+                {{ __('This is a safe application area.Please confirm your password before continuing.') }}
             </div>
 
             <x-jet-validation-errors class="mb-2" />
@@ -16,13 +16,13 @@
                 @csrf
 
                 <div>
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-label class="small" for="password" value="{{ __('Password') }}" />
                     <x-jet-input id="password" type="password" name="password" required autocomplete="current-password" autofocus />
                 </div>
 
                 <div class="d-flex justify-content-end mt-4">
                     <x-jet-button class="ms-4">
-                        {{ __('Konfirmasi') }}
+                        {{ __('Confirm') }}
                     </x-jet-button>
                 </div>
             </form>

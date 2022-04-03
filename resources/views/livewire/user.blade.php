@@ -17,25 +17,25 @@
                     <x-slot name="content">
 
                         <div class="mb-3">
-                            <x-jet-label for="name" value="{{ __('Nama Pengguna') }}" />
+                            <x-jet-label class="small" for="name" value="{{ __('Nama Pengguna') }}" />
                             <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model="name" autocomplete="name" disabled />
                             <x-jet-input-error for="name" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="email" value="{{ __('Email') }}" />
+                            <x-jet-label class="small" for="email" value="{{ __('Email') }}" />
                             <x-jet-input id="email" type="text" class="{{ $errors->has('email') ? 'is-invalid' : '' }}" wire:model="email" autocomplete="email" disabled />
                             <x-jet-input-error for="email" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="created_at" value="{{ __('Waktu Daftar') }}" />
+                            <x-jet-label class="small" for="created_at" value="{{ __('Waktu Daftar') }}" />
                             <x-jet-input id="created_at" type="datetime-local" class="{{ $errors->has('created_at') ? 'is-invalid' : '' }}" wire:model="created_at" autocomplete="created_at" disabled />
                             <x-jet-input-error for="created_at" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="role" value="{{ __('Role') }}" />
+                            <x-jet-label class="small" for="role" value="{{ __('Role') }}" />
                             <select class="form-control {{ $errors->has('role') ? 'is-invalid' : '' }}" wire:model="role" id="role" autocomplete="role">
                                 @foreach ($roles as $r)
                                 <option value="{!! $r->id !!}" wire:key="{{ $r->id }}" {!! $role == $r->id ? 'selected' : '' !!}>{{ $r->name }}</option>
@@ -49,7 +49,7 @@
                     <x-slot name="footer">
                         <div class="d-flex">
                             <x-jet-secondary-button class="mr-2" wire:click="$toggle('userModal')" wire:loading.attr="disabled">
-                                {{ __('Batal') }}
+                                {{ __('Cancel') }}
                             </x-jet-secondary-button>
 
                             <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiUserModal }}" wire:loading.attr="disabled">
@@ -71,12 +71,12 @@
 
                     <x-slot name="footer">
                         <x-jet-secondary-button wire:click="$toggle('deleteUserModalConfirm')" wire:loading.attr="disabled">
-                            {{ __('Batal') }}
+                            {{ __('Cancel') }}
                         </x-jet-secondary-button>
 
                         <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteUser">
                             <span wire:loading wire:target="deleteUser" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                            {{ __('Hapus') }}
+                            {{ __('Delete') }}
                         </x-jet-danger-button>
                     </x-slot>
                 </x-jet-confirmation-modal>

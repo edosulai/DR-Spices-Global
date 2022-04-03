@@ -228,7 +228,7 @@
             </div>
             <div class="box-content">
                 <nav>
-                    <!-- Brand and toggle get grouped for better mobile display -->
+                    
                     <div id="megamenu" class="clearfix">
                         <ul class="menu level1">
                             @foreach ($navs as $nav)

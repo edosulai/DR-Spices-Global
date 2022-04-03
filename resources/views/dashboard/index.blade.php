@@ -95,10 +95,10 @@
         </div>
 
         <div class="row">
-            <!-- Area Chart -->
+            
             <div class="col-lg-8 col-md-12">
                 <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
+                    
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                         <div class="dropdown no-arrow">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Card Body -->
+                    
                     <div class="card-body text-center">
                         <div class="chart-area" style="height: auto">
                             @livewire('earning')
@@ -123,10 +123,10 @@
                 </div>
             </div>
 
-            <!-- Pie Chart -->
+            
             <div class="col-lg-4 col-md-12">
                 <div class="card shadow mb-4">
-                    <!-- Card Header - Dropdown -->
+                    
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Stock Sources</h6>
                         <div class="dropdown no-arrow">
@@ -142,7 +142,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Card Body -->
+                    
                     <div class="card-body text-center">
                         <div class="chart-area" style="height: auto">
                             @livewire('stock')

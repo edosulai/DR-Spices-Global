@@ -14,7 +14,7 @@
         @method('PUT')
         @csrf
 
-        <!-- Hidden Team ID -->
+        
         <input type="hidden" name="team_id" value="{{ $team->id }}">
     </form>
 </x-dynamic-component>

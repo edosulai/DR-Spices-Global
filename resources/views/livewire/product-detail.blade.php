@@ -1,6 +1,6 @@
 <div class="page-home">
 
-    <!-- breadcrumb -->
+    
     <x-breadcrumb :navs="[
       ['title' => 'Home', 'url' => route('home')],
       ['title' => $this->spice->nama, 'url' => route('detail', ['product' => str_replace(' ', '-', $this->spice->nama)])],
@@ -25,7 +25,7 @@
                                         </div>
                                         <div class="modal fade" id="product-modal" role="dialog">
                                             <div class="modal-dialog">
-                                                <!-- Modal content-->
+                                                
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <div class="modal-body">

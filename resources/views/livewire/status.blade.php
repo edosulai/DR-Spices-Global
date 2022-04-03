@@ -21,13 +21,13 @@
                     <x-slot name="content">
 
                         <div class="mb-3">
-                            <x-jet-label for="nama" value="{{ __('Nama Status') }}" />
+                            <x-jet-label class="small" for="nama" value="{{ __('Nama Status') }}" />
                             <x-jet-input id="nama" type="text" class="{{ $errors->has('nama') ? 'is-invalid' : '' }}" wire:model="nama" autocomplete="nama" />
                             <x-jet-input-error for="nama" />
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label for="ket" value="{{ __('Keterangan') }}" />
+                            <x-jet-label class="small" for="ket" value="{{ __('Keterangan') }}" />
                             <x-jet-input id="ket" type="text" class="{{ $errors->has('ket') ? 'is-invalid' : '' }}" wire:model="ket" autocomplete="ket" />
                             <x-jet-input-error for="ket" />
                         </div>
@@ -37,7 +37,7 @@
                     <x-slot name="footer">
                         <div class="d-flex">
                             <x-jet-secondary-button class="mr-2" wire:click="$toggle('statusModal')" wire:loading.attr="disabled">
-                                {{ __('Batal') }}
+                                {{ __('Cancel') }}
                             </x-jet-secondary-button>
 
                             <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiStatusModal }}" wire:loading.attr="disabled">
@@ -59,12 +59,12 @@
 
                     <x-slot name="footer">
                         <x-jet-secondary-button wire:click="$toggle('deleteStatusModalConfirm')" wire:loading.attr="disabled">
-                            {{ __('Batal') }}
+                            {{ __('Cancel') }}
                         </x-jet-secondary-button>
 
                         <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteStatus">
                             <span wire:loading wire:target="deleteStatus" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                            {{ __('Hapus') }}
+                            {{ __('Delete') }}
                         </x-jet-danger-button>
                     </x-slot>
                 </x-jet-confirmation-modal>

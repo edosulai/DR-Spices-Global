@@ -21,27 +21,27 @@
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
+    
     <div id="wrapper">
-        <!-- Sidebar -->
+        
         @livewire('navigation-menu')
-        <!-- End of Sidebar -->
+        
 
-        <!-- Content Wrapper -->
+        
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
+            
             <div id="content">
 
-                <!-- Topbar -->
+                
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
+                    
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Navbar -->
+                    
                     <ul class="navbar-nav ml-auto">
 
                         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
@@ -55,12 +55,12 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <!-- Team Management -->
+                                
                                 <h6 class="dropdown-header">
                                     {{ __('Manage Team') }}
                                 </h6>
 
-                                <!-- Team Settings -->
+                                
                                 <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                     {{ __('Team Settings') }}
                                 </x-jet-dropdown-link>
@@ -73,7 +73,7 @@
 
                                 <hr class="dropdown-divider">
 
-                                <!-- Team Switcher -->
+                                
                                 <h6 class="dropdown-header">
                                     {{ __('Switch Teams') }}
                                 </h6>
@@ -87,7 +87,7 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
+                        
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -99,7 +99,7 @@
                                 </svg>
                                 @endif
                             </a>
-                            <!-- Dropdown - User Information -->
+                            
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -124,18 +124,18 @@
                     </ul>
 
                 </nav>
-                <!-- End of Topbar -->
+                
 
-                <!-- Begin Page Content -->
+                
                 <div class="container-fluid">
                     {{ $slot }}
                 </div>
-                <!-- /.container-fluid -->
+                
 
             </div>
-            <!-- End of Main Content -->
+            
 
-            <!-- Footer -->
+            
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -143,14 +143,14 @@
                     </div>
                 </div>
             </footer>
-            <!-- End of Footer -->
+            
 
         </div>
-        <!-- End of Content Wrapper -->
+        
 
     </div>
 
-    <!-- Scroll to Top Button-->
+    
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>

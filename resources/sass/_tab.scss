@@ -1,0 +1,39 @@
+$color_1: #fff;
+$background-color_1: #ff5151;
+$background-color_2: #343434;
+
+.myaccount-tab-menu {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    a {
+        border: 1px solid #c5c5c5;
+        border-bottom: none;
+        font-weight: 700;
+        line-height: 1.5;
+        display: block;
+        padding: 15px;
+
+        &:last-child {
+            border-bottom: 1px solid #c5c5c5;
+        }
+
+        &:hover {
+            background-color: $background-color_1;
+            color: $color_1;
+        }
+
+        i.fa {
+            line-height: 1.5;
+            text-align: center;
+            width: 25px;
+        }
+    }
+
+    a.active {
+        background-color: $background-color_2;
+        color: $color_1;
+    }
+}

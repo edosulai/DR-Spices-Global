@@ -27,11 +27,11 @@ class Header extends Component
                 'icon' => 'fas fa-home'
             ], [
                 'name' => 'Our Product',
-                'url' => '#product-exhibition',
+                'url' => route('home') . '/#product-exhibition',
                 'icon' => 'fab fa-product-hunt'
             ], [
                 'name' => 'About Us',
-                'url' => '#about-us',
+                'url' => route('home') . '/#about-us',
                 'icon' => 'fas fa-address-card'
             ], [
                 'name' => 'Contact Us',

@@ -11,7 +11,7 @@
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
+                        
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
                             <div class="col-lg-6">
@@ -32,19 +32,19 @@
                                         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                                         <div class="form-group">
-                                            <x-jet-label value="{{ __('Email') }}" />
+                                            <x-jet-label class="small" value="{{ __('Email') }}" />
                                             <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" :value="old('email', $request->email)" required autofocus />
                                             <x-jet-input-error for="email" />
                                         </div>
 
                                         <div class="form-group">
-                                            <x-jet-label value="{{ __('Password') }}" />
+                                            <x-jet-label class="small" value="{{ __('Password') }}" />
                                             <x-jet-input class="{{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" required autocomplete="new-password" />
                                             <x-jet-input-error for="password" />
                                         </div>
                         
                                         <div class="form-group">
-                                            <x-jet-label value="{{ __('Konfirmasi Password') }}" />
+                                            <x-jet-label class="small" value="{{ __('Konfirmasi Password') }}" />
                                             <x-jet-input class="{{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" type="password" name="password_confirmation" required autocomplete="new-password" />
                                             <x-jet-input-error for="password_confirmation" />
                                         </div>

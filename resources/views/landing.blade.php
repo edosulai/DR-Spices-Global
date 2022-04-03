@@ -3,7 +3,7 @@
     <div class="blog home3 about-us product-detail">
         @livewire('header')
 
-        <!-- main content -->
+        
         <div class="main-content">
 
             <x-jumbotron />
@@ -12,7 +12,7 @@
                 <div class="content-wrapper full-width">
                     <div class="main">
                         <section class="page-home">
-                            <!-- delivery form -->
+                            
                             <div class="container">
                                 <div class="section policy-home col-lg-12 col-xs-12">
                                     <div class="row">

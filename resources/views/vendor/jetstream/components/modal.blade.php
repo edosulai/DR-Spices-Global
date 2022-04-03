@@ -11,7 +11,7 @@ $maxWidth = [
 ][$maxWidth ?? 'md'];
 @endphp
 
-<!-- Modal -->
+
 <div
     x-data="{
         show: @entangle($attributes->wire('model')),

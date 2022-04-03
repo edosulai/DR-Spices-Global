@@ -12,14 +12,14 @@
                 ]" />
             </div>
 
-            <!-- main -->
+            
             <div class="wrapper-site">
                 <div class="content-wrapper full-width">
                     <div class="main">
                         <div class="container">
                             <h1 class="text-center title-page">{{ __('Log In') }}</h1>
                             <div class="login-form text-center">
-                                <form class="user customer-form" action="{{ route('login') }}" method="POST">
+                                <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div>
                                         <div class="form-group no-gutters">
@@ -35,7 +35,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
+                                            <div class="pl-0 custom-control custom-checkbox small">
                                                 <x-jet-checkbox id="remember_me" name="remember" />
                                                 <label class="custom-control-label" for="remember_me">
                                                     {{ __('Remember Me') }}

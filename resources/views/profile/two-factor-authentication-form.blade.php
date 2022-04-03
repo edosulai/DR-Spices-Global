@@ -4,26 +4,26 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Tambahkan keamanan tambahan ke akun Anda menggunakan otentikasi dua faktor.') }}
+        {{ __('Add additional security to your account using two factor authentication.') }}
     </x-slot>
 
     <x-slot name="content">
         <h3 class="h5 font-weight-bold">
             @if ($this->enabled)
-                {{ __('Anda telah mengaktifkan otentikasi dua faktor.') }}
+                {{ __('You have enabled two factor authentication.') }}
             @else
-                {{ __('Anda belum mengaktifkan otentikasi dua faktor.') }}
+                {{ __('You have not activated two factor authentication.') }}
             @endif
         </h3>
 
         <p class="mt-3">
-            {{ __('Bila autentikasi dua faktor diaktifkan, Anda akan dimintai token acak yang aman selama autentikasi. Anda dapat mengambil token ini dari aplikasi Google Authenticator ponsel Anda.') }}
+            {{ __('If the authentication of two factors is activated, you will be asked for a random token that is safe during authentication.You can take this token from your mobile Google Authenticator application.') }}
         </p>
 
         @if ($this->enabled)
             @if ($showingQrCode)
                 <p class="mt-3">
-                    {{ __('Otentikasi dua faktor sekarang diaktifkan. Pindai kode QR berikut menggunakan aplikasi autentikator ponsel Anda.') }}
+                    {{ __('Authentication of two factors is now activated.Scan the following QR code using your mobile autoenticator application.') }}
                 </p>
 
                 <div class="mt-3">
@@ -33,7 +33,7 @@
 
             @if ($showingRecoveryCodes)
                 <p class="mt-3">
-                    {{ __('Simpan kode pemulihan ini di pengelola kata sandi yang aman. Kode tersebut dapat digunakan untuk memulihkan akses ke akun Anda jika perangkat autentikasi dua faktor Anda hilang.') }}
+                    {{ __('Save this recovery code in a safe password manager.The code can be used to restore access to your account if your two-factor authentication device is lost.') }}
                 </p>
 
                 <div class="bg-light rounded p-3">
@@ -49,7 +49,7 @@
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
                     <x-jet-button class="d-flex align-items-center justify-content-center" type="button" wire:loading.attr="disabled">
                         <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                        {{ __('Aktifkan') }}
+                        {{ __('Activate') }}
                     </x-jet-button>
                 </x-jet-confirms-password>
             @else
@@ -57,14 +57,14 @@
                     <x-jet-confirms-password wire:then="regenerateRecoveryCodes">
                         <x-jet-secondary-button class="mr-2">
                             <span wire:loading wire:target="regenerateRecoveryCodes" class="spinner-border spinner-border-sm" role="status"></span>
-                            {{ __('Buat Ulang Kode Pemulihan') }}
+                            {{ __('Reset the recovery code') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @else
                     <x-jet-confirms-password wire:then="showRecoveryCodes">
                         <x-jet-secondary-button class="mr-2">
                             <span wire:loading wire:target="showRecoveryCodes" class="spinner-border spinner-border-sm" role="status"></span>
-                            {{ __('Tampilkan Kode Pemulihan') }}
+                            {{ __('Show recovery code') }}
                         </x-jet-secondary-button>
                     </x-jet-confirms-password>
                 @endif
@@ -72,7 +72,7 @@
                 <x-jet-confirms-password wire:then="disableTwoFactorAuthentication">
                     <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="disableTwoFactorAuthentication">
                         <span wire:loading wire:target="disableTwoFactorAuthentication" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                        {{ __('Nonaktifkan') }}
+                        {{ __('Deactivate') }}
                     </x-jet-danger-button>
                 </x-jet-confirms-password>
             @endif

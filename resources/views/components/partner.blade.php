@@ -1,5 +1,5 @@
 <div class="container">
-    <!-- partner -->
+    
     <div class="section introduct-logo">
         <div class="row">
             <div class="tiva-manufacture  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">

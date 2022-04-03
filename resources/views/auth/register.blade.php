@@ -18,7 +18,7 @@
                         <div class="container">
                             <h1 class="text-center title-page">{{ __('Create Account') }}</h1>
                             <div class="register-form text-center">
-                                <form class="user customer-form" method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="form-group row">
                                         <div class="col-sm-6 mb-3 mb-sm-0 no-gutters">
@@ -46,7 +46,7 @@
 
                                     @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                     <div class="form-group row">
-                                        <div class="custom-control custom-checkbox">
+                                        <div class="pl-0 custom-control custom-checkbox">
                                             <x-jet-checkbox id="terms" name="terms" />
                                             <label class="custom-control-label" for="terms">
                                                 {!! __('Saya setuju dengan :terms_of_service dan :privacy_policy', [

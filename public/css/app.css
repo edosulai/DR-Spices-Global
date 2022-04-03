@@ -14628,15 +14628,17 @@ a:focus {
   background-size: cover;
 }
 
-form.user .custom-checkbox.small label {
+.custom-checkbox.small label {
   line-height: 1.5rem;
 }
-form.user .form-control-user {
+
+.form-control-user {
   font-size: 0.8rem;
   border-radius: 10rem;
   padding: 1.5rem 1rem;
 }
-form.user .btn-user {
+
+.btn-user {
   font-size: 0.8rem;
   border-radius: 10rem;
   padding: 0.75rem 1rem;
@@ -14712,133 +14714,133 @@ form.user .btn-user {
 
 @-webkit-keyframes noise-anim {
   0% {
-    clip: rect(27px, 9999px, 64px, 0);
+    clip: rect(6px, 9999px, 83px, 0);
   }
   5% {
-    clip: rect(64px, 9999px, 95px, 0);
+    clip: rect(59px, 9999px, 40px, 0);
   }
   10% {
-    clip: rect(33px, 9999px, 30px, 0);
+    clip: rect(32px, 9999px, 93px, 0);
   }
   15% {
-    clip: rect(15px, 9999px, 21px, 0);
+    clip: rect(49px, 9999px, 92px, 0);
   }
   20% {
-    clip: rect(48px, 9999px, 10px, 0);
+    clip: rect(38px, 9999px, 19px, 0);
   }
   25% {
-    clip: rect(17px, 9999px, 82px, 0);
+    clip: rect(38px, 9999px, 39px, 0);
   }
   30% {
-    clip: rect(41px, 9999px, 37px, 0);
+    clip: rect(15px, 9999px, 67px, 0);
   }
   35% {
-    clip: rect(62px, 9999px, 47px, 0);
+    clip: rect(33px, 9999px, 76px, 0);
   }
   40% {
-    clip: rect(80px, 9999px, 14px, 0);
+    clip: rect(24px, 9999px, 63px, 0);
   }
   45% {
-    clip: rect(88px, 9999px, 2px, 0);
+    clip: rect(41px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(48px, 9999px, 65px, 0);
+    clip: rect(86px, 9999px, 14px, 0);
   }
   55% {
-    clip: rect(90px, 9999px, 98px, 0);
+    clip: rect(24px, 9999px, 29px, 0);
   }
   60% {
-    clip: rect(49px, 9999px, 40px, 0);
+    clip: rect(1px, 9999px, 15px, 0);
   }
   65% {
-    clip: rect(42px, 9999px, 76px, 0);
+    clip: rect(66px, 9999px, 88px, 0);
   }
   70% {
-    clip: rect(86px, 9999px, 82px, 0);
+    clip: rect(61px, 9999px, 9px, 0);
   }
   75% {
-    clip: rect(32px, 9999px, 36px, 0);
+    clip: rect(100px, 9999px, 50px, 0);
   }
   80% {
-    clip: rect(55px, 9999px, 22px, 0);
+    clip: rect(67px, 9999px, 25px, 0);
   }
   85% {
-    clip: rect(13px, 9999px, 64px, 0);
+    clip: rect(29px, 9999px, 66px, 0);
   }
   90% {
-    clip: rect(48px, 9999px, 23px, 0);
+    clip: rect(48px, 9999px, 85px, 0);
   }
   95% {
-    clip: rect(13px, 9999px, 77px, 0);
+    clip: rect(22px, 9999px, 41px, 0);
   }
   100% {
-    clip: rect(64px, 9999px, 87px, 0);
+    clip: rect(15px, 9999px, 37px, 0);
   }
 }
 
 @keyframes noise-anim {
   0% {
-    clip: rect(27px, 9999px, 64px, 0);
+    clip: rect(6px, 9999px, 83px, 0);
   }
   5% {
-    clip: rect(64px, 9999px, 95px, 0);
+    clip: rect(59px, 9999px, 40px, 0);
   }
   10% {
-    clip: rect(33px, 9999px, 30px, 0);
+    clip: rect(32px, 9999px, 93px, 0);
   }
   15% {
-    clip: rect(15px, 9999px, 21px, 0);
+    clip: rect(49px, 9999px, 92px, 0);
   }
   20% {
-    clip: rect(48px, 9999px, 10px, 0);
+    clip: rect(38px, 9999px, 19px, 0);
   }
   25% {
-    clip: rect(17px, 9999px, 82px, 0);
+    clip: rect(38px, 9999px, 39px, 0);
   }
   30% {
-    clip: rect(41px, 9999px, 37px, 0);
+    clip: rect(15px, 9999px, 67px, 0);
   }
   35% {
-    clip: rect(62px, 9999px, 47px, 0);
+    clip: rect(33px, 9999px, 76px, 0);
   }
   40% {
-    clip: rect(80px, 9999px, 14px, 0);
+    clip: rect(24px, 9999px, 63px, 0);
   }
   45% {
-    clip: rect(88px, 9999px, 2px, 0);
+    clip: rect(41px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(48px, 9999px, 65px, 0);
+    clip: rect(86px, 9999px, 14px, 0);
   }
   55% {
-    clip: rect(90px, 9999px, 98px, 0);
+    clip: rect(24px, 9999px, 29px, 0);
   }
   60% {
-    clip: rect(49px, 9999px, 40px, 0);
+    clip: rect(1px, 9999px, 15px, 0);
   }
   65% {
-    clip: rect(42px, 9999px, 76px, 0);
+    clip: rect(66px, 9999px, 88px, 0);
   }
   70% {
-    clip: rect(86px, 9999px, 82px, 0);
+    clip: rect(61px, 9999px, 9px, 0);
   }
   75% {
-    clip: rect(32px, 9999px, 36px, 0);
+    clip: rect(100px, 9999px, 50px, 0);
   }
   80% {
-    clip: rect(55px, 9999px, 22px, 0);
+    clip: rect(67px, 9999px, 25px, 0);
   }
   85% {
-    clip: rect(13px, 9999px, 64px, 0);
+    clip: rect(29px, 9999px, 66px, 0);
   }
   90% {
-    clip: rect(48px, 9999px, 23px, 0);
+    clip: rect(48px, 9999px, 85px, 0);
   }
   95% {
-    clip: rect(13px, 9999px, 77px, 0);
+    clip: rect(22px, 9999px, 41px, 0);
   }
   100% {
-    clip: rect(64px, 9999px, 87px, 0);
+    clip: rect(15px, 9999px, 37px, 0);
   }
 }
 .error:after {
@@ -14856,133 +14858,133 @@ form.user .btn-user {
 
 @-webkit-keyframes noise-anim-2 {
   0% {
-    clip: rect(60px, 9999px, 90px, 0);
+    clip: rect(10px, 9999px, 89px, 0);
   }
   5% {
-    clip: rect(66px, 9999px, 27px, 0);
+    clip: rect(23px, 9999px, 93px, 0);
   }
   10% {
-    clip: rect(29px, 9999px, 44px, 0);
+    clip: rect(78px, 9999px, 2px, 0);
   }
   15% {
-    clip: rect(26px, 9999px, 14px, 0);
+    clip: rect(9px, 9999px, 28px, 0);
   }
   20% {
-    clip: rect(48px, 9999px, 2px, 0);
+    clip: rect(80px, 9999px, 35px, 0);
   }
   25% {
-    clip: rect(51px, 9999px, 6px, 0);
+    clip: rect(8px, 9999px, 10px, 0);
   }
   30% {
-    clip: rect(10px, 9999px, 29px, 0);
+    clip: rect(3px, 9999px, 64px, 0);
   }
   35% {
-    clip: rect(13px, 9999px, 2px, 0);
+    clip: rect(66px, 9999px, 59px, 0);
   }
   40% {
-    clip: rect(30px, 9999px, 91px, 0);
+    clip: rect(4px, 9999px, 60px, 0);
   }
   45% {
-    clip: rect(40px, 9999px, 98px, 0);
+    clip: rect(22px, 9999px, 86px, 0);
   }
   50% {
-    clip: rect(81px, 9999px, 57px, 0);
+    clip: rect(81px, 9999px, 73px, 0);
   }
   55% {
-    clip: rect(65px, 9999px, 11px, 0);
+    clip: rect(96px, 9999px, 92px, 0);
   }
   60% {
-    clip: rect(19px, 9999px, 85px, 0);
+    clip: rect(95px, 9999px, 22px, 0);
   }
   65% {
-    clip: rect(79px, 9999px, 66px, 0);
+    clip: rect(10px, 9999px, 71px, 0);
   }
   70% {
-    clip: rect(58px, 9999px, 45px, 0);
+    clip: rect(80px, 9999px, 57px, 0);
   }
   75% {
-    clip: rect(57px, 9999px, 72px, 0);
+    clip: rect(86px, 9999px, 7px, 0);
   }
   80% {
-    clip: rect(16px, 9999px, 85px, 0);
+    clip: rect(45px, 9999px, 74px, 0);
   }
   85% {
-    clip: rect(31px, 9999px, 77px, 0);
+    clip: rect(82px, 9999px, 45px, 0);
   }
   90% {
-    clip: rect(83px, 9999px, 34px, 0);
+    clip: rect(36px, 9999px, 93px, 0);
   }
   95% {
-    clip: rect(3px, 9999px, 39px, 0);
+    clip: rect(55px, 9999px, 93px, 0);
   }
   100% {
-    clip: rect(40px, 9999px, 19px, 0);
+    clip: rect(16px, 9999px, 78px, 0);
   }
 }
 
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(60px, 9999px, 90px, 0);
+    clip: rect(10px, 9999px, 89px, 0);
   }
   5% {
-    clip: rect(66px, 9999px, 27px, 0);
+    clip: rect(23px, 9999px, 93px, 0);
   }
   10% {
-    clip: rect(29px, 9999px, 44px, 0);
+    clip: rect(78px, 9999px, 2px, 0);
   }
   15% {
-    clip: rect(26px, 9999px, 14px, 0);
+    clip: rect(9px, 9999px, 28px, 0);
   }
   20% {
-    clip: rect(48px, 9999px, 2px, 0);
+    clip: rect(80px, 9999px, 35px, 0);
   }
   25% {
-    clip: rect(51px, 9999px, 6px, 0);
+    clip: rect(8px, 9999px, 10px, 0);
   }
   30% {
-    clip: rect(10px, 9999px, 29px, 0);
+    clip: rect(3px, 9999px, 64px, 0);
   }
   35% {
-    clip: rect(13px, 9999px, 2px, 0);
+    clip: rect(66px, 9999px, 59px, 0);
   }
   40% {
-    clip: rect(30px, 9999px, 91px, 0);
+    clip: rect(4px, 9999px, 60px, 0);
   }
   45% {
-    clip: rect(40px, 9999px, 98px, 0);
+    clip: rect(22px, 9999px, 86px, 0);
   }
   50% {
-    clip: rect(81px, 9999px, 57px, 0);
+    clip: rect(81px, 9999px, 73px, 0);
   }
   55% {
-    clip: rect(65px, 9999px, 11px, 0);
+    clip: rect(96px, 9999px, 92px, 0);
   }
   60% {
-    clip: rect(19px, 9999px, 85px, 0);
+    clip: rect(95px, 9999px, 22px, 0);
   }
   65% {
-    clip: rect(79px, 9999px, 66px, 0);
+    clip: rect(10px, 9999px, 71px, 0);
   }
   70% {
-    clip: rect(58px, 9999px, 45px, 0);
+    clip: rect(80px, 9999px, 57px, 0);
   }
   75% {
-    clip: rect(57px, 9999px, 72px, 0);
+    clip: rect(86px, 9999px, 7px, 0);
   }
   80% {
-    clip: rect(16px, 9999px, 85px, 0);
+    clip: rect(45px, 9999px, 74px, 0);
   }
   85% {
-    clip: rect(31px, 9999px, 77px, 0);
+    clip: rect(82px, 9999px, 45px, 0);
   }
   90% {
-    clip: rect(83px, 9999px, 34px, 0);
+    clip: rect(36px, 9999px, 93px, 0);
   }
   95% {
-    clip: rect(3px, 9999px, 39px, 0);
+    clip: rect(55px, 9999px, 93px, 0);
   }
   100% {
-    clip: rect(40px, 9999px, 19px, 0);
+    clip: rect(16px, 9999px, 78px, 0);
   }
 }
 .error:before {
@@ -15321,11 +15323,7 @@ input:focus {
   border-right-color: transparent;
   border-top-color: transparent;
   font-weight: 600;
-  margin-left: 0;
-  margin-bottom: 1.5rem;
   text-transform: uppercase;
-  margin-right: 0;
-  margin-top: 1.5rem;
   font-size: 0.114583333in;
 }
 .user-acount .btn.btn-primary:hover {
@@ -15343,6 +15341,26 @@ input:focus {
   border-bottom-color: #ff5151;
   border-right-color: #ff5151;
   border-top-color: #ff5151;
+}
+.user-acount .btn.btn-outline-secondary {
+  padding-left: 1.5625pc;
+  padding-bottom: 6.75pt;
+  padding-right: 1.5625pc;
+  padding-top: 6.75pt;
+  border-radius: 1.125pc;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.114583333in;
+}
+.user-acount .btn.btn-danger {
+  padding-left: 1.5625pc;
+  padding-bottom: 6.75pt;
+  padding-right: 1.5625pc;
+  padding-top: 6.75pt;
+  border-radius: 1.125pc;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.114583333in;
 }
 .user-acount .head-acount {
   margin-top: 3rem;
@@ -15778,32 +15796,33 @@ input:focus {
   margin-right: 15px;
 }
 
-.customer-form .form-control {
+.form-control {
   padding-left: 13.5pt;
   padding-bottom: 8px;
   padding-right: 13.5pt;
   padding-top: 8px;
-  border-left-color: #eee;
-  border-bottom-color: #eee;
-  border-right-color: #eee;
-  border-top-color: #eee;
+  border-left-color: #ccc;
+  border-bottom-color: #ccc;
+  border-right-color: #ccc;
+  border-top-color: #ccc;
   font-size: 10.5pt;
 }
-.customer-form .form-control:focus {
+.form-control:focus {
   border-left-color: #909090;
   border-bottom-color: #909090;
   border-right-color: #909090;
   border-top-color: #909090;
   background: #fff;
 }
-.customer-form .form-control:hover {
+.form-control:hover {
   border-left-color: #909090;
   border-bottom-color: #909090;
   border-right-color: #909090;
   border-top-color: #909090;
   background: #fff;
 }
-.customer-form .input-group.js-parent-focus .btn {
+
+.input-group.js-parent-focus .btn {
   padding-left: 13px;
   padding-bottom: 0.53125pc;
   padding-right: 13px;
@@ -15811,46 +15830,52 @@ input:focus {
   border-radius: 0;
   color: #222;
 }
-.customer-form .form-control-label {
+
+.form-control-label {
   text-align: left;
   font-size: 0.875pc;
   margin-bottom: 0;
   color: #666;
 }
-.customer-form .form-control-label:after {
+.form-control-label:after {
   content: "*";
   color: red;
   font-size: 0.875pc;
   position: relative;
   line-height: 12px;
 }
-.customer-form em {
+
+em {
   font-size: 0.75pc;
   margin-top: 0.03125in;
   display: inline-block;
 }
-.customer-form .form-group {
+
+.form-group {
   font-size: 10.5pt;
 }
-.customer-form .form-group:nth-child(5) {
+.form-group:nth-child(5) {
   margin-bottom: 0.104166667in;
 }
-.customer-form .form-group:nth-child(5) .col-md-6 .form-control {
+.form-group:nth-child(5) .col-md-6 .form-control {
   margin-bottom: 3.75pt;
 }
-.customer-form .text-muted {
+
+.text-muted {
   font-size: 0.75pc;
   display: inline-block;
   margin-top: 0.03125in;
 }
-.customer-form .desc-password {
+
+.desc-password {
   font-size: 10.5pt;
   margin-left: -15px;
   margin-bottom: 1.5rem;
   margin-right: 0;
   margin-top: 2rem;
 }
-.customer-form .check {
+
+.check {
   margin-top: 3pt;
   margin-right: 5px;
   flex: 1;
@@ -16677,7 +16702,7 @@ textarea:focus {
   border-left-color: #fff;
   border-bottom-color: #fff;
   border-right-color: #fff;
-  border-top-color: #fff;
+  border-top-color: #ccc;
   -o-border-image: none;
      border-image: none;
   display: inline-block;
@@ -17488,7 +17513,7 @@ li {
   border-left-color: #fff;
   border-bottom-color: #fff;
   border-right-color: #fff;
-  border-top-color: #fff;
+  border-top-color: #ccc;
   -o-border-image: none;
      border-image: none;
   text-align: center;
@@ -17773,7 +17798,7 @@ li {
 .home3 header .topbar .search_widget .desktop-currency-selector {
   border-left-width: 0.75pt;
   border-left-style: solid;
-  border-left-color: #eee;
+  border-left-color: #ccc;
   -o-border-image: none;
      border-image: none;
   height: 40.5pt;
@@ -17834,14 +17859,14 @@ li {
 .home3 header .topbar .search_widget .desktop-currency-selector #currency .currency-list-content {
   border-bottom-width: 0.75pt;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
 .home3 header .topbar .search_widget .desktop-currency-selector #currency .language-list-content {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
@@ -17898,21 +17923,21 @@ li {
 .home3 header .topbar .search_widget .desktop-currency-selector #language .currency-list-content {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
 .home3 header .topbar .search_widget .desktop-currency-selector #language .language-list-content {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
 .home3 header .topbar .search_widget #block_myaccount_info {
   border-left-width: 0.0625pc;
   border-left-style: solid;
-  border-left-color: #eee;
+  border-left-color: #ccc;
   -o-border-image: none;
      border-image: none;
   height: 40.5pt;
@@ -17958,7 +17983,7 @@ li {
 .home3 header .topbar .search_widget .desktop-language-selector {
   border-left-style: solid;
   border-left-width: 0.010416667in;
-  border-left-color: #eee;
+  border-left-color: #ccc;
   -o-border-image: none;
      border-image: none;
   height: 40.5pt;
@@ -17967,7 +17992,7 @@ li {
   position: relative;
   border-right-width: 1px;
   border-right-style: solid;
-  border-right-color: #eee;
+  border-right-color: #ccc;
   border-image: none;
 }
 .home3 header .topbar .search_widget .desktop-language-selector .myaccount-title {
@@ -18039,14 +18064,14 @@ li {
 .home3 header .topbar .search_widget .desktop-language-selector #currency .currency-list-content {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
 .home3 header .topbar .search_widget .desktop-language-selector #currency .language-list-content {
   border-bottom-width: 0.010416667in;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
@@ -18087,14 +18112,14 @@ li {
 .home3 header .topbar .search_widget .desktop-language-selector #language .currency-list-content {
   border-bottom-width: 0.010416667in;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
 .home3 header .topbar .search_widget .desktop-language-selector #language .language-list-content {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
@@ -18679,7 +18704,7 @@ li {
   background: #f2f2f2;
   border-top-width: 0.75pt;
   border-top-style: solid;
-  border-top-color: #fff;
+  border-top-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
@@ -19593,7 +19618,7 @@ li {
   position: relative;
   border-bottom-width: 0.75pt;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
   list-style: none;
@@ -20064,7 +20089,7 @@ li {
   border-bottom-width: 0.21875in;
   border-right-width: 0;
   border-top-width: 15.75pt;
-  border-left-color: #eee;
+  border-left-color: #ccc;
   border-bottom-color: transparent;
   border-right-color: transparent;
   position: absolute;
@@ -20086,7 +20111,7 @@ li {
   border-bottom-width: 0.21875in;
   border-right-width: 0;
   border-top-width: 15.75pt;
-  border-left-color: #eee;
+  border-left-color: #ccc;
   border-bottom-color: transparent;
   position: absolute;
   border-right-color: transparent;
@@ -20323,7 +20348,7 @@ footer .title-block {
   display: block;
   border-top-width: 0.75pt;
   border-top-style: solid;
-  border-top-color: #eee;
+  border-top-color: #ccc;
   -o-border-image: none;
      border-image: none;
 }
@@ -20382,7 +20407,7 @@ footer .title-block {
   padding-top: 0.125in;
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
   display: inline-block;
@@ -20832,7 +20857,7 @@ footer .title-block {
 .account .account-list-content div {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
   text-align: left;
@@ -21983,7 +22008,7 @@ footer .title-block {
 #currency .account-list-content div {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
   text-align: left;
@@ -22188,7 +22213,7 @@ footer .title-block {
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
   text-align: left;
-  border-bottom-color: #eee;
+  border-bottom-color: #ccc;
   -o-border-image: none;
      border-image: none;
   color: #666;
@@ -25733,6 +25758,35 @@ footer .title-block {
 }
 .quickview .product-variants .product-variants-item select {
   min-width: 10rem;
+}
+
+.myaccount-tab-menu {
+  -moz-flex-direction: column;
+  flex-direction: column;
+}
+.myaccount-tab-menu a {
+  border: 1px solid #c5c5c5;
+  border-bottom: none;
+  font-weight: 700;
+  line-height: 1.5;
+  display: block;
+  padding: 15px;
+}
+.myaccount-tab-menu a:last-child {
+  border-bottom: 1px solid #c5c5c5;
+}
+.myaccount-tab-menu a:hover {
+  background-color: #ff5151;
+  color: #fff;
+}
+.myaccount-tab-menu a i.fa {
+  line-height: 1.5;
+  text-align: center;
+  width: 25px;
+}
+.myaccount-tab-menu a.active {
+  background-color: #343434;
+  color: #fff;
 }
 
 html,
