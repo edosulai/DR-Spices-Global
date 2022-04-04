@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('faktur');
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->json('spice_data');
-            $table->integer('jumlah');
+            $table->foreignUuid('request_buy_id')->constrained('request_buys')->onDelete('cascade');
             $table->timestamps();
         });
     }

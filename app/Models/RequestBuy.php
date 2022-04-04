@@ -11,10 +11,11 @@ class RequestBuy extends Model
     use HasFactory;
 
     protected $fillable = [
+        'invoice',
         'user_id',
-        'spice_id',
+        'spice_data',
         'status_id',
-        'jumlah'
+        'jumlah',
     ];
 
     protected $keyType = 'string';

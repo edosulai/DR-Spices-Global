@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('expenditures', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('faktur');
             $table->json('supplier_data');
             $table->json('spice_data');
             $table->integer('jumlah');

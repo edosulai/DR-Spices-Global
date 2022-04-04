@@ -11,11 +11,8 @@ class Income extends Model
     use HasFactory;
 
     protected $fillable = [
-        'faktur',
         'user_id',
-        'spice_id',
-        'jumlah',
-        'ket'
+        'request_buy_id'
     ];
 
     protected $keyType = 'string';

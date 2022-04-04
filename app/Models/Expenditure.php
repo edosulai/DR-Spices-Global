@@ -11,11 +11,9 @@ class Expenditure extends Model
     use HasFactory;
 
     protected $fillable = [
-        'faktur',
-        'supplier_id',
-        'spice_id',
+        'supplier_data',
+        'spice_data',
         'jumlah',
-        'ket'
     ];
 
     protected $keyType = 'string';
