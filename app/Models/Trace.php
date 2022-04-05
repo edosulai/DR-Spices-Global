@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Status extends Model
+class Trace extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nama',
-        'icon'
+        'request_buy_id',
+        'status_id',
     ];
 
     protected $keyType = 'string';

@@ -1,9 +1,9 @@
-@props(['id' => null, 'maxWidth' => null])
+@props(['id' => null, 'maxWidth' => null, 'footer' => false])
 
 <x-jet-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}>
-    <div class="modal-content">
+    <div class="modal-content content">
         <div class="modal-body">
-            <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-start p-3">
                 <div class="mr-2">
                     <div class="bg-warning p-2 mr-3 rounded-circle">
                         <svg stroke="currentColor" fill="none" viewBox="0 0 24 24" width="24">
@@ -17,8 +17,10 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer bg-light">
-            {{ $footer }}
-        </div>
+        @if ($footer)
+            <div class="modal-footer bg-light">
+                {{ $footer }}
+            </div>
+        @endif
     </div>
 </x-jet-modal>

@@ -13,45 +13,45 @@
                         <div class="tab-pane fade in active show">
                             <div class="category-product owl-carousel" wire:ignore>
                                 @foreach ($spices as $spice)
-                                <div class="item text-center">
-                                    <div class="product-miniature item-one first-item">
-                                        <div class="thumbnail-container">
-                                            <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">
-                                                <img class="img-fluid" src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
-                                            </a>
-                                            {{-- <div class="product-flags discount">-30%</div> --}}
-                                        </div>
-                                        <div class="product-description">
-                                            <div class="product-groups">
-                                                <div class="product-title">
-                                                    <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">{{ $spice->nama }}</a>
-                                                </div>
-                                                <div class="rating">
-                                                    <div class="star-content">
-                                                        @for ($i = 0; $i < 5; $i++)
-                                                            <div class="star{{ $i < $spice->review_avg ? '' : ' hole'}}"></div>
-                                                        @endfor
-                                                    </div>
-                                                </div>
-                                                <div class="product-group-price">
-                                                    <div class="product-price-and-shipping">
-                                                        <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }} <small>({{ $spice->unit }})</small></span>
-                                                        {{-- <del class="regular-price">£28.68</del> --}}
-                                                    </div>
-                                                </div>
+                                    <div class="item text-center">
+                                        <div class="product-miniature item-one first-item">
+                                            <div class="thumbnail-container">
+                                                <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">
+                                                    <img class="img-fluid" src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
+                                                </a>
+                                                {{-- <div class="product-flags discount">-30%</div> --}}
                                             </div>
-                                            <div class="product-buttons d-flex justify-content-center">
-                                                <button type="button" class="add-to-cart" wire:click="addToCart('{{$spice->id}}')">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                </button>
+                                            <div class="product-description">
+                                                <div class="product-groups">
+                                                    <div class="product-title">
+                                                        <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">{{ $spice->nama }}</a>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="star-content">
+                                                            @for ($i = 0; $i < 5; $i++)
+                                                                <div class="star{{ $i < $spice->review_avg ? '' : ' hole' }}"></div>
+                                                            @endfor
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-group-price">
+                                                        <div class="product-price-and-shipping">
+                                                            <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }} <small>({{ $spice->unit }})</small></span>
+                                                            {{-- <del class="regular-price">£28.68</del> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-buttons d-flex justify-content-center">
+                                                    <button type="button" class="add-to-cart" wire:click="addToCart('{{ $spice->id }}')">
+                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                    </button>
 
-                                                <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice('{{$spice->id}}')">
-                                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                                </button>
+                                                    <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice('{{ $spice->id }}')">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                 </button>
             </div>
 
-            <div class="modal-body">    
+            <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6 divide-right">
                         <div class="row no-gutters">
@@ -109,29 +109,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row no-gutters main-product-detail">
-                    <div class="col-md-5 col-sm-5 divide-right">
+                <div class="row no-gutters">
+                    <div class="col-md-5 col-sm-5 divide-right d-flex align-items-center">
                         <div class="images-container bottom_thumb">
                             <div class="product-cover">
                                 <img class="img-fluid" src="{{ $modalSpiceImage }}" style="width:100%;">
-                                <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
-                                    <i class="fa fa-expand"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-info col-md-7 col-sm-7">
+                    <div class="product-info col-md-7 col-sm-7 pl-4">
                         <h1 class="product-name">{{ $modalSpiceName }}</h1>
                         <span class="float-right">
                             <span>Availability : </span>
-                            <span class="check {{ $modalSpiceInStock ? 'availb' : 'sold'}}">
-                                <i class="fas {{ $modalSpiceInStock ? 'fa-check-square' : 'fa-times'}}"></i> {{ $modalSpiceInStock ? 'IN STOCK' : 'SOLD OUT'}}
+                            <span class="check {{ $modalSpiceInStock ? 'availb' : 'sold' }}">
+                                <i class="fas {{ $modalSpiceInStock ? 'fa-check-square' : 'fa-times' }}"></i> {{ $modalSpiceInStock ? 'IN STOCK' : 'SOLD OUT' }}
                             </span>
                         </span>
                         <div class="rating mb-2">
                             <div class="star-content">
                                 @for ($i = 0; $i < 5; $i++)
-                                    <div class="star{{ $i < $modalSpiceRating ? '' : ' hole'}}"></div>
+                                    <div class="star{{ $i < $modalSpiceRating ? '' : ' hole' }}"></div>
                                 @endfor
                             </div>
                             <small>({{ round($modalSpiceRating, 1) }})</small>
@@ -145,7 +142,7 @@
                             </div>
                         </div>
 
-                        <div id="product-description-short">
+                        <div class="product-description-short">
                             <p>{{ $modalSpiceDesc }}</p>
                         </div>
 
@@ -159,7 +156,7 @@
                                                 <input min="1" type="number" wire:model="modalSpiceQty" class="input-group form-control">
                                             </div>
                                             <span class="add">
-                                                <button class="btn btn-primary add-to-cart add-item {{ $modalSpiceInStock ? '' : 'disabled'}}" type="submit" wire:click="addToCart">
+                                                <button class="btn btn-primary add-to-cart add-item {{ $modalSpiceInStock ? '' : 'disabled' }}" type="submit" wire:click="addToCart">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                     <span>{{ __('Add to cart') }}</span>
                                                 </button>

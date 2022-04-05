@@ -18,7 +18,7 @@
 
         @if (count($this->sessions) > 0)
         <div class="mt-3">
-            
+
             @foreach ($this->sessions as $session)
             <div class="d-flex">
                 <div>
@@ -58,7 +58,7 @@
         @endif
 
         <div class="d-flex mt-3">
-            <x-jet-button class="d-flex align-items-center justify-content-center" wire:click="confirmLogout" wire:loading.attr="disabled">
+            <x-jet-button class="btn-block d-flex align-items-center justify-content-center" wire:click="confirmLogout" wire:loading.attr="disabled">
                 <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
                 {{ __('Out another browser session') }}
             </x-jet-button>
@@ -70,7 +70,7 @@
             </x-slot>
 
             <x-slot name="content">
-                <small>{{ __('Please enter your password to confirm that you want to get out of other browser sessions on all your devices.') }}</small>
+                {{ __('Please enter your password to confirm that you want to get out of other browser sessions on all your devices.') }}
 
                 <div class="mt-3 w-md-75" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-jet-input type="password" placeholder="{{ __('Password') }}" x-ref="password" class="{{ $errors->has('password') ? 'is-invalid' : '' }}" wire:model.defer="password" wire:keydown.enter="logoutOtherBrowserSessions" />

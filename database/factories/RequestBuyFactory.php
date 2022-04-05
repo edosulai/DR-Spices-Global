@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
 use App\Models\Spice;
 use App\Models\Status;
+use App\Models\Trace;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RequestBuy>
@@ -22,11 +25,12 @@ class RequestBuyFactory extends Factory
      */
     public function definition()
     {
+        $usersSelected = rand(0, User::count() - 1);
+
         return [
-            'invoice' => $this->faker->uuid,
-            'user_id' => $this->faker->randomElements(User::all()->map(fn ($model) => $model->id))[0],
-            'spice_data' => json_encode($this->faker->randomElements(Spice::all()->toArray())[0]),
-            'status_id' => $this->faker->randomElements(Status::all()->map(fn ($model) => $model->id))[0],
+            'invoice' => $this->faker->numerify(Carbon::now()->format('Ymd') . '/' . sprintf('%03d', $usersSelected + 1) . '#####'),
+            'user_id' => User::oldest()->get()->map(fn ($model) => $model->id)[$usersSelected],
+            'spice_data' => $this->faker->randomElements(Spice::all()->toArray())[0],
             'jumlah' => $this->faker->numberBetween(1, 3),
         ];
     }
@@ -39,25 +43,37 @@ class RequestBuyFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (RequestBuy $request_buy) {
-            $spice_id = json_decode($request_buy->spice_data)->id;
-            $spice = Spice::find($spice_id);
+            $spice = Spice::find($request_buy->spice_data->id);
             $spice->stok = $spice->stok - $request_buy->jumlah;
             $spice->save();
 
-            $statusCompleted = Status::where('nama', 'Completed')->first();
-            $statusRated = Status::where('nama', 'Rated')->first();
+            $trace = [];
+            $statuses = Status::oldest()->get();
+            $statusSelected = rand(0, Status::count() - 1);
 
-            if ($request_buy->status_id == $statusCompleted->id || $request_buy->status_id == $statusRated->id) {
+            for ($i = 0; $i < $statusSelected; $i++) {
+                $trace[] = [
+                    'id' => Str::orderedUuid(),
+                    'request_buy_id' => $request_buy->id,
+                    'status_id' => $statuses[$i]->id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ];
+            }
+
+            Trace::insert($trace);
+
+            if ($statuses[$statusSelected]->nama == 'Rated' || $statuses[$statusSelected]->nama = 'Delivered') {
                 Income::create([
                     'user_id' => $request_buy->user_id,
                     'request_buy_id' => $request_buy->id,
                 ]);
             }
 
-            if ($request_buy->status_id == $statusRated->id) {
+            if ($statuses[$statusSelected]->nama == 'Rated') {
                 Review::create([
                     'user_id' => $request_buy->user_id,
-                    'spice_id' => $spice_id,
+                    'spice_id' => $request_buy->spice_data->id,
                     'request_buy_id' => $request_buy->id,
                     'summary' => $this->faker->paragraph(),
                     'rating' => $this->faker->numberBetween(1, 5),

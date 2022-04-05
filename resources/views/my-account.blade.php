@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-  <div class="user-acount">
+  <div class="user-acount product-detail">
 
     @livewire('header')
 
@@ -79,11 +79,11 @@
                     <div class="tab-pane fade show active" id="orders" role="tabpanel">
                       @livewire('order')
                     </div>
-                    
+
                     <div class="tab-pane fade" id="payment-method" role="tabpanel">
                       @livewire('payment')
                     </div>
-                    
+
                   </div>
                 </div>
               </div>

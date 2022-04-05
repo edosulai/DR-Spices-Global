@@ -25,18 +25,4 @@ class CartFactory extends Factory
             'jumlah' => $this->faker->numberBetween(1, 2),
         ];
     }
-    
-    /**
-     * Configure the model factory.
-     *
-     * @return $this
-     */
-    public function configure()
-    {
-        return $this->afterCreating(function (Cart $cart) {
-            $spice = Spice::find($cart->spice_id);
-            $spice->stok = $spice->stok - $cart->jumlah;
-            $spice->save();
-        });
-    }
 }

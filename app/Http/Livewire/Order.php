@@ -3,15 +3,25 @@
 namespace App\Http\Livewire;
 
 use App\Models\RequestBuy;
+use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Order extends Component
 {
+    public $review;
+    public $detailOrder = [];
     public $orders = [];
-    public $review = [];
-    public $detail = [];
+    public $rating = [
+        1 => true,
+        2 => false,
+        3 => false,
+        4 => false,
+        5 => false,
+    ];
+    public $statuses = [];
     public $reviewModal = false;
+    public $detailModal = false;
 
     protected $listeners = [
         'orderMount' => 'mount',
@@ -21,29 +31,41 @@ class Order extends Component
     {
         $this->orders = RequestBuy::where('user_id', Auth::id())
             ->join('statuses', 'request_buys.status_id', '=', 'statuses.id')
-            ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
+            ->selectRaw('request_buys.*, statuses.nama as statuses_nama, IF(statuses.nama=\'Delivered\', true, false) as need_rate')
+            ->latest()
             ->get();
 
-        if ($this->orders) {
-            $this->orders = $this->orders->map(function ($model) {
-                $model->spice_data = json_decode($model->spice_data);
-                return $model;
-            });
+        $this->statuses = Status::latest()->get();
+    }
+
+    public function openModalReview($id)
+    {
+        $this->detailOrder = RequestBuy::where('id', $id)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        if ($this->detailOrder) {
+            $this->reviewModal = true;
         }
     }
 
-    public function opemModalReview($id)
+    public function submitReview()
     {
-        dd($id);
+        dd($this->rating);
     }
 
-    public function opemModalDetail($id)
+    public function openModalDetail($id)
     {
-        dd($id);
-        $this->detail = RequestBuy::where('id', $id)
+
+        $this->detailOrder = RequestBuy::where('request_buys.id', $id)
+            ->where('request_buys.user_id', Auth::id())
             ->join('statuses', 'request_buys.status_id', '=', 'statuses.id')
             ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
-            ->get();
+            ->first();
+
+        if ($this->detailOrder) {
+            $this->detailModal = true;
+        }
     }
 
     public function render()

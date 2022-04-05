@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
@@ -14,8 +15,11 @@ class RequestBuy extends Model
         'invoice',
         'user_id',
         'spice_data',
-        'status_id',
         'jumlah',
+    ];
+
+    protected $casts = [
+        'spice_data' => Json::class,
     ];
 
     protected $keyType = 'string';

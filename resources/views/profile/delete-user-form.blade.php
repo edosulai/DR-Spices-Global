@@ -19,14 +19,14 @@
             </x-jet-danger-button>
         </div>
 
-        
+
         <x-jet-dialog-modal wire:model="confirmingUserDeletion">
             <x-slot name="title">
                 {{ __('Delete Account') }}
             </x-slot>
 
             <x-slot name="content">
-                <small>{{ __('Are you sure you want to delete your account?After your account is deleted, all resources and the data will be permanently deleted.Please enter your password to confirm that you want to permanently delete your account.') }}</small>
+                {{ __('Are you sure you want to delete your account?After your account is deleted, all resources and the data will be permanently deleted.Please enter your password to confirm that you want to permanently delete your account.') }}
 
                 <div class="mt-2 w-md-75" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-jet-input type="password" class="{{ $errors->has('password') ? 'is-invalid' : '' }}" placeholder="{{ __('Password') }}" x-ref="password" wire:model.defer="password" wire:keydown.enter="deleteUser" />

@@ -47,7 +47,7 @@
         <div class="mt-3">
             @if (! $this->enabled)
                 <x-jet-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-jet-button class="d-flex align-items-center justify-content-center" type="button" wire:loading.attr="disabled">
+                    <x-jet-button class="btn-block d-flex align-items-center justify-content-center" type="button" wire:loading.attr="disabled">
                         <span wire:loading class="spinner-border spinner-border-sm mr-2" role="status"></span>
                         {{ __('Activate') }}
                     </x-jet-button>

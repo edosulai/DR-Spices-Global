@@ -2833,16 +2833,14 @@ $border-color_1: transparent transparent #eaeaea transparent;
             .content-wrapper {
                 .main {
                     .group-image-special {
-                        .col-lg-6.col-md-6 {
-                            &:first-child {
-                                padding-left: 15px !important;
-                                padding-right: 15px !important;
-                            }
+                        &:first-child {
+                            padding-left: 15px !important;
+                            padding-right: 15px !important;
+                        }
 
-                            &:last-child {
-                                padding-right: 15px !important;
-                                padding-left: 15px !important;
-                            }
+                        &:last-child {
+                            padding-right: 15px !important;
+                            padding-left: 15px !important;
                         }
                     }
 
@@ -2959,10 +2957,8 @@ $border-color_1: transparent transparent #eaeaea transparent;
                 margin: 0;
 
                 .form-fields {
-                    .col-md-6 {
-                        &:first-child {
-                            margin-bottom: 1rem;
-                        }
+                    &:first-child {
+                        margin-bottom: 1rem;
                     }
                 }
             }
