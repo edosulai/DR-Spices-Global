@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('traces', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
+            // $table->uuid('id')->primary();
             $table->foreignUuid('request_buy_id')->constrained('request_buys')->onDelete('cascade');
             $table->foreignUuid('status_id')->constrained('statuses')->onDelete('cascade');
             $table->timestamps();

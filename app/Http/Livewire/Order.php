@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\RequestBuy;
 use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Order extends Component
@@ -30,8 +31,10 @@ class Order extends Component
     public function mount()
     {
         $this->orders = RequestBuy::where('user_id', Auth::id())
-            ->join('statuses', 'request_buys.status_id', '=', 'statuses.id')
-            ->selectRaw('request_buys.*, statuses.nama as statuses_nama, IF(statuses.nama=\'Delivered\', true, false) as need_rate')
+            ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
+            ->join('statuses', 'traces.status_id', '=', 'statuses.id')
+            ->selectRaw('request_buys.*, MAX(traces.id) as traces_id, MAX(statuses.nama) as statuses_nama')
+            ->groupBy('request_buys.id')
             ->latest()
             ->get();
 

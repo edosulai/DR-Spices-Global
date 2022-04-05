@@ -15,15 +15,15 @@ class Trace extends Model
         'status_id',
     ];
 
-    protected $keyType = 'string';
+    // protected $keyType = 'string';
 
-    public $incrementing = false;
+    // public $incrementing = false;
 
-    protected static function boot()
-    {
-        parent::boot();
-        static::creating(function ($model) {
-            $model->setAttribute($model->getKeyName(), Uuid::uuid4());
-        });
-    }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+    //     static::creating(function ($model) {
+    //         $model->setAttribute($model->getKeyName(), Uuid::uuid4());
+    //     });
+    // }
 }
