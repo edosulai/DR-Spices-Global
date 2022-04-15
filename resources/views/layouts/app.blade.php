@@ -20,30 +20,15 @@
 </head>
 
 <body id="page-top">
-
-    
     <div id="wrapper">
-        
         @livewire('navigation-menu')
-        
-
-        
         <div id="content-wrapper" class="d-flex flex-column">
-
-            
             <div id="content">
-
-                
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-                    
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    
                     <ul class="navbar-nav ml-auto">
-
                         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <x-jet-dropdown id="teamManagementDropdown">
                             <x-slot name="trigger">
@@ -53,14 +38,11 @@
                                     <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </x-slot>
-
                             <x-slot name="content">
-                                
                                 <h6 class="dropdown-header">
                                     {{ __('Manage Team') }}
                                 </h6>
 
-                                
                                 <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                     {{ __('Team Settings') }}
                                 </x-jet-dropdown-link>
@@ -73,7 +55,6 @@
 
                                 <hr class="dropdown-divider">
 
-                                
                                 <h6 class="dropdown-header">
                                     {{ __('Switch Teams') }}
                                 </h6>
@@ -87,7 +68,6 @@
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -99,7 +79,7 @@
                                 </svg>
                                 @endif
                             </a>
-                            
+
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -120,22 +100,15 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
-
                 </nav>
-                
 
-                
                 <div class="container-fluid">
                     {{ $slot }}
                 </div>
-                
 
             </div>
-            
 
-            
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
@@ -143,14 +116,10 @@
                     </div>
                 </div>
             </footer>
-            
 
         </div>
-        
-
     </div>
 
-    
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
@@ -172,6 +141,8 @@
             </div>
         </div>
     </div>
+
+    <x-pre-loader />
 
     <script src="{{ mix('js/app.js') }}" defer></script>
 

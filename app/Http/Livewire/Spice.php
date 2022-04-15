@@ -41,7 +41,7 @@ class Spice extends Component
 
     public function openSpiceModal($id = null)
     {
-        if (is_int($id)) {
+        if ($id) {
             $spice = ModelsSpice::find($id);
             if (!$spice) return;
             $this->id_spice = $spice->id;
@@ -65,13 +65,13 @@ class Spice extends Component
 
     public function openDeleteSpiceModal($id)
     {
-        if (is_int($id)) {
+        if ($id) {
             $spice = ModelsSpice::find($id);
             if (!$spice) return;
             $this->id_spice = $spice->id;
             $this->nama = $spice->nama;
         }
-        
+
         $this->deleteSpiceModalConfirm = true;
     }
 

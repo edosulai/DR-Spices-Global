@@ -1,4 +1,6 @@
 require('./bootstrap')
+require('../vendor/jquery/jquery.min.js')
+require('../vendor/jasonday-printThis/printThis.js')
 require('../vendor/bootstrap/js/bootstrap.bundle.js')
 require('../vendor/nivo-slider/js/jquery.nivo.slider.js')
 require('../vendor/owl-carousel/owl.carousel.min.js')
@@ -18,80 +20,98 @@ window.Alpine = Alpine
 
 Alpine.start()
 
+$('#cetak').on('click', function () {
+    $('table').printThis({
+        debug: false,
+        printContainer: true,
+        pageTitle: "Rekap Data {{ $title }}",
+        printDelay: 666,
+        header: `<h3 class="text-gray-800 mb-4">Rekap Data {{ $title }}</h3>`,
+        footer: $('footer'),
+        base: false,                // preserve the BASE tag or accept a string for the URL
+        formValues: true,           // preserve input/form values
+        canvas: false,              // copy canvas content
+        removeScripts: false,       // remove script tags from print content
+        copyTagClasses: false,      // copy classes from the html & body tag
+        beforePrintEvent: null,     // function for printEvent in iframe
+        beforePrint: null,          // function called before iframe is filled
+        afterPrint: null            // function called before iframe is removed
+    })
+})
+
 $("#sidebarToggle, #sidebarToggleTop").on('click', function (e) {
-  $("body").toggleClass("sidebar-toggled")
-  $(".sidebar").toggleClass("toggled")
-  if ($(".sidebar").hasClass("toggled")) {
-    $('.sidebar .collapse').collapse('hide')
-  };
+    $("body").toggleClass("sidebar-toggled")
+    $(".sidebar").toggleClass("toggled")
+    if ($(".sidebar").hasClass("toggled")) {
+        $('.sidebar .collapse').collapse('hide')
+    };
 })
 
 $(window).resize(function () {
-  if ($(window).width() < 768) {
-    $('.sidebar .collapse').collapse('hide')
-  };
+    if ($(window).width() < 768) {
+        $('.sidebar .collapse').collapse('hide')
+    };
 
-  // Toggle the side navigation when window is resized below 480px
-  if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
-    $("body").addClass("sidebar-toggled")
-    $(".sidebar").addClass("toggled")
-    $('.sidebar .collapse').collapse('hide')
-  };
+    if ($(window).width() < 480 && !$(".sidebar").hasClass("toggled")) {
+        $("body").addClass("sidebar-toggled")
+        $(".sidebar").addClass("toggled")
+        $('.sidebar .collapse').collapse('hide')
+    };
 })
 
 $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function (e) {
-  if ($(window).width() > 768) {
-    let e0 = e.originalEvent,
-      delta = e0.wheelDelta || -e0.detail
-    this.scrollTop += (delta < 0 ? 1 : -1) * 30
-    e.preventDefault()
-  }
+    if ($(window).width() > 768) {
+        let e0 = e.originalEvent,
+            delta = e0.wheelDelta || -e0.detail
+        this.scrollTop += (delta < 0 ? 1 : -1) * 30
+        e.preventDefault()
+    }
 })
 
 $(document).on('scroll', function () {
-  let scrollDistance = $(this).scrollTop()
-  if (scrollDistance > 100) {
-    $('.scroll-to-top').fadeIn()
-  } else {
-    $('.scroll-to-top').fadeOut()
-  }
+    let scrollDistance = $(this).scrollTop()
+    if (scrollDistance > 100) {
+        $('.scroll-to-top').fadeIn()
+    } else {
+        $('.scroll-to-top').fadeOut()
+    }
 })
 
 $(document).on('click', 'a.scroll-to-top', function (e) {
-  let $anchor = $(this)
-  $('html, body').stop().animate({
-    scrollTop: ($($anchor.attr('href')).offset().top)
-  }, 1000, 'easeInOutExpo')
-  e.preventDefault()
+    let $anchor = $(this)
+    $('html, body').stop().animate({
+        scrollTop: ($($anchor.attr('href')).offset().top)
+    }, 1000, 'easeInOutExpo')
+    e.preventDefault()
 })
 
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
 Chart.defaults.global.defaultFontColor = '#858796'
 
 window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
-  let chart = window[chartId].chart
-  chart.data.datasets.forEach((dataset, key) => {
-    dataset.data = datasets[key]
-  })
-  chart.data.labels = labels
-  chart.update()
+    let chart = window[chartId].chart
+    chart.data.datasets.forEach((dataset, key) => {
+        dataset.data = datasets[key]
+    })
+    chart.data.labels = labels
+    chart.update()
 })
 
 $(".back-to-top").hide()
 
 $(window).on("scroll", function () {
-  if ($(this).scrollTop() > 400) {
-    $(".back-to-top").fadeIn()
-  } else {
-    $(".back-to-top").fadeOut()
-  }
-  return false
+    if ($(this).scrollTop() > 400) {
+        $(".back-to-top").fadeIn()
+    } else {
+        $(".back-to-top").fadeOut()
+    }
+    return false
 })
 
 $(".back-to-top a").on("click", function (e) {
-  e.preventDefault()
-  $("html, body").animate({ scrollTop: 0 }, 600)
-  return false
+    e.preventDefault()
+    $("html, body").animate({ scrollTop: 0 }, 600)
+    return false
 })
 
 // setInterval(function () {
@@ -126,13 +146,13 @@ $(".back-to-top a").on("click", function (e) {
 $(".tiva-slideshow").nivoSlider({ effect: "random", animSpeed: 1e3, pauseTime: 5e3, directionNav: true, controlNav: true, pauseOnHover: true })
 
 $("ul.menu").on("click", ".more", function () {
-  if ($(this).hasClass("hide")) {
-    $(this).text("show more").removeClass(".hide")
-  } else {
-    $(this).text("hide").addClass("hide")
-  }
+    if ($(this).hasClass("hide")) {
+        $(this).text("show more").removeClass(".hide")
+    } else {
+        $(this).text("hide").addClass("hide")
+    }
 
-  $(this).siblings("li.toggleable").slideToggle()
+    $(this).siblings("li.toggleable").slideToggle()
 })
 
 $(".category-product").owlCarousel({ loop: false, autoplaytimeout: 6e3, margin: 30, autoplay: false, dots: false, autoplayHoverPause: true, responsiveClass: true, nav: true, responsive: { 0: { items: 1, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 600: { items: 3, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] }, 1e3: { items: 4, navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>", "<i class='fa fa-angle-right' aria-hidden='true'></i>"] } } })
@@ -190,5 +210,5 @@ $(".close-box").on("click", function () { $("#mobile-pagemenu").removeClass("act
 // }
 
 $(document).on('click', function () {
-  $('.collapse').collapse('hide')
+    $('.collapse').collapse('hide')
 })

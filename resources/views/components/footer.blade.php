@@ -8,9 +8,11 @@
           <div class="tiva-html col-lg-4 col-md-12 col-xs-12">
             <div class="block">
               <div class="block-content">
-                <p class="logo-footer">
-                  <img src="{{ $logo }}" alt="img">
-                </p>
+                <a href="{{ route('home') }}" class="logo-footer">
+                    {{-- <x-jet-application-mark width="36" class="text-black" /> --}}
+                    {{-- <span class="text-truncate h5 ml-3">{{ config('app.name', 'Laravel') }}</span> --}}
+                    <img src="{{ $logo }}" alt="img">
+                </a>
                 <p class="content-logo">{{ $short }}</p>
               </div>
             </div>

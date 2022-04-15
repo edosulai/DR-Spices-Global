@@ -2,28 +2,7 @@
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
-        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="cetak"><i class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</button>
-
-        <script>
-            $('#cetak').on('click', function() {
-                $('#main_dash').printThis({
-                    debug: false,
-                    printContainer: true,
-                    pageTitle: "Rekap Data {{ $title }}",
-                    printDelay: 666,
-                    header: `<h3 class="text-gray-800 mb-4">Rekap Data {{ $title }}</h3>`,
-                    footer: $('footer'),
-                    base: false,                // preserve the BASE tag or accept a string for the URL
-                    formValues: true,           // preserve input/form values
-                    canvas: true,
-                    removeScripts: false,       // remove script tags from print content
-                    copyTagClasses: false,      // copy classes from the html & body tag
-                    beforePrintEvent: null,     // function for printEvent in iframe
-                    beforePrint: null,          // function called before iframe is filled
-                    afterPrint: null            // function called before iframe is removed
-                });
-            });
-        </script>
+        {{-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="cetak"><i class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</button> --}}
 
     </div>
 
@@ -95,10 +74,10 @@
         </div>
 
         <div class="row">
-            
+
             <div class="col-lg-8 col-md-12">
                 <div class="card shadow mb-4">
-                    
+
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                         <div class="dropdown no-arrow">
@@ -114,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card-body text-center">
                         <div class="chart-area" style="height: auto">
                             @livewire('earning')
@@ -123,10 +102,10 @@
                 </div>
             </div>
 
-            
+
             <div class="col-lg-4 col-md-12">
                 <div class="card shadow mb-4">
-                    
+
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Stock Sources</h6>
                         <div class="dropdown no-arrow">
@@ -142,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="card-body text-center">
                         <div class="chart-area" style="height: auto">
                             @livewire('stock')

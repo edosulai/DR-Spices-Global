@@ -23,7 +23,7 @@ class SpiceTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
+            Column::make('No.', 'no')->sortable()->addClass('w-7'),
             Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-15'),
             Column::make('Harga Jual', 'hrg_jual')->sortable()->searchable()->addClass('w-15'),
             Column::make('Stok', 'stok')->sortable()->searchable()->addClass('w-10'),

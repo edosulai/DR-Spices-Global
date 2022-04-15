@@ -8,12 +8,6 @@
                     {{ __('Tambah Data Rempah') }}
                 </x-slot>
 
-                <x-slot name="close">
-                    <x-jet-secondary-button wire:click="$toggle('requestBuyModal')" wire:loading.attr="disabled">
-                        {{ __('x') }}
-                    </x-jet-secondary-button>
-                </x-slot>
-
                 <x-slot name="content">
 
                     <div class="mb-3">
@@ -42,9 +36,9 @@
 
                     <div class="mb-3">
                         <x-jet-label class="small" for="status_id" value="{{ __('Status Pengiriman') }}" />
-                        <select class="form-control {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model="status_id" id="status_id" autocomplete="status_id">
+                        <select class="form-control form-control-user {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model="status_id" id="status_id" autocomplete="status_id">
                             @foreach ($statuses as $status)
-                            <option value="{!! $status->id !!}" wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected' : '' !!}>{{ $status->nama }}</option>
+                            <option wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected="selected"' : '' !!}>{{ $status->nama }}</option>
                             @endforeach
                         </select>
                         <x-jet-input-error for="status_id" />

@@ -36,7 +36,7 @@ class Status extends Component
 
     public function openStatusModal($id = null)
     {
-        if (is_int($id)) {
+        if ($id) {
             $status = ModelsStatus::find($id);
             if (!$status) return;
             $this->id_status = $status->id;
@@ -56,13 +56,13 @@ class Status extends Component
 
     public function openDeleteStatusModal($id)
     {
-        if (is_int($id)) {
+        if ($id) {
             $status = ModelsStatus::find($id);
             if (!$status) return;
             $this->id_status = $status->id;
             $this->nama = $status->nama;
         }
-        
+
         $this->deleteStatusModalConfirm = true;
     }
 

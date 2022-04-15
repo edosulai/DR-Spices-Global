@@ -12,7 +12,7 @@
                 ]" />
             </div>
 
-            
+
             <div class="wrapper-site">
                 <div class="content-wrapper full-width">
                     <div class="main">
@@ -79,7 +79,7 @@
 
         <x-footer />
 
-        <x-pre-loader />
+
 
         <x-back-top />
 

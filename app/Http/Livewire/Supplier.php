@@ -38,7 +38,7 @@ class Supplier extends Component
 
     public function openSupplierModal($id = null)
     {
-        if (is_int($id)) {
+        if ($id) {
             $supplier = ModelsSupplier::find($id);
             if (!$supplier) return;
             $this->id_supplier = $supplier->id;
@@ -60,13 +60,13 @@ class Supplier extends Component
 
     public function openDeleteSupplierModal($id)
     {
-        if (is_int($id)) {
+        if ($id) {
             $supplier = ModelsSupplier::find($id);
             if (!$supplier) return;
             $this->id_supplier = $supplier->id;
             $this->nama = $supplier->nama;
         }
-        
+
         $this->deleteSupplierModalConfirm = true;
     }
 

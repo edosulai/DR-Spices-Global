@@ -36,7 +36,7 @@
                 <div class="col-lg-9 mt-5 mt-lg-0">
                   <div class="tab-content" id="myaccountContent">
 
-                    <div class="tab-pane fade" id="account-info" role="tabpanel">
+                    <div class="tab-pane fade show active" id="account-info" role="tabpanel">
                       <div class="myaccount-content">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
                           <h1 class="h3 mb-0 text-gray-800">{{ __('Account Details') }}</h1>
@@ -76,7 +76,7 @@
                       @livewire('address')
                     </div>
 
-                    <div class="tab-pane fade show active" id="orders" role="tabpanel">
+                    <div class="tab-pane fade" id="orders" role="tabpanel">
                       @livewire('order')
                     </div>
 
@@ -95,7 +95,7 @@
 
     <x-footer />
 
-    <x-pre-loader />
+
 
     <x-back-top />
 

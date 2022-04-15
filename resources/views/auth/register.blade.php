@@ -92,7 +92,7 @@
 
         <x-footer />
 
-        <x-pre-loader />
+
 
         <x-back-top />
 

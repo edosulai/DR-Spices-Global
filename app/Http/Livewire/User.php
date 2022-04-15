@@ -46,7 +46,7 @@ class User extends Component
 
     public function openUserModal($id)
     {
-        if (is_int($id)) {
+        if ($id) {
             $user = ModelsUser::find($id);
             if (!$user) return;
             $this->id_user = $user->id;
@@ -63,7 +63,7 @@ class User extends Component
 
     public function openDeleteUserModal($id)
     {
-        if (is_int($id)) {
+        if ($id) {
             $user = ModelsUser::find($id);
             if (!$user) return;
             $this->id_user = $user->id;

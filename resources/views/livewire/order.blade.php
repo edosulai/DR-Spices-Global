@@ -12,7 +12,6 @@
             <div class="col-md-12 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body pt-2">
-
                         <div class="mb-4 d-flex">
                             <div class="mr-auto">
                                 <small class="text-uppercase">Invoice : </small>
@@ -65,7 +64,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -85,7 +83,7 @@
                             <img class="product-image img-fluid" src="{{ $detailOrder ? asset('/storage/images/product/' . $detailOrder->spice_data->image) : '' }}">
                         </div>
                         <div class="col-md-12">
-                            <div class="h5 product-name">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</div>
+                            <h5 class="product-name">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</h5>
                             <div class="product-price">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }} <small>({{ $detailOrder ? $detailOrder->spice_data->unit : '' }})</small></div>
                             <p>Quantity:&nbsp;{{ $detailOrder ? $detailOrder->jumlah : 0 }}</p>
                         </div>
@@ -135,56 +133,111 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    <x-jet-dialog-modal wire:model="detailModal" :maxWidth="'xl'">
+    <x-jet-dialog-modal wire:model="detailModal" :maxWidth="'lg'">
         <x-slot name="title">
-            {{ __('Order Details') }}
+            {{ 'Order Status' }}
+        </x-slot>
+
+        <x-slot name="close">
+            <button type="button" class="close" aria-label="Close" wire:click="$set('detailModal', false)">
+                <i class="fas fa-times"></i>
+            </button>
         </x-slot>
 
         <x-slot name="content">
-            <h6>Order ID: OD45345345435</h6>
-            <article class="card">
+            <div class="card">
                 <div class="card-body row">
-                    <div class="col"> <strong>Estimated Delivery time:</strong> <br>29 nov 2019 </div>
-                    <div class="col"> <strong>Shipping BY:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i> +1598675986 </div>
-                    <div class="col"> <strong>Status:</strong> <br> Picked by the courier </div>
-                    <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
+                    <div class="col">
+                        <strong>Purchase date:</strong>
+                        <br>{{ $detailOrder ? $detailOrder->created_at->format('M d, Y - H:m:s') : '' }}
+                    </div>
+                    <div class="col">
+                        <strong>Status:</strong>
+                        <br>{{ $detailOrder ? $detailOrder->statuses_nama : '' }}
+                    </div>
+                    <div class="col">
+                        <strong>Invoice :</strong>
+                        <br>{{ $detailOrder ? $detailOrder->invoice : '' }}
+                    </div>
                 </div>
-            </article>
+            </div>
             <div class="track">
-                @foreach ($statuses as $status)
+                @foreach ($traceOrder as $trace)
                     <div class="step active">
-                        <span class="icon"><i class="{{ $status->icon }}"></i></span>
-                        <span class="text">{{ $status->nama }}</span>
+                        <span class="icon"><i class="{{ $trace->icon }}"></i></span>
+                        <span class="text">{{ $trace->nama }}</span>
                     </div>
                 @endforeach
             </div>
-            <hr>
-            <ul class="row">
-                <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://i.imgur.com/iDwDQ4o.png" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">Dell Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$950 </span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://i.imgur.com/tVBy5Q0.png" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">HP Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$850 </span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="col-md-4">
-                    <figure class="itemside mb-3">
-                        <div class="aside"><img src="https://i.imgur.com/Bd56jKH.png" class="img-sm border"></div>
-                        <figcaption class="info align-self-center">
-                            <p class="title">ACER Laptop with 500GB HDD <br> 8GB RAM</p> <span class="text-muted">$650 </span>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
+            <div class="row pb-0">
+                <div class="col-6">
+                    <hr>
+                    <h6>{{ __('Product Details') }}</h6>
+                    <hr>
+                </div>
+                <div class="col-6">
+                    <hr>
+                    <h6>{{ __('Shipping Info') }}</h6>
+                    <hr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img class="product-image img-fluid" src="{{ $detailOrder ? asset('/storage/images/product/' . $detailOrder->spice_data->image) : '' }}">
+                                    </div>
+                                    <div class="col-8 row">
+                                        <div class="col-6">
+                                            <div class="mb-2 font-weight-bold">Product Name</div>
+                                            <div class="mb-2 font-weight-bold">Product Price</div>
+                                            <div class="mb-2 font-weight-bold">Units</div>
+                                            <div class="mb-2 font-weight-bold">Quantity</div>
+                                            <div class="mb-2 font-weight-bold">Total Price</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</div>
+                                            <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }}</div>
+                                            <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->unit : '' }}</div>
+                                            <div class="mb-2">{{ $detailOrder ? $detailOrder->jumlah : 0 }}</div>
+                                            <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah, 0, ',', '.') : 0 }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-2 font-weight-bold">Product Name</div>
+                                        <div class="mb-2 font-weight-bold">Product Price</div>
+                                        <div class="mb-2 font-weight-bold">Units</div>
+                                        <div class="mb-2 font-weight-bold">Quantity</div>
+                                        <div class="mb-2 font-weight-bold">Total Price</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</div>
+                                        <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }}</div>
+                                        <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->unit : '' }}</div>
+                                        <div class="mb-2">{{ $detailOrder ? $detailOrder->jumlah : 0 }}</div>
+                                        <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah, 0, ',', '.') : 0 }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </x-slot>
     </x-jet-dialog-modal>
 

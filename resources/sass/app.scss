@@ -25,6 +25,20 @@
 @import "../vendor/slick-slider/css/slick.css";
 // @import "../vendor/slick-slider/css/slick-theme.css";
 
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: white;
+}
+::-webkit-scrollbar-thumb {
+  background: #343434;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5151;
+}
+
 @media print {
     .no-print {
         display: none;
@@ -88,9 +102,6 @@ a {
     scroll-behavior: smooth;
 }
 
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
 .track {
   position: relative;
   background-color: #ddd;
@@ -147,64 +158,5 @@ a {
   .text {
     display: block;
     margin-top: 7px;
-  }
-}
-
-.itemside {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-
-  .aside {
-    position: relative;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-  }
-}
-
-.img-sm {
-  width: 80px;
-  height: 80px;
-  padding: 7px;
-}
-
-ul {
-  &.row, &.row-sm {
-    list-style: none;
-    padding: 0;
-  }
-}
-
-.itemside {
-  .info {
-    padding-left: 15px;
-    padding-right: 7px;
-  }
-
-  .title {
-    display: block;
-    margin-bottom: 5px;
-    color: #212529;
-  }
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.btn-warning {
-  color: #ffffff;
-  background-color: #ee5435;
-  border-color: #ee5435;
-  border-radius: 1px;
-
-  &:hover {
-    color: #ffffff;
-    background-color: #ff2b00;
-    border-color: #ff2b00;
-    border-radius: 1px;
   }
 }

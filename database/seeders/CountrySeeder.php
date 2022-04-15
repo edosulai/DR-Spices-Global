@@ -28,7 +28,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 93,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AL',
                 'name' => 'ALBANIA',
@@ -38,7 +39,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 355,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DZ',
                 'name' => 'ALGERIA',
@@ -48,7 +50,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 213,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AS',
                 'name' => 'AMERICAN SAMOA',
@@ -58,7 +61,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1684,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AD',
                 'name' => 'ANDORRA',
@@ -68,7 +72,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 376,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AO',
                 'name' => 'ANGOLA',
@@ -78,7 +83,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 244,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AI',
                 'name' => 'ANGUILLA',
@@ -88,7 +94,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1264,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AQ',
                 'name' => 'ANTARCTICA',
@@ -98,7 +105,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AG',
                 'name' => 'ANTIGUA AND BARBUDA',
@@ -108,7 +116,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1268,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AR',
                 'name' => 'ARGENTINA',
@@ -118,7 +127,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 54,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AM',
                 'name' => 'ARMENIA',
@@ -128,7 +138,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 374,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AW',
                 'name' => 'ARUBA',
@@ -138,7 +149,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 297,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AU',
                 'name' => 'AUSTRALIA',
@@ -148,7 +160,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 61,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AT',
                 'name' => 'AUSTRIA',
@@ -158,7 +171,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 43,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AZ',
                 'name' => 'AZERBAIJAN',
@@ -168,7 +182,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 994,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BS',
                 'name' => 'BAHAMAS',
@@ -178,7 +193,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1242,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BH',
                 'name' => 'BAHRAIN',
@@ -188,7 +204,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 973,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BD',
                 'name' => 'BANGLADESH',
@@ -198,7 +215,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 880,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BB',
                 'name' => 'BARBADOS',
@@ -208,7 +226,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1246,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BY',
                 'name' => 'BELARUS',
@@ -218,7 +237,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 375,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BE',
                 'name' => 'BELGIUM',
@@ -228,7 +248,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 32,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BZ',
                 'name' => 'BELIZE',
@@ -238,7 +259,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 501,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BJ',
                 'name' => 'BENIN',
@@ -248,7 +270,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 229,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BM',
                 'name' => 'BERMUDA',
@@ -258,7 +281,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1441,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BT',
                 'name' => 'BHUTAN',
@@ -268,7 +292,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 975,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BO',
                 'name' => 'BOLIVIA',
@@ -278,7 +303,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 591,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BA',
                 'name' => 'BOSNIA AND HERZEGOVINA',
@@ -288,7 +314,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 387,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BW',
                 'name' => 'BOTSWANA',
@@ -298,7 +325,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 267,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BV',
                 'name' => 'BOUVET ISLAND',
@@ -308,7 +336,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BR',
                 'name' => 'BRAZIL',
@@ -318,7 +347,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 55,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IO',
                 'name' => 'BRITISH INDIAN OCEAN TERRITORY',
@@ -328,7 +358,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 246,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BN',
                 'name' => 'BRUNEI DARUSSALAM',
@@ -338,7 +369,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 673,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BG',
                 'name' => 'BULGARIA',
@@ -348,7 +380,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 359,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BF',
                 'name' => 'BURKINA FASO',
@@ -358,7 +391,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 226,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'BI',
                 'name' => 'BURUNDI',
@@ -368,7 +402,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 257,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KH',
                 'name' => 'CAMBODIA',
@@ -378,7 +413,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 855,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CM',
                 'name' => 'CAMEROON',
@@ -388,7 +424,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 237,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CA',
                 'name' => 'CANADA',
@@ -398,7 +435,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CV',
                 'name' => 'CAPE VERDE',
@@ -408,7 +446,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 238,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KY',
                 'name' => 'CAYMAN ISLANDS',
@@ -418,7 +457,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1345,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CF',
                 'name' => 'CENTRAL AFRICAN REPUBLIC',
@@ -428,7 +468,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 236,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TD',
                 'name' => 'CHAD',
@@ -438,7 +479,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 235,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CL',
                 'name' => 'CHILE',
@@ -448,7 +490,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 56,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CN',
                 'name' => 'CHINA',
@@ -458,7 +501,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 86,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CX',
                 'name' => 'CHRISTMAS ISLAND',
@@ -468,7 +512,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 61,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CC',
                 'name' => 'COCOS [LING] ISLANDS',
@@ -478,7 +523,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 672,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CO',
                 'name' => 'COLOMBIA',
@@ -488,7 +534,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 57,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KM',
                 'name' => 'COMOROS',
@@ -498,7 +545,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 269,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CG',
                 'name' => 'CONGO',
@@ -508,7 +556,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 242,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CD',
                 'name' => 'CONGO, THE DEMOCRATIC REPUBLIC OF THE',
@@ -518,7 +567,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 242,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CK',
                 'name' => 'COOK ISLANDS',
@@ -528,7 +578,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 682,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CR',
                 'name' => 'COSTA RICA',
@@ -538,7 +589,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 506,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CI',
                 'name' => "COTE D''IVOIRE",
@@ -548,7 +600,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 225,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HR',
                 'name' => 'CROATIA',
@@ -558,7 +611,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 385,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CU',
                 'name' => 'CUBA',
@@ -568,7 +622,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 53,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CY',
                 'name' => 'CYPRUS',
@@ -578,7 +633,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 357,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CZ',
                 'name' => 'CZECH REPUBLIC',
@@ -588,7 +644,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 420,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DK',
                 'name' => 'DENMARK',
@@ -598,7 +655,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 45,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DJ',
                 'name' => 'DJIBOUTI',
@@ -608,7 +666,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 253,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DM',
                 'name' => 'DOMINICA',
@@ -618,7 +677,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1767,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DO',
                 'name' => 'DOMINICAN REPUBLIC',
@@ -628,7 +688,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1809,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'EC',
                 'name' => 'ECUADOR',
@@ -638,7 +699,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 593,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'EG',
                 'name' => 'EGYPT',
@@ -648,7 +710,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 20,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SV',
                 'name' => 'EL SALVADOR',
@@ -658,7 +721,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 503,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GQ',
                 'name' => 'EQUATORIAL GUINEA',
@@ -668,7 +732,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 240,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ER',
                 'name' => 'ERITREA',
@@ -678,7 +743,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 291,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'EE',
                 'name' => 'ESTONIA',
@@ -688,7 +754,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 372,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ET',
                 'name' => 'ETHIOPIA',
@@ -698,7 +765,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 251,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FK',
                 'name' => 'FALKLAND ISLANDS [VINAS]',
@@ -708,7 +776,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 500,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FO',
                 'name' => 'FAROE ISLANDS',
@@ -718,7 +787,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 298,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FJ',
                 'name' => 'FIJI',
@@ -728,7 +798,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 679,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FI',
                 'name' => 'FINLAND',
@@ -738,7 +809,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 358,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FR',
                 'name' => 'FRANCE',
@@ -748,7 +820,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 33,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GF',
                 'name' => 'FRENCH GUIANA',
@@ -758,7 +831,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 594,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PF',
                 'name' => 'FRENCH POLYNESIA',
@@ -768,7 +842,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 689,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TF',
                 'name' => 'FRENCH SOUTHERN TERRITORIES',
@@ -778,7 +853,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GA',
                 'name' => 'GABON',
@@ -788,7 +864,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 241,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GM',
                 'name' => 'GAMBIA',
@@ -798,7 +875,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 220,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GE',
                 'name' => 'GEORGIA',
@@ -808,7 +886,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 995,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'DE',
                 'name' => 'GERMANY',
@@ -818,7 +897,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 49,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GH',
                 'name' => 'GHANA',
@@ -828,7 +908,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 233,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GI',
                 'name' => 'GIBRALTAR',
@@ -838,7 +919,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 350,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GR',
                 'name' => 'GREECE',
@@ -848,7 +930,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 30,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GL',
                 'name' => 'GREENLAND',
@@ -858,7 +941,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 299,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GD',
                 'name' => 'GRENADA',
@@ -868,7 +952,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1473,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GP',
                 'name' => 'GUADELOUPE',
@@ -878,7 +963,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 590,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GU',
                 'name' => 'GUAM',
@@ -888,7 +974,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1671,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GT',
                 'name' => 'GUATEMALA',
@@ -898,7 +985,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 502,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GN',
                 'name' => 'GUINEA',
@@ -908,7 +996,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 224,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GW',
                 'name' => 'GUINEA-BISSAU',
@@ -918,7 +1007,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 245,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GY',
                 'name' => 'GUYANA',
@@ -928,7 +1018,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 592,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HT',
                 'name' => 'HAITI',
@@ -938,7 +1029,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 509,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HM',
                 'name' => 'HEARD ISLAND AND MCDONALD ISLANDS',
@@ -948,7 +1040,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VA',
                 'name' => 'HOLY SEE [ICAN CITY STATE]',
@@ -958,7 +1051,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 39,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HN',
                 'name' => 'HONDURAS',
@@ -968,7 +1062,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 504,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HK',
                 'name' => 'HONG KONG',
@@ -978,7 +1073,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 852,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'HU',
                 'name' => 'HUNGARY',
@@ -988,7 +1084,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 36,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IS',
                 'name' => 'ICELAND',
@@ -998,7 +1095,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 354,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IN',
                 'name' => 'INDIA',
@@ -1008,7 +1106,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 91,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ID',
                 'name' => 'INDONESIA',
@@ -1018,7 +1117,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 62,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IR',
                 'name' => 'IRAN, ISLAMIC REPUBLIC OF',
@@ -1028,7 +1128,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 98,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IQ',
                 'name' => 'IRAQ',
@@ -1038,7 +1139,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 964,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IE',
                 'name' => 'IRELAND',
@@ -1048,7 +1150,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 353,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IL',
                 'name' => 'ISRAEL',
@@ -1058,7 +1161,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 972,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'IT',
                 'name' => 'ITALY',
@@ -1068,7 +1172,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 39,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'JM',
                 'name' => 'JAMAICA',
@@ -1078,7 +1183,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1876,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'JP',
                 'name' => 'JAPAN',
@@ -1088,7 +1194,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 81,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'JO',
                 'name' => 'JORDAN',
@@ -1098,7 +1205,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 962,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KZ',
                 'name' => 'KAZAKHSTAN',
@@ -1108,7 +1216,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 7,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KE',
                 'name' => 'KENYA',
@@ -1118,7 +1227,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 254,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KI',
                 'name' => 'KIRIBATI',
@@ -1128,7 +1238,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 686,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KP',
                 'name' => "KOREA, DEMOCRATIC PEOPLE''S REPUBLIC OF",
@@ -1138,7 +1249,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 850,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KR',
                 'name' => 'KOREA, REPUBLIC OF',
@@ -1148,7 +1260,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 82,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KW',
                 'name' => 'KUWAIT',
@@ -1158,7 +1271,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 965,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KG',
                 'name' => 'KYRGYZSTAN',
@@ -1168,7 +1282,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 996,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LA',
                 'name' => "LAO PEOPLE''S DEMOCRATIC REPUBLIC",
@@ -1178,7 +1293,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 856,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LV',
                 'name' => 'LATVIA',
@@ -1188,7 +1304,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 371,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LB',
                 'name' => 'LEBANON',
@@ -1198,7 +1315,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 961,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LS',
                 'name' => 'LESOTHO',
@@ -1208,7 +1326,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 266,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LR',
                 'name' => 'LIBERIA',
@@ -1218,7 +1337,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 231,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LY',
                 'name' => 'LIBYAN ARAB JAMAHIRIYA',
@@ -1228,7 +1348,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 218,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LI',
                 'name' => 'LIECHTENSTEIN',
@@ -1238,7 +1359,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 423,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LT',
                 'name' => 'LITHUANIA',
@@ -1248,7 +1370,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 370,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LU',
                 'name' => 'LUXEMBOURG',
@@ -1258,7 +1381,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 352,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MO',
                 'name' => 'MACAO',
@@ -1268,7 +1392,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 853,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MK',
                 'name' => 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF',
@@ -1278,7 +1403,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 389,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MG',
                 'name' => 'MADAGASCAR',
@@ -1288,7 +1414,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 261,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MW',
                 'name' => 'MALAWI',
@@ -1298,7 +1425,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 265,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MY',
                 'name' => 'MALAYSIA',
@@ -1308,7 +1436,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 60,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MV',
                 'name' => 'MALDIVES',
@@ -1318,7 +1447,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 960,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ML',
                 'name' => 'MALI',
@@ -1328,7 +1458,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 223,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MT',
                 'name' => 'MALTA',
@@ -1338,7 +1469,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 356,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MH',
                 'name' => 'MARSHALL ISLANDS',
@@ -1348,7 +1480,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 692,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MQ',
                 'name' => 'MARTINIQUE',
@@ -1358,7 +1491,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 596,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MR',
                 'name' => 'MAURITANIA',
@@ -1368,7 +1502,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 222,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MU',
                 'name' => 'MAURITIUS',
@@ -1378,7 +1513,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 230,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'YT',
                 'name' => 'MAYOTTE',
@@ -1388,7 +1524,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 269,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MX',
                 'name' => 'MEXICO',
@@ -1398,7 +1535,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 52,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'FM',
                 'name' => 'MICRONESIA, FEDERATED STATES OF',
@@ -1408,7 +1546,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 691,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MD',
                 'name' => 'MOLDOVA, REPUBLIC OF',
@@ -1418,7 +1557,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 373,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MC',
                 'name' => 'MONACO',
@@ -1428,7 +1568,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 377,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MN',
                 'name' => 'MONGOLIA',
@@ -1438,7 +1579,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 976,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MS',
                 'name' => 'MONTSERRAT',
@@ -1448,7 +1590,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1664,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MA',
                 'name' => 'MOROCCO',
@@ -1458,7 +1601,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 212,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MZ',
                 'name' => 'MOZAMBIQUE',
@@ -1468,7 +1612,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 258,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MM',
                 'name' => 'MYANMAR',
@@ -1478,7 +1623,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 95,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NA',
                 'name' => 'NAMIBIA',
@@ -1488,7 +1634,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 264,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NR',
                 'name' => 'NAURU',
@@ -1498,7 +1645,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 674,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NP',
                 'name' => 'NEPAL',
@@ -1508,7 +1656,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 977,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NL',
                 'name' => 'NETHERLANDS',
@@ -1518,7 +1667,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 31,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AN',
                 'name' => 'NETHERLANDS ANTILLES',
@@ -1528,7 +1678,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 599,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NC',
                 'name' => 'NEW CALEDONIA',
@@ -1538,7 +1689,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 687,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NZ',
                 'name' => 'NEW ZEALAND',
@@ -1548,7 +1700,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 64,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NI',
                 'name' => 'NICARAGUA',
@@ -1558,7 +1711,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 505,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NE',
                 'name' => 'NIGER',
@@ -1568,7 +1722,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 227,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NG',
                 'name' => 'NIGERIA',
@@ -1578,7 +1733,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 234,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NU',
                 'name' => 'NIUE',
@@ -1588,7 +1744,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 683,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NF',
                 'name' => 'NORFOLK ISLAND',
@@ -1598,7 +1755,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 672,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'MP',
                 'name' => 'NORTHERN MARIANA ISLANDS',
@@ -1608,7 +1766,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1670,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'NO',
                 'name' => 'NORWAY',
@@ -1618,7 +1777,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 47,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'OM',
                 'name' => 'OMAN',
@@ -1628,7 +1788,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 968,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PK',
                 'name' => 'PAKISTAN',
@@ -1638,7 +1799,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 92,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PW',
                 'name' => 'PALAU',
@@ -1648,7 +1810,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 680,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PS',
                 'name' => 'PALESTINIAN TERRITORY, OCCUPIED',
@@ -1658,7 +1821,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 970,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PA',
                 'name' => 'PANAMA',
@@ -1668,7 +1832,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 507,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PG',
                 'name' => 'PAPUA NEW GUINEA',
@@ -1678,7 +1843,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 675,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PY',
                 'name' => 'PARAGUAY',
@@ -1688,7 +1854,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 595,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PE',
                 'name' => 'PERU',
@@ -1698,7 +1865,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 51,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PH',
                 'name' => 'PHILIPPINES',
@@ -1708,7 +1876,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 63,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PN',
                 'name' => 'PITCAIRN',
@@ -1718,7 +1887,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PL',
                 'name' => 'POLAND',
@@ -1728,7 +1898,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 48,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PT',
                 'name' => 'PORTUGAL',
@@ -1738,7 +1909,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 351,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PR',
                 'name' => 'PUERTO RICO',
@@ -1748,7 +1920,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1787,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'QA',
                 'name' => 'QATAR',
@@ -1758,7 +1931,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 974,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'RE',
                 'name' => 'REUNION',
@@ -1768,7 +1942,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 262,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'RO',
                 'name' => 'ROMANIA',
@@ -1778,7 +1953,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 40,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'RU',
                 'name' => 'RUSSIAN FEDERATION',
@@ -1788,7 +1964,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 70,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'RW',
                 'name' => 'RWANDA',
@@ -1798,7 +1975,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 250,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SH',
                 'name' => 'SAINT HELENA',
@@ -1808,7 +1986,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 290,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'KN',
                 'name' => 'SAINT KITTS AND NEVIS',
@@ -1818,7 +1997,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1869,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LC',
                 'name' => 'SAINT LUCIA',
@@ -1828,7 +2008,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1758,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'PM',
                 'name' => 'SAINT PIERRE AND MIQUELON',
@@ -1838,7 +2019,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 508,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VC',
                 'name' => 'SAINT VINCENT AND THE GRENADINES',
@@ -1848,7 +2030,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1784,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'WS',
                 'name' => 'SAMOA',
@@ -1858,7 +2041,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 684,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SM',
                 'name' => 'SAN MARINO',
@@ -1868,7 +2052,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 378,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ST',
                 'name' => 'SAO TOME AND PRINCIPE',
@@ -1878,7 +2063,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 239,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SA',
                 'name' => 'SAUDI ARABIA',
@@ -1888,7 +2074,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 966,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SN',
                 'name' => 'SENEGAL',
@@ -1898,7 +2085,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 221,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CS',
                 'name' => 'SERBIA AND MONTENEGRO',
@@ -1908,7 +2096,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 381,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SC',
                 'name' => 'SEYCHELLES',
@@ -1918,7 +2107,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 248,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SL',
                 'name' => 'SIERRA LEONE',
@@ -1928,7 +2118,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 232,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SG',
                 'name' => 'SINGAPORE',
@@ -1938,7 +2129,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 65,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SK',
                 'name' => 'SLOVAKIA',
@@ -1948,7 +2140,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 421,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SI',
                 'name' => 'SLOVENIA',
@@ -1958,7 +2151,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 386,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SB',
                 'name' => 'SOLOMON ISLANDS',
@@ -1968,7 +2162,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 677,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SO',
                 'name' => 'SOMALIA',
@@ -1978,7 +2173,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 252,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ZA',
                 'name' => 'SOUTH AFRICA',
@@ -1988,7 +2184,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 27,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GS',
                 'name' => 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS',
@@ -1998,7 +2195,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ES',
                 'name' => 'SPAIN',
@@ -2008,7 +2206,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 34,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'LK',
                 'name' => 'SRI LANKA',
@@ -2018,7 +2217,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 94,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SD',
                 'name' => 'SUDAN',
@@ -2028,7 +2228,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 249,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SR',
                 'name' => 'SURINAME',
@@ -2038,7 +2239,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 597,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SJ',
                 'name' => 'SVALBARD AND JAN MAYEN',
@@ -2048,7 +2250,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 47,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SZ',
                 'name' => 'SWAZILAND',
@@ -2058,7 +2261,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 268,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SE',
                 'name' => 'SWEDEN',
@@ -2068,7 +2272,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 46,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'CH',
                 'name' => 'SWITZERLAND',
@@ -2078,7 +2283,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 41,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'SY',
                 'name' => 'SYRIAN ARAB REPUBLIC',
@@ -2088,7 +2294,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 963,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TW',
                 'name' => 'TAIWAN, PROVINCE OF CHINA',
@@ -2098,7 +2305,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 886,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TJ',
                 'name' => 'TAJIKISTAN',
@@ -2108,7 +2316,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 992,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TZ',
                 'name' => 'TANZANIA, UNITED REPUBLIC OF',
@@ -2118,7 +2327,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 255,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TH',
                 'name' => 'THAILAND',
@@ -2128,7 +2338,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 66,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TL',
                 'name' => 'TIMOR-LESTE',
@@ -2138,7 +2349,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 670,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TG',
                 'name' => 'TOGO',
@@ -2148,7 +2360,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 228,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TK',
                 'name' => 'TOKELAU',
@@ -2158,7 +2371,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 690,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TO',
                 'name' => 'TONGA',
@@ -2168,7 +2382,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 676,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TT',
                 'name' => 'TRINIDAD AND TOBAGO',
@@ -2178,7 +2393,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1868,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TN',
                 'name' => 'TUNISIA',
@@ -2188,7 +2404,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 216,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TR',
                 'name' => 'TURKEY',
@@ -2198,7 +2415,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 90,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TM',
                 'name' => 'TURKMENISTAN',
@@ -2208,7 +2426,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 7370,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TC',
                 'name' => 'TURKS AND CAICOS ISLANDS',
@@ -2218,7 +2437,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1649,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'TV',
                 'name' => 'TUVALU',
@@ -2228,7 +2448,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 688,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'UG',
                 'name' => 'UGANDA',
@@ -2238,7 +2459,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 256,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'UA',
                 'name' => 'UKRAINE',
@@ -2248,7 +2470,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 380,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'AE',
                 'name' => 'UNITED ARAB EMIRATES',
@@ -2258,7 +2481,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 971,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'GB',
                 'name' => 'UNITED KINGDOM',
@@ -2268,7 +2492,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 44,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'US',
                 'name' => 'UNITED STATES',
@@ -2278,7 +2503,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'UM',
                 'name' => 'UNITED STATES MINOR OUTLYING ISLANDS',
@@ -2288,7 +2514,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'UY',
                 'name' => 'URUGUAY',
@@ -2298,7 +2525,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 598,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'UZ',
                 'name' => 'UZBEKISTAN',
@@ -2308,7 +2536,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 998,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VU',
                 'name' => 'VANUATU',
@@ -2318,7 +2547,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 678,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VE',
                 'name' => 'VENEZUELA',
@@ -2328,7 +2558,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 58,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VN',
                 'name' => 'VIET NAM',
@@ -2338,7 +2569,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 84,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VG',
                 'name' => 'VIRGIN ISLANDS, BRITISH',
@@ -2348,7 +2580,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1284,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'VI',
                 'name' => 'VIRGIN ISLANDS, U.S.',
@@ -2358,7 +2591,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 1340,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'WF',
                 'name' => 'WALLIS AND FUTUNA',
@@ -2368,7 +2602,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 681,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'EH',
                 'name' => 'WESTERN SAHARA',
@@ -2378,7 +2613,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 212,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'YE',
                 'name' => 'YEMEN',
@@ -2388,7 +2624,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 967,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ZM',
                 'name' => 'ZAMBIA',
@@ -2398,7 +2635,8 @@ class CountrySeeder extends Seeder
                 'phonecode' => 260,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
-            ], [
+            ],
+            [
                 'id' => Str::orderedUuid(),
                 'iso' => 'ZW',
                 'name' => 'ZIMBABWE',

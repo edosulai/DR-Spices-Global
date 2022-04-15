@@ -53,7 +53,7 @@ class RequestBuyFactory extends Factory
 
             for ($i = 0; $i < $statusSelected; $i++) {
                 $trace[] = [
-                    // 'id' => Str::orderedUuid(),
+                    'id' => Str::orderedUuid(),
                     'request_buy_id' => $request_buy->id,
                     'status_id' => $statuses[$i]->id,
                     'created_at' => Carbon::now()->subDay($statuses->count() - $i),

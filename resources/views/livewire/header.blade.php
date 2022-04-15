@@ -83,6 +83,8 @@
                 <div class="col-sm-2 col-md-2 d-flex align-items-center">
                     <div id="logo">
                         <a href="{{ route('home') }}">
+                            {{-- <x-jet-application-mark width="36" class="text-black" /> --}}
+                            {{-- <span class="text-truncate h6 ml-3">{{ config('app.name', 'Laravel') }}</span> --}}
                             <img class="img-fluid" src="{{ asset('storage/images/home/logo.png') }}" alt="logo">
                         </a>
                     </div>
@@ -228,7 +230,7 @@
             </div>
             <div class="box-content">
                 <nav>
-                    
+
                     <div id="megamenu" class="clearfix">
                         <ul class="menu level1">
                             @foreach ($navs as $nav)

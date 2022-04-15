@@ -34,16 +34,15 @@ class Earning extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $incomes = Income::join('spices', 'incomes.spice_id', '=', 'spices.id')
+        $incomes = Income::join('request_buys', 'incomes.request_buy_id', '=', 'request_buys.id')
             ->whereYear('incomes.created_at', Carbon::now()->year)
             ->whereMonth('incomes.created_at', Carbon::now()->month)
-            ->selectRaw('spices.hrg_jual * incomes.jumlah as income_price, incomes.created_at, incomes.id')
+            ->selectRaw("JSON_EXTRACT(request_buys.spice_data, '$.hrg_jual') * request_buys.jumlah as income_price, incomes.created_at, incomes.id")
             ->get();
 
-        $outcomes = Expenditure::join('spices', 'expenditures.spice_id', '=', 'spices.id')
-            ->whereYear('expenditures.created_at', Carbon::now()->year)
-            ->whereMonth('expenditures.created_at', Carbon::now()->month)
-            ->selectRaw('spices.hrg_jual * expenditures.jumlah as outcome_price, expenditures.id')
+        $outcomes = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, id")
+            ->whereYear('created_at', Carbon::now()->year)
+            ->whereMonth('created_at', Carbon::now()->month)
             ->get();
 
         $labels = $incomes->map(function (Income $income, $key) {
