@@ -19,17 +19,17 @@
         @case(1)
             <span class="badge badge-pill badge-primary">{{ $row->getRoleNames()->first() }}</span>
             @break
-            
+
         @case(2)
             <span class="badge badge-pill badge-secondary">{{ $row->getRoleNames()->first() }}</span>
             @break
-            
+
     @endswitch
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a href="#" class="btn btn-success" wire:click="openModal('{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
-        <a href="#" class="btn btn-danger" wire:click="openDeleteModal('{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
+        <a role="button" class="btn btn-success" wire:click="$emit('userModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
+        <a role="button" class="btn btn-danger" wire:click="$emit('deleteUserModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

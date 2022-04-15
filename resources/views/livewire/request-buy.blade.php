@@ -3,10 +3,8 @@
         <div class="row align-items-center px-3">
             <h6 class="m-0 font-weight-bold text-primary mr-auto">Data {{ $title }}</h6>
 
-            <x-jet-dialog-modal wire:model="requestBuyModal">
-                <x-slot name="title">
-                    {{ __('Tambah Data Rempah') }}
-                </x-slot>
+            <x-jet-dialog-modal wire:model="requestModal">
+                <x-slot name="title">{{ $invoice }}</x-slot>
 
                 <x-slot name="content">
 
@@ -38,7 +36,7 @@
                         <x-jet-label class="small" for="status_id" value="{{ __('Status Pengiriman') }}" />
                         <select class="form-control form-control-user {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model="status_id" id="status_id" autocomplete="status_id">
                             @foreach ($statuses as $status)
-                            <option wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected="selected"' : '' !!}>{{ $status->nama }}</option>
+                            <option value="{{ $status->id }}" wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected disabled' : '' !!}>{{ $status->nama }}</option>
                             @endforeach
                         </select>
                         <x-jet-input-error for="status_id" />
@@ -48,7 +46,7 @@
 
                 <x-slot name="footer">
                     <div class="d-flex">
-                        <x-jet-secondary-button class="mr-2" wire:click="$toggle('requestBuyModal')" wire:loading.attr="disabled">
+                        <x-jet-secondary-button class="mr-2" wire:click="$toggle('requestModal')" wire:loading.attr="disabled">
                             {{ __('Cancel') }}
                         </x-jet-secondary-button>
 

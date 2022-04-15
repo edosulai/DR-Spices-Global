@@ -36,14 +36,4 @@ class SupplierTable extends DataTableComponent
     {
         return 'livewire.supplier-table';
     }
-
-    public function openModal($id = null)
-    {
-        $this->emit('supplierModal', $id);
-    }
-
-    public function openDeleteModal($id)
-    {
-        $this->emit('deleteSupplierModal', $id);
-    }
 }

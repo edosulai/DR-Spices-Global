@@ -35,14 +35,4 @@ class StatusTable extends DataTableComponent
     {
         return 'livewire.status-table';
     }
-
-    public function openModal($id = null)
-    {
-        $this->emit('statusModal', $id);
-    }
-
-    public function openDeleteModal($id)
-    {
-        $this->emit('deleteStatusModal', $id);
-    }
 }

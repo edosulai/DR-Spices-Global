@@ -37,14 +37,4 @@ class UserTable extends DataTableComponent
     {
         return 'livewire.user-table';
     }
-
-    public function openModal($id)
-    {
-        $this->emit('userModal', $id);
-    }
-
-    public function openDeleteModal($id)
-    {
-        $this->emit('deleteUserModal', $id);
-    }
 }

@@ -42,14 +42,4 @@ class SpiceTable extends DataTableComponent
     {
         return 'livewire.spice-table';
     }
-
-    public function openModal($id = null)
-    {
-        $this->emit('spiceModal', $id);
-    }
-
-    public function openDeleteModal($id)
-    {
-        $this->emit('deleteSpiceModal', $id);
-    }
 }

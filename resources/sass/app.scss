@@ -26,17 +26,20 @@
 // @import "../vendor/slick-slider/css/slick-theme.css";
 
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+    width: 7px;
+    height: 7px;
 }
+
 ::-webkit-scrollbar-track {
-  background: white;
+    background: white;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #343434;
+    background: #343434;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff5151;
+    background: #ff5151;
 }
 
 @media print {
@@ -66,24 +69,10 @@
     table-layout: fixed !important;
 }
 
-.w-5 {
-    width: 5% !important;
-}
-
-.w-7 {
-    width: 7% !important;
-}
-
-.w-10 {
-    width: 10% !important;
-}
-
-.w-15 {
-    width: 15% !important;
-}
-
-.w-20 {
-    width: 20% !important;
+@for $i from 1 to 100 {
+    .w-#{$i} {
+        width: #{$i}+'%' !important;
+    }
 }
 
 @media (max-width:767px) {
@@ -103,60 +92,60 @@ a {
 }
 
 .track {
-  position: relative;
-  background-color: #ddd;
-  height: 7px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 60px;
-  margin-top: 50px;
-
-  .step {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    width: 25%;
-    margin-top: -18px;
-    text-align: center;
     position: relative;
+    background-color: #ddd;
+    height: 7px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 60px;
+    margin-top: 50px;
 
-    &.active:before {
-      background: #FF5722;
+    .step {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        width: 25%;
+        margin-top: -18px;
+        text-align: center;
+        position: relative;
+
+        &.active:before {
+            background: #FF5722;
+        }
+
+        &::before {
+            height: 7px;
+            position: absolute;
+            content: "";
+            width: 100%;
+            left: 0;
+            top: 18px;
+        }
+
+        &.active .icon {
+            background: #ee5435;
+            color: #fff;
+        }
     }
 
-    &::before {
-      height: 7px;
-      position: absolute;
-      content: "";
-      width: 100%;
-      left: 0;
-      top: 18px;
+    .icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        border-radius: 100%;
+        background: #ddd;
     }
 
-    &.active .icon {
-      background: #ee5435;
-      color: #fff;
+    .step.active .text {
+        font-weight: 400;
+        color: #000;
     }
-  }
 
-  .icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    position: relative;
-    border-radius: 100%;
-    background: #ddd;
-  }
-
-  .step.active .text {
-    font-weight: 400;
-    color: #000;
-  }
-
-  .text {
-    display: block;
-    margin-top: 7px;
-  }
+    .text {
+        display: block;
+        margin-top: 7px;
+    }
 }
