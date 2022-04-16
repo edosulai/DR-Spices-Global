@@ -12,7 +12,7 @@
                             @foreach ($abouts as $key => $about)
                             @if ($key % 2 == 0)
                             <div class="col-lg-6 col-md-6 col-sm-6 right">
-                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" />
+                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
                             </div>
                             @endif
                             <div class="col-lg-6 col-md-6 col-sm-6 {{ $key % 2 == 0 ? 'left' : 'right' }}">
@@ -25,7 +25,7 @@
                             </div>
                             @if ($key % 2 == 1)
                             <div class="col-lg-6 col-md-6 col-sm-6 left">
-                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" />
+                                <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
                             </div>
                             @endif
                             @endforeach

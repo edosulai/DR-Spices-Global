@@ -5,7 +5,7 @@
         <div class="main-content">
             <x-jumbotron />
             <div class="content-wrapper full-width">
-                <div class="main">
+                <div class="main mt-0">
                     <section class="page-home">
                         <div class="container">
                             <div class="section policy-home col-lg-12 col-xs-12">
