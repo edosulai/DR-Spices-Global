@@ -44,7 +44,7 @@ class ProductDetail extends Component
 
         $this->reviews = Review::where('spice_id', $this->spice->id)
             ->join('users', 'reviews.user_id', '=', 'users.id')
-            ->selectRaw('reviews.*, users.name as user_name')
+            ->selectRaw('reviews.*, users.name as users_name')
             ->get();
 
         $this->spices = Spice::whereNot(fn ($query) => $query->where('spice_id', $this->spice->id))
@@ -82,7 +82,7 @@ class ProductDetail extends Component
 
             $carts = Cart::where('user_id',  Auth::id())
                 ->join('spices', 'carts.spice_id', '=', 'spices.id')
-                ->selectRaw('carts.*, spices.nama as spice_name, spices.hrg_jual as spice_price, spices.image as spice_image')
+                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
                 ->get();
 
             $this->modalSpiceName = $spice->nama;

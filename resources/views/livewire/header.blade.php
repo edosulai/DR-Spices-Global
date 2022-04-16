@@ -23,7 +23,7 @@
                                                 <div class="product-name">
                                                     <a href="{{ $cart['url'] }}">{{ $cart['name'] }}</a>
                                                 </div>
-                                                <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
+                                                <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">{{ currency($cart['price']) }}</span></div>
                                             </td>
                                             <td class="action">
                                                 <a class="remove" href="#" role="button">
@@ -35,9 +35,9 @@
                                         @if ($carts->isNotEmpty())
                                         <tr class="total">
                                             <td colspan="2">Total:</td>
-                                            <td>Rp. {{ number_format($carts->sum(function ($cart) {
+                                            <td>{{ currency($carts->sum(function ($cart) {
                                                 return $cart['qty'] * $cart['price'];
-                                            }), 0, ',', '.') }}</td>
+                                            })) }}</td>
                                         </tr>
                                         @else
                                         <tr>
@@ -165,7 +165,7 @@
                                                     <div class="product-name">
                                                         <a href="{{ $cart['url'] }}">{{ $cart['name'] }}</a>
                                                     </div>
-                                                    <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span></div>
+                                                    <div>({{ $cart['unit'] }}) {{ $cart['qty'] }} x <span class="product-price">{{ currency($cart['price']) }}</span></div>
                                                 </td>
                                                 <td class="action">
                                                     <button class="remove btn p-0"  wire:click="deleteCart('{{ $cart['id'] }}')">
@@ -177,9 +177,9 @@
                                             @if ($carts->isNotEmpty())
                                             <tr class="total">
                                                 <td colspan="2">Total:</td>
-                                                <td>Rp. {{ number_format($carts->sum(function ($cart) {
+                                                <td>{{ currency($carts->sum(function ($cart) {
                                                     return $cart['qty'] * $cart['price'];
-                                                }), 0, ',', '.') }}</td>
+                                                })) }}</td>
                                             </tr>
                                             @else
                                             <tr>

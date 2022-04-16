@@ -73,7 +73,7 @@ class ProductExhibition extends Component
 
             $carts = Cart::where('user_id',  Auth::id())
                 ->join('spices', 'carts.spice_id', '=', 'spices.id')
-                ->selectRaw('carts.*, spices.nama as spice_name, spices.hrg_jual as spice_price, spices.image as spice_image')
+                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
                 ->get();
 
             $this->modalSpiceName = $spice->nama;

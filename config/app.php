@@ -179,6 +179,7 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        \Torann\Currency\CurrencyServiceProvider::class,
     ],
 
     /*
@@ -193,7 +194,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // ...
+        'Currency' => \Torann\Currency\Facades\Currency::class,
     ])->toArray(),
 
 ];

@@ -28,7 +28,7 @@ class SpiceTable extends DataTableComponent
             Column::make('Harga Jual', 'hrg_jual')->sortable()->searchable()->addClass('w-15'),
             Column::make('Stok', 'stok')->sortable()->searchable()->addClass('w-10'),
             Column::make('Keterangan', 'ket')->sortable()->searchable(),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-12'),
         ];
     }
 

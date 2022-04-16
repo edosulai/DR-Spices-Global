@@ -19,7 +19,7 @@
                                     <a class="label" href="{{ $cart['url'] }}">{{ $cart['name'] }}</a>
                                 </div>
                                 <div class="product-line-info product-price">
-                                    <span class="value">Rp. {{ number_format($cart['price'], 0, ',', '.') }}</span>
+                                    <span class="value">{{ currency($cart['price']) }}</span>
                                 </div>
                                 <div class="product-line-info">
                                     <span class="label-atrr">Unit:</span>
@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-md-6 col price">
                                         <div class="label">Total:</div>
-                                        <div class="product-price total">Rp. {{ number_format($cart['price'] * $cart['qty'], 0, ',', '.') }}</div>
+                                        <div class="product-price total">{{ currency($cart['price'] * $cart['qty']) }}</div>
                                     </div>
                                     <div class="col-md-2 col text-xs-right align-self-end">
                                         <div class="cart-line-product-actions ">
@@ -77,9 +77,9 @@
                 @if ($carts->isNotEmpty())
                 <div class="cart-summary-line" id="cart-subtotal-products">
                     <span class="label">Total products:</span>
-                    <span class="value">Rp. {{ number_format($carts->sum(function ($cart) {
+                    <span class="value">{{ currency($carts->sum(function ($cart) {
                         return $cart['qty'] * $cart['price'];
-                    }), 0, ',', '.') }}</span>
+                    })) }}</span>
                 </div>
                 @endif
             </div>

@@ -35,7 +35,7 @@
                                                     </div>
                                                     <div class="product-group-price">
                                                         <div class="product-price-and-shipping">
-                                                            <span class="price">Rp. {{ number_format($spice->hrg_jual, 0, ',', '.') }} <small>({{ $spice->unit }})</small></span>
+                                                            <span class="price">{{ currency($spice->hrg_jual) }} <small>({{ $spice->unit }})</small></span>
                                                             {{-- <del class="regular-price">£28.68</del> --}}
                                                         </div>
                                                     </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="h5 product-name">{{ $modalSpiceName }}</div>
-                                <div class="product-price">Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }} <small>({{ $modalSpiceUnit }})</small></div>
+                                <div class="product-price">{{ $modalSpicePrice ? currency($modalSpicePrice) : 0 }} <small>({{ $modalSpiceUnit }})</small></div>
                                 <p>Quantity:&nbsp;{{ $modalSpiceQty }}</p>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                     <div class="col-md-6">
                         <div class="cart-content">
                             <p class="cart-products-count">There are {{ $modalSpiceCount }} items in your cart.</p>
-                            <p>Total products:&nbsp;Rp. {{ $modalSpiceTotal ? number_format($modalSpiceTotal, 0, ',', '.') : 0 }}</p>
+                            <p>Total products:&nbsp;{{ $modalSpiceTotal ? currency($modalSpiceTotal) : 0 }}</p>
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
                         <div class="product-prices">
                             <div class="product-price">
                                 <div class="current-price">
-                                    <span>Rp. {{ $modalSpicePrice ? number_format($modalSpicePrice, 0, ',', '.') : 0 }} <small>({{ $modalSpiceUnit }})</small></span>
+                                    <span>{{ $modalSpicePrice ? currency($modalSpicePrice) : 0 }} <small>({{ $modalSpiceUnit }})</small></span>
                                 </div>
                             </div>
                         </div>

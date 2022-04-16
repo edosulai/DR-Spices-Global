@@ -7,7 +7,7 @@ use Livewire\Component;
 class Expenditure extends Component
 {
     public $title;
-    
+
     public function render()
     {
         return view('livewire.expenditure');

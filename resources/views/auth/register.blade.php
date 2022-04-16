@@ -58,7 +58,7 @@
                                     </div>
                                     @endif
 
-                                    <div class="clearfix">
+                                    <div class="clearfix my-4">
                                         <div>
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit">{{ __('Create Account') }}</button>
                                         </div>

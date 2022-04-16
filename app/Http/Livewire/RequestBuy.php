@@ -19,8 +19,8 @@ class RequestBuy extends Component
     public $statuses;
 
     public $invoice;
-    public $user_name;
-    public $spice_name;
+    public $users_name;
+    public $spice_nama;
     public $status_id;
     public $jumlah;
     public $created_at;
@@ -42,7 +42,7 @@ class RequestBuy extends Component
     public function openRequestBuyModal($id)
     {
         $requestBuy = ModelsRequestBuy::where('request_buys.id', $id)
-            ->selectRaw("request_buys.*, users.name as user_name, JSON_EXTRACT(request_buys.spice_data, '$.nama') as spice_name, statuses.id as status_id")
+            ->selectRaw("request_buys.*, users.name as users_name, JSON_EXTRACT(request_buys.spice_data, '$.nama') as spice_nama, statuses.id as status_id")
             ->join('users', 'request_buys.user_id', '=', 'users.id')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
@@ -56,8 +56,8 @@ class RequestBuy extends Component
 
         $this->id_requestBuy = $requestBuy->id;
         $this->invoice = $requestBuy->invoice;
-        $this->user_name = $requestBuy->user_name;
-        $this->spice_name = str_replace("\"", '', $requestBuy->spice_name);
+        $this->users_name = $requestBuy->users_name;
+        $this->spice_nama = str_replace("\"", '', $requestBuy->spice_nama);
         $this->status_id = $requestBuy->status_id;
         $this->jumlah = $requestBuy->jumlah;
         $this->created_at = Carbon::parse($requestBuy->created_at)->format('Y-m-d\TH:i');

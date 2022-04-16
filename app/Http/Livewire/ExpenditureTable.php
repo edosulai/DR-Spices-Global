@@ -14,22 +14,29 @@ class ExpenditureTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
-            Column::make('No Faktur', 'faktur')->sortable()->searchable()->addClass('w-15'),
-            Column::make('Supplier', 'supplier_nama')->sortable()->searchable()->addClass('w-20'),
-            Column::make('Rempah', 'spice_name')->sortable()->searchable()->addClass('w-15'),
-            Column::make('Jumlah', 'jumlah')->sortable()->searchable()->addClass('w-10'),
-            Column::make('Harga Satuan', 'hrg_jual')->sortable()->searchable()->addClass('w-15'),
-            Column::make('Pengeluaran', 'outcome_price')->sortable()->searchable(),
+            Column::make('No.', 'no')->sortable()->addClass('w-7'),
+            Column::make('Supplier', "supplier_nama")->sortable(),
+            Column::make('Rempah', "spice_nama")->sortable()->addClass('w-15'),
+            Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-10'),
+            Column::make('Harga Satuan', "hrg_jual")->sortable()->addClass('w-15'),
+            Column::make('Pengeluaran', 'outcome_price')->sortable()->addClass('w-15'),
         ];
     }
 
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Expenditure::join('suppliers', 'expenditures.supplier_id', '=', 'suppliers.id')
-            ->join('spices', 'expenditures.spice_id', '=', 'spices.id')
-            ->selectRaw('*, @row:=@row+1 as no, spices.hrg_jual * expenditures.jumlah as outcome_price, suppliers.nama as supplier_nama, spices.nama as spice_name');
+        return Expenditure::selectRaw("*, @row:=@row+1 as no, JSON_EXTRACT(spice_data, '$.hrg_jual') as hrg_jual, JSON_EXTRACT(spice_data, '$.hrg_jual') * expenditures.jumlah as outcome_price, JSON_EXTRACT(supplier_data, '$.nama') as supplier_nama, JSON_EXTRACT(spice_data, '$.nama') as spice_nama")
+            ->when(
+                $this->getFilter('search'),
+                fn ($query, $term) =>
+                $query
+                    ->where('jumlah', 'like', "%" . trim($term) . "%")
+                    ->orWhereRaw("JSON_EXTRACT(supplier_data, '$.nama') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(spice_data, '$.nama') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * expenditures.jumlah like '%" . trim($term) . "%'")
+            );
     }
 
     public function rowView(): string

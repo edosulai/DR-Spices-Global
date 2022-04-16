@@ -1,58 +1,68 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        {{-- <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-            <x-jet-validation-errors class="mb-3" />
-        </x-slot> --}}
 
-        <div class="row justify-content-center">
+    <div class="user-auth blog">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+        @livewire('header')
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    @if (session('status'))
-                                    <div class="alert alert-success mb-3 rounded-0" role="alert">
-                                        {{ session('status') }}
+        <div class="main-content">
+            <div class="wrap-banner">
+                <x-breadcrumb :navs="[['title' => 'Home', 'url' => route('home')], ['title' => 'Forgot Password', 'url' => route('password.request')]]" />
+            </div>
+
+            <div class="wrapper-site">
+                <div class="content-wrapper full-width">
+                    <div class="main">
+                        <div class="container">
+                            <h1 class="text-center title-page">{{ __('Create Account') }}</h1>
+                            <div class="register-form text-center">
+                                <div class="row mb-5">
+                                    <div class="col-sm-12">
+                                        {{ __('No problem.Just let us know your email address and we will send an email to you a password reset link that allows you to choose a new one.') }}
                                     </div>
-                                    @endif
-                                    
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">{{ __('Lupa kata sandi Anda?') }}</h1>
-                                        <p class="mb-4">{{ __('Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirim email kepada Anda tautan pengaturan ulang kata sandi yang memungkinkan Anda memilih yang baru.') }}</p>
-                                    </div>
-                                    <form class="user" method="POST" action="{{ route('password.request') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <x-jet-label class="small" value="Email" />
-                                            <x-jet-input type="email" name="email" placeholder="Enter Email Address..." :value="old('email')" required autofocus />
-                                        </div>
-                                        <x-jet-button>
-                                            {{ __('Tautan Atur Ulang Kata Sandi Email') }}
-                                        </x-jet-button>
-                                    </form>
-                                    <hr>
-                                    @if (Route::has('register'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Buat sebuah akun!') }}</a>
-                                    </div>
-                                    @endif
-                                    @if (Route::has('register'))
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('login') }}">{{ __('Sudah memiliki akun? Masuk!') }}</a>
-                                    </div>
-                                    @endif
                                 </div>
+                                <form class="user" method="POST" action="{{ route('password.request') }}">
+                                    @csrf
+                                    <div class="form-group no-gutters">
+                                        <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" placeholder="Email Address" :value="old('email')" required />
+                                        <x-jet-input-error for="email" />
+                                    </div>
+
+                                    <div class="clearfix my-4">
+                                        <div>
+                                            <button class="btn btn-primary" type="submit">{{ __('Reset Email password') }}</button>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        @if (Route::has('register'))
+                                            <div class="no-gutters text-center mb-1">
+                                                <div class="forgot-password">
+                                                    <a href="{{ route('register') }}">{{ __('Create an account!') }}</a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if (Route::has('register'))
+                                            <div class="no-gutters text-center">
+                                                <div class="forgot-password">
+                                                    <a href="{{ route('login') }}">{{ __('Already has an account? Login!') }}</a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </x-jet-authentication-card>
+
+        <x-footer />
+
+        <x-back-top />
+
+    </div>
+
 </x-guest-layout>

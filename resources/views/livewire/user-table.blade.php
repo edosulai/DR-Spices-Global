@@ -29,7 +29,7 @@
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a role="button" class="btn btn-success" wire:click="$emit('userModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
-        <a role="button" class="btn btn-danger" wire:click="$emit('deleteUserModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
+        <a role="button" class="btn btn-success m-0 p-2" wire:click="$emit('userModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
+        <a role="button" class="btn btn-danger m-0 p-2" wire:click="$emit('deleteUserModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

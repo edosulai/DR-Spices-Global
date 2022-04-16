@@ -21,11 +21,11 @@ class RequestBuyTable extends DataTableComponent
         return [
             Column::make('No.', 'no')->sortable()->addClass('w-5'),
             Column::make('Invoice', 'invoice')->sortable()->addClass('w-15'),
-            Column::make('Pengguna', 'user_name')->sortable(),
-            Column::make('Rempah', 'spice_name')->sortable()->addClass('w-12'),
+            Column::make('Pengguna', 'users_name')->sortable(),
+            Column::make('Rempah', 'spice_nama')->sortable()->addClass('w-12'),
             Column::make('Waktu Permintaan', 'created_at')->sortable()->addClass('w-16'),
             Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-7'),
-            Column::make('Status', 'status_name')->sortable()->addClass('w-14'),
+            Column::make('Status', 'statuses_nama')->sortable()->addClass('w-14'),
             Column::make('Aksi')->addClass('no-print')->addClass('w-12'),
         ];
     }
@@ -41,7 +41,7 @@ class RequestBuyTable extends DataTableComponent
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at');
-            })->selectRaw("request_buys.*, @row:=@row+1 as no, users.name as user_name, JSON_EXTRACT(request_buys.spice_data, '$.nama') as spice_name, statuses.nama as status_name")
+            })->selectRaw("request_buys.*, @row:=@row+1 as no, users.name as users_name, JSON_EXTRACT(request_buys.spice_data, '$.nama') as spice_nama, statuses.nama as statuses_nama")
             ->when(
                 $this->getFilter('search'),
                 fn ($query, $term) =>

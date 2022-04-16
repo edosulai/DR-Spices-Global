@@ -3,15 +3,11 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->faktur }}
+    {{ str_replace("\"", '', $row->supplier_nama) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->supplier_nama }}
-</x-livewire-tables::bs4.table.cell>
-
-<x-livewire-tables::bs4.table.cell>
-    {{ $row->spice_name }}
+    {{ str_replace("\"", '', $row->spice_nama) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
@@ -19,9 +15,9 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    Rp. {{ number_format($row->hrg_jual, 0, ',', '.') }}
+    {{ currency($row->hrg_jual) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    Rp. {{ number_format($row->outcome_price, 0, ',', '.') }}
+    {{ currency($row->outcome_price) }}
 </x-livewire-tables::bs4.table.cell>

@@ -86,7 +86,7 @@ class EarningChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Income Rp", "line", $data->datasets()['incomes'])->options([
+        $this->dataset("Income " . currency()->getCurrency()['symbol'], "line", $data->datasets()['incomes'])->options([
             'backgroundColor'           => 'rgb(246, 194, 62, 0.4)',
             'borderColor'               => 'rgb(246, 194, 62, 1)',
             'pointHoverBackgroundColor' => 'rgb(246, 194, 62, 1)',
@@ -95,7 +95,7 @@ class EarningChart extends Chart
             'pointRadius'               => 1.5,
         ]);
 
-        $this->dataset("Outcome Rp", "line", $data->datasets()['outcomes'])->options([
+        $this->dataset("Outcome " . currency()->getCurrency()['symbol'], "line", $data->datasets()['outcomes'])->options([
             'backgroundColor'           => 'rgb(127, 156, 245, 0.4)',
             'borderColor'               => 'rgb(78, 115, 223, 1)',
             'pointHoverBackgroundColor' => 'rgb(78, 115, 223, 1)',

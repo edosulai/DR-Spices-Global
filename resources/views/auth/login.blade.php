@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="clearfix">
+                                    <div class="clearfix mb-3">
                                         <div class="text-center no-gutters">
                                             <input type="hidden" name="submitLogin" value="1">
                                             <button class="btn btn-primary" data-link-action="sign-in" type="submit">{{ __('Sign in') }}</button>

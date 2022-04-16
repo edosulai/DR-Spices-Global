@@ -9,15 +9,15 @@
                 <x-slot name="content">
 
                     <div class="mb-3">
-                        <x-jet-label class="small" for="user_name" value="{{ __('Nama Pengguna') }}" />
-                        <x-jet-input id="user_name" type="text" class="{{ $errors->has('user_name') ? 'is-invalid' : '' }}" wire:model="user_name" autocomplete="user_name" disabled />
-                        <x-jet-input-error for="user_name" />
+                        <x-jet-label class="small" for="users_name" value="{{ __('Nama Pengguna') }}" />
+                        <x-jet-input id="users_name" type="text" class="{{ $errors->has('users_name') ? 'is-invalid' : '' }}" wire:model="users_name" autocomplete="users_name" disabled />
+                        <x-jet-input-error for="users_name" />
                     </div>
 
                     <div class="mb-3">
-                        <x-jet-label class="small" for="spice_name" value="{{ __('Jenis Rempah') }}" />
-                        <x-jet-input id="spice_name" type="text" class="{{ $errors->has('spice_name') ? 'is-invalid' : '' }}" wire:model="spice_name" autocomplete="spice_name" disabled />
-                        <x-jet-input-error for="spice_name" />
+                        <x-jet-label class="small" for="spice_nama" value="{{ __('Jenis Rempah') }}" />
+                        <x-jet-input id="spice_nama" type="text" class="{{ $errors->has('spice_nama') ? 'is-invalid' : '' }}" wire:model="spice_nama" autocomplete="spice_nama" disabled />
+                        <x-jet-input-error for="spice_nama" />
                     </div>
 
                     <div class="mb-3">

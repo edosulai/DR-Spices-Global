@@ -7,11 +7,11 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ $row->user_name }}
+    {{ $row->users_name }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ str_replace("\"", '', $row->spice_name) }}
+    {{ str_replace("\"", '', $row->spice_nama) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
@@ -23,11 +23,11 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    <span class="badge badge-pill badge-warning">{{ $row->status_name }}</span>
+    <span class="badge badge-pill badge-warning">{{ $row->statuses_nama }}</span>
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a role="button" class="btn btn-secondary" wire:click="$emit('requestBuyModal', '{{ $row->id }}')" wire:loading.attr="disabled">Manage</a>
+        <a role="button" class="btn btn-secondary" wire:click="$emit('requestBuyModal', '{{ $row->id }}')" wire:loading.attr="disabled">Kelola</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

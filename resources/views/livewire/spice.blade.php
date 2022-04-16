@@ -12,12 +12,6 @@
                         {{ __('Tambah Data Rempah') }}
                     </x-slot>
 
-                    <x-slot name="close">
-                        <x-jet-secondary-button wire:click="$toggle('spiceModal')" wire:loading.attr="disabled">
-                            {{ __('x') }}
-                        </x-jet-secondary-button>
-                    </x-slot>
-
                     <x-slot name="content">
 
                         <div class="mb-3">

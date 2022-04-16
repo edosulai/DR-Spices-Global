@@ -39,13 +39,13 @@
                                             <a href="{{ route('detail', ['product' => str_replace(' ', '-', $order->spice_data->nama)]) }}">{{ $order->spice_data->nama }}</a>
                                         </h6>
                                         <div class="product-meta">
-                                            <span class="product-price">{{ $order->jumlah }} x Rp. {{ number_format($order->spice_data->hrg_jual, 0, ',', '.') }}</span>
+                                            <span class="product-price">{{ $order->jumlah }} x {{ currency($order->spice_data->hrg_jual) }}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="border-left pl-3">
                                             <div>Total</div>
-                                            <div>Rp. {{ number_format($order->spice_data->hrg_jual * $order->jumlah, 0, ',', '.') }}</div>
+                                            <div>{{ currency($order->spice_data->hrg_jual * $order->jumlah) }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="col-md-12">
                             <h5 class="product-name">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</h5>
-                            <div class="product-price">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }} <small>({{ $detailOrder ? $detailOrder->spice_data->unit : '' }})</small></div>
+                            <div class="product-price">{{ $detailOrder ? currency($detailOrder->spice_data->hrg_jual) : 0 }} <small>({{ $detailOrder ? $detailOrder->spice_data->unit : '' }})</small></div>
                             <p>Quantity:&nbsp;{{ $detailOrder ? $detailOrder->jumlah : 0 }}</p>
                         </div>
                     </div>
@@ -201,10 +201,10 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</div>
-                                            <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }}</div>
+                                            <div class="mb-2">{{ $detailOrder ? currency($detailOrder->spice_data->hrg_jual) : 0 }}</div>
                                             <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->unit : '' }}</div>
                                             <div class="mb-2">{{ $detailOrder ? $detailOrder->jumlah : 0 }}</div>
-                                            <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah, 0, ',', '.') : 0 }}</div>
+                                            <div class="mb-2">{{ $detailOrder ? currency($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah) : 0 }}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -226,10 +226,10 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->nama : '' }}</div>
-                                        <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual, 0, ',', '.') : 0 }}</div>
+                                        <div class="mb-2">{{ $detailOrder ? currency($detailOrder->spice_data->hrg_jual) : 0 }}</div>
                                         <div class="mb-2">{{ $detailOrder ? $detailOrder->spice_data->unit : '' }}</div>
                                         <div class="mb-2">{{ $detailOrder ? $detailOrder->jumlah : 0 }}</div>
-                                        <div class="mb-2">Rp. {{ $detailOrder ? number_format($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah, 0, ',', '.') : 0 }}</div>
+                                        <div class="mb-2">{{ $detailOrder ? currency($detailOrder->spice_data->hrg_jual * $detailOrder->jumlah) : 0 }}</div>
                                     </div>
                                 </div>
                             </div>

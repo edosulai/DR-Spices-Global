@@ -19,10 +19,10 @@ class SupplierTable extends DataTableComponent
     {
         return [
             Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
-            Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-25'),
+            Column::make('Nama', 'nama')->sortable()->searchable(),
             Column::make('Alamat', 'alamat')->sortable()->searchable(),
             Column::make('Telp', 'telp')->sortable()->searchable()->addClass('w-15'),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-12'),
         ];
     }
 

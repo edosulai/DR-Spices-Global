@@ -19,11 +19,11 @@ class UserTable extends DataTableComponent
     {
         return [
             Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
-            Column::make('Name', 'name')->sortable()->searchable()->addClass('w-25'),
-            Column::make('E-mail', 'email')->sortable()->searchable()->addClass('w-20'),
-            Column::make('Waktu Daftar', 'created_at')->sortable()->searchable(),
+            Column::make('Name', 'name')->sortable()->searchable(),
+            Column::make('E-mail', 'email')->sortable()->searchable(),
+            Column::make('Waktu Daftar', 'created_at')->sortable()->searchable()->addClass('w-16'),
             Column::make('Role')->addClass('w-10'),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-12'),
         ];
     }
 

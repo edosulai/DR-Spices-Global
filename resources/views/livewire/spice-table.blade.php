@@ -7,7 +7,7 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    Rp. {{ number_format($row->hrg_jual, 0, ',', '.') }}
+    {{ currency($row->hrg_jual) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
@@ -20,7 +20,7 @@
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a role="button" class="btn btn-success" wire:click="$emit('spiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
-        <a role="button" class="btn btn-danger" wire:click="$emit('deleteSpiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
+        <a role="button" class="btn btn-success m-0 p-2" wire:click="$emit('spiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
+        <a role="button" class="btn btn-danger m-0 p-2" wire:click="$emit('deleteSpiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
     </div>
 </x-livewire-tables::bs4.table.cell>
