@@ -3150,7 +3150,6 @@ $border-color_1: transparent transparent #eaeaea transparent;
 
             .product-line-actions {
                 margin-top: 1rem;
-                text-align: start !important;
             }
 
             .product-price.total {
@@ -3161,21 +3160,17 @@ $border-color_1: transparent transparent #eaeaea transparent;
 
     .product-checkout {
         #checkout {
-            .check-info {
-                .content {
-                    width: 100%;
-                    padding-right: 14px;
-                }
+            .content {
+                width: 100%;
+                padding-right: 14px;
             }
         }
     }
 
     .product-cart.checkout-cart {
-        .check-info {
-            .img-fluid {
-                width: 100%;
-                height: auto;
-            }
+        .img-fluid {
+            width: 100%;
+            height: auto;
         }
 
         .footer-top {

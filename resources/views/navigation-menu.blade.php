@@ -63,16 +63,14 @@
     <div class="sidebar-heading">Lainnya</div>
 
     <x-jet-nav-link :active="request()->routeIs('status.index')">
-        {{-- <a class="nav-link" href="{{ route('status.index') }}"> --}}
-        <a class="nav-link" type="button">
+        <a class="nav-link" href="{{ route('status.index') }}">
             <i class="fas fa-fw fa-truck-loading"></i>
             <span>{{ __('Status Pengiriman') }}</span>
         </a>
     </x-jet-nav-link>
 
-    <x-jet-nav-link :active="request()->routeIs('status.index')">
-        {{-- <a class="nav-link" href="{{ route('status.index') }}"> --}}
-        <a class="nav-link" type="button">
+    <x-jet-nav-link :active="request()->routeIs('ongkir.index')">
+        <a class="nav-link" href="{{ route('ongkir.index') }}">
             <i class="fas fa-fw fa-money-check"></i>
             <span>{{ __('Ongkos Pengiriman') }}</span>
         </a>

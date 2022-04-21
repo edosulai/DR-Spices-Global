@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenditureController;
 use App\Http\Controllers\IncomeController;
+use App\Http\Controllers\PostageController;
 use App\Http\Controllers\RequestBuyController;
 use App\Http\Controllers\SpiceController;
 use App\Http\Controllers\StatusController;
@@ -42,6 +43,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
     Route::resource('/dashboard/pemasok', SupplierController::class);
     Route::resource('/dashboard/rempah', SpiceController::class);
     Route::resource('/dashboard/status', StatusController::class);
+    Route::resource('/dashboard/ongkir', PostageController::class);
 
 });
 

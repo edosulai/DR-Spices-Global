@@ -19,9 +19,9 @@ class StatusTable extends DataTableComponent
     {
         return [
             Column::make('No.', 'no')->sortable()->searchable()->addClass('w-7'),
-            Column::make('Nama', 'nama')->sortable()->searchable()->addClass('w-10'),
-            Column::make('Keterangan', 'ket')->sortable()->searchable(),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
+            Column::make('Nama', 'nama')->sortable()->searchable(),
+            Column::make('Icon', 'icon')->sortable()->searchable(),
+            // Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
         ];
     }
 

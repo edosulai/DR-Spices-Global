@@ -34,7 +34,7 @@
 
                     <div class="mb-3">
                         <x-jet-label class="small" for="status_id" value="{{ __('Status Pengiriman') }}" />
-                        <select class="form-control form-control-user {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model="status_id" id="status_id" autocomplete="status_id">
+                        <select class="form-control form-control-user {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model="status_id" id="status_id" autocomplete="status_id" wire:ignore>
                             @foreach ($statuses as $status)
                             <option value="{{ $status->id }}" wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected disabled' : '' !!}>{{ $status->nama }}</option>
                             @endforeach

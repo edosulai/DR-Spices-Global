@@ -3,9 +3,9 @@
         <div class="row align-items-center px-3">
             <h6 class="m-0 font-weight-bold text-primary mr-auto">Data {{ $title }}</h6>
             <div>
-                <x-jet-button wire:click="openStatusModal" wire:loading.attr="disabled">
+                {{-- <x-jet-button wire:click="openStatusModal" wire:loading.attr="disabled">
                     Tambah Data
-                </x-jet-button>
+                </x-jet-button> --}}
 
                 <x-jet-dialog-modal wire:model="statusModal">
                     <x-slot name="title">
@@ -27,9 +27,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <x-jet-label class="small" for="ket" value="{{ __('Keterangan') }}" />
-                            <x-jet-input id="ket" type="text" class="{{ $errors->has('ket') ? 'is-invalid' : '' }}" wire:model="ket" autocomplete="ket" />
-                            <x-jet-input-error for="ket" />
+                            <x-jet-label class="small" for="icon" value="{{ __('Icon') }}" />
+                            <x-jet-input id="icon" type="text" class="{{ $errors->has('icon') ? 'is-invalid' : '' }}" wire:model="icon" autocomplete="icon" />
+                            <x-jet-input-error for="icon" />
                         </div>
 
                     </x-slot>

@@ -27,7 +27,7 @@ class AddressFactory extends Factory
             'city' => $this->faker->city(),
             'state' => $this->faker->citySuffix(),
             'zip' => $this->faker->postcode(),
-            'country' => $this->faker->country(),
+            'country_id' => $this->faker->randomElements(Country::all()->map(fn ($model) => $model->id))[0],
             'phone' => $this->faker->phoneNumber(),
             'primary' => true,
         ];

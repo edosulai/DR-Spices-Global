@@ -14,7 +14,7 @@ class Status extends Component
     public $title;
 
     public $nama;
-    public $ket;
+    public $icon;
 
     public $aksiStatusModal = 'tambahStatus';
     public $buttonStatusModal = 'Tambah';
@@ -26,7 +26,7 @@ class Status extends Component
 
     public $rules = [
         'nama' => 'required|unique:statuses,nama|max:255',
-        'ket' => 'nullable'
+        'icon' => 'required|unique:statuses,icon|max:255'
     ];
 
     public function render()
@@ -41,12 +41,12 @@ class Status extends Component
             if (!$status) return;
             $this->id_status = $status->id;
             $this->nama = $status->nama;
-            $this->ket = $status->ket;
+            $this->icon = $status->icon;
             $this->aksiStatusModal = 'editStatus';
             $this->buttonStatusModal = 'Edit';
         } else {
             $this->nama = '';
-            $this->ket = '';
+            $this->icon = '';
             $this->aksiStatusModal = 'tambahStatus';
             $this->buttonStatusModal = 'Tambah';
         }
@@ -72,7 +72,7 @@ class Status extends Component
 
         ModelsStatus::create([
             'nama' => $this->nama,
-            'ket' => $this->ket,
+            'icon' => $this->icon,
         ]);
 
         $this->statusModal = false;
@@ -87,7 +87,7 @@ class Status extends Component
 
         $status = ModelsStatus::find($this->id_status);
         $status->nama = $this->nama;
-        $status->ket = $this->ket;
+        $status->icon = $this->icon;
         $status->save();
 
         $this->id_status = 0;

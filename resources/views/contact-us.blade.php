@@ -126,9 +126,6 @@
         </div>
 
         <x-footer />
-
-
-
         <x-back-top />
 
     </div>

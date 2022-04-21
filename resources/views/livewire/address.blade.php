@@ -2,7 +2,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ __('Address Books') }}</h1>
 
-        @if ($addresses->count() < 2)
+        @if (count($addresses) < 2)
             <x-jet-button class="d-flex align-items-center justify-content-center w-25" wire:click="openModalAddress">
                 <span wire:loading wire:target="openModalAddress" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                 {{ __('Add New Address') }}
@@ -10,38 +10,38 @@
         @endif
     </div>
 
-    @if ($addresses->count() < 1)
+    @if (count($addresses) < 1)
         <p class="saved-message">{{ __('Your Address Book is Empty') }}</p>
     @endif
 
     <div class="row">
         @foreach ($addresses as $address)
             <div class="col-md-6 mb-3">
-                <div class="card shadow-sm{{ $address->primary ? ' border-dark' : '' }}">
+                <div class="card shadow-sm{{ $address['primary'] ? ' border-dark' : '' }}">
                     <div class="card-body">
                         <div class="d-flex justify-content-between">
-                            <h5><b>{{ $address->recipent }}</b></h5>
-                            @if ($address->primary)
+                            <h5><b>{{ $address['recipent'] }}</b></h5>
+                            @if ($address['primary'])
                                 <span>
                                     <i class="fas fa-check"></i>
                                     <span>{{ __('Main') }}</span>
                                 </span>
                             @else
-                                <button role="button" class="btn p-0 m-0" wire:click="mainAddress('{{ $address->id }}')">
+                                <button role="button" class="btn p-0 m-0" wire:click="mainAddress('{{ $address['id'] }}')">
                                     <i class="far fa-square"></i>
                                 </button>
                             @endif
                         </div>
-                        <p>{{ $address->phone }}</p>
-                        <p>{{ $address->street }} {{ $address->other_street }}</p>
-                        <p>{{ $address->country }}</p>
+                        <p>{{ $address['phone'] }}</p>
+                        <p>{{ $address['street'] }}, {{ $address['other_street'] }}</p>
+                        <p>{{ $address['countries_nicename'] }}</p>
                         <div class="d-flex">
-                            <a role="button" wire:click="openModalAddress('{{ $address->id }}')">
+                            <a role="button" wire:click="openModalAddress('{{ $address['id'] }}')">
                                 <i class="fas fa-edit"></i>
                                 <span>{{ __('Edit Address') }}</span>
                             </a>
                             <div class="mx-3">|</div>
-                            <a role="button" wire:click="openConfirmModal('{{ $address->id }}')">
+                            <a role="button" wire:click="openConfirmModal('{{ $address['id'] }}')">
                                 <i class="far fa-trash-alt"></i>
                                 <span>{{ __('Delete Address') }}</span>
                             </a>
@@ -54,11 +54,11 @@
 
     <x-jet-dialog-modal wire:model="queryAddressModal">
         <x-slot name="title">
-            {{ __('Update Address') }}
+            {{ $headerAddressModal }}
         </x-slot>
 
         <x-slot name="content">
-            <div class="row">
+            <div class="row py-0">
                 <div class="my-2 col-md-6">
                     <x-jet-label class="small" for="recipent" value="{{ __('Recipent Name') }}" />
                     <x-jet-input id="recipent" type="text" class="{{ $errors->has('recipent') ? 'is-invalid' : '' }}" wire:model.defer="modal.recipent" />
@@ -107,8 +107,12 @@
                 </div>
 
                 <div class="my-2 col-md-6">
-                    <x-jet-label class="small" for="country" value="{{ __('Country') }}" />
-                    <x-jet-input id="country" type="text" class="{{ $errors->has('country') ? 'is-invalid' : '' }}" wire:model.defer="modal.country" />
+                    <x-jet-label class="small" for="country_id" value="{{ __('Country') }}" />
+                    <select class="form-control form-control-user {{ $errors->has('country_id') ? 'is-invalid' : '' }}" wire:model="modal.country_id" id="country_id" autocomplete="country_id" wire:ignore>
+                        @foreach ($countries as $country)
+                        <option value="{{ $country->id }}" wire:key="{{ $country->id }}" {!! $modal['country_id'] == $country->id ? 'selected' : '' !!}>{{ $country->nicename }}</option>
+                        @endforeach
+                    </select>
                     <x-jet-input-error for="country" />
                 </div>
 

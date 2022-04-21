@@ -3,8 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Cart as ModelsCart;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
