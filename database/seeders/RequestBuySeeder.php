@@ -15,6 +15,6 @@ class RequestBuySeeder extends Seeder
      */
     public function run()
     {
-        RequestBuy::factory(150)->create();
+        RequestBuy::factory(90)->create();
     }
 }

@@ -46,11 +46,6 @@ class Header extends Component
                 'title' => 'Account Details',
                 'icon' => 'fa fa-cog',
                 'url' => route('account'),
-            ], [
-                'name' => 'Checkout',
-                'title' => 'Checkout Details',
-                'icon' => 'fa fa-check',
-                'url' => route('checkout'),
             ]
         ];
 
@@ -85,5 +80,6 @@ class Header extends Component
     {
         Cart::where('id', $id)->delete();
         $this->emit('headerMount');
+        $this->emit('checkoutMount');
     }
 }

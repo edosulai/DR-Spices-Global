@@ -32,14 +32,12 @@ class Order extends Component
     public function mount()
     {
         $this->orders = RequestBuy::where('user_id', Auth::id())
-            ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
+            ->selectRaw('request_buys.*, statuses.nama as statuses_nama, STRCMP(statuses.nama, "Delivered") as need_rate')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-            // ->join(DB::raw("(select traces.request_buy_id, MAX(traces.id) as traces_id from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), function ($join) {
             ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), function ($join) {
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
-                    // ->on('traces.id', '=', 'join_traces.traces_id');
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at');
             })->latest()->get();
     }

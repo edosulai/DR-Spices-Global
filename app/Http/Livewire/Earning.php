@@ -9,6 +9,7 @@ use App\Support\Livewire\ChartComponent;
 use App\Support\Livewire\ChartComponentData;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Earning extends ChartComponent
@@ -34,15 +35,39 @@ class Earning extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $incomes = Income::join('request_buys', 'incomes.request_buy_id', '=', 'request_buys.id')
+        $incomes = Income::join(DB::raw("(
+                select
+                    sum(hrg_jual) as hrg_jual,
+                    sum(jumlah) as jumlah,
+                    id
+                from
+                    `request_buys`,
+                    JSON_TABLE(
+                        request_buys.spice_data,'$[*]'
+                        COLUMNS(
+                            NESTED PATH '$.hrg_jual'
+                                COLUMNS (
+                                    hrg_jual DECIMAL PATH '$'
+                                ),
+                            NESTED PATH '$.jumlah'
+                                COLUMNS (
+                                    jumlah DECIMAL PATH '$'
+                                )
+                        )
+                    ) as jt group by id
+                ) request_buys"), function ($join) {
+            $join->on('incomes.request_buy_id', '=', 'request_buys.id');
+        })
             ->whereYear('incomes.created_at', Carbon::now()->year)
             ->whereMonth('incomes.created_at', Carbon::now()->month)
-            ->selectRaw("JSON_EXTRACT(request_buys.spice_data, '$.hrg_jual') * request_buys.jumlah as income_price, incomes.created_at, incomes.id")
+            ->selectRaw("request_buys.hrg_jual * request_buys.jumlah as income_price, incomes.created_at, incomes.id")
+            ->oldest()
             ->get();
 
         $outcomes = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, id")
             ->whereYear('created_at', Carbon::now()->year)
             ->whereMonth('created_at', Carbon::now()->month)
+            ->oldest()
             ->get();
 
         $labels = $incomes->map(function (Income $income, $key) {
@@ -51,10 +76,10 @@ class Earning extends ChartComponent
 
         $datasets = new Collection([
             'incomes' => $incomes->map(function (Income $income, $key) {
-                return $income->income_price;
+                return intval($income->income_price);
             }),
             'outcomes' => $outcomes->map(function (Expenditure $expenditure, $key) {
-                return $expenditure->outcome_price;
+                return intval($expenditure->outcome_price);
             })
         ]);
 

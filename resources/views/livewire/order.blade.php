@@ -24,46 +24,51 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-2">
-                                <span class="product-image media-middle">
-                                    <a href="{{ route('detail', ['product' => str_replace(' ', '-', $order->spice_data->nama)]) }}">
-                                        <img class="img-fluid" src="{{ asset('/storage/images/product/' . $order->spice_data->image) }}">
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="col-md-10 d-flex flex-column">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <h6 class="product-name">
-                                            <a href="{{ route('detail', ['product' => str_replace(' ', '-', $order->spice_data->nama)]) }}">{{ $order->spice_data->nama }}</a>
-                                        </h6>
-                                        <div class="product-meta">
-                                            <span class="product-price">{{ $order->jumlah }} x {{ currency($order->spice_data->hrg_jual) }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="border-left pl-3">
-                                            <div>Total</div>
-                                            <div>{{ currency($order->spice_data->hrg_jual * $order->jumlah) }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ml-auto mt-auto" wire:ignore>
-                                    @if ($order->need_rate)
-                                        <a role="button" wire:click="openModalReview('{{ $order->id }}')">
-                                            <i class="fas fa-pen-square"></i>
-                                            <span>{{ __('Write a Review') }}</span>
+                        @foreach ($order->spice_data as $spice)
+                            <div class="row my-4">
+                                <div class="col-md-1">
+                                    <span class="product-image media-middle">
+                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice->nama)]) }}">
+                                            <img class="img-fluid" src="{{ asset('/storage/images/product/' . $spice->image) }}">
                                         </a>
-                                        <span class="mx-2">|</span>
-                                    @endif
-                                    <a role="button" wire:click="openModalDetail('{{ $order->id }}')">
-                                        <i class="fas fa-receipt"></i>
-                                        <span>{{ __('Details') }}</span>
-                                    </a>
+                                    </span>
                                 </div>
+                                <div class="col-md-11 d-flex flex-column">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h6 class="product-name">
+                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice->nama)]) }}">{{ $spice->nama }}</a>
+                                            </h6>
+                                            <div class="product-meta">
+                                                <span class="product-price">{{ $spice->jumlah }} x {{ currency($spice->hrg_jual) }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="border-left pl-3">
+                                                <div>Total</div>
+                                                <div>{{ currency($spice->hrg_jual * $spice->jumlah) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        <div class="w-100">
+                            <div class="ml-auto mt-auto w-fit" wire:ignore>
+                                @if ($order->need_rate == 0)
+                                    <a role="button" wire:click="openModalReview('{{ $order->id }}')">
+                                        <i class="fas fa-pen-square"></i>
+                                        <span>{{ __('Write a Review') }}</span>
+                                    </a>
+                                    <span class="mx-2">|</span>
+                                @endif
+                                <a role="button" wire:click="openModalDetail('{{ $order->id }}')">
+                                    <i class="fas fa-receipt"></i>
+                                    <span>{{ __('Details') }}</span>
+                                </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

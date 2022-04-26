@@ -15,7 +15,6 @@ class RequestBuy extends Model
         'invoice',
         'user_id',
         'spice_data',
-        'jumlah',
     ];
 
     protected $casts = [

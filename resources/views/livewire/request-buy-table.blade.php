@@ -11,7 +11,7 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ str_replace("\"", '', $row->spice_nama) }}
+    {{ $row->spice_nama }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>

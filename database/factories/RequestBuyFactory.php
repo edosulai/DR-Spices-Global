@@ -25,13 +25,27 @@ class RequestBuyFactory extends Factory
      */
     public function definition()
     {
-        $usersSelected = rand(0, User::count() - 1);
+        $spice_data = [];
+
+        for ($i = 0; $i < rand(1, Spice::count()); $i++) {
+            $spice = Spice::oldest()->get()->toArray()[$i];
+            $spice_data[] = [
+                'id' => $spice['id'],
+                'nama' => $spice['nama'],
+                'hrg_jual' => $spice['hrg_jual'],
+                'jumlah' => $this->faker->numberBetween(1, 10),
+                'unit' => $spice['unit'],
+                'image' => $spice['image'],
+                'ket' => $spice['ket'],
+            ];
+        }
 
         return [
-            'invoice' => $this->faker->numerify(Carbon::now()->format('Ymd') . '/' . sprintf('%03d', $usersSelected + 1) . '#####'),
-            'user_id' => User::oldest()->get()->map(fn ($model) => $model->id)[$usersSelected],
-            'spice_data' => $this->faker->randomElements(Spice::all()->toArray())[0],
-            'jumlah' => $this->faker->numberBetween(1, 3),
+            'invoice' => "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999)),
+            'user_id' => User::oldest()->get()->map(fn ($model) => $model->id)[rand(0, User::count() - 1)],
+            'spice_data' => $spice_data,
+            'created_at' => Carbon::now()->subDay(rand(1, 90)),
+            'updated_at' => Carbon::now()->subDay(rand(1, 90))
         ];
     }
 
@@ -43,9 +57,11 @@ class RequestBuyFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (RequestBuy $request_buy) {
-            $spice = Spice::find($request_buy->spice_data->id);
-            $spice->stok = $spice->stok - $request_buy->jumlah;
-            $spice->save();
+            foreach ($request_buy->spice_data as $data) {
+                $spice = Spice::find($data->id);
+                $spice->stok = $spice->stok - $data->jumlah;
+                $spice->save();
+            }
 
             $trace = [];
             $statuses = Status::oldest()->get();
@@ -67,17 +83,28 @@ class RequestBuyFactory extends Factory
                 Income::create([
                     'user_id' => $request_buy->user_id,
                     'request_buy_id' => $request_buy->id,
+                    'created_at' => $request_buy->created_at,
+                    'updated_at' => $request_buy->updated_at
                 ]);
             }
 
             if ($statuses[$statusSelected]->nama == 'Rated') {
-                Review::create([
-                    'user_id' => $request_buy->user_id,
-                    'spice_id' => $request_buy->spice_data->id,
-                    'request_buy_id' => $request_buy->id,
-                    'summary' => $this->faker->paragraph(),
-                    'rating' => $this->faker->numberBetween(1, 5),
-                ]);
+                $review = [];
+
+                foreach ($request_buy->spice_data as $data) {
+                    $review[] = [
+                        'id' => Str::orderedUuid(),
+                        'user_id' => $request_buy->user_id,
+                        'spice_id' => $data->id,
+                        'request_buy_id' => $request_buy->id,
+                        'summary' => $this->faker->paragraph(),
+                        'rating' => $this->faker->numberBetween(1, 5),
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ];
+                }
+
+                Review::insert($review);
             }
         });
     }

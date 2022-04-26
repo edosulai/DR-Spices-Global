@@ -62,7 +62,7 @@ class ProductDetail extends Component
     public function addToCart($id = null)
     {
         if (!Auth::check()) {
-            return redirect()->route('login');
+            return $this->redirectRoute('login');
         }
 
         $spice = Spice::find($id ?? ($this->detailModal ? $this->modalSpiceId : $this->spice->id));

@@ -1,4 +1,4 @@
-<div class="cart-grid">
+<div class="main">
     <h1 class="title-page">{{ __('Shopping Cart') }}</h1>
     <div class="row">
         <div class="cart-container col-md-9 col-xs-12">
@@ -33,7 +33,7 @@
                                         <div class="col-md-4 col">
                                             <div class="label w-100">Qty:</div>
                                             <div class="quantity w-100">
-                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" class="input-group form-control {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}">
+                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" wire: class="input-group form-control {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col">
@@ -70,14 +70,14 @@
             <div class="block-list mt-0">
                 <ul class="p-3">
                     @if ($carts->isNotEmpty())
-                        <li>
-                            Total products:
-                            <span class="float-right">{{ currency(
-                                $carts->sum(function ($cart) {
-                                    return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
-                                }),
-                            ) }}</span>
-                        </li>
+                    <li class="py-3">
+                        Total products:
+                        <span class="float-right">{{ currency(
+                            $carts->sum(function ($cart) {
+                                return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
+                            })
+                        ) }}</span>
+                    </li>
                     @endif
                 </ul>
             </div>
@@ -86,7 +86,7 @@
                 @if ($carts->isEmpty())
                     <a href="{{ route('home') }}" class="continue btn btn-primary btn-block">{{ __('Continue Shopping') }}</a>
                 @else
-                    <a href="{{ route('checkout') }}" class="continue btn btn-primary btn-block">{{ __('Proceed To Checkout') }}</a>
+                    <a role="button" wire:click="proceedCheckout" class="continue btn btn-primary btn-block">{{ __('Proceed To Checkout') }}</a>
                 @endif
             </div>
         </div>

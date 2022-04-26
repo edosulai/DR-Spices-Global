@@ -66,7 +66,7 @@
                 </div>
                 <div class="my-2 col-md-6">
                     <x-jet-label class="small" for="phone" value="{{ __('Phone Number') }}" />
-                    <x-jet-input id="phone" type="text" class="{{ $errors->has('phone') ? 'is-invalid' : '' }}" wire:model.defer="modal.phone" />
+                    <x-jet-input id="phone" type="text" class="{{ $errors->has('phone') ? 'is-invalid' : '' }} phone" wire:model.defer="modal.phone" />
                     <x-jet-input-error for="phone" />
                 </div>
 

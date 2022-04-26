@@ -14713,133 +14713,133 @@ a:focus {
 
 @-webkit-keyframes noise-anim {
   0% {
-    clip: rect(33px, 9999px, 41px, 0);
+    clip: rect(66px, 9999px, 94px, 0);
   }
   5% {
-    clip: rect(71px, 9999px, 91px, 0);
+    clip: rect(63px, 9999px, 6px, 0);
   }
   10% {
-    clip: rect(5px, 9999px, 29px, 0);
+    clip: rect(11px, 9999px, 12px, 0);
   }
   15% {
-    clip: rect(47px, 9999px, 6px, 0);
+    clip: rect(18px, 9999px, 22px, 0);
   }
   20% {
-    clip: rect(73px, 9999px, 83px, 0);
+    clip: rect(83px, 9999px, 22px, 0);
   }
   25% {
-    clip: rect(92px, 9999px, 20px, 0);
+    clip: rect(2px, 9999px, 48px, 0);
   }
   30% {
-    clip: rect(30px, 9999px, 66px, 0);
+    clip: rect(34px, 9999px, 75px, 0);
   }
   35% {
-    clip: rect(69px, 9999px, 11px, 0);
+    clip: rect(60px, 9999px, 51px, 0);
   }
   40% {
-    clip: rect(99px, 9999px, 59px, 0);
+    clip: rect(96px, 9999px, 66px, 0);
   }
   45% {
-    clip: rect(49px, 9999px, 95px, 0);
+    clip: rect(40px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(72px, 9999px, 27px, 0);
+    clip: rect(64px, 9999px, 46px, 0);
   }
   55% {
-    clip: rect(70px, 9999px, 74px, 0);
+    clip: rect(82px, 9999px, 37px, 0);
   }
   60% {
-    clip: rect(93px, 9999px, 85px, 0);
+    clip: rect(84px, 9999px, 58px, 0);
   }
   65% {
-    clip: rect(7px, 9999px, 13px, 0);
+    clip: rect(37px, 9999px, 36px, 0);
   }
   70% {
-    clip: rect(84px, 9999px, 100px, 0);
+    clip: rect(67px, 9999px, 17px, 0);
   }
   75% {
-    clip: rect(42px, 9999px, 56px, 0);
+    clip: rect(63px, 9999px, 19px, 0);
   }
   80% {
-    clip: rect(59px, 9999px, 21px, 0);
+    clip: rect(80px, 9999px, 19px, 0);
   }
   85% {
-    clip: rect(29px, 9999px, 91px, 0);
+    clip: rect(10px, 9999px, 66px, 0);
   }
   90% {
-    clip: rect(44px, 9999px, 4px, 0);
+    clip: rect(25px, 9999px, 98px, 0);
   }
   95% {
-    clip: rect(78px, 9999px, 96px, 0);
+    clip: rect(74px, 9999px, 90px, 0);
   }
   100% {
-    clip: rect(50px, 9999px, 82px, 0);
+    clip: rect(69px, 9999px, 55px, 0);
   }
 }
 
 @keyframes noise-anim {
   0% {
-    clip: rect(33px, 9999px, 41px, 0);
+    clip: rect(66px, 9999px, 94px, 0);
   }
   5% {
-    clip: rect(71px, 9999px, 91px, 0);
+    clip: rect(63px, 9999px, 6px, 0);
   }
   10% {
-    clip: rect(5px, 9999px, 29px, 0);
+    clip: rect(11px, 9999px, 12px, 0);
   }
   15% {
-    clip: rect(47px, 9999px, 6px, 0);
+    clip: rect(18px, 9999px, 22px, 0);
   }
   20% {
-    clip: rect(73px, 9999px, 83px, 0);
+    clip: rect(83px, 9999px, 22px, 0);
   }
   25% {
-    clip: rect(92px, 9999px, 20px, 0);
+    clip: rect(2px, 9999px, 48px, 0);
   }
   30% {
-    clip: rect(30px, 9999px, 66px, 0);
+    clip: rect(34px, 9999px, 75px, 0);
   }
   35% {
-    clip: rect(69px, 9999px, 11px, 0);
+    clip: rect(60px, 9999px, 51px, 0);
   }
   40% {
-    clip: rect(99px, 9999px, 59px, 0);
+    clip: rect(96px, 9999px, 66px, 0);
   }
   45% {
-    clip: rect(49px, 9999px, 95px, 0);
+    clip: rect(40px, 9999px, 14px, 0);
   }
   50% {
-    clip: rect(72px, 9999px, 27px, 0);
+    clip: rect(64px, 9999px, 46px, 0);
   }
   55% {
-    clip: rect(70px, 9999px, 74px, 0);
+    clip: rect(82px, 9999px, 37px, 0);
   }
   60% {
-    clip: rect(93px, 9999px, 85px, 0);
+    clip: rect(84px, 9999px, 58px, 0);
   }
   65% {
-    clip: rect(7px, 9999px, 13px, 0);
+    clip: rect(37px, 9999px, 36px, 0);
   }
   70% {
-    clip: rect(84px, 9999px, 100px, 0);
+    clip: rect(67px, 9999px, 17px, 0);
   }
   75% {
-    clip: rect(42px, 9999px, 56px, 0);
+    clip: rect(63px, 9999px, 19px, 0);
   }
   80% {
-    clip: rect(59px, 9999px, 21px, 0);
+    clip: rect(80px, 9999px, 19px, 0);
   }
   85% {
-    clip: rect(29px, 9999px, 91px, 0);
+    clip: rect(10px, 9999px, 66px, 0);
   }
   90% {
-    clip: rect(44px, 9999px, 4px, 0);
+    clip: rect(25px, 9999px, 98px, 0);
   }
   95% {
-    clip: rect(78px, 9999px, 96px, 0);
+    clip: rect(74px, 9999px, 90px, 0);
   }
   100% {
-    clip: rect(50px, 9999px, 82px, 0);
+    clip: rect(69px, 9999px, 55px, 0);
   }
 }
 .error:after {
@@ -14857,133 +14857,133 @@ a:focus {
 
 @-webkit-keyframes noise-anim-2 {
   0% {
-    clip: rect(17px, 9999px, 80px, 0);
+    clip: rect(39px, 9999px, 76px, 0);
   }
   5% {
-    clip: rect(17px, 9999px, 63px, 0);
+    clip: rect(43px, 9999px, 86px, 0);
   }
   10% {
-    clip: rect(27px, 9999px, 83px, 0);
+    clip: rect(51px, 9999px, 98px, 0);
   }
   15% {
-    clip: rect(54px, 9999px, 54px, 0);
+    clip: rect(21px, 9999px, 96px, 0);
   }
   20% {
-    clip: rect(81px, 9999px, 33px, 0);
+    clip: rect(7px, 9999px, 7px, 0);
   }
   25% {
-    clip: rect(16px, 9999px, 95px, 0);
+    clip: rect(70px, 9999px, 16px, 0);
   }
   30% {
-    clip: rect(93px, 9999px, 23px, 0);
+    clip: rect(59px, 9999px, 50px, 0);
   }
   35% {
-    clip: rect(98px, 9999px, 22px, 0);
+    clip: rect(49px, 9999px, 57px, 0);
   }
   40% {
-    clip: rect(88px, 9999px, 91px, 0);
+    clip: rect(93px, 9999px, 45px, 0);
   }
   45% {
-    clip: rect(70px, 9999px, 25px, 0);
+    clip: rect(55px, 9999px, 21px, 0);
   }
   50% {
-    clip: rect(69px, 9999px, 73px, 0);
+    clip: rect(47px, 9999px, 23px, 0);
   }
   55% {
-    clip: rect(1px, 9999px, 55px, 0);
+    clip: rect(83px, 9999px, 76px, 0);
   }
   60% {
-    clip: rect(76px, 9999px, 62px, 0);
+    clip: rect(65px, 9999px, 19px, 0);
   }
   65% {
-    clip: rect(13px, 9999px, 61px, 0);
+    clip: rect(86px, 9999px, 41px, 0);
   }
   70% {
-    clip: rect(7px, 9999px, 39px, 0);
+    clip: rect(25px, 9999px, 16px, 0);
   }
   75% {
-    clip: rect(42px, 9999px, 22px, 0);
+    clip: rect(64px, 9999px, 40px, 0);
   }
   80% {
-    clip: rect(65px, 9999px, 33px, 0);
+    clip: rect(57px, 9999px, 22px, 0);
   }
   85% {
-    clip: rect(21px, 9999px, 63px, 0);
+    clip: rect(65px, 9999px, 78px, 0);
   }
   90% {
-    clip: rect(57px, 9999px, 2px, 0);
+    clip: rect(58px, 9999px, 15px, 0);
   }
   95% {
-    clip: rect(63px, 9999px, 38px, 0);
+    clip: rect(5px, 9999px, 85px, 0);
   }
   100% {
-    clip: rect(92px, 9999px, 57px, 0);
+    clip: rect(73px, 9999px, 13px, 0);
   }
 }
 
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(17px, 9999px, 80px, 0);
+    clip: rect(39px, 9999px, 76px, 0);
   }
   5% {
-    clip: rect(17px, 9999px, 63px, 0);
+    clip: rect(43px, 9999px, 86px, 0);
   }
   10% {
-    clip: rect(27px, 9999px, 83px, 0);
+    clip: rect(51px, 9999px, 98px, 0);
   }
   15% {
-    clip: rect(54px, 9999px, 54px, 0);
+    clip: rect(21px, 9999px, 96px, 0);
   }
   20% {
-    clip: rect(81px, 9999px, 33px, 0);
+    clip: rect(7px, 9999px, 7px, 0);
   }
   25% {
-    clip: rect(16px, 9999px, 95px, 0);
+    clip: rect(70px, 9999px, 16px, 0);
   }
   30% {
-    clip: rect(93px, 9999px, 23px, 0);
+    clip: rect(59px, 9999px, 50px, 0);
   }
   35% {
-    clip: rect(98px, 9999px, 22px, 0);
+    clip: rect(49px, 9999px, 57px, 0);
   }
   40% {
-    clip: rect(88px, 9999px, 91px, 0);
+    clip: rect(93px, 9999px, 45px, 0);
   }
   45% {
-    clip: rect(70px, 9999px, 25px, 0);
+    clip: rect(55px, 9999px, 21px, 0);
   }
   50% {
-    clip: rect(69px, 9999px, 73px, 0);
+    clip: rect(47px, 9999px, 23px, 0);
   }
   55% {
-    clip: rect(1px, 9999px, 55px, 0);
+    clip: rect(83px, 9999px, 76px, 0);
   }
   60% {
-    clip: rect(76px, 9999px, 62px, 0);
+    clip: rect(65px, 9999px, 19px, 0);
   }
   65% {
-    clip: rect(13px, 9999px, 61px, 0);
+    clip: rect(86px, 9999px, 41px, 0);
   }
   70% {
-    clip: rect(7px, 9999px, 39px, 0);
+    clip: rect(25px, 9999px, 16px, 0);
   }
   75% {
-    clip: rect(42px, 9999px, 22px, 0);
+    clip: rect(64px, 9999px, 40px, 0);
   }
   80% {
-    clip: rect(65px, 9999px, 33px, 0);
+    clip: rect(57px, 9999px, 22px, 0);
   }
   85% {
-    clip: rect(21px, 9999px, 63px, 0);
+    clip: rect(65px, 9999px, 78px, 0);
   }
   90% {
-    clip: rect(57px, 9999px, 2px, 0);
+    clip: rect(58px, 9999px, 15px, 0);
   }
   95% {
-    clip: rect(63px, 9999px, 38px, 0);
+    clip: rect(5px, 9999px, 85px, 0);
   }
   100% {
-    clip: rect(92px, 9999px, 57px, 0);
+    clip: rect(73px, 9999px, 13px, 0);
   }
 }
 .error:before {
@@ -15029,6 +15029,12 @@ body.sidebar-toggled footer.sticky-footer {
   background: #ff5151;
 }
 
+.img-fluid {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 @media print {
   .no-print {
     display: none;
@@ -15059,396 +15065,804 @@ body.sidebar-toggled footer.sticky-footer {
   width: 1% !important;
 }
 
+.h-1 {
+  height: 1% !important;
+}
+
 .w-2 {
   width: 2% !important;
+}
+
+.h-2 {
+  height: 2% !important;
 }
 
 .w-3 {
   width: 3% !important;
 }
 
+.h-3 {
+  height: 3% !important;
+}
+
 .w-4 {
   width: 4% !important;
+}
+
+.h-4 {
+  height: 4% !important;
 }
 
 .w-5 {
   width: 5% !important;
 }
 
+.h-5 {
+  height: 5% !important;
+}
+
 .w-6 {
   width: 6% !important;
+}
+
+.h-6 {
+  height: 6% !important;
 }
 
 .w-7 {
   width: 7% !important;
 }
 
+.h-7 {
+  height: 7% !important;
+}
+
 .w-8 {
   width: 8% !important;
+}
+
+.h-8 {
+  height: 8% !important;
 }
 
 .w-9 {
   width: 9% !important;
 }
 
+.h-9 {
+  height: 9% !important;
+}
+
 .w-10 {
   width: 10% !important;
+}
+
+.h-10 {
+  height: 10% !important;
 }
 
 .w-11 {
   width: 11% !important;
 }
 
+.h-11 {
+  height: 11% !important;
+}
+
 .w-12 {
   width: 12% !important;
+}
+
+.h-12 {
+  height: 12% !important;
 }
 
 .w-13 {
   width: 13% !important;
 }
 
+.h-13 {
+  height: 13% !important;
+}
+
 .w-14 {
   width: 14% !important;
+}
+
+.h-14 {
+  height: 14% !important;
 }
 
 .w-15 {
   width: 15% !important;
 }
 
+.h-15 {
+  height: 15% !important;
+}
+
 .w-16 {
   width: 16% !important;
+}
+
+.h-16 {
+  height: 16% !important;
 }
 
 .w-17 {
   width: 17% !important;
 }
 
+.h-17 {
+  height: 17% !important;
+}
+
 .w-18 {
   width: 18% !important;
+}
+
+.h-18 {
+  height: 18% !important;
 }
 
 .w-19 {
   width: 19% !important;
 }
 
+.h-19 {
+  height: 19% !important;
+}
+
 .w-20 {
   width: 20% !important;
+}
+
+.h-20 {
+  height: 20% !important;
 }
 
 .w-21 {
   width: 21% !important;
 }
 
+.h-21 {
+  height: 21% !important;
+}
+
 .w-22 {
   width: 22% !important;
+}
+
+.h-22 {
+  height: 22% !important;
 }
 
 .w-23 {
   width: 23% !important;
 }
 
+.h-23 {
+  height: 23% !important;
+}
+
 .w-24 {
   width: 24% !important;
+}
+
+.h-24 {
+  height: 24% !important;
 }
 
 .w-25 {
   width: 25% !important;
 }
 
+.h-25 {
+  height: 25% !important;
+}
+
 .w-26 {
   width: 26% !important;
+}
+
+.h-26 {
+  height: 26% !important;
 }
 
 .w-27 {
   width: 27% !important;
 }
 
+.h-27 {
+  height: 27% !important;
+}
+
 .w-28 {
   width: 28% !important;
+}
+
+.h-28 {
+  height: 28% !important;
 }
 
 .w-29 {
   width: 29% !important;
 }
 
+.h-29 {
+  height: 29% !important;
+}
+
 .w-30 {
   width: 30% !important;
+}
+
+.h-30 {
+  height: 30% !important;
 }
 
 .w-31 {
   width: 31% !important;
 }
 
+.h-31 {
+  height: 31% !important;
+}
+
 .w-32 {
   width: 32% !important;
+}
+
+.h-32 {
+  height: 32% !important;
 }
 
 .w-33 {
   width: 33% !important;
 }
 
+.h-33 {
+  height: 33% !important;
+}
+
 .w-34 {
   width: 34% !important;
+}
+
+.h-34 {
+  height: 34% !important;
 }
 
 .w-35 {
   width: 35% !important;
 }
 
+.h-35 {
+  height: 35% !important;
+}
+
 .w-36 {
   width: 36% !important;
+}
+
+.h-36 {
+  height: 36% !important;
 }
 
 .w-37 {
   width: 37% !important;
 }
 
+.h-37 {
+  height: 37% !important;
+}
+
 .w-38 {
   width: 38% !important;
+}
+
+.h-38 {
+  height: 38% !important;
 }
 
 .w-39 {
   width: 39% !important;
 }
 
+.h-39 {
+  height: 39% !important;
+}
+
 .w-40 {
   width: 40% !important;
+}
+
+.h-40 {
+  height: 40% !important;
 }
 
 .w-41 {
   width: 41% !important;
 }
 
+.h-41 {
+  height: 41% !important;
+}
+
 .w-42 {
   width: 42% !important;
+}
+
+.h-42 {
+  height: 42% !important;
 }
 
 .w-43 {
   width: 43% !important;
 }
 
+.h-43 {
+  height: 43% !important;
+}
+
 .w-44 {
   width: 44% !important;
+}
+
+.h-44 {
+  height: 44% !important;
 }
 
 .w-45 {
   width: 45% !important;
 }
 
+.h-45 {
+  height: 45% !important;
+}
+
 .w-46 {
   width: 46% !important;
+}
+
+.h-46 {
+  height: 46% !important;
 }
 
 .w-47 {
   width: 47% !important;
 }
 
+.h-47 {
+  height: 47% !important;
+}
+
 .w-48 {
   width: 48% !important;
+}
+
+.h-48 {
+  height: 48% !important;
 }
 
 .w-49 {
   width: 49% !important;
 }
 
+.h-49 {
+  height: 49% !important;
+}
+
 .w-50 {
   width: 50% !important;
+}
+
+.h-50 {
+  height: 50% !important;
 }
 
 .w-51 {
   width: 51% !important;
 }
 
+.h-51 {
+  height: 51% !important;
+}
+
 .w-52 {
   width: 52% !important;
+}
+
+.h-52 {
+  height: 52% !important;
 }
 
 .w-53 {
   width: 53% !important;
 }
 
+.h-53 {
+  height: 53% !important;
+}
+
 .w-54 {
   width: 54% !important;
+}
+
+.h-54 {
+  height: 54% !important;
 }
 
 .w-55 {
   width: 55% !important;
 }
 
+.h-55 {
+  height: 55% !important;
+}
+
 .w-56 {
   width: 56% !important;
+}
+
+.h-56 {
+  height: 56% !important;
 }
 
 .w-57 {
   width: 57% !important;
 }
 
+.h-57 {
+  height: 57% !important;
+}
+
 .w-58 {
   width: 58% !important;
+}
+
+.h-58 {
+  height: 58% !important;
 }
 
 .w-59 {
   width: 59% !important;
 }
 
+.h-59 {
+  height: 59% !important;
+}
+
 .w-60 {
   width: 60% !important;
+}
+
+.h-60 {
+  height: 60% !important;
 }
 
 .w-61 {
   width: 61% !important;
 }
 
+.h-61 {
+  height: 61% !important;
+}
+
 .w-62 {
   width: 62% !important;
+}
+
+.h-62 {
+  height: 62% !important;
 }
 
 .w-63 {
   width: 63% !important;
 }
 
+.h-63 {
+  height: 63% !important;
+}
+
 .w-64 {
   width: 64% !important;
+}
+
+.h-64 {
+  height: 64% !important;
 }
 
 .w-65 {
   width: 65% !important;
 }
 
+.h-65 {
+  height: 65% !important;
+}
+
 .w-66 {
   width: 66% !important;
+}
+
+.h-66 {
+  height: 66% !important;
 }
 
 .w-67 {
   width: 67% !important;
 }
 
+.h-67 {
+  height: 67% !important;
+}
+
 .w-68 {
   width: 68% !important;
+}
+
+.h-68 {
+  height: 68% !important;
 }
 
 .w-69 {
   width: 69% !important;
 }
 
+.h-69 {
+  height: 69% !important;
+}
+
 .w-70 {
   width: 70% !important;
+}
+
+.h-70 {
+  height: 70% !important;
 }
 
 .w-71 {
   width: 71% !important;
 }
 
+.h-71 {
+  height: 71% !important;
+}
+
 .w-72 {
   width: 72% !important;
+}
+
+.h-72 {
+  height: 72% !important;
 }
 
 .w-73 {
   width: 73% !important;
 }
 
+.h-73 {
+  height: 73% !important;
+}
+
 .w-74 {
   width: 74% !important;
+}
+
+.h-74 {
+  height: 74% !important;
 }
 
 .w-75 {
   width: 75% !important;
 }
 
+.h-75 {
+  height: 75% !important;
+}
+
 .w-76 {
   width: 76% !important;
+}
+
+.h-76 {
+  height: 76% !important;
 }
 
 .w-77 {
   width: 77% !important;
 }
 
+.h-77 {
+  height: 77% !important;
+}
+
 .w-78 {
   width: 78% !important;
+}
+
+.h-78 {
+  height: 78% !important;
 }
 
 .w-79 {
   width: 79% !important;
 }
 
+.h-79 {
+  height: 79% !important;
+}
+
 .w-80 {
   width: 80% !important;
+}
+
+.h-80 {
+  height: 80% !important;
 }
 
 .w-81 {
   width: 81% !important;
 }
 
+.h-81 {
+  height: 81% !important;
+}
+
 .w-82 {
   width: 82% !important;
+}
+
+.h-82 {
+  height: 82% !important;
 }
 
 .w-83 {
   width: 83% !important;
 }
 
+.h-83 {
+  height: 83% !important;
+}
+
 .w-84 {
   width: 84% !important;
+}
+
+.h-84 {
+  height: 84% !important;
 }
 
 .w-85 {
   width: 85% !important;
 }
 
+.h-85 {
+  height: 85% !important;
+}
+
 .w-86 {
   width: 86% !important;
+}
+
+.h-86 {
+  height: 86% !important;
 }
 
 .w-87 {
   width: 87% !important;
 }
 
+.h-87 {
+  height: 87% !important;
+}
+
 .w-88 {
   width: 88% !important;
+}
+
+.h-88 {
+  height: 88% !important;
 }
 
 .w-89 {
   width: 89% !important;
 }
 
+.h-89 {
+  height: 89% !important;
+}
+
 .w-90 {
   width: 90% !important;
+}
+
+.h-90 {
+  height: 90% !important;
 }
 
 .w-91 {
   width: 91% !important;
 }
 
+.h-91 {
+  height: 91% !important;
+}
+
 .w-92 {
   width: 92% !important;
+}
+
+.h-92 {
+  height: 92% !important;
 }
 
 .w-93 {
   width: 93% !important;
 }
 
+.h-93 {
+  height: 93% !important;
+}
+
 .w-94 {
   width: 94% !important;
+}
+
+.h-94 {
+  height: 94% !important;
 }
 
 .w-95 {
   width: 95% !important;
 }
 
+.h-95 {
+  height: 95% !important;
+}
+
 .w-96 {
   width: 96% !important;
+}
+
+.h-96 {
+  height: 96% !important;
 }
 
 .w-97 {
   width: 97% !important;
 }
 
+.h-97 {
+  height: 97% !important;
+}
+
 .w-98 {
   width: 98% !important;
 }
 
+.h-98 {
+  height: 98% !important;
+}
+
 .w-99 {
   width: 99% !important;
+}
+
+.h-99 {
+  height: 99% !important;
+}
+
+.w-fit {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+}
+
+.h-fit {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
 }
 
 @media (max-width: 767px) {
@@ -16559,11 +16973,11 @@ a:hover {
   align-items: center;
 }
 
-.product-checkout .checkout .checkout-personal-step {
+.checkout .checkout-personal-step {
   position: relative;
   font-size: 1.3rem;
 }
-.product-checkout .checkout .checkout-personal-step .step-title {
+.checkout .checkout-personal-step .step-title {
   color: #afafaf;
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
@@ -16576,7 +16990,7 @@ a:hover {
   background: #fff;
   padding-right: 0.9375pc;
 }
-.product-checkout .checkout .checkout-personal-step .step-title .step-number {
+.checkout .checkout-personal-step .step-title .step-number {
   width: 30px;
   height: 0.3125in;
   font-size: 1rem;
@@ -16588,14 +17002,14 @@ a:hover {
   text-align: center;
   float: left;
 }
-.product-checkout .checkout .checkout-personal-step .step-title.h3.info {
+.checkout .checkout-personal-step .step-title.h3.info {
   color: #222;
 }
-.product-checkout .checkout .nav {
+.checkout .nav {
   position: relative;
   margin-bottom: 0.3125in;
 }
-.product-checkout .checkout .nav .nav-link {
+.checkout .nav .nav-link {
   font-size: 0.145833333in;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
@@ -16607,13 +17021,13 @@ a:hover {
   padding-right: 0;
   padding-top: 0;
 }
-.product-checkout .checkout .nav .nav-link:nth-child(1) {
+.checkout .nav .nav-link:nth-child(1) {
   padding-right: 22.5pt;
 }
-.product-checkout .checkout .nav .nav-link.active {
+.checkout .nav .nav-link.active {
   color: #222;
 }
-.product-checkout .checkout .main-content {
+.checkout .main-content {
   padding-bottom: 0;
   padding-left: 2.7rem;
   padding-right: 0;
@@ -16621,23 +17035,8 @@ a:hover {
   margin-bottom: 0.760416667in;
   margin-bottom: 0 !important;
 }
-.product-checkout .checkout .tab-content {
+.checkout .tab-content {
   margin-left: 1rem;
-}
-.product-checkout .check-input {
-  position: relative;
-  height: 0.3125in;
-}
-.product-checkout .input-absolute {
-  position: absolute;
-  top: 0;
-}
-.product-checkout .checkout-login-form .form-control {
-  font-size: 14px;
-  padding-left: 13.5pt;
-  padding-bottom: 0.5pc;
-  padding-right: 13.5pt;
-  padding-top: 0.5pc;
 }
 
 .tiva-toggle:hover .dropdown-content {
@@ -16831,7 +17230,7 @@ textarea:focus {
   width: 100%;
 }
 
-.product-cart .cart .cart-grid .cart-items {
+.cart .cart-items {
   list-style: none;
   padding-left: 0;
   padding-bottom: 0;
@@ -16839,7 +17238,7 @@ textarea:focus {
   margin-bottom: 0.3125in;
   padding-top: 0;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item {
+.cart .cart-items .cart-item {
   border-bottom-width: 0.0625pc;
   background: #f4fbfc;
   border-bottom-style: solid;
@@ -16851,17 +17250,17 @@ textarea:focus {
   padding-right: 1.25pc;
   padding-top: 1.25pc;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item:nth-child(2n+1) {
+.cart .cart-items .cart-item:nth-child(2n+1) {
   background: #eff5f6;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item:last-child {
+.cart .cart-items .cart-item:last-child {
   border-bottom-width: 0;
   border-bottom-style: none;
   border-bottom-color: currentColor;
   -o-border-image: none;
      border-image: none;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .product-image {
+.cart .cart-items .cart-item .product-image {
   border-left-width: 0.0625pc;
   border-bottom-width: 0.0625pc;
   border-bottom-style: solid;
@@ -16880,39 +17279,39 @@ textarea:focus {
   vertical-align: top;
   width: 100%;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item a.label:hover {
+.cart .cart-items .cart-item a.label:hover {
   opacity: 0.8;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .product-line-info {
+.cart .cart-items .cart-item .product-line-info {
   margin-bottom: 5px;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .label {
+.cart .cart-items .cart-item .label {
   margin-bottom: 10px;
   font-size: 0.875pc;
   text-transform: capitalize;
   font-family: "playfair display", sans-serif;
   font-weight: 700;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .product-price {
+.cart .cart-items .cart-item .product-price {
   font-family: "playfair display", sans-serif;
   font-weight: 700;
   font-size: 14px;
   margin-bottom: 0.072916667in;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .cart-line-product-actions {
+.cart .cart-items .cart-item .cart-line-product-actions {
   text-align: center;
   height: 3.6875pc;
   line-height: 26.25pt;
   float: right;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .cart-line-product-actions .remove-from-cart {
+.cart .cart-items .cart-item .cart-line-product-actions .remove-from-cart {
   color: #000;
   font-size: 0.208333333in;
 }
-.product-cart .cart .cart-grid .cart-items .cart-item .cart-line-product-actions .remove-from-cart i:hover {
+.cart .cart-items .cart-item .cart-line-product-actions .remove-from-cart i:hover {
   opacity: 0.8;
 }
-.product-cart .cart .btn.btn-primary {
+.cart .btn.btn-primary {
   padding-left: 25px;
   padding-bottom: 0.5625pc;
   padding-right: 25px;
@@ -16933,7 +17332,7 @@ textarea:focus {
   font-size: 8.25pt;
   cursor: pointer;
 }
-.product-cart .cart .btn.btn-primary:hover {
+.cart .btn.btn-primary:hover {
   color: #fff;
   background: #ff5151;
   border-left-color: #ff5151;
@@ -16941,7 +17340,7 @@ textarea:focus {
   border-right-color: #ff5151;
   border-top-color: #ff5151;
 }
-.product-cart .cart .btn.btn-primary:focus {
+.cart .btn.btn-primary:focus {
   color: #fff;
   background: #ff5151;
   border-left-color: #ff5151;
@@ -16949,13 +17348,13 @@ textarea:focus {
   border-right-color: #ff5151;
   border-top-color: #ff5151;
 }
-.product-cart .cart .product-price.total {
+.cart .product-price.total {
   margin-left: 14.25pt;
   margin-bottom: 14.25pt;
   margin-right: 14.25pt;
   margin-top: 14.25pt;
 }
-.product-cart .cart .quantity {
+.cart .quantity {
   float: left;
   margin-top: 0;
   width: 0.770833333in;
@@ -16963,13 +17362,13 @@ textarea:focus {
   margin-bottom: 0;
   margin-right: auto;
 }
-.product-cart .cart .quantity .form-control {
+.cart .quantity .form-control {
   width: 100%;
   height: 33pt;
   float: left;
   border-radius: 0in;
 }
-.product-cart .cart .quantity .input-group-btn-vertical {
+.cart .quantity .input-group-btn-vertical {
   display: inline-block;
   width: 15.75pt;
   height: 33pt;
@@ -16978,64 +17377,30 @@ textarea:focus {
   z-index: 99999;
   border-radius: 0;
 }
-.product-cart .cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-up {
+.cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-up {
   border-radius: 0;
 }
-.product-cart .cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-down {
+.cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-down {
   border-radius: 0;
 }
-.product-cart .cart .cart-grid-body .btn {
+.cart .cart-grid-body .btn {
   margin-right: 10px;
 }
-.product-cart h4 {
-  font-family: "playfair display", sans-serif;
-  font-size: 17.25pt;
-  font-weight: 700;
-  font-weight: normal;
-  color: #504b4b;
-  margin-left: 0;
-  margin-bottom: 1rem;
-  margin-right: 0;
-  margin-top: 0rem;
+.cart .cart-grid-right .block-list {
+  font-size: 14px;
+  background: #ececec;
 }
-.product-cart h4 span.detail {
-  font-weight: bold;
+.cart .cart-grid-right .block-list li {
+  border-bottom-width: 0.010416667in;
+  border-bottom-style: solid;
+  border-bottom-color: #fff;
+  -o-border-image: none;
+     border-image: none;
 }
-.product-cart .btn.btn-primary {
-  padding-left: 1.5625pc;
-  padding-bottom: 6.75pt;
-  padding-right: 1.5625pc;
-  padding-top: 6.75pt;
-  border-radius: 1.125pc;
-  background: #343434;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  color: #fff;
-  font-weight: 600;
-  margin-left: 0;
-  margin-bottom: 1.5rem;
-  margin-right: 0;
+.cart .cart-grid-right .block-list li span {
+  font-size: 9pt;
+  color: #444;
   text-transform: uppercase;
-  margin-top: 1.5rem;
-  font-size: 0.114583333in;
-}
-.product-cart .btn.btn-primary:hover {
-  background: #ff5151;
-  color: #fff;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
-}
-.product-cart .btn.btn-primary:focus {
-  color: #fff;
-  background: #ff5151;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
 }
 
 .content-data {
@@ -23432,35 +23797,6 @@ footer .title-block {
   opacity: 0.8;
 }
 
-.checkout-cart .cart-grid-right .block-list {
-  font-size: 14px;
-  background: #ececec;
-}
-.checkout-cart .cart-grid-right .block-list li {
-  border-bottom-width: 0.010416667in;
-  border-bottom-style: solid;
-  border-bottom-color: #fff;
-  -o-border-image: none;
-     border-image: none;
-}
-.checkout-cart .cart-grid-right .block-list li span {
-  font-size: 9pt;
-  color: #444;
-  text-transform: uppercase;
-}
-.checkout-cart .content {
-  margin-left: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-  margin-top: 0;
-}
-.checkout-cart .wrap-banner .position #show-menu {
-  position: absolute;
-  margin-top: -6%;
-  z-index: 9999;
-  left: 0.9375pc;
-}
-
 /*=================== menu =================== */
 @media screen and (min-width: 415px) and (max-width: 768px) {
   .d-mobile-none {
@@ -25206,10 +25542,6 @@ footer .title-block {
     padding-right: 14px;
   }
 
-  .product-cart.checkout-cart .img-fluid {
-    width: 100%;
-    height: auto;
-  }
   .product-cart.checkout-cart .footer-top .nov-html:nth-child(2) {
     margin-top: 2rem;
   }
@@ -25735,6 +26067,118 @@ footer .title-block {
   color: #fff;
 }
 
+@media all {
+  html.with-featherlight {
+    overflow: hidden;
+  }
+
+  .featherlight {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #333;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .featherlight:last-of-type {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .featherlight:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .featherlight .featherlight-content {
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: auto;
+    padding: 25px 25px 0;
+    border-bottom: 25px solid transparent;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 95%;
+    background: #fff;
+    cursor: auto;
+    white-space: normal;
+  }
+
+  .featherlight .featherlight-inner {
+    display: block;
+  }
+
+  .featherlight link.featherlight-inner,
+.featherlight script.featherlight-inner,
+.featherlight style.featherlight-inner {
+    display: none;
+  }
+
+  .featherlight .featherlight-close-icon {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    line-height: 25px;
+    width: 25px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+    border: 0;
+    padding: 0;
+  }
+
+  .featherlight .featherlight-close-icon::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  .featherlight .featherlight-image {
+    width: 100%;
+  }
+
+  .featherlight-iframe .featherlight-content {
+    border-bottom: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+
+  .featherlight iframe {
+    border: 0;
+  }
+
+  .featherlight * {
+    box-sizing: border-box;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .featherlight .featherlight-content {
+    margin-left: 0;
+    margin-right: 0;
+    max-height: 98%;
+    padding: 10px 10px 0;
+    border-bottom: 10px solid transparent;
+  }
+}
+@media print {
+  html.with-featherlight > * > :not(.featherlight) {
+    display: none;
+  }
+}
 html,
 a {
   scroll-behavior: smooth;
@@ -25794,4 +26238,213 @@ a {
 
 .nivo-main-image {
   height: 100% !important;
+}
+
+.payment .ccicon {
+  height: 39px;
+  position: absolute;
+  right: 29px;
+  top: calc(50% - 7px);
+  width: 44px;
+}
+.payment #ccsingle {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+}
+.payment #ccsingle svg {
+  width: 100px;
+  max-height: 60px;
+}
+.payment .creditcard {
+  width: 100%;
+  max-width: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+.payment .creditcard svg#cardfront {
+  width: 100%;
+  box-shadow: 1px 5px 6px 0px black;
+  border-radius: 22px;
+}
+.payment .creditcard svg#cardback {
+  width: 100%;
+  box-shadow: 1px 5px 6px 0px black;
+  border-radius: 22px;
+}
+.payment .creditcard .lightcolor {
+  transition: fill 0.5s;
+}
+.payment .creditcard .darkcolor {
+  transition: fill 0.5s;
+}
+.payment .creditcard .lightblue {
+  fill: #03A9F4;
+}
+.payment .creditcard .lightbluedark {
+  fill: #0288D1;
+}
+.payment .creditcard .red {
+  fill: #ef5350;
+}
+.payment .creditcard .reddark {
+  fill: #d32f2f;
+}
+.payment .creditcard .purple {
+  fill: #ab47bc;
+}
+.payment .creditcard .purpledark {
+  fill: #7b1fa2;
+}
+.payment .creditcard .cyan {
+  fill: #26c6da;
+}
+.payment .creditcard .cyandark {
+  fill: #0097a7;
+}
+.payment .creditcard .green {
+  fill: #66bb6a;
+}
+.payment .creditcard .greendark {
+  fill: #388e3c;
+}
+.payment .creditcard .lime {
+  fill: #d4e157;
+}
+.payment .creditcard .limedark {
+  fill: #afb42b;
+}
+.payment .creditcard .yellow {
+  fill: #ffeb3b;
+}
+.payment .creditcard .yellowdark {
+  fill: #f9a825;
+}
+.payment .creditcard .orange {
+  fill: #ff9800;
+}
+.payment .creditcard .orangedark {
+  fill: #ef6c00;
+}
+.payment .creditcard .grey {
+  fill: #bdbdbd;
+}
+.payment .creditcard .greydark {
+  fill: #616161;
+}
+.payment .creditcard .front {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  color: #47525d;
+}
+.payment .creditcard .back {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  color: #47525d;
+  transform: rotateY(180deg);
+}
+.payment #generatecard {
+  cursor: pointer;
+  float: right;
+  font-size: 12px;
+  color: #fff;
+  padding: 2px 4px;
+  background-color: #909090;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+.payment #svgname {
+  text-transform: uppercase;
+}
+.payment #cardfront .st2 {
+  fill: #FFFFFF;
+}
+.payment #cardfront .st3 {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+}
+.payment #cardfront .st4 {
+  font-size: 54.7817px;
+}
+.payment #cardfront .st5 {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+}
+.payment #cardfront .st6 {
+  font-size: 33.1112px;
+}
+.payment #cardfront .st7 {
+  opacity: 0.6;
+  fill: #FFFFFF;
+}
+.payment #cardfront .st8 {
+  font-size: 24px;
+}
+.payment #cardfront .st9 {
+  font-size: 36.5498px;
+}
+.payment #cardfront .st10 {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 300;
+}
+.payment #cardfront .st11 {
+  font-size: 16.1716px;
+}
+.payment #cardfront .st12 {
+  fill: #4C4C4C;
+}
+.payment #cardback .st0 {
+  fill: none;
+  stroke: #0F0F0F;
+  stroke-miterlimit: 10;
+}
+.payment #cardback .st2 {
+  fill: #111111;
+}
+.payment #cardback .st3 {
+  fill: #F2F2F2;
+}
+.payment #cardback .st4 {
+  fill: #D8D2DB;
+}
+.payment #cardback .st5 {
+  fill: #C4C4C4;
+}
+.payment #cardback .st6 {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+}
+.payment #cardback .st7 {
+  font-size: 27px;
+}
+.payment #cardback .st8 {
+  opacity: 0.6;
+}
+.payment #cardback .st9 {
+  fill: #FFFFFF;
+}
+.payment #cardback .st10 {
+  font-size: 24px;
+}
+.payment #cardback .st11 {
+  fill: #EAEAEA;
+}
+.payment #cardback .st12 {
+  font-family: "Rock Salt", cursive;
+}
+.payment #cardback .st13 {
+  font-size: 37.769px;
+}
+.payment .creditcard.flipped {
+  transform: rotateY(180deg);
 }

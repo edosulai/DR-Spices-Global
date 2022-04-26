@@ -39,9 +39,15 @@ class Cart extends Component
         }
     }
 
-    public function render()
+    public function proceedCheckout()
     {
-        return view('livewire.cart');
+        foreach ($this->carts as $cart) {
+            $oldCart = ModelsCart::where('user_id', Auth::id())->where('id', $cart['id'])->first();
+            $oldCart->jumlah = $cart['qty'];
+            $oldCart->save();
+        }
+
+        $this->redirectRoute('checkout');
     }
 
     public function deleteCart($id)
@@ -49,5 +55,10 @@ class Cart extends Component
         ModelsCart::where('id', $id)->delete();
         $this->emit('headerMount');
         $this->emit('cartMount');
+    }
+
+    public function render()
+    {
+        return view('livewire.cart');
     }
 }

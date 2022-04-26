@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('invoice');
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
             $table->json('spice_data');
-            $table->integer('jumlah');
             $table->timestamps();
         });
     }

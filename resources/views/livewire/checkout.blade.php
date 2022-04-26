@@ -1,11 +1,13 @@
-<div class="cart-grid">
+<div class="main">
     <div class="row">
-        <div class="cart-container col-md-9 col-xs-12" id="checkoutForm">
+        <div class="cart-container col-md-8 col-xs-12" id="checkoutForm">
+
             <div class="checkout-personal-step">
                 <h3 class="step-title h3 info" id="headingAddress">
-                    <a role="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="true" aria-controls="collapseAddress">
-                        <span class="step-number">1</span>Addresses
-                    </a>
+                    {{-- <a role="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="true" aria-controls="collapseAddress">
+                        <span class="step-number">1</span>Shipping Address
+                    </a> --}}
+                    <span class="step-number">1</span>Shipping Address
                 </h3>
             </div>
             <div id="collapseAddress" class="main-content collapse show" aria-labelledby="headingAddress" data-parent="#checkoutForm">
@@ -22,7 +24,7 @@
 
                 <div class="row mb-3">
                     @foreach ($addresses as $address)
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-12 mb-3">
                             <div class="card shadow-sm{{ $address['primary'] ? ' border-dark' : '' }}">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
@@ -50,85 +52,94 @@
 
             <div class="checkout-personal-step">
                 <h3 class="step-title h3 info" id="headingPayment">
-                    <a role="button" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment" data-parent="#checkoutForm">
-                        <span class="step-number">2</span>Payment
-                    </a>
+                    {{-- <a role="button" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment" data-parent="#checkoutForm">
+                        <span class="step-number">2</span>Payment Method
+                    </a> --}}
+                    <span class="step-number">2</span>Payment Method
                 </h3>
             </div>
-            <div id="collapsePayment" class="main-content collapse" aria-labelledby="headingPayment">
-                <form action="#" method="post">
-                    <div>
-                        <input type="hidden" name="id_customer" value="">
-                        <div class="form-group row">
-                            <input class="form-control" name="firstname" type="text" placeholder="Full name">
+            <div id="collapsePayment" class="main-content collapse show" aria-labelledby="headingPayment" data-parent="#checkoutForm">
+                <div class="row payment">
+                    <div class="col-md-6" wire:ignore>
+                        <x-credit-card/>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="my-1 col-md-12">
+                            <x-jet-label class="small mb-1" for="name" value="{{ __('Name') }}" />
+                            <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model="payment.name" maxlength="20" />
+                            <x-jet-input-error for="name" />
                         </div>
-                        <div class="form-group row">
-                            <input class="form-control" name="email" type="email" placeholder="Email">
+
+                        <div class="my-1 col-md-12">
+                            <x-jet-label class="small mb-1" for="cardnumber" value="{{ __('Card Number') }}" />
+                            <x-jet-input id="cardnumber" type="text" class="{{ $errors->has('cardnumber') ? 'is-invalid' : '' }}" wire:model="payment.cardnumber" maxlength="20" pattern="[0-9]*" inputmode="numeric" />
+                            <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" wire:ignore>
+                            </svg>
+                            <x-jet-input-error for="cardnumber" />
                         </div>
-                        <div class="form-group row">
-                            <input class="form-control" name="email" type="email" placeholder="Phone">
+
+                        <div class="my-1 col-md-7">
+                            <x-jet-label class="small mb-1" for="expirationdate" value="{{ __('Expiration (mm/yy)') }}" />
+                            <x-jet-input id="expirationdate" type="text" class="{{ $errors->has('expirationdate') ? 'is-invalid' : '' }}" wire:model="payment.expirationdate" maxlength="20" pattern="[0-9]*" inputmode="numeric" />
+                            <x-jet-input-error for="expirationdate" />
                         </div>
-                        <div class="desc-password">
-                            <span class="font-weight-bold">Create an account</span>
-                            <span>(optional)</span>
-                            <br>
-                            <span class="text-muted">And save time on your next order!</span>
-                        </div>
-                        <div class="form-group row">
-                            <div class="input-group">
-                                <input class="form-control" name="password" type="password" placeholder=" Password">
-                            </div>
-                        </div>
-                        <div class="hidden-comment">
-                            <div class="form-group row">
-                                <input class="form-control" name="birthday" type="text" value="" placeholder=" Birthdate">
-                            </div>
-                        </div>
-                        <div class="form-group row check-input">
-                            <span class="custom-checkbox d-inline-flex">
-                                <input class="check" name="optin" type="checkbox" value="1">
-                                <label class="label-absolute">Receive offers from our partners</label>
-                            </span>
-                        </div>
-                        <div class="form-group row">
-                            <span class="custom-checkbox d-inline-flex check-input">
-                                <input class="check" name="newsletter" type="checkbox" value="1">
-                                <label>Sign up for our newsletter
-                                    <br>
-                                    <em>You may unsubscribe at any moment. For that purpose,
-                                        please find our contact info in the legal notice.
-                                    </em>
-                                </label>
-                            </span>
+
+                        <div class="my-1 col-md-5">
+                            <x-jet-label class="small mb-1" for="securitycode" value="{{ __('Security Code') }}" />
+                            <x-jet-input id="securitycode" type="text" class="{{ $errors->has('securitycode') ? 'is-invalid' : '' }}" wire:model="payment.securitycode" maxlength="20" pattern="[0-9]*" inputmode="numeric" />
+                            <x-jet-input-error for="securitycode" />
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
 
-        <div class="cart-grid-right col-md-3 col-xs-12">
-            <div class="bg-primary text-white p-3">There are {{ $carts->count() > 0 ? $carts->count() . ' item in your cart' : 'no item in your cart' }}</div>
+        <div class="cart-grid-right col-md-4 col-xs-12">
+            <div class="bg-primary text-white p-3">YOUR ORDER</div>
             <div class="block-list mt-0">
                 <ul class="p-3">
-                    @if ($carts->isNotEmpty())
-                        <li>
-                            Total products:
-                            <span class="float-right">{{ currency(
-                                $carts->sum(function ($cart) {
-                                    return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
-                                }),
-                            ) }}</span>
+                    @foreach ($carts as $cart)
+                        <li class="pt-3">
+                            <div class="row">
+                                <div class="col-md-2 pr-0">
+                                    <img src="{{ $cart['img_src'] }}" alt="{{ $cart['name'] }}" class="img-fluid h-80">
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="d-flex justify-content-between">
+                                        <h6>{{ $cart['name'] }}</h6>
+                                        <span>{{ currency($cart['qty'] * $cart['price']) }}</span>
+                                    </div>
+                                    <p>{{ $cart['qty'] }} x {{ currency($cart['price']) }}</p>
+                                </div>
+                            </div>
                         </li>
-                    @endif
+                    @endforeach
+                    <li class="py-3">
+                        Subtotal products:
+                        <span class="float-right">{{ currency(
+                            $carts->sum(function ($cart) {
+                                return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
+                            }),
+                        ) }}</span>
+                    </li>
+                    <li class="py-3">
+                        Shipping ({{ $carts->sum(fn($cart) => $cart['qty']) }} x {{ currency($postage->cost) }}) :
+                        <span class="float-right">{{ currency($carts->sum(fn($cart) => $cart['qty']) * $postage->cost) }}</span>
+                    </li>
+                    <li class="py-3">
+                        Total products:
+                        <span class="float-right">{{ currency(
+                            $carts->sum(function ($cart) {
+                                return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
+                            }) +
+                                $carts->sum(fn($cart) => $cart['qty']) * $postage->cost,
+                        ) }}</span>
+                    </li>
                 </ul>
             </div>
 
             <div>
-                @if ($carts->isEmpty())
-                    <a href="{{ route('home') }}" class="continue btn btn-primary btn-block">{{ __('Continue Shopping') }}</a>
-                @else
-                    <a href="{{ route('checkout') }}" class="continue btn btn-primary btn-block">{{ __('Order') }}</a>
-                @endif
+                <a role="button" wire:click="getToken" class="continue btn btn-primary btn-block">{{ __('Place Order') }}</a>
             </div>
         </div>
     </div>
@@ -191,7 +202,7 @@
                     <x-jet-label class="small" for="country_id" value="{{ __('Country') }}" />
                     <select class="form-control form-control-user {{ $errors->has('country_id') ? 'is-invalid' : '' }}" wire:model="modal.country_id" id="country_id" autocomplete="country_id" wire:ignore>
                         @foreach ($countries as $country)
-                        <option value="{{ $country->id }}" wire:key="{{ $country->id }}">{{ $country->nicename }}</option>
+                            <option value="{{ $country->id }}" wire:key="{{ $country->id }}">{{ $country->nicename }}</option>
                         @endforeach
                     </select>
                     <x-jet-input-error for="country" />
@@ -211,4 +222,25 @@
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
+
+    <x-jet-confirmation-modal wire:model="warningModal" :maxWidth="'lg'">
+        <x-slot name="title">
+            {{ $status_message }}
+        </x-slot>
+
+        <x-slot name="content">
+            <ul class="list-group list-group-flush">
+                @foreach ($validation_messages as $messages)
+                <li class="list-group-item pl-0"><i>{{ $messages }}</i></li>
+                @endforeach
+            </ul>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('warningModal')" wire:loading.attr="disabled">
+                {{ __('Close') }}
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-jet-confirmation-modal>
 </div>
+
