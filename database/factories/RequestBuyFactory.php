@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
 use App\Models\Income;
+use App\Models\Postage;
 use App\Models\RequestBuy;
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -11,6 +13,7 @@ use App\Models\Spice;
 use App\Models\Status;
 use App\Models\Trace;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 /**
@@ -25,25 +28,87 @@ class RequestBuyFactory extends Factory
      */
     public function definition()
     {
+        $user = User::oldest()->get()[rand(0, User::count() - 1)];
+
+        $address = Address::where('primary', true)->where('user_id', $user->id)
+            ->selectRaw('addresses.*, countries.nicename as nicename, countries.iso3 as iso3')
+            ->join('countries', 'addresses.country_id', '=', 'countries.id')
+            ->first();
+
+        $postage = Postage::where('country_id', $address->country_id)->first();
+
+        $parts = explode(" ", $user->name);
+        $user_lastname = array_pop($parts);
+        $user_firstname = implode(" ", $parts);
+
+        $parts = explode(" ", $address->recipent);
+        $address_lastname = array_pop($parts);
+        $address_firstname = implode(" ", $parts);
+
         $spice_data = [];
+        $gross_amount = 0;
 
         for ($i = 0; $i < rand(1, Spice::count()); $i++) {
-            $spice = Spice::oldest()->get()->toArray()[$i];
+            $spice = Spice::oldest()->get()[$i];
+            $jumlah = $this->faker->numberBetween(1, 10);
             $spice_data[] = [
-                'id' => $spice['id'],
-                'nama' => $spice['nama'],
-                'hrg_jual' => $spice['hrg_jual'],
-                'jumlah' => $this->faker->numberBetween(1, 10),
-                'unit' => $spice['unit'],
-                'image' => $spice['image'],
-                'ket' => $spice['ket'],
+                'id' => $spice->id,
+                'nama' => $spice->nama,
+                'hrg_jual' => $spice->hrg_jual,
+                'jumlah' => $jumlah,
+                'unit' => $spice->unit,
+                'image' => $spice->image,
+                'ket' => $spice->ket,
             ];
+
+            $gross_amount = $gross_amount + ($jumlah * $spice->hrg_jual) + ($jumlah * $postage->cost);
         }
+
+        $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
+
+        while (RequestBuy::where('invoice', $order_id)->first()) {
+            $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
+        }
+
+        $expirationdate = explode("/", $this->faker->creditCardExpirationDateString);
+
+        $transaction_data = [
+            'payment_type' => 'credit_card',
+            'credit_card'  => [
+                "token_id" => Str::orderedUuid(),
+                "authentication" => "true",
+                "card_number" => $this->faker->creditCardNumber,
+                "card_exp_month" => $expirationdate[0],
+                "card_exp_year" => "20" . $expirationdate[1],
+                "card_cvv" => $this->faker->numberBetween(100, 999),
+            ],
+            'transaction_details' => [
+                'order_id' => $order_id,
+                'gross_amount' => $gross_amount,
+            ],
+            'customer_details' => [
+                "first_name" => $user_firstname,
+                "last_name" => $user_lastname,
+                "email" => $user->email,
+                "shipping_address" => [
+                    "first_name" => $address_firstname,
+                    "last_name" => $address_lastname,
+                    "phone" => $address->phone,
+                    "address" =>  $address->street . ", " . $address->other_street . ", " . $address->district . ", " . $address->city . ", " . $address->state . ", " . $address->nicename,
+                    "city" => $address->city,
+                    "postal_code" => $address->zip,
+                    "country_code" => $address->iso3,
+                    "country_name" => $address->nicename
+                ],
+            ],
+            "postage" => $postage->toArray(),
+        ];
 
         return [
             'invoice' => "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999)),
-            'user_id' => User::oldest()->get()->map(fn ($model) => $model->id)[rand(0, User::count() - 1)],
+            'user_id' => $user->id,
             'spice_data' => $spice_data,
+            'transaction_data' => $transaction_data,
             'created_at' => Carbon::now()->subDay(rand(1, 90)),
             'updated_at' => Carbon::now()->subDay(rand(1, 90))
         ];
@@ -58,15 +123,15 @@ class RequestBuyFactory extends Factory
     {
         return $this->afterCreating(function (RequestBuy $request_buy) {
             foreach ($request_buy->spice_data as $data) {
-                $spice = Spice::find($data->id);
-                $spice->stok = $spice->stok - $data->jumlah;
+                $spice = Spice::find($data['id']);
+                $spice->stok = $spice->stok - $data['jumlah'];
                 $spice->save();
             }
 
-            $trace = [];
             $statuses = Status::oldest()->get();
-            $statusSelected = rand(0, Status::count() - 1);
+            $statusSelected = rand(1, Status::count());
 
+            $trace = [];
             for ($i = 0; $i < $statusSelected; $i++) {
                 $trace[] = [
                     'id' => Str::orderedUuid(),
@@ -76,10 +141,9 @@ class RequestBuyFactory extends Factory
                     'updated_at' => Carbon::now()->subDay($statuses->count() - $i)
                 ];
             }
-
             Trace::insert($trace);
 
-            if ($statuses[$statusSelected]->nama == 'Rated' || $statuses[$statusSelected]->nama = 'Delivered') {
+            if (in_array($statuses[$statusSelected - 1]->nama, ['Delivered', 'Rated'])) {
                 Income::create([
                     'user_id' => $request_buy->user_id,
                     'request_buy_id' => $request_buy->id,
@@ -88,23 +152,16 @@ class RequestBuyFactory extends Factory
                 ]);
             }
 
-            if ($statuses[$statusSelected]->nama == 'Rated') {
-                $review = [];
-
+            if (in_array($statuses[$statusSelected - 1]->nama, ['Rated'])) {
                 foreach ($request_buy->spice_data as $data) {
-                    $review[] = [
-                        'id' => Str::orderedUuid(),
+                    Review::create([
                         'user_id' => $request_buy->user_id,
-                        'spice_id' => $data->id,
+                        'spice_id' => $data['id'],
                         'request_buy_id' => $request_buy->id,
                         'summary' => $this->faker->paragraph(),
                         'rating' => $this->faker->numberBetween(1, 5),
-                        'created_at' => Carbon::now(),
-                        'updated_at' => Carbon::now()
-                    ];
+                    ]);
                 }
-
-                Review::insert($review);
             }
         });
     }

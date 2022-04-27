@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\Country;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -76,6 +78,20 @@ class UserFactory extends Factory
     {
         return $this->afterCreating(function (User $user) {
             $user->assignRole('user');
+
+            Address::create([
+                'user_id' => $user->id,
+                'recipent' => $this->faker->name,
+                'street' => $this->faker->streetName(),
+                'other_street' => $this->faker->streetAddress(),
+                'district' => $this->faker->streetSuffix(),
+                'city' => $this->faker->city(),
+                'state' => $this->faker->citySuffix(),
+                'zip' => $this->faker->postcode(),
+                'country_id' => $this->faker->randomElements(Country::all()->map(fn ($model) => $model->id)->toArray())[0],
+                'phone' => $this->faker->phoneNumber(),
+                'primary' => true,
+            ]);
         });
     }
 }

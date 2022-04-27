@@ -37,7 +37,7 @@ class ExpenditureFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Expenditure $expenditure) {
-            $spice = Spice::find($expenditure->spice_data->id);
+            $spice = Spice::find($expenditure->spice_data['id']);
             $spice->stok = $spice->stok + $expenditure->jumlah;
             $spice->save();
         });

@@ -15,10 +15,12 @@ class RequestBuy extends Model
         'invoice',
         'user_id',
         'spice_data',
+        'transaction_data',
     ];
 
     protected $casts = [
         'spice_data' => Json::class,
+        'transaction_data' => Json::class,
     ];
 
     protected $keyType = 'string';

@@ -110,7 +110,7 @@ class Checkout extends Component
         $expirationdate = explode("/", $this->payment['expirationdate']);
 
         $response = Http::get(env('MIDTRANS_TOKEN_URL'), [
-            "card_number" => str_replace('+', '', $this->payment['cardnumber']),
+            "card_number" => $this->payment['cardnumber'],
             "card_exp_month" => $expirationdate[0],
             "card_exp_year" => "20" . $expirationdate[1],
             "card_cvv" => $this->payment['securitycode'],
@@ -206,7 +206,7 @@ class Checkout extends Component
                     "first_name" => $address_firstname,
                     "last_name" => $address_lastname,
                     "phone" => $address->phone,
-                    "address" =>  $address->street . ", " . $address->other_street . ", " . $address->city . ", " . $address->state . ", " . $address->nicename,
+                    "address" =>  $address->street . ", " . $address->other_street . ", " . $address->district . ", " . $address->city . ", " . $address->state . ", " . $address->nicename,
                     "city" => $address->city,
                     "postal_code" => $address->zip,
                     "country_code" => $address->iso3

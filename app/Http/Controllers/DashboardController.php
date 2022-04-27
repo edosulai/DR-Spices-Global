@@ -43,16 +43,16 @@ class DashboardController extends Controller
             ) request_buys"), function ($join) {
             $join->on('incomes.request_buy_id', '=', 'request_buys.id');
         })
-            ->whereYear('incomes.created_at', Carbon::now()->year)
-            ->whereMonth('incomes.created_at', Carbon::now()->month)
+            ->whereYear('incomes.created_at', '=', Carbon::now()->year)
+            ->whereMonth('incomes.created_at', '=', Carbon::now()->month)
             ->selectRaw("request_buys.hrg_jual * request_buys.jumlah as income_price")
             ->oldest()
             ->get()
             ->sum('income_price');
 
-        $outcome = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price")
-            ->whereYear('created_at', Carbon::now()->year)
-            ->whereMonth('created_at', Carbon::now()->month)
+        $outcome = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, created_at")
+            ->whereYear('created_at', '=', Carbon::now()->year)
+            ->whereMonth('created_at', '=', Carbon::now()->month)
             ->oldest()
             ->get()
             ->sum('outcome_price');

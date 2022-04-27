@@ -131,8 +131,8 @@
                 <div class="modal-header">
                     <h5 class="modal-title">{{ __('Ready to Leave?') }}</h5>
                 </div>
-                <div class="modal-body">
-                    {{ __('Select "Logout" below if you are ready to end your current session.') }}
+                <div class="modal-body p-4">
+                    <i>{{ __('Select "Logout" below if you are ready to end your current session.') }}</i>
                 </div>
                 <div class="modal-footer bg-light">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

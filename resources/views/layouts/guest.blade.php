@@ -26,6 +26,24 @@
 
     <x-pre-loader />
 
+    <div class="modal fade" tabindex="-1" id="logoutModal" aria-labelledby="logoutModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ __('Ready to Leave?') }}</h5>
+                </div>
+                <div class="modal-body p-4">
+                    <i>{{ __('Select "Logout" below if you are ready to end your current session.') }}</i>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                    <form method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     @livewireScripts

@@ -23,6 +23,18 @@ window.Alpine = Alpine
 
 Alpine.start()
 
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+Chart.defaults.global.defaultFontColor = '#858796'
+
+window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
+    let chart = window[chartId].chart
+    chart.data.datasets.forEach((dataset, key) => {
+        dataset.data = datasets[key]
+    })
+    chart.data.labels = labels
+    chart.update()
+})
+
 $('#cetak').on('click', function () {
     $('table').printThis({
         debug: false,
@@ -86,18 +98,6 @@ $(document).on('click', 'a.scroll-to-top', function (e) {
         scrollTop: ($($anchor.attr('href')).offset().top)
     }, 1000, 'easeInOutExpo')
     e.preventDefault()
-})
-
-Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
-Chart.defaults.global.defaultFontColor = '#858796'
-
-window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
-    let chart = window[chartId].chart
-    chart.data.datasets.forEach((dataset, key) => {
-        dataset.data = datasets[key]
-    })
-    chart.data.labels = labels
-    chart.update()
 })
 
 $(".back-to-top").hide()
@@ -195,6 +195,8 @@ window.onload = function () {
     const securitycode = document.getElementById('securitycode')
     const ccicon = document.getElementById('ccicon')
     const ccsingle = document.getElementById('ccsingle')
+
+    if (!cardnumber && !expirationdate && !securitycode && !ccicon && !ccsingle) return
 
     //Mask the Credit Card Number Input
     var cardnumber_mask = new IMask(cardnumber, {

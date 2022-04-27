@@ -27,9 +27,9 @@
                     <a href="#orders" data-toggle="tab">
                       <i class="fa fa-cart-arrow-down"></i> {{ __('Orders') }}
                     </a>
-                    <a href="#payment-method" data-toggle="tab">
+                    {{-- <a href="#payment-method" data-toggle="tab">
                       <i class="fa fa-credit-card"></i> {{ __('Payment Method') }}
-                    </a>
+                    </a> --}}
                   </div>
                 </div>
 
@@ -80,9 +80,9 @@
                       @livewire('order')
                     </div>
 
-                    <div class="tab-pane fade" id="payment-method" role="tabpanel">
+                    {{-- <div class="tab-pane fade" id="payment-method" role="tabpanel">
                       @livewire('payment')
-                    </div>
+                    </div> --}}
 
                   </div>
                 </div>

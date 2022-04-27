@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
+use App\Models\Country;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
@@ -27,6 +29,20 @@ class UserSeeder extends Seeder
 
         $admin->assignRole('admin');
 
-        User::factory(19)->create();
+        Address::create([
+            'user_id' => $admin->id,
+            'recipent' => 'Edo Sulaiman',
+            'street' => 'Jl. Ikua Koto',
+            'other_street' => 'Jorong Ampang Gadang',
+            'district' => 'Kec. Ampek Angkek',
+            'city' => 'Kab. Agam',
+            'state' => 'Sumatera Barat',
+            'zip' => '26191',
+            'country_id' => Country::where('name', 'INDONESIA')->first()->id,
+            'phone' => '+6282386007722',
+            'primary' => true,
+        ]);
+
+        User::factory(9)->create();
     }
 }

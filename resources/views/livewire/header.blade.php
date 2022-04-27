@@ -133,11 +133,10 @@
                                 </div>
                                 @endforeach
                                 <div>
-                                    <a href="#" role="button" title="Sign Out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <a href="#" role="button" title="Sign Out" data-toggle="modal" data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt"></i>
                                         <span>{{ __('Sign Out') }}</span>
                                     </a>
-                                    <form class="d-none" method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
                                 </div>
                             </div>
                         </div>
@@ -268,10 +267,9 @@
                                         </li>
                                         @endforeach
                                         <li class="item">
-                                            <a href="#" title="Sign Out" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <a href="#" role="button" title="Sign Out" data-toggle="modal" data-target="#logoutModal">
                                                 <span>{{ __('Sign Out') }}</span>
                                             </a>
-                                            <form class="d-none" method="POST" id="logout-form" action="{{ route('logout') }}">@csrf</form>
                                         </li>
                                     </ul>
                                 </div>
