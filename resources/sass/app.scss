@@ -457,3 +457,24 @@ a {
         transform: rotateY(180deg);
     }
 }
+
+.icon-addcart {
+    color: #88c8bc;
+    display: block;
+    margin-bottom: 40px;
+
+    span {
+        width: 100px;
+        height: 100px;
+        display: table;
+        margin: 0 auto;
+        background: lighten(#000, 98%);
+        border-radius: 50%;
+    }
+
+    i {
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 50px;
+    }
+}

@@ -183,9 +183,9 @@ $(".close-box").on("click", function () { $("#mobile-pagemenu").removeClass("act
 //   $("#deal_of_day").slick({ autoplay: true, centerMode: true, centerPadding: "40px", slidesToShow: 3, autoplaySpeed: 1500, arrows: true, nextArrow: '<span class="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>', prevArrow: '<span class="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>', datanav: true, responsive: [{ breakpoint: 767, settings: { arrows: false, centerMode: true, slidesToShow: 1 } }, { breakpoint: 480, settings: { arrows: false, centerMode: true, centerPadding: "40px", slidesToShow: 1 } }] })
 // }
 
-// $(document).on('click', function () {
-//     $('.collapse').collapse('hide')
-// })
+$(document).on('click', function () {
+    $('.collapse').collapse('hide')
+})
 
 window.onload = function () {
 

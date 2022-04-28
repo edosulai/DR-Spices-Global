@@ -3,14 +3,16 @@
         <div class="cart-container col-md-8 col-xs-12" id="checkoutForm">
 
             <div class="checkout-personal-step">
-                <h3 class="step-title h3 info" id="headingAddress">
+                {{-- <h3 class="step-title h3 info" id="headingAddress"> --}}
+                <h3 class="step-title h3 info">
                     {{-- <a role="button" data-toggle="collapse" data-target="#collapseAddress" aria-expanded="true" aria-controls="collapseAddress">
                         <span class="step-number">1</span>Shipping Address
                     </a> --}}
                     <span class="step-number">1</span>Shipping Address
                 </h3>
             </div>
-            <div id="collapseAddress" class="main-content collapse show" aria-labelledby="headingAddress" data-parent="#checkoutForm">
+            {{-- <div id="collapseAddress" class="main-content collapse show" aria-labelledby="headingAddress" data-parent="#checkoutForm"> --}}
+            <div class="main-content">
                 @if (count($addresses) < 1)
                     <div class="mb-3">
                         <p class="saved-message">{{ __('Your Address Book is Empty,') }} <br> {{ __('Please add the address first before proceeding with the checkout process') }}</p>
@@ -51,19 +53,21 @@
             </div>
 
             <div class="checkout-personal-step">
-                <h3 class="step-title h3 info" id="headingPayment">
+                {{-- <h3 class="step-title h3 info" id="headingPayment"> --}}
+                <h3 class="step-title h3 info">
                     {{-- <a role="button" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment" data-parent="#checkoutForm">
                         <span class="step-number">2</span>Payment Method
                     </a> --}}
                     <span class="step-number">2</span>Payment Method
                 </h3>
             </div>
-            <div id="collapsePayment" class="main-content collapse show" aria-labelledby="headingPayment" data-parent="#checkoutForm">
+            {{-- <div id="collapsePayment" class="main-content collapse show" aria-labelledby="headingPayment" data-parent="#checkoutForm"> --}}
+            <div class="main-content">
                 <div class="row payment">
-                    <div class="col-md-6" wire:ignore>
+                    <div class="col-md-6 mb-5 d-none d-md-block" wire:ignore>
                         <x-credit-card/>
                     </div>
-                    <div class="col-md-6 row">
+                    <div class="col-md-6 row mb-5">
                         <div class="my-1 col-md-12">
                             <x-jet-label class="small mb-1" for="name" value="{{ __('Name') }}" />
                             <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model="payment.name" maxlength="20" />
@@ -101,7 +105,7 @@
                     @foreach ($carts as $cart)
                         <li class="pt-3">
                             <div class="row">
-                                <div class="col-md-2 pr-0">
+                                <div class="col-md-2 pr-0 d-none d-md-block">
                                     <img src="{{ $cart['img_src'] }}" alt="{{ $cart['name'] }}" class="img-fluid h-80">
                                 </div>
                                 <div class="col-md-10">

@@ -57,7 +57,7 @@
                                 <div class="mb-5">
                                     <h2>{{ $this->spice->nama }}</h2>
                                 </div>
-                                <div class="price-del">
+                                <div>
                                     <span class="price">{{ currency($spice->hrg_jual) }}</span>
                                     <span class="float-right">
                                         <span class="availb">Availability: </span>
@@ -67,11 +67,9 @@
                                     </span>
                                 </div>
                                 <p class="description">{{ $spice->ket }}</p>
-                                <div class="option has-border d-lg-flex size-color">
-                                    <div class="size">
-                                        <span class="size">Unit :</span>
-                                        <span>{{ $spice->unit }}</span>
-                                    </div>
+                                <div class="option has-border d-lg-flex">
+                                    <span>Unit :</span>
+                                    <span>{{ $spice->unit }}</span>
                                 </div>
                                 <div class="rating-comment has-border d-flex">
                                     <div class="review-description d-flex">
@@ -79,11 +77,11 @@
                                         <div class="rating" wire:ignore>
                                             <div class="star-content">
                                                 @for ($i = 0; $i < 5; $i++)
-                                                    <div class="star{{ $i < $spice->review_avg ? '' : ' hole' }}">
+                                                    <div class="star{{ $i < $spice->rating_avg ? '' : ' hole' }}">
                                                     </div>
                                                 @endfor
                                             </div>
-                                            <small>({{ round($spice->review_avg, 1) }})</small>
+                                            <small>({{ round($spice->rating_avg, 1) }})</small>
                                         </div>
                                     </div>
                                     <div class="read after-has-border">
@@ -93,13 +91,21 @@
                                         </a>
                                     </div>
                                 </div>
+                                <div class="option has-border d-lg-flex">
+                                    <span>Stok :</span>
+                                    <span>{{ $spice->stok }} ({{ $spice->unit }})</span>
+                                </div>
+                                <div class="option has-border d-flex align-items-center">
+                                    <span>{{ currency($spice->hrg_jual) }} x {{ $qty }} :</span>
+                                    <span class="price ml-3">{{ currency($spice->hrg_jual * $qty) }}</span>
+                                </div>
                                 <div class="has-border cart-area">
                                     <div class="product-quantity">
                                         <div class="qty">
                                             <div class="input-group">
                                                 <div class="quantity">
                                                     <span class="control-label">QTY : </span>
-                                                    <input min="1" type="number" wire:model="qty" class="input-group form-control">
+                                                    <input min="1" type="number" wire:model="qty" class="input-group form-control" oninput="if(this.value == '') {this.value = 0}">
                                                 </div>
                                                 <span class="add">
                                                     <button class="btn btn-primary add-to-cart add-item" wire:click="addToCart">
@@ -183,7 +189,7 @@
                                                             <div class="rating">
                                                                 <div class="star-content">
                                                                     @for ($i = 0; $i < 5; $i++)
-                                                                        <div class="star{{ $i < $spic->review_avg ? '' : ' hole' }}">
+                                                                        <div class="star{{ $i < $spic->rating_avg ? '' : ' hole' }}">
                                                                         </div>
                                                                     @endfor
                                                                 </div>
@@ -231,24 +237,26 @@
 
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-6 divide-right">
-                        <div class="row no-gutters">
-                            <div class="col-md-5">
-                                <img class="product-image img-fluid" src="{{ $modalSpiceImage }}">
-                            </div>
-                            <div class="col-md-7">
-                                <div class="h5 product-name">{{ $modalSpiceName }}</div>
-                                <div class="product-price">{{ $modalSpicePrice ? currency($modalSpicePrice) : 0 }} <small>({{ $modalSpiceUnit }})</small></div>
-                                <p>Quantity:&nbsp;{{ $modalSpiceQty }}</p>
+                    @if (count($modal) > 0)
+                        <div class="col-md-6 divide-right">
+                            <div class="row no-gutters">
+                                <div class="col-md-5">
+                                    <img class="product-image img-fluid" src="{{ $modal['image'] }}">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="h5 product-name">{{ $modal['name'] }}</div>
+                                    <div class="product-price">{{ currency($modal['price']) }} <small>({{ $modal['unit'] }})</small></div>
+                                    <p>Quantity:&nbsp;{{ $modal['qty'] }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="cart-content">
-                            <p class="cart-products-count">There are {{ $modalSpiceCount }} items in your cart.</p>
-                            <p>Total products:&nbsp;{{ $modalSpiceTotal ? currency($modalSpiceTotal) : 0 }}</p>
+                        <div class="col-md-6">
+                            <div class="cart-content">
+                                <p class="cart-products-count">There are {{ $modal['count'] }} items in your cart.</p>
+                                <p>Total products:&nbsp;{{ currency($modal['total']) }}</p>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
 
@@ -268,71 +276,73 @@
             </div>
             <div class="modal-body">
                 <div class="row no-gutters">
-                    <div class="col-md-5 col-sm-5 divide-right d-flex align-items-center">
-                        <div class="images-container bottom_thumb">
-                            <div class="product-cover">
-                                <img class="img-fluid" src="{{ $modalSpiceImage }}" style="width:100%;">
-                                <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
-                                    <i class="fa fa-expand"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info col-md-7 col-sm-7 pl-4">
-                        <h1 class="product-name">{{ $modalSpiceName }}</h1>
-                        <span class="float-right">
-                            <span>Availability : </span>
-                            <span class="check {{ $modalSpiceInStock ? 'availb' : 'sold' }}">
-                                <i class="fas {{ $modalSpiceInStock ? 'fa-check-square' : 'fa-times' }}"></i> {{ $modalSpiceInStock ? 'IN STOCK' : 'SOLD OUT' }}
-                            </span>
-                        </span>
-                        <div class="rating mb-2">
-                            <div class="star-content">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <div class="star{{ $i < $modalSpiceRating ? '' : ' hole' }}">
+                    @if (count($modal) > 0)
+                        <div class="col-md-5 col-sm-5 divide-right d-flex align-items-center">
+                            <div class="images-container bottom_thumb">
+                                <div class="product-cover">
+                                    <img class="img-fluid" src="{{ $modal['image'] }}" style="width:100%;">
+                                    <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
+                                        <i class="fa fa-expand"></i>
                                     </div>
-                                @endfor
-                            </div>
-                            <small>({{ round($modalSpiceRating, 1) }})</small>
-                        </div>
-
-                        <div class="product-prices">
-                            <div class="product-price">
-                                <div class="current-price">
-                                    <span>{{ $modalSpicePrice ? currency($modalSpicePrice) : 0 }} <small>({{ $modalSpiceUnit }})</small></span>
                                 </div>
                             </div>
                         </div>
+                        <div class="product-info col-md-7 col-sm-7 pl-4">
+                            <h1 class="product-name">{{ $modal['name'] }}</h1>
+                            <span class="float-right">
+                                <span>Availability : </span>
+                                <span class="check {{ $modal['instock'] ? 'availb' : 'sold' }}">
+                                    <i class="fas {{ $modal['instock'] ? 'fa-check-square' : 'fa-times' }}"></i> {{ $modal['instock'] ? 'IN STOCK' : 'SOLD OUT' }}
+                                </span>
+                            </span>
+                            <div class="rating mb-2">
+                                <div class="star-content">
+                                    @for ($i = 0; $i < 5; $i++)
+                                        <div class="star{{ $i < $modal['rating'] ? '' : ' hole' }}">
+                                        </div>
+                                    @endfor
+                                </div>
+                                <small>({{ round($modal['rating'], 1) }})</small>
+                            </div>
 
-                        <div class="product-description-short">
-                            <p>{{ $modalSpiceDesc }}</p>
-                        </div>
+                            <div class="product-prices">
+                                <div class="product-price">
+                                    <div class="current-price">
+                                        <span>{{ currency($modal['price']) }} <small>({{ $modal['unit'] }})</small></span>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="detail-description">
-                            <div class="has-border cart-area">
-                                <div class="product-quantity">
-                                    <div class="qty">
-                                        <div class="input-group">
-                                            <div class="quantity">
-                                                <span class="control-label">QTY : </span>
-                                                <input min="1" type="number" wire:model="modalSpiceQty" class="input-group form-control">
+                            <div class="product-description-short">
+                                <p>{{ $modal['desc'] }}</p>
+                            </div>
+
+                            <div class="detail-description">
+                                <div class="has-border cart-area">
+                                    <div class="product-quantity">
+                                        <div class="qty">
+                                            <div class="input-group">
+                                                <div class="quantity">
+                                                    <span class="control-label">QTY : </span>
+                                                    <input min="1" type="number" wire:model="modal.qty" class="input-group form-control" oninput="if(this.value == '') {this.value = 0}">
+                                                </div>
+                                                <span class="add">
+                                                    <button class="btn btn-primary add-to-cart add-item {{ $modal['instock'] ? '' : 'disabled' }}" type="submit" wire:click="addToCart">
+                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                        <span>{{ __('Add to cart') }}</span>
+                                                    </button>
+                                                </span>
                                             </div>
-                                            <span class="add">
-                                                <button class="btn btn-primary add-to-cart add-item {{ $modalSpiceInStock ? '' : 'disabled' }}" type="submit" wire:click="addToCart">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                    <span>{{ __('Add to cart') }}</span>
-                                                </button>
-                                            </span>
                                         </div>
                                     </div>
+                                    <div class="clearfix"></div>
+                                    <p class="product-minimal-quantity">
+                                    </p>
                                 </div>
-                                <div class="clearfix"></div>
-                                <p class="product-minimal-quantity">
-                                </p>
                             </div>
-                        </div>
 
-                    </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -3190,6 +3190,12 @@ $border-color_1: transparent transparent #eaeaea transparent;
             }
         }
     }
+
+    .checkout {
+        .main-content {
+            padding-left: 0;
+        }
+    }
 }
 
 @media screen and (max-width: 425px) {

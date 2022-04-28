@@ -33,7 +33,7 @@
                                         <div class="col-md-4 col">
                                             <div class="label w-100">Qty:</div>
                                             <div class="quantity w-100">
-                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" wire: class="input-group form-control {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}">
+                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" class="input-group form-control {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}" oninput="if(this.value == '') {this.value = 0}">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col">

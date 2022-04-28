@@ -65,8 +65,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
         return view('listed-order', [
             'title' => 'Confirmation',
-            'detail_order' => $detailOrder,
-            'trace_order' => $traceOrder,
+            'detailOrder' => $detailOrder,
+            'traceOrder' => $traceOrder,
             'param' => $param
         ]);
     })->name('purchase');

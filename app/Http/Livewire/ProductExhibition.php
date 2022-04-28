@@ -15,22 +15,12 @@ class ProductExhibition extends Component
     public $feedbackCartAddModal = false;
     public $detailModal = false;
 
-    public $modalSpiceId;
-    public $modalSpiceName;
-    public $modalSpiceUnit;
-    public $modalSpiceRating;
-    public $modalSpicePrice;
-    public $modalSpiceQty;
-    public $modalSpiceImage;
-    public $modalSpiceDesc;
-    public $modalSpiceInStock;
-    public $modalSpiceCount;
-    public $modalSpiceTotal;
+    public $modal = [];
 
     public function mount()
     {
-        $this->spices = Spice::join('reviews', 'spices.id', '=', 'reviews.spice_id')
-            ->selectRaw('spices.*, AVG(reviews.rating) as review_avg')
+        $this->spices = Spice::join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
+            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
             ->groupBy('spices.id')
             ->get();
 
@@ -45,24 +35,19 @@ class ProductExhibition extends Component
         ];
     }
 
-    public function render()
-    {
-        return view('livewire.product-exhibition');
-    }
-
     public function addToCart($id = null)
     {
         if (!Auth::check()) {
             return $this->redirectRoute('login');
         }
 
-        $spice = Spice::find($id ?? $this->modalSpiceId);
+        $spice = Spice::find($id ?? $this->modal['id']);
 
         if ($spice && $spice->stok > 0) {
 
-            $this->modalSpiceTotal = 0;
+            $this->modal['total'] = 0;
 
-            $qty = $id ? 1 : $this->modalSpiceQty;
+            $qty = $id ? 1 : $this->modal['qty'];
 
             Cart::updateOrCreate([
                 'user_id' => Auth::id(),
@@ -76,17 +61,18 @@ class ProductExhibition extends Component
                 ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
                 ->get();
 
-            $this->modalSpiceName = $spice->nama;
-            $this->modalSpicePrice = $spice->hrg_jual;
-            $this->modalSpiceUnit = $spice->unit;
-            $this->modalSpiceQty = $qty;
-            $this->modalSpiceImage = asset("/storage/images/product/$spice->image");;
-            $this->modalSpiceDesc = $spice->ket;
-            $this->modalSpiceCount = count($carts);
-            $this->modalSpiceInStock = $spice->stok;
+            $this->modal['name'] = $spice->nama;
+            $this->modal['price'] = $spice->hrg_jual;
+            $this->modal['unit'] = $spice->unit;
+            $this->modal['rating'] = 0;
+            $this->modal['qty'] = $qty;
+            $this->modal['image'] = asset("/storage/images/product/$spice->image");;
+            $this->modal['desc'] = $spice->ket;
+            $this->modal['count'] = count($carts);
+            $this->modal['instock'] = $spice->stok;
 
             foreach ($carts as $cart) {
-                $this->modalSpiceTotal = $this->modalSpiceTotal + ($cart->spice_price * $cart->jumlah);
+                $this->modal['total'] = $this->modal['total'] + ($cart->spice_price * $cart->jumlah);
             }
 
             $this->detailModal = false;
@@ -99,24 +85,31 @@ class ProductExhibition extends Component
     public function detailSpice($id)
     {
         $spice = Spice::where('spices.id', $id)
-            ->join('reviews', 'spices.id', '=', 'reviews.spice_id')
-            ->selectRaw('spices.*, AVG(reviews.rating) as review_avg')
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
+            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
             ->groupBy('spices.id')
             ->first();
 
         if ($spice) {
 
-            $this->modalSpiceId = $spice->id;
-            $this->modalSpiceName = $spice->nama;
-            $this->modalSpicePrice = $spice->hrg_jual;
-            $this->modalSpiceUnit = $spice->unit;
-            $this->modalSpiceRating = $spice->review_avg;
-            $this->modalSpiceQty = 1;
-            $this->modalSpiceImage = asset("/storage/images/product/$spice->image");
-            $this->modalSpiceDesc = $spice->ket;
-            $this->modalSpiceInStock = $spice->stok > 0 ? true : false;
+            $this->modal['total'] = 0;
+            $this->modal['id'] = $spice->id;
+            $this->modal['name'] = $spice->nama;
+            $this->modal['price'] = $spice->hrg_jual;
+            $this->modal['unit'] = $spice->unit;
+            $this->modal['rating'] = $spice->rating_avg;
+            $this->modal['qty'] = 1;
+            $this->modal['image'] = asset("/storage/images/product/$spice->image");
+            $this->modal['desc'] = $spice->ket;
+            $this->modal['count'] = 0;
+            $this->modal['instock'] = $spice->stok > 0 ? true : false;
 
             $this->detailModal = true;
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.product-exhibition');
     }
 }

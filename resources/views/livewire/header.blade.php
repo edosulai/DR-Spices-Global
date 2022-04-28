@@ -108,13 +108,13 @@
                     @if (Auth::check())
                     <div id="block_myaccount_infos" class="hidden-sm-down dropdown">
                         <div class="myaccount-title">
-                            <a href="#account" data-toggle="collapse" aria-expanded="false">
+                            <a role="button" data-toggle="collapse" data-target="#account" aria-expanded="false">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                                 <span>{{ Auth::user()->name }}</span>
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                             </a>
                         </div>
-                        <div id="account" class="account collapse">
+                        <div id="account" class="account collapse" data-parent="#block_myaccount_infos">
                             <div class="account-list-content">
                                 @role('admin')
                                 <div>
@@ -241,16 +241,16 @@
                             @endforeach
 
                             @if (Auth::check())
-                            <li class="item has-sub">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#home1" aria-expanded="true" role="status">
-                                    <i class="fas fa-minus"></i>
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <a href="index-2.html" title="Home">
+                            <li class="item has-sub" id="myaccount-mobile">
+                                <a role="button" class="d-block" data-toggle="collapse" data-target="#account-mobile" aria-expanded="true">
+                                    <span class="arrow collapsed" >
+                                        <i class="fas fa-minus"></i>
+                                        <i class="fas fa-plus"></i>
+                                    </span>
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <span>{{ Auth::user()->name }}</span>
                                 </a>
-                                <div class="subCategory collapse" id="home1" aria-expanded="true" role="status">
+                                <div class="subCategory collapse" id="account-mobile" aria-expanded="true" data-parent="#myaccount-mobile">
                                     <ul>
                                         @role('admin')
                                         <li class="item">
