@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreignUuid('country_id')->constrained('countries')->onDelete('cascade');
             $table->string('phone');
             $table->boolean('primary')->default(false);
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

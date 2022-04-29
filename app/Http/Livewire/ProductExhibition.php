@@ -10,12 +10,14 @@ use Livewire\Component;
 
 class ProductExhibition extends Component
 {
+    public $status_message;
+    public $validation_messages = [];
     public $spices = [];
     public $navs = [];
+    public $modal = [];
     public $feedbackCartAddModal = false;
     public $detailModal = false;
-
-    public $modal = [];
+    public $warningModal = false;
 
     public function mount()
     {
@@ -79,6 +81,13 @@ class ProductExhibition extends Component
             $this->feedbackCartAddModal = true;
 
             $this->emit('headerMount');
+        } else {
+            $this->status_message = 'Sold Out';
+            $this->validation_messages = [
+                'Stock is not enough',
+                'Product is not available'
+            ];
+            $this->warningModal = true;
         }
     }
 

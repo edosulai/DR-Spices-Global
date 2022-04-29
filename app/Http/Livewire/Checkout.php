@@ -8,6 +8,9 @@ use App\Models\Cart;
 use App\Models\Country;
 use App\Models\Postage;
 use App\Models\RequestBuy;
+use App\Models\Spice;
+use App\Models\Status;
+use App\Models\Trace;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -17,14 +20,16 @@ use Midtrans\CoreApi;
 
 class Checkout extends Component
 {
-    public $payment;
-    public $modal;
-    public $carts;
-    public $countries;
-    public $addresses;
-    public $postage;
+    public $headerAddressModal = '';
     public $queryAddressModal = false;
+    public $deleteAddressModal = false;
+    public $modal = [];
+    public $addresses;
+    public $countries;
 
+    public $payment;
+    public $carts;
+    public $postage;
     public $status_message;
     public $validation_messages = [];
     public $warningModal = false;
@@ -45,6 +50,10 @@ class Checkout extends Component
             'securitycode' => '123'
         ];
 
+        $this->modal = [];
+        $this->queryAddressModal = false;
+        $this->deleteAddressModal = false;
+        $this->countries = Country::all();
         $this->carts = collect();
 
         $carts = Cart::where('user_id', Auth::id())
@@ -56,6 +65,7 @@ class Checkout extends Component
             foreach ($carts as $cart) {
                 $this->carts->push([
                     'id' => $cart->id,
+                    'spice_id' => $cart->spice_id,
                     'name' => $cart->spice_nama,
                     'url' => Str::replace(' ', '-', $cart->spice_nama),
                     'qty' => $cart->jumlah,
@@ -65,17 +75,46 @@ class Checkout extends Component
                 ]);
             }
 
-            $this->countries = Country::all();
-
             $this->addresses = Address::where('addresses.user_id', Auth::id())
                 ->selectRaw('addresses.*, countries.nicename as countries_nicename')
                 ->join('countries', 'addresses.country_id', '=', 'countries.id')
                 ->get()->toArray();
 
-            $this->postage = Postage::where('country_id', Address::where('primary', true)->where('user_id', Auth::id())->first()->country_id)->first();
+            if ($this->addresses) {
+                $this->postage = Postage::where('country_id', Address::where('primary', true)->where('user_id', Auth::id())->first()->country_id)->first();
+            }
         } else {
             $this->redirectRoute('cart');
         }
+    }
+
+    public function openModalAddress($id = null)
+    {
+        $isExist = Address::where('id', $id)->where('user_id', Auth::id())->first();
+        if ($isExist) {
+            $this->modal = $isExist->toArray();
+            $this->headerAddressModal = 'Update Address';
+        } else {
+            $this->headerAddressModal = 'Add New Address';
+        }
+
+        $this->queryAddressModal = true;
+    }
+
+    public function queryAddress()
+    {
+        if (array_key_exists('id', $this->modal)) {
+            $new = Address::where('id', $this->modal['id'])->where('user_id', Auth::id())->first();
+            $new->fill($this->modal);
+            $new->save();
+        } else {
+            $new = Address::create($this->modal);
+            if (!Address::where('primary', true)->where('user_id', Auth::id())->first()) {
+                $this->emit('mainAddress', $new->id);
+            }
+        }
+
+        $this->emit('checkoutMount');
     }
 
     public function mainAddress($id)
@@ -95,27 +134,32 @@ class Checkout extends Component
         $this->emit('checkoutMount');
     }
 
-    public function queryAddress()
+    public function openDeleteModal($id)
     {
-        $new = Address::create($this->modal);
-        $this->emit('mainAddress', $new->id);
+        $isExist = Address::where('id', $id)->where('user_id', Auth::id())->first();
+        if ($isExist) {
+            $this->modal = $isExist->toArray();
+            $this->deleteAddressModal = true;
+        }
+    }
 
-        $this->modal = [];
-        $this->queryAddressModal = false;
+    public function deleteAddress()
+    {
+        Address::where('id', $this->modal['id'])->where('user_id', Auth::id())->delete();
+        $this->emit('checkoutMount');
     }
 
     public function getToken()
     {
-        $gross_amount = $this->carts->sum(fn ($cart) => ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price']) + ($this->carts->sum(fn ($cart) => $cart['qty']) * $this->postage->cost);
         $expirationdate = explode("/", $this->payment['expirationdate']);
 
-        $response = Http::get(env('MIDTRANS_TOKEN_URL'), [
+        $response = Http::get(env('MIDTRANS_URL') . "/v2/token", [
             "card_number" => $this->payment['cardnumber'],
             "card_exp_month" => $expirationdate[0],
             "card_exp_year" => "20" . $expirationdate[1],
             "card_cvv" => $this->payment['securitycode'],
             "secure" => "true",
-            "gross_amount" => $gross_amount,
+            "gross_amount" => $this->carts->sum(fn ($cart) => $cart['qty'] * ($cart['price'] + $this->postage->cost)),
             "client_key" => env('MIDTRANS_CLIENT_KEY'),
         ]);
 
@@ -144,7 +188,7 @@ class Checkout extends Component
         $this->warningModal = true;
     }
 
-    public function doPayment($response)
+    public function doPayment($auth)
     {
         Config::$serverKey = env('MIDTRANS_SERVER_KEY');
         Config::$isProduction = env('MIDTRANS_PRODUCTION');
@@ -153,6 +197,10 @@ class Checkout extends Component
         // Config::$appendNotifUrl = "https://example.com";
         // Config::$overrideNotifUrl = "https://example.com";
         // Config::$paymentIdempotencyKey = "Unique-ID";
+
+        $gross_amount = $this->carts->sum(fn ($cart) => $cart['qty'] * ($cart['price'] + $this->postage->cost));
+
+        $expirationdate = explode("/", $this->payment['expirationdate']);
 
         $address = Address::where('primary', true)->where('user_id', Auth::id())
             ->selectRaw('addresses.*, countries.nicename as nicename, countries.iso3 as iso3')
@@ -168,18 +216,29 @@ class Checkout extends Component
         $address_firstname = implode(" ", $parts);
 
         $item_details = [];
+        $spice_data = [];
 
         foreach ($this->carts as $cart) {
             $item_details[] = [
-                "id" => $cart['id'],
-                "price" => $cart['price'],
+                "id" => $cart['spice_id'],
+                "price" => ($cart['price'] + $this->postage->cost),
                 "quantity" => $cart['qty'],
                 "name" => $cart['name'],
                 "url" => url(str_replace(' ', '-', $cart['name']))
             ];
-        }
 
-        $gross_amount = $this->carts->sum(fn ($cart) => ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price']) + ($this->carts->sum(fn ($cart) => $cart['qty']) * $this->postage->cost);
+            $spice = Spice::find($cart['spice_id']);
+
+            $spice_data[] = [
+                'id' => $spice->id,
+                'nama' => $spice->nama,
+                'hrg_jual' => $spice->hrg_jual,
+                'jumlah' => $cart['qty'],
+                'unit' => $spice->unit,
+                'image' => $spice->image,
+                'ket' => $spice->ket,
+            ];
+        }
 
         $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
 
@@ -187,10 +246,10 @@ class Checkout extends Component
             $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
         }
 
-        $transaction_data = [
+        $response = CoreApi::charge([
             'payment_type' => 'credit_card',
             'credit_card'  => [
-                "token_id" => $response['token_id'],
+                "token_id" => $auth['token_id'],
                 "authentication" => "true",
             ],
             'transaction_details' => [
@@ -212,11 +271,72 @@ class Checkout extends Component
                     "country_code" => $address->iso3
                 ]
             ]
-        ];
+        ]);
 
-        $response = CoreApi::charge($transaction_data);
+        if ($response->status_code == "200") {
 
-        dd($response);
+            $request_buy = RequestBuy::create([
+                'invoice' => $order_id,
+                'user_id' => Auth::id(),
+                'spice_data' => $spice_data,
+                'transaction_data' => [
+                    'payment_type' => 'credit_card',
+                    'credit_card'  => [
+                        "token_id" => $auth['token_id'],
+                        "authentication" => "true",
+                        "card_number" => $this->payment['cardnumber'],
+                        "card_exp_month" => $expirationdate[0],
+                        "card_exp_year" => "20" . $expirationdate[1],
+                        "card_cvv" => $this->payment['securitycode'],
+                    ],
+                    'transaction_details' => [
+                        'order_id' => $order_id,
+                        'gross_amount' => $gross_amount,
+                    ],
+                    'customer_details' => [
+                        "first_name" => $user_firstname,
+                        "last_name" => $user_lastname,
+                        "email" => Auth::user()->email,
+                        "shipping_address" => [
+                            "first_name" => $address_firstname,
+                            "last_name" => $address_lastname,
+                            "phone" => $address->phone,
+                            "address" =>  $address->street . ", " . $address->other_street . ", " . $address->district . ", " . $address->city . ", " . $address->state . ", " . $address->nicename,
+                            "city" => $address->city,
+                            "postal_code" => $address->zip,
+                            "country_code" => $address->iso3,
+                            "country_name" => $address->nicename
+                        ]
+                    ],
+                    "postage" => $this->postage->toArray(),
+                    "charge_response" => $response
+                ],
+            ]);
+
+            foreach ($request_buy->spice_data as $data) {
+                $spice = Spice::find($data['id']);
+                $spice->stok = $spice->stok - $data['jumlah'];
+                $spice->save();
+            }
+
+            foreach ($this->carts as $cart) {
+                Cart::find($cart['id'])->delete();
+            }
+
+            $statuses = Status::oldest()->get();
+
+            for ($i = 0; $i < 2; $i++) {
+                Trace::create([
+                    'request_buy_id' => $request_buy->id,
+                    'status_id' => $statuses[$i]->id,
+                ]);
+            }
+
+            $this->redirectRoute('purchase', ['invoice' => base64_encode($order_id)]);
+
+        } else {
+            $this->emit('errorPayment', $response);
+        }
     }
 
     public function render()

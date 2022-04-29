@@ -20,6 +20,7 @@ class Country extends Model
     ];
 
     protected $keyType = 'string';
+    protected $dateFormat = 'Y-m-d H:i:s.u';
 
     public $incrementing = false;
 

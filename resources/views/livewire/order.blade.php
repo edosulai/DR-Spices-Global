@@ -248,8 +248,8 @@
                                         <div class="row">
                                             <div class="col-md-7">
                                                 <div class="my-2">Produk Total</div>
-                                                <div class="my-2">Shipping Cost / ({{$detailOrder->spice_data[0]['unit']}})</div>
-                                                <div class="my-2">Total Shipping Cost x {{collect($detailOrder->spice_data)->sum('jumlah')}}</div>
+                                                <div class="my-2">Shipping Cost / ({{ $detailOrder->spice_data[0]['unit'] }})</div>
+                                                <div class="my-2">Total Shipping Cost x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
                                                 <h6 class="my-3">Total Price</h6>
                                             </div>
                                             <div class="col-md-5">
@@ -296,6 +296,55 @@
             @endif
 
         </x-slot>
+
+        @if ($detailOrder && !in_array($detailOrder->statuses_nama, ['Canceled']))
+            <x-slot name="footer">
+                <x-jet-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="$toggle('cancelModal')">
+                    {{ __('Cancel Order') }}
+                </x-jet-button>
+            </x-slot>
+        @endif
+
     </x-jet-dialog-modal>
+
+    <x-jet-confirmation-modal wire:model="cancelModal">
+        <x-slot name="title">
+            {{ __('Cancel Orders') }}
+        </x-slot>
+
+        <x-slot name="content">
+            <div>{{ __('Are you sure you want to cancel this order?') }}</div>
+            <div><i>{{ __('For refund will take about 3 working days') }}</i></div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="cancelOrder">
+                <span wire:loading wire:target="cancelOrder" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                {{ __('Cancel Order') }}
+            </x-jet-danger-button>
+        </x-slot>
+    </x-jet-confirmation-modal>
+
+    <x-feedback-modal wire:model="feedbackModal">
+        <x-slot name="title">
+            {{ __('Orders successfully canceled from your orders list') }}
+        </x-slot>
+
+        <x-slot name="content">
+            @if ($detailOrder)
+                <div class="row">
+                    <div class="col-sm-10 offset-sm-1 text-center">
+                        <p class="icon-addcart">
+                            <span><i class="fas fa-check"></i></span>
+                        </p>
+                        <h6 class="mb-4">Orders <i>{{ $detailOrder->invoice }}</i> Successfully Canceled</h6>
+                        <a href="{{ route('home') . '/#product-exhibition' }}" class="btn btn-primary btn-outline-primary">
+                            <i class="fa fa-shopping-cart"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            @endif
+        </x-slot>
+    </x-feedback-modal>
 
 </div>

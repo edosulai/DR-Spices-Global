@@ -14,15 +14,26 @@ use Livewire\WithPagination;
 class Order extends Component
 {
     use WithPagination;
-
     protected $paginationTheme = 'bootstrap';
 
     public $reviews = [];
     public $traceOrder = [];
-    public $detailOrder;
     public $ratings = [];
+    public $detailOrder;
     public $reviewModal = false;
     public $detailModal = false;
+    public $cancelModal = false;
+    public $feedbackModal = false;
+
+    protected $listeners = [
+        // 'orderMount' => 'mount',
+        'orderRender' => 'render',
+    ];
+
+    // public function mount()
+    // {
+    //     //
+    // }
 
     public function openModalReview($id)
     {
@@ -82,7 +93,6 @@ class Order extends Component
 
     public function openModalDetail($id)
     {
-
         $this->detailOrder = RequestBuy::where('request_buys.id', $id)->where('request_buys.user_id', Auth::id())
             ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
@@ -102,6 +112,24 @@ class Order extends Component
 
             $this->detailModal = true;
         }
+    }
+
+    public function cancelOrder()
+    {
+        $cancelStatus = Status::where('nama', 'Canceled')->first();
+
+        $this->detailOrder->update([
+            'status_id' => $cancelStatus->id,
+        ]);
+
+        Trace::create([
+            'request_buy_id' => $this->detailOrder->id,
+            'status_id' => $cancelStatus->id,
+        ]);
+
+        $this->cancelModal = false;
+        $this->feedbackModal = true;
+        $this->emit('orderRender');
     }
 
     public function render()

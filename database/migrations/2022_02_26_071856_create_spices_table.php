@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('unit');
             $table->string('image')->unique();
             $table->text('ket')->nullable();
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

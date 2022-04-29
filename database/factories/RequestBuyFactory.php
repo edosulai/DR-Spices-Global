@@ -102,6 +102,26 @@ class RequestBuyFactory extends Factory
                 ],
             ],
             "postage" => $postage->toArray(),
+            "charge_response" => [
+                "status_code" => "200",
+                "status_message" => "Success, Credit Card transaction is successful",
+                "channel_response_code" => "00",
+                "channel_response_message" => "Approved",
+                "bank" => "cimb",
+                "eci" => "05",
+                "transaction_id" => Str::orderedUuid(),
+                "order_id" => $order_id,
+                "merchant_id" => env('MIDTRANS_ID_MERCHANT'),
+                "gross_amount" => $gross_amount . ".00",
+                "currency" => "IDR",
+                "payment_type" => "credit_card",
+                "transaction_time" => Carbon::now()->format('Y-m-d H:i:s'),
+                "transaction_status" => "capture",
+                "fraud_status" => "accept",
+                "approval_code" => $this->faker->numerify('#############'),
+                "masked_card" => $this->faker->numerify("######-####"),
+                "card_type" => "credit",
+            ]
         ];
 
         return [

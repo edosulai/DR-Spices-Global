@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('country_id')->constrained('countries')->onDelete('cascade');
             $table->bigInteger('cost');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

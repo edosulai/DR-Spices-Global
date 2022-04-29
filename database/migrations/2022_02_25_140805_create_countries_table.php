@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('iso3')->nullable();
             $table->integer('numcode')->nullable();
             $table->integer('phonecode')->nullable();
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

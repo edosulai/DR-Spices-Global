@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('supplier_data');
             $table->json('spice_data');
             $table->integer('jumlah');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

@@ -9,17 +9,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithPagination;
 
 class ProductDetail extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public $spice;
     public $qty = 1;
     public $spices;
-    public $reviews;
 
     public $feedbackCartAddModal = false;
     public $detailModal = false;
-
+    public $warningModal = false;
+    public $status_message;
+    public $validation_messages = [];
     public $modal = [];
 
     public function mount()
@@ -31,11 +36,6 @@ class ProductDetail extends Component
             ->first();
 
         if (!$this->spice) abort(404);
-
-        $this->reviews = Review::where('spice_id', $this->spice->id)
-            ->join('users', 'reviews.user_id', '=', 'users.id')
-            ->selectRaw('reviews.*, users.name as users_name')
-            ->get();
 
         $this->spices = Spice::whereNot(fn ($query) => $query->where('spices.id', $this->spice->id))
             ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
@@ -88,6 +88,13 @@ class ProductDetail extends Component
             $this->feedbackCartAddModal = true;
 
             $this->emit('headerMount');
+        } else {
+            $this->status_message = 'Sold Out';
+            $this->validation_messages = [
+                'Stock is not enough',
+                'Product is not available'
+            ];
+            $this->warningModal = true;
         }
     }
 
@@ -119,6 +126,12 @@ class ProductDetail extends Component
 
     public function render()
     {
-        return view('livewire.product-detail');
+        return view('livewire.product-detail', [
+            'reviews' => Review::where('spice_id', $this->spice->id)
+                ->join('users', 'reviews.user_id', '=', 'users.id')
+                ->selectRaw('reviews.*, users.name as users_name')
+                ->latest()
+                ->paginate(5)
+        ]);
     }
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('icon');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

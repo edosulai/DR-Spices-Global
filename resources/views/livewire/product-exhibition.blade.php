@@ -61,123 +61,21 @@
         </div>
     </div>
 
-    <x-modal wire:model="feedbackCartAddModal" :maxWidth="'lg'" class="blockcart in">
-        <div class="modal-content">
+    <x-feedback-cart wire:model="feedbackCartAddModal" :maxWidth="'lg'" :modal="$modal" />
+    <x-detail-cart wire:model="detailModal" :maxWidth="'lg'" :modal="$modal" />
 
-            <div class="modal-header">
-                <h4 class="modal-title text-xs-center" id="myModalLabel"><i class="fa fa-check"></i>{{ __('Product successfully added to your shopping cart') }}</h4>
-                <button type="button" class="close" aria-label="Close" wire:click="$set('feedbackCartAddModal', false)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+    <x-feedback-modal wire:model="warningModal" :maxWidth="'sm'">
+        <x-slot name="title">
+            {{ $status_message }}
+        </x-slot>
 
-            <div class="modal-body">
-                <div class="row">
-                    @if (count($modal) > 0)
-                        <div class="col-md-6 divide-right">
-                            <div class="row no-gutters">
-                                <div class="col-md-5">
-                                    <img class="product-image img-fluid" src="{{ $modal['image'] }}">
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="h5 product-name">{{ $modal['name'] }}</div>
-                                    <div class="product-price">{{ currency($modal['price']) }} <small>({{ $modal['unit'] }})</small></div>
-                                    <p>Quantity:&nbsp;{{ $modal['qty'] }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="cart-content">
-                                <p class="cart-products-count">There are {{ $modal['count'] }} items in your cart.</p>
-                                <p>Total products:&nbsp;{{ currency($modal['total']) }}</p>
-                            </div>
-                        </div>
-                    @endif
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" wire:click="$set('feedbackCartAddModal', false)">{{ __('Continue shopping') }}</button>
-                <a href="{{ route('checkout') }}" class="btn btn-primary"><i class="fa fa-check-square-o" aria-hidden="true"></i>{{ __('Proceed to checkout') }}</a>
-            </div>
-        </div>
-    </x-modal>
-
-    <x-modal wire:model="detailModal" :maxWidth="'lg'" class="quickview in">
-        <div class="modal-content content">
-            <div class="modal-header">
-                <button type="button" class="close" aria-label="Close" wire:click="$set('detailModal', false)">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row no-gutters">
-                    @if (count($modal) > 0)
-                        <div class="col-md-5 col-sm-5 divide-right d-flex align-items-center">
-                            <div class="images-container bottom_thumb">
-                                <div class="product-cover">
-                                    <img class="img-fluid" src="{{ $modal['image'] }}" style="width:100%;">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-info col-md-7 col-sm-7 pl-4">
-                            <h1 class="product-name">{{ $modal['name'] }}</h1>
-                            <span class="float-right">
-                                <span>Availability : </span>
-                                <span class="check {{ $modal['instock'] ? 'availb' : 'sold' }}">
-                                    <i class="fas {{ $modal['instock'] ? 'fa-check-square' : 'fa-times' }}"></i> {{ $modal['instock'] ? 'IN STOCK' : 'SOLD OUT' }}
-                                </span>
-                            </span>
-                            <div class="rating mb-2">
-                                <div class="star-content">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <div class="star{{ $i < $modal['rating'] ? '' : ' hole' }}"></div>
-                                    @endfor
-                                </div>
-                                <small>({{ round($modal['rating'], 1) }})</small>
-                            </div>
-
-                            <div class="product-prices">
-                                <div class="product-price">
-                                    <div class="current-price">
-                                        <span>{{ currency($modal['price']) }} <small>({{ $modal['unit'] }})</small></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-description-short">
-                                <p>{{ $modal['desc'] }}</p>
-                            </div>
-
-                            <div class="detail-description">
-                                <div class="has-border cart-area">
-                                    <div class="product-quantity">
-                                        <div class="qty">
-                                            <div class="input-group">
-                                                <div class="quantity">
-                                                    <span class="control-label">QTY : </span>
-                                                    <input min="1" type="number" wire:model="modal.qty" class="input-group form-control" oninput="if(this.value == '') {this.value = 0}">
-                                                </div>
-                                                <span class="add">
-                                                    <button class="btn btn-primary add-to-cart add-item {{ $modal['instock'] ? '' : 'disabled' }}" type="submit" wire:click="addToCart">
-                                                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                        <span>{{ __('Add to cart') }}</span>
-                                                    </button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <p class="product-minimal-quantity">
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </x-modal>
+        <x-slot name="content">
+            <ul class="list-group list-group-flush">
+                @foreach ($validation_messages as $messages)
+                    <li class="list-group-item pl-0"><i>{{ $messages }}</i></li>
+                @endforeach
+            </ul>
+        </x-slot>
+    </x-feedback-modal>
 
 </div>

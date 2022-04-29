@@ -549,21 +549,6 @@ input {
     }
 }
 
-.input-group.js-parent-focus {
-    .btn {
-        padding-left: .8125pc;
-        padding-bottom: 5.25pt;
-        padding-right: .8125pc;
-        padding-top: 5.25pt;
-        border-radius: 0;
-        color: $color_6;
-
-        &:hover {
-            background: #909090;
-        }
-    }
-}
-
 h4 {
     font-family: $font-family_3;
     font-size: 17.25pt;
@@ -629,9 +614,9 @@ h4 {
 .btn {
     &.btn-primary {
         padding-left: 1.5625pc;
-        padding-bottom: 6.75pt;
+        // padding-bottom: 6.75pt;
         padding-right: 1.5625pc;
-        padding-top: 6.75pt;
+        // padding-top: 6.75pt;
         border-radius: 1.125pc;
         background: #343434;
         border-left-color: $border-left-color_4;
@@ -667,9 +652,9 @@ h4 {
     &.btn-secondary,
     &.btn-outline-secondary {
         padding-left: 1.5625pc;
-        padding-bottom: 6.75pt;
+        // padding-bottom: 6.75pt;
         padding-right: 1.5625pc;
-        padding-top: 6.75pt;
+        // padding-top: 6.75pt;
         border-radius: 1.125pc;
         font-weight: 600;
         text-transform: uppercase;
@@ -941,41 +926,6 @@ h4 {
 
     #language {
         position: absolute;
-    }
-
-    .btn.btn-primary {
-        text-transform: uppercase;
-        font-size: .114583333in;
-        padding-left: 1.5625pc;
-        padding-bottom: 6.75pt;
-        padding-right: 1.5625pc;
-        padding-top: 6.75pt;
-        border-radius: 1.125pc;
-        background: #343434;
-        border-left-color: $border-left-color_4;
-        border-bottom-color: $border-bottom-color_4;
-        border-right-color: $border-right-color_5;
-        border-top-color: $border-top-color_4;
-        color: $color_9;
-        font-weight: 600;
-
-        &:hover {
-            color: $color_9;
-            background: #ff5151;
-            border-left-color: $border-left-color_20;
-            border-bottom-color: $border-bottom-color_25;
-            border-right-color: $border-right-color_20;
-            border-top-color: $border-top-color_19;
-        }
-
-        &:focus {
-            color: $color_9;
-            background: #ff5151;
-            border-left-color: $border-left-color_20;
-            border-bottom-color: $border-bottom-color_25;
-            border-right-color: $border-right-color_20;
-            border-top-color: $border-top-color_19;
-        }
     }
 }
 
@@ -1296,68 +1246,6 @@ option {
         width: 100px;
         height: .458333333in;
         float: left;
-    }
-
-    .input-group-btn-vertical {
-        .btn {
-            border-left-color: $border-left-color_2;
-            text-align: center;
-            border-bottom-color: $border-bottom-color_1;
-            border-right-color: $border-right-color_1;
-            border-top-color: $border-top-color_1;
-            background: #fff;
-            width: 16.5pt;
-            height: 16.5pt;
-            line-height: 22px;
-            padding-left: 0;
-            padding-bottom: 0;
-            padding-right: 0;
-            padding-top: 0;
-            color: $color_3;
-
-            &:hover {
-                background: #343434;
-                color: $color_2;
-                border-left-width: medium;
-                border-bottom-width: medium;
-                border-right-width: medium;
-                border-left-style: none;
-                border-top-width: medium;
-                border-bottom-style: none;
-                border-right-style: none;
-                border-top-style: none;
-                border-left-color: $border-left-color_5;
-                border-bottom-color: $border-bottom-color_5;
-                border-right-color: $border-right-color_6;
-                border-top-color: $border-top-color_5;
-                border-image: none;
-            }
-        }
-
-        i.material-icons.touchspin-up {
-            &:before {
-                content: "+";
-            }
-        }
-
-        i.material-icons.touchspin-down {
-            &:before {
-                content: "-";
-            }
-        }
-
-        height: .458333333in;
-        width: 15.75pt;
-        display: inline-block;
-        margin-top: 0pc !important;
-
-        .btn.bootstrap-touchspin-up {
-            border-radius: 0 2.25pt 0 0;
-        }
-
-        .btn.bootstrap-touchspin-down {
-            border-radius: 0 0 2.25pt 0;
-        }
     }
 
     span.control-label {
@@ -2036,46 +1924,6 @@ textarea {
         padding-top: 0;
     }
 
-    .btn.btn-primary {
-        &:hover {
-            color: $color_9;
-            background: #ff5151;
-            border-left-color: $border-left-color_20;
-            border-bottom-color: $border-bottom-color_25;
-            border-right-color: $border-right-color_20;
-            border-top-color: $border-top-color_19;
-        }
-
-        &:focus {
-            color: $color_9;
-            background: #ff5151;
-            border-left-color: $border-left-color_20;
-            border-bottom-color: $border-bottom-color_25;
-            border-right-color: $border-right-color_20;
-            border-top-color: $border-top-color_19;
-        }
-
-        padding-left: 25px;
-        padding-bottom: .5625pc;
-        padding-right: 25px;
-        padding-top: .5625pc;
-        border-radius: 1.125pc;
-        background: #343434;
-        border-left-color: $border-left-color_4;
-        border-bottom-color: $border-bottom-color_4;
-        border-right-color: $border-right-color_5;
-        color: $color_9;
-        border-top-color: $border-top-color_4;
-        font-weight: 600;
-        margin-left: 0;
-        margin-bottom: 0;
-        margin-right: 0;
-        text-transform: uppercase;
-        margin-top: 0;
-        font-size: 8.25pt;
-        cursor: pointer;
-    }
-
     .product-price.total {
         margin-left: 14.25pt;
         margin-bottom: 14.25pt;
@@ -2089,24 +1937,6 @@ textarea {
             height: 33pt;
             float: left;
             border-radius: 0in;
-        }
-
-        .input-group-btn-vertical {
-            display: inline-block;
-            width: 15.75pt;
-            height: 33pt;
-            margin-top: 0in !important;
-            margin-left: -3pt;
-            z-index: 99999;
-            border-radius: 0;
-
-            .btn.bootstrap-touchspin-up {
-                border-radius: 0;
-            }
-
-            .btn.bootstrap-touchspin-down {
-                border-radius: 0;
-            }
         }
 
         float: left;
@@ -7652,44 +7482,6 @@ footer {
             padding-right: 18pt;
             padding-top: 18pt;
 
-            .btn.btn-primary {
-                &:hover {
-                    background: #343434;
-                    border-bottom-width: .75pt;
-                    border-left-width: .75pt;
-                    border-right-width: .0625pc;
-                    border-top-width: .0625pc;
-                    border-left-style: solid;
-                    border-bottom-style: solid;
-                    border-right-style: solid;
-                    border-top-style: solid;
-                    border-left-color: $border-left-color_23;
-                    border-bottom-color: $border-bottom-color_29;
-                    border-right-color: $border-right-color_25;
-                    border-top-color: $border-top-color_22;
-                    border-image: none;
-                }
-
-                float: right;
-                margin-top: .270833333in;
-                background: #666;
-                border-left-width: .0625pc;
-                border-bottom-width: .0625pc;
-                border-right-width: .0625pc;
-                border-top-width: .0625pc;
-                border-left-style: solid;
-                border-bottom-style: solid;
-                border-right-style: solid;
-                border-top-style: solid;
-                border-left-color: $border-left-color_33;
-                border-bottom-color: $border-bottom-color_41;
-                border-right-color: $border-right-color_34;
-                border-top-color: $border-top-color_34;
-                border-image: none;
-                border-radius: 16px;
-                text-transform: uppercase;
-            }
-
             .spr-form-review-rating {
                 .rating {
                     cursor: pointer;
@@ -7842,39 +7634,6 @@ footer {
                     width: 100%;
                     max-width: 100%;
                 }
-            }
-
-            ul {
-                li {
-                    a {
-                        &:hover {
-                            color: $color_19 !important;
-                            border-bottom-width: 1px;
-                            border-bottom-style: solid;
-                            border-bottom-color: $border-bottom-color_3;
-                            border-image: none;
-                        }
-
-                        color: $color_17;
-                        font-size: 1.125pc;
-                        font-weight: 600;
-                    }
-
-                    font-size: .208333333in;
-                    color: $color_36;
-                    margin-right: .46875in;
-                    font-weight: 700;
-
-                    a.active.show {
-                        color: $color_6;
-                        border-bottom-width: .75pt;
-                        border-bottom-style: solid;
-                        border-bottom-color: $border-bottom-color_3;
-                        border-image: none;
-                    }
-                }
-
-                margin-bottom: 2rem;
             }
         }
 

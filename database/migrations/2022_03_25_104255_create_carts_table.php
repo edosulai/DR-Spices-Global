@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
             $table->integer('jumlah');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

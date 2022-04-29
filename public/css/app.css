@@ -14640,7 +14640,6 @@ a:focus {
 .btn-user {
   font-size: 0.8rem;
   border-radius: 10rem;
-  padding: 0.75rem 1rem;
 }
 
 .btn-google {
@@ -14713,133 +14712,133 @@ a:focus {
 
 @-webkit-keyframes noise-anim {
   0% {
-    clip: rect(3px, 9999px, 24px, 0);
+    clip: rect(70px, 9999px, 70px, 0);
   }
   5% {
-    clip: rect(61px, 9999px, 53px, 0);
+    clip: rect(52px, 9999px, 13px, 0);
   }
   10% {
-    clip: rect(40px, 9999px, 54px, 0);
+    clip: rect(55px, 9999px, 5px, 0);
   }
   15% {
-    clip: rect(63px, 9999px, 62px, 0);
+    clip: rect(66px, 9999px, 2px, 0);
   }
   20% {
-    clip: rect(11px, 9999px, 87px, 0);
+    clip: rect(30px, 9999px, 32px, 0);
   }
   25% {
-    clip: rect(80px, 9999px, 34px, 0);
+    clip: rect(76px, 9999px, 57px, 0);
   }
   30% {
-    clip: rect(1px, 9999px, 71px, 0);
+    clip: rect(70px, 9999px, 42px, 0);
   }
   35% {
-    clip: rect(30px, 9999px, 79px, 0);
+    clip: rect(41px, 9999px, 27px, 0);
   }
   40% {
-    clip: rect(35px, 9999px, 8px, 0);
+    clip: rect(66px, 9999px, 62px, 0);
   }
   45% {
-    clip: rect(92px, 9999px, 19px, 0);
+    clip: rect(80px, 9999px, 68px, 0);
   }
   50% {
-    clip: rect(31px, 9999px, 54px, 0);
+    clip: rect(18px, 9999px, 70px, 0);
   }
   55% {
-    clip: rect(93px, 9999px, 96px, 0);
+    clip: rect(18px, 9999px, 18px, 0);
   }
   60% {
-    clip: rect(90px, 9999px, 2px, 0);
+    clip: rect(16px, 9999px, 83px, 0);
   }
   65% {
-    clip: rect(24px, 9999px, 11px, 0);
+    clip: rect(57px, 9999px, 87px, 0);
   }
   70% {
-    clip: rect(23px, 9999px, 84px, 0);
+    clip: rect(1px, 9999px, 62px, 0);
   }
   75% {
-    clip: rect(25px, 9999px, 90px, 0);
+    clip: rect(46px, 9999px, 26px, 0);
   }
   80% {
-    clip: rect(93px, 9999px, 90px, 0);
+    clip: rect(100px, 9999px, 74px, 0);
   }
   85% {
-    clip: rect(18px, 9999px, 45px, 0);
+    clip: rect(48px, 9999px, 89px, 0);
   }
   90% {
-    clip: rect(88px, 9999px, 40px, 0);
+    clip: rect(12px, 9999px, 14px, 0);
   }
   95% {
-    clip: rect(73px, 9999px, 37px, 0);
+    clip: rect(10px, 9999px, 40px, 0);
   }
   100% {
-    clip: rect(53px, 9999px, 85px, 0);
+    clip: rect(5px, 9999px, 93px, 0);
   }
 }
 
 @keyframes noise-anim {
   0% {
-    clip: rect(3px, 9999px, 24px, 0);
+    clip: rect(70px, 9999px, 70px, 0);
   }
   5% {
-    clip: rect(61px, 9999px, 53px, 0);
+    clip: rect(52px, 9999px, 13px, 0);
   }
   10% {
-    clip: rect(40px, 9999px, 54px, 0);
+    clip: rect(55px, 9999px, 5px, 0);
   }
   15% {
-    clip: rect(63px, 9999px, 62px, 0);
+    clip: rect(66px, 9999px, 2px, 0);
   }
   20% {
-    clip: rect(11px, 9999px, 87px, 0);
+    clip: rect(30px, 9999px, 32px, 0);
   }
   25% {
-    clip: rect(80px, 9999px, 34px, 0);
+    clip: rect(76px, 9999px, 57px, 0);
   }
   30% {
-    clip: rect(1px, 9999px, 71px, 0);
+    clip: rect(70px, 9999px, 42px, 0);
   }
   35% {
-    clip: rect(30px, 9999px, 79px, 0);
+    clip: rect(41px, 9999px, 27px, 0);
   }
   40% {
-    clip: rect(35px, 9999px, 8px, 0);
+    clip: rect(66px, 9999px, 62px, 0);
   }
   45% {
-    clip: rect(92px, 9999px, 19px, 0);
+    clip: rect(80px, 9999px, 68px, 0);
   }
   50% {
-    clip: rect(31px, 9999px, 54px, 0);
+    clip: rect(18px, 9999px, 70px, 0);
   }
   55% {
-    clip: rect(93px, 9999px, 96px, 0);
+    clip: rect(18px, 9999px, 18px, 0);
   }
   60% {
-    clip: rect(90px, 9999px, 2px, 0);
+    clip: rect(16px, 9999px, 83px, 0);
   }
   65% {
-    clip: rect(24px, 9999px, 11px, 0);
+    clip: rect(57px, 9999px, 87px, 0);
   }
   70% {
-    clip: rect(23px, 9999px, 84px, 0);
+    clip: rect(1px, 9999px, 62px, 0);
   }
   75% {
-    clip: rect(25px, 9999px, 90px, 0);
+    clip: rect(46px, 9999px, 26px, 0);
   }
   80% {
-    clip: rect(93px, 9999px, 90px, 0);
+    clip: rect(100px, 9999px, 74px, 0);
   }
   85% {
-    clip: rect(18px, 9999px, 45px, 0);
+    clip: rect(48px, 9999px, 89px, 0);
   }
   90% {
-    clip: rect(88px, 9999px, 40px, 0);
+    clip: rect(12px, 9999px, 14px, 0);
   }
   95% {
-    clip: rect(73px, 9999px, 37px, 0);
+    clip: rect(10px, 9999px, 40px, 0);
   }
   100% {
-    clip: rect(53px, 9999px, 85px, 0);
+    clip: rect(5px, 9999px, 93px, 0);
   }
 }
 .error:after {
@@ -14857,133 +14856,133 @@ a:focus {
 
 @-webkit-keyframes noise-anim-2 {
   0% {
-    clip: rect(67px, 9999px, 26px, 0);
+    clip: rect(60px, 9999px, 82px, 0);
   }
   5% {
-    clip: rect(53px, 9999px, 39px, 0);
+    clip: rect(83px, 9999px, 54px, 0);
   }
   10% {
-    clip: rect(37px, 9999px, 55px, 0);
+    clip: rect(80px, 9999px, 79px, 0);
   }
   15% {
-    clip: rect(68px, 9999px, 38px, 0);
+    clip: rect(75px, 9999px, 63px, 0);
   }
   20% {
-    clip: rect(54px, 9999px, 53px, 0);
+    clip: rect(19px, 9999px, 50px, 0);
   }
   25% {
-    clip: rect(89px, 9999px, 77px, 0);
+    clip: rect(45px, 9999px, 45px, 0);
   }
   30% {
-    clip: rect(39px, 9999px, 18px, 0);
+    clip: rect(49px, 9999px, 23px, 0);
   }
   35% {
-    clip: rect(84px, 9999px, 50px, 0);
+    clip: rect(100px, 9999px, 3px, 0);
   }
   40% {
-    clip: rect(85px, 9999px, 51px, 0);
+    clip: rect(99px, 9999px, 6px, 0);
   }
   45% {
-    clip: rect(65px, 9999px, 4px, 0);
+    clip: rect(99px, 9999px, 49px, 0);
   }
   50% {
-    clip: rect(85px, 9999px, 63px, 0);
+    clip: rect(20px, 9999px, 48px, 0);
   }
   55% {
-    clip: rect(30px, 9999px, 24px, 0);
+    clip: rect(16px, 9999px, 27px, 0);
   }
   60% {
-    clip: rect(79px, 9999px, 89px, 0);
+    clip: rect(25px, 9999px, 64px, 0);
   }
   65% {
-    clip: rect(43px, 9999px, 90px, 0);
+    clip: rect(32px, 9999px, 26px, 0);
   }
   70% {
-    clip: rect(21px, 9999px, 70px, 0);
+    clip: rect(21px, 9999px, 43px, 0);
   }
   75% {
-    clip: rect(83px, 9999px, 73px, 0);
+    clip: rect(51px, 9999px, 14px, 0);
   }
   80% {
-    clip: rect(19px, 9999px, 84px, 0);
+    clip: rect(31px, 9999px, 88px, 0);
   }
   85% {
-    clip: rect(96px, 9999px, 84px, 0);
+    clip: rect(47px, 9999px, 91px, 0);
   }
   90% {
-    clip: rect(6px, 9999px, 66px, 0);
+    clip: rect(20px, 9999px, 71px, 0);
   }
   95% {
-    clip: rect(69px, 9999px, 13px, 0);
+    clip: rect(26px, 9999px, 65px, 0);
   }
   100% {
-    clip: rect(94px, 9999px, 21px, 0);
+    clip: rect(100px, 9999px, 35px, 0);
   }
 }
 
 @keyframes noise-anim-2 {
   0% {
-    clip: rect(67px, 9999px, 26px, 0);
+    clip: rect(60px, 9999px, 82px, 0);
   }
   5% {
-    clip: rect(53px, 9999px, 39px, 0);
+    clip: rect(83px, 9999px, 54px, 0);
   }
   10% {
-    clip: rect(37px, 9999px, 55px, 0);
+    clip: rect(80px, 9999px, 79px, 0);
   }
   15% {
-    clip: rect(68px, 9999px, 38px, 0);
+    clip: rect(75px, 9999px, 63px, 0);
   }
   20% {
-    clip: rect(54px, 9999px, 53px, 0);
+    clip: rect(19px, 9999px, 50px, 0);
   }
   25% {
-    clip: rect(89px, 9999px, 77px, 0);
+    clip: rect(45px, 9999px, 45px, 0);
   }
   30% {
-    clip: rect(39px, 9999px, 18px, 0);
+    clip: rect(49px, 9999px, 23px, 0);
   }
   35% {
-    clip: rect(84px, 9999px, 50px, 0);
+    clip: rect(100px, 9999px, 3px, 0);
   }
   40% {
-    clip: rect(85px, 9999px, 51px, 0);
+    clip: rect(99px, 9999px, 6px, 0);
   }
   45% {
-    clip: rect(65px, 9999px, 4px, 0);
+    clip: rect(99px, 9999px, 49px, 0);
   }
   50% {
-    clip: rect(85px, 9999px, 63px, 0);
+    clip: rect(20px, 9999px, 48px, 0);
   }
   55% {
-    clip: rect(30px, 9999px, 24px, 0);
+    clip: rect(16px, 9999px, 27px, 0);
   }
   60% {
-    clip: rect(79px, 9999px, 89px, 0);
+    clip: rect(25px, 9999px, 64px, 0);
   }
   65% {
-    clip: rect(43px, 9999px, 90px, 0);
+    clip: rect(32px, 9999px, 26px, 0);
   }
   70% {
-    clip: rect(21px, 9999px, 70px, 0);
+    clip: rect(21px, 9999px, 43px, 0);
   }
   75% {
-    clip: rect(83px, 9999px, 73px, 0);
+    clip: rect(51px, 9999px, 14px, 0);
   }
   80% {
-    clip: rect(19px, 9999px, 84px, 0);
+    clip: rect(31px, 9999px, 88px, 0);
   }
   85% {
-    clip: rect(96px, 9999px, 84px, 0);
+    clip: rect(47px, 9999px, 91px, 0);
   }
   90% {
-    clip: rect(6px, 9999px, 66px, 0);
+    clip: rect(20px, 9999px, 71px, 0);
   }
   95% {
-    clip: rect(69px, 9999px, 13px, 0);
+    clip: rect(26px, 9999px, 65px, 0);
   }
   100% {
-    clip: rect(94px, 9999px, 21px, 0);
+    clip: rect(100px, 9999px, 35px, 0);
   }
 }
 .error:before {
@@ -16066,18 +16065,6 @@ input:focus {
   position: absolute;
 }
 
-.input-group.js-parent-focus .btn {
-  padding-left: 0.8125pc;
-  padding-bottom: 5.25pt;
-  padding-right: 0.8125pc;
-  padding-top: 5.25pt;
-  border-radius: 0;
-  color: #222;
-}
-.input-group.js-parent-focus .btn:hover {
-  background: #909090;
-}
-
 h4 {
   font-family: "playfair display", sans-serif;
   font-size: 17.25pt;
@@ -16132,9 +16119,7 @@ h4 span.detail {
 
 .btn.btn-primary {
   padding-left: 1.5625pc;
-  padding-bottom: 6.75pt;
   padding-right: 1.5625pc;
-  padding-top: 6.75pt;
   border-radius: 1.125pc;
   background: #343434;
   border-left-color: transparent;
@@ -16164,9 +16149,7 @@ h4 span.detail {
 }
 .btn.btn-danger, .btn.btn-success, .btn.btn-secondary, .btn.btn-outline-secondary {
   padding-left: 1.5625pc;
-  padding-bottom: 6.75pt;
   padding-right: 1.5625pc;
-  padding-top: 6.75pt;
   border-radius: 1.125pc;
   font-weight: 600;
   text-transform: uppercase;
@@ -16384,38 +16367,6 @@ h4 span.detail {
 }
 .blog #language {
   position: absolute;
-}
-.blog .btn.btn-primary {
-  text-transform: uppercase;
-  font-size: 0.114583333in;
-  padding-left: 1.5625pc;
-  padding-bottom: 6.75pt;
-  padding-right: 1.5625pc;
-  padding-top: 6.75pt;
-  border-radius: 1.125pc;
-  background: #343434;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  color: #fff;
-  font-weight: 600;
-}
-.blog .btn.btn-primary:hover {
-  color: #fff;
-  background: #ff5151;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
-}
-.blog .btn.btn-primary:focus {
-  color: #fff;
-  background: #ff5151;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
 }
 
 .form-control:hover {
@@ -16698,58 +16649,6 @@ option:focus {
 .quantity .form-control:not(:first-child):not(:last-child) {
   border-radius: 3.75pt 0 0 3.75pt;
   text-align: center;
-}
-.quantity .input-group-btn-vertical {
-  height: 0.458333333in;
-  width: 15.75pt;
-  display: inline-block;
-  margin-top: 0pc !important;
-}
-.quantity .input-group-btn-vertical .btn {
-  border-left-color: #dfdfdf;
-  text-align: center;
-  border-bottom-color: #dfdfdf;
-  border-right-color: #dfdfdf;
-  border-top-color: #dfdfdf;
-  background: #fff;
-  width: 16.5pt;
-  height: 16.5pt;
-  line-height: 22px;
-  padding-left: 0;
-  padding-bottom: 0;
-  padding-right: 0;
-  padding-top: 0;
-  color: #898989;
-}
-.quantity .input-group-btn-vertical .btn:hover {
-  background: #343434;
-  color: white;
-  border-left-width: medium;
-  border-bottom-width: medium;
-  border-right-width: medium;
-  border-left-style: none;
-  border-top-width: medium;
-  border-bottom-style: none;
-  border-right-style: none;
-  border-top-style: none;
-  border-left-color: #343434;
-  border-bottom-color: #343434;
-  border-right-color: #343434;
-  border-top-color: #343434;
-  -o-border-image: none;
-     border-image: none;
-}
-.quantity .input-group-btn-vertical i.material-icons.touchspin-up:before {
-  content: "+";
-}
-.quantity .input-group-btn-vertical i.material-icons.touchspin-down:before {
-  content: "-";
-}
-.quantity .input-group-btn-vertical .btn.bootstrap-touchspin-up {
-  border-radius: 0 2.25pt 0 0;
-}
-.quantity .input-group-btn-vertical .btn.bootstrap-touchspin-down {
-  border-radius: 0 0 2.25pt 0;
 }
 .quantity span.control-label {
   float: left;
@@ -17311,43 +17210,6 @@ textarea:focus {
 .cart .cart-items .cart-item .cart-line-product-actions .remove-from-cart i:hover {
   opacity: 0.8;
 }
-.cart .btn.btn-primary {
-  padding-left: 25px;
-  padding-bottom: 0.5625pc;
-  padding-right: 25px;
-  padding-top: 0.5625pc;
-  border-radius: 1.125pc;
-  background: #343434;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  border-right-color: transparent;
-  color: #fff;
-  border-top-color: transparent;
-  font-weight: 600;
-  margin-left: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-  text-transform: uppercase;
-  margin-top: 0;
-  font-size: 8.25pt;
-  cursor: pointer;
-}
-.cart .btn.btn-primary:hover {
-  color: #fff;
-  background: #ff5151;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
-}
-.cart .btn.btn-primary:focus {
-  color: #fff;
-  background: #ff5151;
-  border-left-color: #ff5151;
-  border-bottom-color: #ff5151;
-  border-right-color: #ff5151;
-  border-top-color: #ff5151;
-}
 .cart .product-price.total {
   margin-left: 14.25pt;
   margin-bottom: 14.25pt;
@@ -17367,21 +17229,6 @@ textarea:focus {
   height: 33pt;
   float: left;
   border-radius: 0in;
-}
-.cart .quantity .input-group-btn-vertical {
-  display: inline-block;
-  width: 15.75pt;
-  height: 33pt;
-  margin-top: 0in !important;
-  margin-left: -3pt;
-  z-index: 99999;
-  border-radius: 0;
-}
-.cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-up {
-  border-radius: 0;
-}
-.cart .quantity .input-group-btn-vertical .btn.bootstrap-touchspin-down {
-  border-radius: 0;
 }
 .cart .cart-grid-body .btn {
   margin-right: 10px;
@@ -21962,44 +21809,6 @@ footer .title-block {
 .product-detail .content .review .spr-form-input:last-child {
   margin-top: 11.25pt;
 }
-.product-detail .content .review .btn.btn-primary {
-  float: right;
-  margin-top: 0.270833333in;
-  background: #666;
-  border-left-width: 0.0625pc;
-  border-bottom-width: 0.0625pc;
-  border-right-width: 0.0625pc;
-  border-top-width: 0.0625pc;
-  border-left-style: solid;
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-top-style: solid;
-  border-left-color: #666;
-  border-bottom-color: #666;
-  border-right-color: #666;
-  border-top-color: #666;
-  -o-border-image: none;
-     border-image: none;
-  border-radius: 16px;
-  text-transform: uppercase;
-}
-.product-detail .content .review .btn.btn-primary:hover {
-  background: #343434;
-  border-bottom-width: 0.75pt;
-  border-left-width: 0.75pt;
-  border-right-width: 0.0625pc;
-  border-top-width: 0.0625pc;
-  border-left-style: solid;
-  border-bottom-style: solid;
-  border-right-style: solid;
-  border-top-style: solid;
-  border-left-color: black;
-  border-bottom-color: black;
-  border-right-color: black;
-  border-top-color: black;
-  -o-border-image: none;
-     border-image: none;
-}
 .product-detail .content .review .spr-form-review-rating {
   margin-bottom: 1rem;
 }
@@ -22090,36 +21899,6 @@ footer .title-block {
   padding-left: 0;
   width: 100%;
   max-width: 100%;
-}
-.product-detail .content .review ul {
-  margin-bottom: 2rem;
-}
-.product-detail .content .review ul li {
-  font-size: 0.208333333in;
-  color: #c0c0c0;
-  margin-right: 0.46875in;
-  font-weight: 700;
-}
-.product-detail .content .review ul li a {
-  color: #909090;
-  font-size: 1.125pc;
-  font-weight: 600;
-}
-.product-detail .content .review ul li a:hover {
-  color: #343434 !important;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: currentColor;
-  -o-border-image: none;
-     border-image: none;
-}
-.product-detail .content .review ul li a.active.show {
-  color: #222;
-  border-bottom-width: 0.75pt;
-  border-bottom-style: solid;
-  border-bottom-color: currentColor;
-  -o-border-image: none;
-     border-image: none;
 }
 .product-detail .content .modal-dialog {
   max-width: 37.5pc;
@@ -25942,10 +25721,9 @@ footer .title-block {
 }
 .modal-body .divide-right {
   border-right: 1px dotted #828282;
-  padding-right: 2rem;
 }
-.modal-body .divide-right .col-md-5 {
-  padding-right: 20px;
+.modal-body .divide-left {
+  border-left: 1px dotted #828282;
 }
 .modal-body .product-name {
   font-size: 0.96rem;
@@ -26452,7 +26230,6 @@ a {
 .icon-addcart {
   color: #88c8bc;
   display: block;
-  margin-bottom: 40px;
 }
 .icon-addcart span {
   width: 100px;
@@ -26466,4 +26243,27 @@ a {
   display: table-cell;
   vertical-align: middle;
   font-size: 50px;
+}
+
+.icon-address {
+  color: #88c8bc;
+  display: block;
+}
+.icon-address span {
+  width: 50px;
+  height: 50px;
+  display: table;
+  margin: 0 auto;
+  background: #fafafa;
+  border-radius: 50%;
+}
+.icon-address i {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+.input-group-append button {
+  border-radius: 0.25rem !important;
+  padding: 0 !important;
 }

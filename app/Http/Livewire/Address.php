@@ -9,23 +9,25 @@ use Livewire\Component;
 
 class Address extends Component
 {
-    public $addresses;
     public $headerAddressModal = '';
     public $queryAddressModal = false;
     public $deleteAddressModal = false;
-    public $modal = [
-        'country_id' => ''
-    ];
-    public $modalId;
+    public $modal = [];
+    public $addresses;
     public $countries;
 
     protected $listeners = [
         'addressMount' => 'mount',
+        'mainAddress' => 'mainAddress',
     ];
 
     public function mount()
     {
+        $this->modal = [];
+        $this->queryAddressModal = false;
+        $this->deleteAddressModal = false;
         $this->countries = Country::all();
+
         $this->addresses = ModelsAddress::where('addresses.user_id', Auth::id())
             ->selectRaw('addresses.*, countries.nicename as countries_nicename')
             ->join('countries', 'addresses.country_id', '=', 'countries.id')
@@ -34,20 +36,9 @@ class Address extends Component
 
     public function openModalAddress($id = null)
     {
-        if ($this->modalId) {
-            $this->modal = [
-                'country_id' => ''
-            ];
-            $this->modalId = null;
-        }
-
-        if ($id) {
-            $this->modal = ModelsAddress::where('id', $id)->where('user_id', Auth::id())->first()->toArray();
-
-            if ($this->modal) {
-                $this->modalId = $this->modal['id'];
-            }
-
+        $isExist = ModelsAddress::where('id', $id)->where('user_id', Auth::id())->first();
+        if ($isExist) {
+            $this->modal = $isExist->toArray();
             $this->headerAddressModal = 'Update Address';
         } else {
             $this->headerAddressModal = 'Add New Address';
@@ -58,22 +49,17 @@ class Address extends Component
 
     public function queryAddress()
     {
-        if ($this->modalId) {
-            $new = ModelsAddress::where('id', $this->modalId)->where('user_id', Auth::id())->first();
-
+        if (array_key_exists('id', $this->modal)) {
+            $new = ModelsAddress::where('id', $this->modal['id'])->where('user_id', Auth::id())->first();
             $new->fill($this->modal);
             $new->save();
         } else {
             $new = ModelsAddress::create($this->modal);
-            if (!ModelsAddress::where('primary', true)->where('user_id', Auth::id())->first()) {
+            if (!Address::where('primary', true)->where('user_id', Auth::id())->first()) {
                 $this->emit('mainAddress', $new->id);
             }
         }
 
-        $this->modal = [
-            'country_id' => ''
-        ];
-        $this->queryAddressModal = false;
         $this->emit('addressMount');
     }
 
@@ -94,16 +80,18 @@ class Address extends Component
         $this->emit('addressMount');
     }
 
-    public function openConfirmModal($id)
+    public function openDeleteModal($id)
     {
-        $this->modalId = $id;
-        $this->deleteAddressModal = true;
+        $isExist = ModelsAddress::where('id', $id)->where('user_id', Auth::id())->first();
+        if ($isExist) {
+            $this->modal = $isExist->toArray();
+            $this->deleteAddressModal = true;
+        }
     }
 
     public function deleteAddress()
     {
-        ModelsAddress::where('id', $this->modalId)->where('user_id', Auth::id())->delete();
-        $this->deleteAddressModal = false;
+        ModelsAddress::where('id', $this->modal['id'])->where('user_id', Auth::id())->delete();
         $this->emit('addressMount');
     }
 

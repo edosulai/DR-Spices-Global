@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignUuid('request_buy_id')->constrained('request_buys')->onDelete('cascade');
             $table->text('summary');
             $table->integer('rating');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 
