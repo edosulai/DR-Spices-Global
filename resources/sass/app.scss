@@ -501,6 +501,22 @@ a {
 .input-group-append {
     & button {
         border-radius: 0.25rem !important;
-        padding: 0 !important;
+        padding: 0.5rem !important;
     }
+}
+
+.show_hide_password {
+    position: relative;
+    cursor: pointer;
+    // margin-left: 10px;
+
+    & .icon-eye {
+        position: absolute;
+        right: 13px;
+        top: 13px;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

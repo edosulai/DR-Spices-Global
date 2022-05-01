@@ -473,7 +473,6 @@ input {
                         padding-bottom: .083333333in;
                         padding-right: .1875in;
                         padding-top: .083333333in;
-                        text-transform: uppercase;
 
                         &:focus {
                             background: white;
@@ -614,9 +613,9 @@ h4 {
 .btn {
     &.btn-primary {
         padding-left: 1.5625pc;
-        // padding-bottom: 6.75pt;
+        padding-bottom: 6.75pt;
         padding-right: 1.5625pc;
-        // padding-top: 6.75pt;
+        padding-top: 6.75pt;
         border-radius: 1.125pc;
         background: #343434;
         border-left-color: $border-left-color_4;
@@ -652,9 +651,9 @@ h4 {
     &.btn-secondary,
     &.btn-outline-secondary {
         padding-left: 1.5625pc;
-        // padding-bottom: 6.75pt;
+        padding-bottom: 6.75pt;
         padding-right: 1.5625pc;
-        // padding-top: 6.75pt;
+        padding-top: 6.75pt;
         border-radius: 1.125pc;
         font-weight: 600;
         text-transform: uppercase;
@@ -9229,7 +9228,6 @@ footer {
             border-image: none;
             border-bottom-left-radius: .239583333in;
             border-top-left-radius: 23px;
-            background: white;
         }
 
         border-radius: 3px;

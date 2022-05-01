@@ -181,13 +181,14 @@
     <x-query-address wire:model="queryAddressModal" :saveAction="'queryAddress'" :headTitle="$headerAddressModal" :countries="$countries" :modal="$modal" />
     <x-delete-address wire:model="deleteAddressModal" :deleteAction="'deleteAddress'" />
 
-    <x-feedback-modal wire:model="warningModal" :maxWidth="'lg'">
+    <x-feedback-modal wire:model="warningModal" :maxWidth="'lg'" :icon="'fas fa-times'">
         <x-slot name="title">
-            {{ $status_message }}
+            {{ $head_message }}
         </x-slot>
 
         <x-slot name="content">
             <ul class="list-group list-group-flush">
+                <li class="list-group-item pl-0"><i>{{ $status_message }}</i></li>
                 @foreach ($validation_messages as $messages)
                     <li class="list-group-item pl-0"><i>{{ $messages }}</i></li>
                 @endforeach

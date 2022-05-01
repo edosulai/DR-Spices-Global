@@ -24,7 +24,7 @@ class Status extends Component
         'deleteStatusModal' => 'openDeleteStatusModal',
     ];
 
-    public $rules = [
+    protected $rules = [
         'nama' => 'required|unique:statuses,nama|max:255',
         'icon' => 'required|unique:statuses,icon|max:255'
     ];

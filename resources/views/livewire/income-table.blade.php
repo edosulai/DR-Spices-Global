@@ -15,9 +15,9 @@
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ currency($row->hrg_jual) }}
+    {{ currency($row->hrg_jual ? $row->hrg_jual : 0) }}
 </x-livewire-tables::bs4.table.cell>
 
 <x-livewire-tables::bs4.table.cell>
-    {{ currency($row->income_price) }}
+    {{ currency($row->income_price ? $row->income_price : 0 ) }}
 </x-livewire-tables::bs4.table.cell>

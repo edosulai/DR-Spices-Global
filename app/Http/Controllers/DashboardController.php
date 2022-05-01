@@ -19,52 +19,47 @@ class DashboardController extends Controller
      */
     public function index()
     {
-
-        $income = Income::join(DB::raw("(
-            select
-                sum(hrg_jual) as hrg_jual,
-                sum(jumlah) as jumlah,
-                id
-            from
-                `request_buys`,
-                JSON_TABLE(
-                    request_buys.spice_data,'$[*]'
-                    COLUMNS(
-                        NESTED PATH '$.hrg_jual'
-                            COLUMNS (
-                                hrg_jual DECIMAL PATH '$'
-                            ),
-                        NESTED PATH '$.jumlah'
-                            COLUMNS (
-                                jumlah DECIMAL PATH '$'
-                            )
-                    )
-                ) as jt group by id
-            ) request_buys"), function ($join) {
-            $join->on('incomes.request_buy_id', '=', 'request_buys.id');
-        })
-            ->whereYear('incomes.created_at', '=', Carbon::now()->year)
-            ->whereMonth('incomes.created_at', '=', Carbon::now()->month)
-            ->selectRaw("request_buys.hrg_jual * request_buys.jumlah as income_price")
-            ->oldest()
+        $income = RequestBuy::selectRaw("SUM(jt_request_buys.hrg_jual) * SUM(jt_request_buys.jumlah) as income_price")
+            ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
+            ->join('statuses', 'traces.status_id', '=', 'statuses.id')
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
+                $join
+                    ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )
+            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
+                COLUMNS(
+                    NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
+                    NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
+                )) as jt_request_buys"), fn ($join) => $join)
+            ->groupBy('request_buys.id')
+            ->where(
+                fn ($query) =>
+                $query->where('statuses.nama', '=', 'Delivered')->orWhere('statuses.nama', '=', 'Rated')
+            )
+            ->whereYear('traces.created_at', '=', Carbon::now()->year)
+            ->whereMonth('traces.created_at', '=', Carbon::now()->month)
             ->get()
             ->sum('income_price');
 
         $outcome = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, created_at")
             ->whereYear('created_at', '=', Carbon::now()->year)
             ->whereMonth('created_at', '=', Carbon::now()->month)
-            ->oldest()
             ->get()
             ->sum('outcome_price');
 
         $pending = RequestBuy::where('statuses.nama', 'Order Paid')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), function ($join) {
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
-                    ->on('traces.created_at', '=', 'join_traces.traces_created_at');
-            })->count();
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )->count();
 
         return view('dashboard.index', [
             'title' => 'Dashboard',

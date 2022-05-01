@@ -40,7 +40,7 @@
             </div>
         @endforeach
         @if (count($addresses) < 1)
-            <div class="mb-3">
+            <div class="mb-3 w-100">
                 <div class="card shadow-sm h-100">
                     <div class="card-body d-flex flex-column align-items-center">
                         <div class="d-flex justify-content-center">

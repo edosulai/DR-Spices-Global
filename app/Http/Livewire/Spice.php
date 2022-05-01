@@ -4,21 +4,17 @@ namespace App\Http\Livewire;
 
 use App\Models\Spice as ModelsSpice;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class Spice extends Component
 {
-    public $spiceModal = false;
-    public $deleteSpiceModalConfirm = false;
-    public $id_spice = 0;
+    use WithFileUploads;
 
     public $title;
-
-    public $nama;
-    public $hrg_jual;
-    public $stok;
-    public $ket;
-
+    public $form = [];
+    public $spiceModal = false;
+    public $deleteSpiceModal = false;
     public $aksiSpiceModal = 'tambahSpice';
     public $buttonSpiceModal = 'Tambah';
 
@@ -27,35 +23,43 @@ class Spice extends Component
         'deleteSpiceModal' => 'openDeleteSpiceModal',
     ];
 
-    public $rules = [
-        'nama' => 'required|unique:spices,nama|max:255',
-        'hrg_jual' => 'required|integer',
-        'stok' => 'required|integer',
-        'ket' => 'nullable'
+    protected $rules = [
+        'form.nama' => 'required|unique:spices,nama|max:255',
+        'form.hrg_jual' => 'required|integer',
+        'form.stok' => 'required|integer',
+        'form.unit' => 'required|max:32',
+        'form.ket' => 'nullable',
+        'form.img' => 'image|max:1024', // 1MB Max
     ];
 
-    public function render()
+    protected $validationAttributes = [
+        'form.nama' => 'Nama Rempah',
+        'form.hrg_jual' => 'Harga Rempah',
+        'form.stok' => 'Stok Rempah',
+        'form.unit' => 'Satuan Rempah',
+        'form.ket' => 'Keterangan Rempah',
+        'form.img' => 'Gambar Rempah', // 1MB Max
+    ];
+
+    public function updated()
     {
-        return view('livewire.spice');
+        if (array_key_exists('id', $this->form)) {
+            $this->rules['form.nama'] = "required|unique:spices,nama," . $this->form['id'] . "|max:255";
+        }
+        $this->validate($this->rules);
     }
 
     public function openSpiceModal($id = null)
     {
         if ($id) {
-            $spice = ModelsSpice::find($id);
-            if (!$spice) return;
-            $this->id_spice = $spice->id;
-            $this->nama = $spice->nama;
-            $this->hrg_jual = $spice->hrg_jual;
-            $this->stok = $spice->stok;
-            $this->ket = $spice->ket;
+            $this->form = ModelsSpice::find($id)->toArray();
+            $this->form['src'] = asset('storage/images/product/' . $this->form['image']);
             $this->aksiSpiceModal = 'editSpice';
             $this->buttonSpiceModal = 'Edit';
         } else {
-            $this->nama = '';
-            $this->hrg_jual = '';
-            $this->stok = '';
-            $this->ket = '';
+            if ($this->aksiSpiceModal != 'tambahSpice') {
+                $this->form = [];
+            }
             $this->aksiSpiceModal = 'tambahSpice';
             $this->buttonSpiceModal = 'Tambah';
         }
@@ -65,56 +69,61 @@ class Spice extends Component
 
     public function openDeleteSpiceModal($id)
     {
-        if ($id) {
-            $spice = ModelsSpice::find($id);
-            if (!$spice) return;
-            $this->id_spice = $spice->id;
-            $this->nama = $spice->nama;
-        }
-
-        $this->deleteSpiceModalConfirm = true;
+        $this->form = ModelsSpice::find($id)->toArray();
+        $this->deleteSpiceModal = true;
     }
 
     public function tambahSpice()
     {
         $this->validate();
+        $this->form['img']->store('public/images/product');
 
         ModelsSpice::create([
-            'nama' => $this->nama,
-            'hrg_jual' => $this->hrg_jual,
-            'stok' => $this->stok,
-            'ket' => $this->ket,
+            'nama' => $this->form['nama'],
+            'hrg_jual' => $this->form['hrg_jual'],
+            'stok' => $this->form['stok'],
+            'unit' => $this->form['unit'],
+            'image' => $this->form['img']->hashName(),
+            'ket' => $this->form['ket'],
         ]);
 
         $this->spiceModal = false;
-
         $this->emit('spiceTableColumns');
     }
 
     public function editSpice()
     {
-        $this->rules['nama'] = "required|unique:spices,nama,$this->id_spice|max:255";
+        if (!(array_key_exists('img', $this->form) && $this->form['img'] != null)) {
+            unset($this->rules['form.img']);
+        }
+        $this->rules['form.nama'] = "required|unique:spices,nama," . $this->form['id'] . "|max:255";
         $this->validate();
 
-        $spice = ModelsSpice::find($this->id_spice);
-        $spice->nama = $this->nama;
-        $spice->hrg_jual = $this->hrg_jual;
-        $spice->stok = $this->stok;
-        $spice->ket = $this->ket;
+        $spice = ModelsSpice::find($this->form['id']);
+        $spice->nama = $this->form['nama'];
+        $spice->hrg_jual = $this->form['hrg_jual'];
+        $spice->stok = $this->form['stok'];
+        $spice->unit = $this->form['unit'];
+        if (array_key_exists('img', $this->form) && $this->form['img'] != null) {
+            $this->form['img']->store('public/images/product');
+            $spice->image = $this->form['img']->hashName();
+        }
+        $spice->ket = $this->form['ket'];
         $spice->save();
 
-        $this->id_spice = 0;
         $this->spiceModal = false;
-
         $this->emit('spiceTableColumns');
     }
 
     public function deleteSpice()
     {
-        ModelsSpice::destroy($this->id_spice);
-        $this->id_spice = 0;
-        $this->deleteSpiceModalConfirm = false;
-
+        ModelsSpice::destroy($this->form['id']);
+        $this->deleteSpiceModal = false;
         $this->emit('spiceTableColumns');
+    }
+
+    public function render()
+    {
+        return view('livewire.spice');
     }
 }

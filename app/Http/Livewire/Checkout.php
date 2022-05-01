@@ -30,6 +30,7 @@ class Checkout extends Component
     public $payment;
     public $carts;
     public $postage;
+    public $head_message;
     public $status_message;
     public $validation_messages = [];
     public $warningModal = false;
@@ -174,8 +175,9 @@ class Checkout extends Component
 
     public function errorPayment($response)
     {
+        $this->head_message = 'Something Error.';
         $this->status_message = str_replace('One or more parameters in the payload is invalid', 'Payment Failed', $response['status_message']);
-        if ($response['validation_messages']) {
+        if (array_key_exists('validation_messages', $response)) {
             $this->validation_messages = collect($response['validation_messages'])->map(function ($item) {
                 $item = str_replace('card_number', 'Card number', $item);
                 $item = str_replace('card_exp_year', 'Card Expire Year', $item);

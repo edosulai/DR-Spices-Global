@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Charts\EarningChart;
 use App\Models\Expenditure;
-use App\Models\Income;
+use App\Models\RequestBuy;
 use App\Support\Livewire\ChartComponent;
 use App\Support\Livewire\ChartComponentData;
 use Carbon\CarbonPeriod;
@@ -36,34 +36,31 @@ class Earning extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $incomes = Income::join(DB::raw("(
-                select
-                    sum(hrg_jual) as hrg_jual,
-                    sum(jumlah) as jumlah,
-                    id
-                from
-                    `request_buys`,
-                    JSON_TABLE(
-                        request_buys.spice_data,'$[*]'
-                        COLUMNS(
-                            NESTED PATH '$.hrg_jual'
-                                COLUMNS (
-                                    hrg_jual DECIMAL PATH '$'
-                                ),
-                            NESTED PATH '$.jumlah'
-                                COLUMNS (
-                                    jumlah DECIMAL PATH '$'
-                                )
-                        )
-                    ) as jt group by id
-                ) request_buys"), function ($join) {
-            $join->on('incomes.request_buy_id', '=', 'request_buys.id');
-        })
-            ->whereYear('incomes.created_at', '=', Carbon::now()->year)
-            ->whereMonth('incomes.created_at', '=', Carbon::now()->month)
-            ->selectRaw("SUM(request_buys.hrg_jual * request_buys.jumlah) as income_price, MAX(incomes.created_at) as created_at")
-            ->groupBy(DB::raw('DATE(incomes.created_at)'))
-            ->oldest()
+        DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))"));
+        $incomes = RequestBuy::selectRaw("SUM(jt_request_buys.hrg_jual) * SUM(jt_request_buys.jumlah) as income_price, MAX(traces.created_at) as created_at")
+            ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
+            ->join('statuses', 'traces.status_id', '=', 'statuses.id')
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
+                $join
+                    ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )
+            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
+                COLUMNS(
+                    NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
+                    NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
+                )) as jt_request_buys"), fn ($join) => $join)
+            ->groupBy(DB::raw('DATE(traces.created_at)'))
+            // ->groupBy('request_buys.id')
+            ->where(
+                fn ($query) =>
+                $query->where('statuses.nama', '=', 'Delivered')->orWhere('statuses.nama', '=', 'Rated')
+            )
+            ->whereYear('traces.created_at', '=', Carbon::now()->year)
+            ->whereMonth('traces.created_at', '=', Carbon::now()->month)
+            ->orderBy('traces.created_at', 'asc')
             ->get();
 
         $outcomes = Expenditure::selectRaw("SUM(JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah) as outcome_price, MAX(created_at) as created_at")
@@ -82,7 +79,7 @@ class Earning extends ChartComponent
         $newIn = [];
         $newOut = [];
         foreach ($datePeriods as $key => $datePeriod) {
-            if ($datePeriod == ($iteOut != count($outcomes) ? $outcomes[$iteOut]->created_at->format('M d') : false)) {
+            if ($datePeriod == ($iteOut != $outcomes->count() ? $outcomes[$iteOut]->created_at->format('M d') : false)) {
                 $newOut[$key] = [
                     "outcome_price" => $outcomes[$iteOut]->outcome_price,
                     "created_at" => $outcomes[$iteOut]->created_at
@@ -95,7 +92,7 @@ class Earning extends ChartComponent
                 ];
             }
 
-            if ($datePeriod == ($iteIn != count($incomes) ? $incomes[$iteIn]->created_at->format('M d') : false)) {
+            if ($datePeriod == ($iteIn != $incomes->count() ? $incomes[$iteIn]->created_at->format('M d') : false)) {
                 $newIn[$key] = [
                     "income_price" => $incomes[$iteIn]->income_price,
                     "created_at" => $incomes[$iteIn]->created_at

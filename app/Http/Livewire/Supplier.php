@@ -25,7 +25,7 @@ class Supplier extends Component
         'deleteSupplierModal' => 'openDeleteSupplierModal',
     ];
 
-    public $rules = [
+    protected $rules = [
         'nama' => 'required|max:255',
         'alamat' => 'required|max:255',
         'telp' => 'required|max:255'

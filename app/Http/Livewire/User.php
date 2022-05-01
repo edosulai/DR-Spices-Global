@@ -30,7 +30,7 @@ class User extends Component
         'deleteUserModal' => 'openDeleteUserModal',
     ];
 
-    public $rules = [
+    protected $rules = [
         'role' => 'required|exists:roles,id',
     ];
 

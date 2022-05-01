@@ -6,10 +6,7 @@
 
         <div class="main-content">
             <div class="wrap-banner">
-                <x-breadcrumb :navs="[
-                    ['title' => 'Home', 'url' => route('home')],
-                    ['title' => 'Login', 'url' => route('login')],
-                ]" />
+                <x-breadcrumb :navs="[['title' => 'Home', 'url' => route('home')], ['title' => 'Login', 'url' => route('login')]]" />
             </div>
 
 
@@ -27,11 +24,10 @@
                                             <x-jet-input-error for="email" />
                                         </div>
 
-                                        <div class="form-group no-gutters">
-                                            <div class="input-group">
-                                                <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password..." required autocomplete="current-password" />
-                                                <x-jet-input-error for="password" />
-                                            </div>
+                                        <div class="form-group no-gutters show_hide_password">
+                                            <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password..." autocomplete="current-password" required />
+                                            <i class="icon-eye far fa-eye"></i>
+                                            <x-jet-input-error for="password" />
                                         </div>
 
                                         <div class="form-group">
@@ -53,19 +49,19 @@
 
                                     <div>
                                         @if (Route::has('password.request'))
-                                        <div class="no-gutters text-center mb-1">
-                                            <div class="forgot-password">
-                                                <a href="{{ route('password.request') }}">{{ __('Forgot your password ?') }}</a>
+                                            <div class="no-gutters text-center mb-1">
+                                                <div class="forgot-password">
+                                                    <a href="{{ route('password.request') }}">{{ __('Forgot your password ?') }}</a>
+                                                </div>
                                             </div>
-                                        </div>
                                         @endif
 
                                         @if (Route::has('register'))
-                                        <div class="no-gutters text-center">
-                                            <div class="forgot-password">
-                                                <a href="{{ route('register') }}">{{ __('Create Account') }}</a>
+                                            <div class="no-gutters text-center">
+                                                <div class="forgot-password">
+                                                    <a href="{{ route('register') }}">{{ __('Create Account') }}</a>
+                                                </div>
                                             </div>
-                                        </div>
                                         @endif
                                     </div>
 
@@ -77,7 +73,7 @@
             </div>
         </div>
 
-        <x-footer />
+        @livewire('footer')
         <x-back-top />
 
     </div>

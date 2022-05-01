@@ -36,40 +36,23 @@ class RequestBuyTable extends DataTableComponent
         return RequestBuy::join('users', 'request_buys.user_id', '=', 'users.id')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), function ($join) {
+            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), fn ($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
-                    ->on('traces.created_at', '=', 'join_traces.traces_created_at');
-            })->selectRaw("
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )->selectRaw("
                 request_buys.*,
                 @row:=@row+1 as no,
                 users.name as users_name,
                 JSON_EXTRACT(request_buys.spice_data, '$[*].nama') as spice_nama,
                 JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') as jumlah,
                 statuses.nama as statuses_nama
-            ")
-            // ->from(
-            //     DB::raw("`request_buys`,
-            //         JSON_TABLE(
-            //             request_buys.spice_data,'$[*]'
-            //             COLUMNS(
-            //                 NESTED PATH '$.hrg_jual'
-            //                     COLUMNS (
-            //                         hrg_jual DECIMAL PATH '$'
-            //                     ),
-            //                 NESTED PATH '$.jumlah'
-            //                     COLUMNS (
-            //                         jumlah DECIMAL PATH '$'
-            //                     )
-            //             )
-            //         ) as jt group by id")
-            // )
-            ->when(
+            ")->when(
                 $this->getFilter('search'),
                 fn ($query, $term) =>
                 $query
                     ->where('invoice', 'like', "%" . trim($term) . "%")
-                    ->orwhere('users.name', 'like', "%" . trim($term) . "%")
+                    ->orWhere('users.name', 'like', "%" . trim($term) . "%")
                     ->orWhere('statuses.nama', 'like', "%" . trim($term) . "%")
                     ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].nama') like '%" . trim($term) . "%'")
                     ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') like '%" . trim($term) . "%'")

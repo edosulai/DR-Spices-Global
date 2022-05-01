@@ -129,8 +129,8 @@ class RequestBuyFactory extends Factory
             'user_id' => $user->id,
             'spice_data' => $spice_data,
             'transaction_data' => $transaction_data,
-            'created_at' => Carbon::now()->subDay(rand(1, 90)),
-            'updated_at' => Carbon::now()->subDay(rand(1, 90))
+            'created_at' => Carbon::now()->subDay(rand(10, 20)),
+            'updated_at' => Carbon::now()->subDay(rand(10, 20))
         ];
     }
 
@@ -157,20 +157,11 @@ class RequestBuyFactory extends Factory
                     'id' => Str::orderedUuid(),
                     'request_buy_id' => $request_buy->id,
                     'status_id' => $statuses[$i]->id,
-                    'created_at' => Carbon::now()->subDay($statuses->count() - $i),
-                    'updated_at' => Carbon::now()->subDay($statuses->count() - $i)
+                    'created_at' => $request_buy->created_at->addDay($statuses->count() + $i),
+                    'updated_at' => $request_buy->updated_at->addDay($statuses->count() + $i)
                 ];
             }
             Trace::insert($trace);
-
-            if (in_array($statuses[$statusSelected - 1]->nama, ['Delivered', 'Rated'])) {
-                Income::create([
-                    'user_id' => $request_buy->user_id,
-                    'request_buy_id' => $request_buy->id,
-                    'created_at' => $request_buy->created_at,
-                    'updated_at' => $request_buy->updated_at
-                ]);
-            }
 
             if (in_array($statuses[$statusSelected - 1]->nama, ['Rated'])) {
                 foreach ($request_buy->spice_data as $data) {

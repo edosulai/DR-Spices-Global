@@ -228,7 +228,7 @@
     <x-feedback-cart wire:model="feedbackCartAddModal" :maxWidth="'lg'" :modal="$modal" />
     <x-detail-cart wire:model="detailModal" :maxWidth="'lg'" :modal="$modal" />
 
-    <x-feedback-modal wire:model="warningModal" :maxWidth="'sm'">
+    <x-feedback-modal wire:model="warningModal" :maxWidth="'sm'" :icon="'fas fa-times'">
         <x-slot name="title">
             {{ $status_message }}
         </x-slot>

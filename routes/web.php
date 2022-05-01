@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn () => view('landing'))->name('home');
-Route::get('/contact-us', fn () => view('contact-us'))->name('contact');
+Route::get('/contact-us', fn () => view('contact-us', ['title' => 'Contact Us']))->name('contact');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/my-account', fn () => view('my-account'))->name('account');

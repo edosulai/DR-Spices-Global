@@ -35,6 +35,20 @@ window.livewire.on('chartUpdate', (chartId, labels, datasets) => {
     chart.update()
 })
 
+$(document).ready(function () {
+    $(".show_hide_password .icon-eye").on('click', function (event) {
+        if ($('.show_hide_password input').attr("type") == "text") {
+            $('.show_hide_password input').attr('type', 'password')
+            $('.show_hide_password i').addClass("fa-eye-slash")
+            $('.show_hide_password i').removeClass("fa-eye")
+        } else if ($('.show_hide_password input').attr("type") == "password") {
+            $('.show_hide_password input').attr('type', 'text')
+            $('.show_hide_password i').removeClass("fa-eye-slash")
+            $('.show_hide_password i').addClass("fa-eye")
+        }
+    })
+})
+
 $('#cetak').on('click', function () {
     $('table').printThis({
         debug: false,
@@ -442,7 +456,7 @@ window.onload = function () {
 
 window.addEventListener('payauth', event => {
     MidtransNew3ds.authenticate(event.detail.redirect_url, {
-        performAuthentication: function(redirect_url) {
+        performAuthentication: function (redirect_url) {
             $.featherlight({
                 iframe: redirect_url,
                 iframeMaxWidth: '80%',
@@ -451,18 +465,18 @@ window.addEventListener('payauth', event => {
                 closeOnClick: true,
                 closeOnEsc: false,
                 closeIcon: 'X'
-            });
+            })
         },
-        onSuccess: function(response) {
-            $.featherlight.close();
+        onSuccess: function (response) {
+            $.featherlight.close()
             Livewire.emit('doPayment', response)
         },
-        onFailure: function(response) {
-            $.featherlight.close();
+        onFailure: function (response) {
+            $.featherlight.close()
             Livewire.emit('errorPayment', response)
         },
-        onPending: function(response) {
-            $.featherlight.close();
+        onPending: function (response) {
+            $.featherlight.close()
             Livewire.emit('errorPayment', response)
         }
     })

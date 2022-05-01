@@ -90,7 +90,7 @@
 
         </div>
 
-        <x-footer />
+        @livewire('footer')
         <x-back-top />
 
     </div>
