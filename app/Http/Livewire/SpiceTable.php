@@ -15,11 +15,6 @@ class SpiceTable extends DataTableComponent
         'spiceTableColumns' => 'columns',
     ];
 
-    public function mount()
-    {
-        $this->index = $this->page > 1 ? ($this->page - 1) * $this->perPage : 1;
-    }
-
     public function columns(): array
     {
         return [
@@ -37,7 +32,7 @@ class SpiceTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Spice::query()->selectRaw('*, @row:=@row+1 as no');
+        return Spice::query()->selectRaw('*, @row:=@row+1 as no')->latest();
     }
 
     public function rowView(): string

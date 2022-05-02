@@ -44,17 +44,19 @@ class RequestBuyTable extends DataTableComponent
                 request_buys.*,
                 @row:=@row+1 as no,
                 users.name as users_name,
-                JSON_EXTRACT(request_buys.spice_data, '$[*].nama') as spice_nama,
+                REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') as spice_nama,
                 JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') as jumlah,
                 statuses.nama as statuses_nama
-            ")->when(
+            ")
+            ->orderBy('request_buys.created_at', 'desc')
+            ->when(
                 $this->getFilter('search'),
                 fn ($query, $term) =>
                 $query
                     ->where('invoice', 'like', "%" . trim($term) . "%")
                     ->orWhere('users.name', 'like', "%" . trim($term) . "%")
                     ->orWhere('statuses.nama', 'like', "%" . trim($term) . "%")
-                    ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].nama') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') like '%" . trim($term) . "%'")
                     ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') like '%" . trim($term) . "%'")
             );
     }

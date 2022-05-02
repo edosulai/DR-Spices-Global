@@ -10,20 +10,11 @@ use Spatie\Permission\Models\Role;
 
 class User extends Component
 {
+    public $title;
     public $userModal = false;
     public $deleteUserModalConfirm = false;
-    public $id_user = 0;
-
-    public $title;
-
-    public $name;
-    public $email;
-    public $created_at;
-    public $role;
     public $roles;
-
-    public $aksiUserModal = 'tambahUser';
-    public $buttonUserModal = 'Tambah';
+    public $form = [];
 
     protected $listeners = [
         'userModal' => 'openUserModal',
@@ -31,45 +22,35 @@ class User extends Component
     ];
 
     protected $rules = [
-        'role' => 'required|exists:roles,id',
+        'form.role' => 'required|exists:roles,id',
     ];
+
+    protected $validationAttributes = [
+        'form.role' => 'Role User',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
 
     public function mount()
     {
         $this->roles = Role::all();
     }
 
-    public function render()
-    {
-        return view('livewire.user');
-    }
-
     public function openUserModal($id)
     {
-        if ($id) {
-            $user = ModelsUser::find($id);
-            if (!$user) return;
-            $this->id_user = $user->id;
-            $this->name = $user->name;
-            $this->email = $user->email;
-            $this->created_at = Carbon::parse($user->created_at)->format('Y-m-d\TH:i');
-            $this->role = $user->roles->first()->id;
-            $this->aksiUserModal = 'editUser';
-            $this->buttonUserModal = 'Edit';
-
-            $this->userModal = true;
-        }
+        $user = ModelsUser::find($id);
+        $this->form = $user->toArray();
+        $this->form['role'] = $user->roles->first()->id;
+        $this->form['created_at'] = Carbon::parse($user->created_at)->format('Y-m-d\TH:i');
+        $this->userModal = true;
     }
 
     public function openDeleteUserModal($id)
     {
-        if ($id) {
-            $user = ModelsUser::find($id);
-            if (!$user) return;
-            $this->id_user = $user->id;
-            $this->name = $user->name;
-        }
-
+        $this->form = ModelsUser::find($id)->toArray();
         $this->deleteUserModalConfirm = true;
     }
 
@@ -77,22 +58,23 @@ class User extends Component
     {
         $this->validate();
 
-        $user = ModelsUser::find($this->id_user);
-        $role = Role::find($this->role);
+        $user = ModelsUser::find($this->form['id']);
+        $role = Role::find($this->form['role']);
         $user->syncRoles($role->name);
 
-        $this->id_user = 0;
         $this->userModal = false;
-
         $this->emit('userTableColumns');
     }
 
     public function deleteUser()
     {
-        ModelsUser::destroy($this->id_user);
-        $this->id_user = 0;
+        ModelsUser::destroy($this->form['id']);
         $this->deleteUserModalConfirm = false;
-
         $this->emit('userTableColumns');
+    }
+
+    public function render()
+    {
+        return view('livewire.user');
     }
 }

@@ -21,6 +21,7 @@ class IncomeTable extends DataTableComponent
             Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-10'),
             Column::make('Harga Satuan', 'hrg_jual')->sortable()->addClass('w-15'),
             Column::make('Pendapatan', 'income_price')->sortable()->addClass('w-15'),
+            Column::make('Waktu', 'created_at')->sortable()->addClass('w-16'),
         ];
     }
 
@@ -33,7 +34,8 @@ class IncomeTable extends DataTableComponent
                 SUM(jt_request_buys.jumlah) as jumlah,
                 SUM(jt_request_buys.hrg_jual) * SUM(jt_request_buys.jumlah) as income_price,
                 users.name as users_name,
-                request_buys.invoice as invoice
+                request_buys.invoice as invoice,
+                traces.created_at as created_at
             ")
             ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
                 COLUMNS(
@@ -55,6 +57,7 @@ class IncomeTable extends DataTableComponent
                 fn ($query) =>
                 $query->where('statuses.nama', '=', 'Delivered')->orWhere('statuses.nama', '=', 'Rated')
             )
+            ->orderBy('request_buys.created_at', 'desc')
             ->when(
                 $this->getFilter('search'),
                 fn ($query, $term) =>

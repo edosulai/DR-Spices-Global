@@ -8,38 +8,45 @@ use Livewire\Component;
 class Postage extends Component
 {
     public $title;
-    public $modal;
+    public $form = [];
     public $postageModal = false;
-    public $id_postage;
-    public $countries_name;
-    public $cost;
 
     protected $listeners = [
         'editPostageModal' => 'openEditPostageModal',
     ];
 
+    protected $rules = [
+        'form.cost' => 'required|integer',
+    ];
+
+    protected $validationAttributes = [
+        'form.cost' => 'Biaya Pengiriman',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
+
     public function openEditPostageModal($id)
     {
-        $postage = ModelsPostage::where('postages.id', $id)
+        $this->form = ModelsPostage::where('postages.id', $id)
             ->join('countries', 'postages.country_id', '=', 'countries.id')
             ->selectRaw('postages.*, countries.name as countries_name')
-            ->first();
-
-        $this->id_postage = $postage->id;
-        $this->countries_name = $postage->countries_name;
-        $this->cost = $postage->cost;
-
+            ->first()
+            ->toArray();
         $this->postageModal = true;
     }
 
     public function editPostage()
     {
-        $postage = ModelsPostage::find($this->id_postage);
-        $postage->cost = $this->cost;
+        $this->validate();
+
+        $postage = ModelsPostage::find($this->form['id']);
+        $postage->cost = $this->form['cost'];
         $postage->save();
 
         $this->postageModal = false;
-
         $this->emit('postageTableColumns');
     }
 

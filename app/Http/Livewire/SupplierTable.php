@@ -29,7 +29,7 @@ class SupplierTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Supplier::query()->selectRaw('*, @row:=@row+1 as no');
+        return Supplier::query()->selectRaw('*, @row:=@row+1 as no')->latest();
     }
 
     public function rowView(): string

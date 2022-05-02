@@ -30,7 +30,7 @@ class UserTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return User::query()->with('roles')->selectRaw('*, @row:=@row+1 as no');
+        return User::query()->with('roles')->selectRaw('*, @row:=@row+1 as no')->latest();
     }
 
     public function rowView(): string

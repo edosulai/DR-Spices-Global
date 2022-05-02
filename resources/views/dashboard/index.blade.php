@@ -29,8 +29,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Pendapatan (Bulan)') }}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ currency($pendapatan) }}</div>
+                                <a href="{{ route('pendapatan.index') }}">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Pendapatan (Bulan)') }}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ currency($pendapatan) }}</div>
+                                </a>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -45,8 +47,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Pengeluaran (Bulan)') }}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ currency($pengeluaran) }}</div>
+                                <a href="{{ route('pengeluaran.index') }}">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Pengeluaran (Bulan)') }}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ currency($pengeluaran) }}</div>
+                                </a>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -61,8 +65,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Permintaan Tertunda') }}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending }}</div>
+                                <a href="{{ route('tertunda.index') . '?filters[search]=Order+Paid' }}">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{ __('Permintaan Tertunda') }}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending }}</div>
+                                </a>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>

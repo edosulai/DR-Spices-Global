@@ -21,3 +21,7 @@
 <x-livewire-tables::bs4.table.cell>
     {{ currency($row->income_price ? $row->income_price : 0 ) }}
 </x-livewire-tables::bs4.table.cell>
+
+<x-livewire-tables::bs4.table.cell>
+    {{ Illuminate\Support\Carbon::parse($row->created_at)->format('d/m/Y - H:m:s') }}
+</x-livewire-tables::bs4.table.cell>
