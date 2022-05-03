@@ -20,13 +20,6 @@ use Midtrans\CoreApi;
 
 class Checkout extends Component
 {
-    public $headerAddressModal = '';
-    public $queryAddressModal = false;
-    public $deleteAddressModal = false;
-    public $modal = [];
-    public $addresses;
-    public $countries;
-
     public $payment;
     public $carts;
     public $postage;
@@ -37,10 +30,28 @@ class Checkout extends Component
 
     protected $listeners = [
         'checkoutMount' => 'mount',
-        'mainAddress' => 'mainAddress',
         'errorPayment' => 'errorPayment',
         'doPayment' => 'doPayment',
     ];
+
+    protected $rules = [
+        'payment.name' => 'required',
+        'payment.cardnumber' => 'required',
+        'payment.expirationdate' => 'required',
+        'payment.securitycode' => 'required|integer',
+    ];
+
+    protected $validationAttributes = [
+        'payment.name' => 'Card Name',
+        'payment.cardnumber' => 'Card Number',
+        'payment.expirationdate' => 'Card Expiration Date',
+        'payment.securitycode' => 'Card Security Code',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
 
     public function mount()
     {
@@ -51,11 +62,8 @@ class Checkout extends Component
             'securitycode' => '123'
         ];
 
-        $this->modal = [];
-        $this->queryAddressModal = false;
-        $this->deleteAddressModal = false;
-        $this->countries = Country::all();
         $this->carts = collect();
+        $this->postage = null;
 
         $carts = Cart::where('user_id', Auth::id())
             ->join('spices', 'carts.spice_id', '=', 'spices.id')
@@ -76,82 +84,20 @@ class Checkout extends Component
                 ]);
             }
 
-            $this->addresses = Address::where('addresses.user_id', Auth::id())
-                ->selectRaw('addresses.*, countries.nicename as countries_nicename')
-                ->join('countries', 'addresses.country_id', '=', 'countries.id')
-                ->get()->toArray();
+            $main_address = Address::where('primary', true)->where('user_id', Auth::id())->first();
 
-            if ($this->addresses) {
-                $this->postage = Postage::where('country_id', Address::where('primary', true)->where('user_id', Auth::id())->first()->country_id)->first();
+            if ($main_address) {
+                $this->postage = Postage::where('country_id', $main_address->country_id)->first();
             }
         } else {
             $this->redirectRoute('cart');
         }
     }
 
-    public function openModalAddress($id = null)
-    {
-        $isExist = Address::where('id', $id)->where('user_id', Auth::id())->first();
-        if ($isExist) {
-            $this->modal = $isExist->toArray();
-            $this->headerAddressModal = 'Update Address';
-        } else {
-            $this->headerAddressModal = 'Add New Address';
-        }
-
-        $this->queryAddressModal = true;
-    }
-
-    public function queryAddress()
-    {
-        if (array_key_exists('id', $this->modal)) {
-            $new = Address::where('id', $this->modal['id'])->where('user_id', Auth::id())->first();
-            $new->fill($this->modal);
-            $new->save();
-        } else {
-            $new = Address::create($this->modal);
-            if (!Address::where('primary', true)->where('user_id', Auth::id())->first()) {
-                $this->emit('mainAddress', $new->id);
-            }
-        }
-
-        $this->emit('checkoutMount');
-    }
-
-    public function mainAddress($id)
-    {
-        $address = Address::where('id', $id)->where('user_id', Auth::id())->first();
-
-        if ($address) {
-            $mainAddress = Address::where('primary', true)->where('user_id', Auth::id())->first();
-            if ($mainAddress) {
-                $mainAddress->primary = false;
-                $mainAddress->save();
-            }
-            $address->primary = true;
-            $address->save();
-        }
-
-        $this->emit('checkoutMount');
-    }
-
-    public function openDeleteModal($id)
-    {
-        $isExist = Address::where('id', $id)->where('user_id', Auth::id())->first();
-        if ($isExist) {
-            $this->modal = $isExist->toArray();
-            $this->deleteAddressModal = true;
-        }
-    }
-
-    public function deleteAddress()
-    {
-        Address::where('id', $this->modal['id'])->where('user_id', Auth::id())->delete();
-        $this->emit('checkoutMount');
-    }
-
     public function getToken()
     {
+        $this->validate();
+
         $expirationdate = explode("/", $this->payment['expirationdate']);
 
         $response = Http::get(env('MIDTRANS_URL') . "/v2/token", [

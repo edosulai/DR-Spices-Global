@@ -11,36 +11,52 @@ use Livewire\Component;
 class ProductExhibition extends Component
 {
     public $status_message;
-    public $validation_messages = [];
     public $spices = [];
-    public $navs = [];
     public $modal = [];
+    public $validation_messages = [];
     public $feedbackCartAddModal = false;
     public $detailModal = false;
     public $warningModal = false;
 
-    public function mount()
-    {
-        $this->spices = Spice::join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
-            ->groupBy('spices.id')
-            ->get();
+    protected $listeners = [
+        'exibitionMount' => 'mount',
+    ];
 
-        $this->navs = [
-            [
-                'name' => 'Home',
-                'url' => route('home'),
-            ], [
-                'name' => 'Contact Us',
-                'url' => route('contact'),
-            ]
-        ];
+    protected $rules = [
+        'modal.qty' => 'required|integer|min:1',
+    ];
+
+    protected $validationAttributes = [
+        'modal.qty' => 'Quantity',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
+
+    public function mount($spices = null)
+    {
+        $this->detailModal = false;
+
+        if ($spices) {
+            $this->spices = $spices;
+        } else {
+            $this->spices = Spice::join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
+                ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
+                ->groupBy('spices.id')
+                ->get();
+        }
     }
 
     public function addToCart($id = null)
     {
         if (!Auth::check()) {
             return $this->redirectRoute('login');
+        }
+
+        if ($this->detailModal !== false) {
+            $this->validate();
         }
 
         $spice = Spice::find($id ?? $this->modal['id']);
@@ -80,6 +96,7 @@ class ProductExhibition extends Component
             $this->detailModal = false;
             $this->feedbackCartAddModal = true;
 
+            $this->emit('exibitionMount');
             $this->emit('headerMount');
         } else {
             $this->status_message = 'Sold Out';

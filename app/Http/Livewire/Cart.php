@@ -15,6 +15,19 @@ class Cart extends Component
         'cartMount' => 'mount',
     ];
 
+    protected $rules = [
+        'carts.*.qty' => 'required|integer|min:1',
+    ];
+
+    protected $validationAttributes = [
+        'carts.*.qty' => 'Quantity',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
+
     public function mount()
     {
         $this->carts = collect();
@@ -41,6 +54,8 @@ class Cart extends Component
 
     public function proceedCheckout()
     {
+        $this->validate();
+
         foreach ($this->carts as $cart) {
             $oldCart = ModelsCart::where('user_id', Auth::id())->where('id', $cart['id'])->first();
             $oldCart->jumlah = $cart['qty'];

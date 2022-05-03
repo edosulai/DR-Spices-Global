@@ -21,6 +21,35 @@ class Address extends Component
         'mainAddress' => 'mainAddress',
     ];
 
+    protected $rules = [
+        'modal.recipent' => 'required|string|max:255',
+        'modal.phone' => 'required|string|max:255',
+        'modal.street' => 'required|string|max:255',
+        'modal.other_street' => 'required|string|max:255',
+        'modal.zip' => 'required|string|max:255',
+        'modal.district' => 'required|string|max:255',
+        'modal.city' => 'required|string|max:255',
+        'modal.state' => 'required|string|max:255',
+        'modal.country_id' => 'required|exists:countries,id',
+    ];
+
+    protected $validationAttributes = [
+        'modal.recipent' => 'Recipent Name',
+        'modal.phone' => 'Phone Number',
+        'modal.street' => 'Address',
+        'modal.other_street' => 'Secondary Address',
+        'modal.zip' => 'Postal Code',
+        'modal.district' => 'District',
+        'modal.city' => 'City',
+        'modal.state' => 'State',
+        'modal.country_id' => 'Country',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
+
     public function mount()
     {
         $this->modal = [];
@@ -40,7 +69,12 @@ class Address extends Component
         if ($isExist) {
             $this->modal = $isExist->toArray();
             $this->headerAddressModal = 'Update Address';
+            $this->resetErrorBag();
+            $this->resetValidation();
         } else {
+            if ($this->headerAddressModal != 'Add New Address') {
+                $this->modal = [];
+            }
             $this->headerAddressModal = 'Add New Address';
         }
 
@@ -49,17 +83,20 @@ class Address extends Component
 
     public function queryAddress()
     {
+        $this->validate();
+
         if (array_key_exists('id', $this->modal)) {
             $new = ModelsAddress::where('id', $this->modal['id'])->where('user_id', Auth::id())->first();
             $new->fill($this->modal);
             $new->save();
         } else {
             $new = ModelsAddress::create($this->modal);
-            if (!Address::where('primary', true)->where('user_id', Auth::id())->first()) {
+            if (!ModelsAddress::where('primary', true)->where('user_id', Auth::id())->first()) {
                 $this->emit('mainAddress', $new->id);
             }
         }
 
+        $this->emit('checkoutMount');
         $this->emit('addressMount');
     }
 
@@ -77,6 +114,7 @@ class Address extends Component
             $address->save();
         }
 
+        $this->emit('checkoutMount');
         $this->emit('addressMount');
     }
 
@@ -92,6 +130,7 @@ class Address extends Component
     public function deleteAddress()
     {
         ModelsAddress::where('id', $this->modal['id'])->where('user_id', Auth::id())->delete();
+        $this->emit('checkoutMount');
         $this->emit('addressMount');
     }
 

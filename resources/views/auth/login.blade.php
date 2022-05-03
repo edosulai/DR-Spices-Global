@@ -26,7 +26,7 @@
 
                                         <div class="form-group no-gutters show_hide_password">
                                             <x-jet-input class="{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password..." autocomplete="current-password" required />
-                                            <i class="icon-eye far fa-eye"></i>
+                                            <i class="icon-eye far fa-eye-slash"></i>
                                             <x-jet-input-error for="password" />
                                         </div>
 

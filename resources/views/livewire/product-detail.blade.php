@@ -98,7 +98,7 @@
                                     <span>{{ currency($spice->hrg_jual) }} x {{ $qty }} :</span>
                                     <span class="price ml-3">{{ currency($spice->hrg_jual * $qty) }}</span>
                                 </div>
-                                <div class="has-border cart-area">
+                                <div class="has-border cart-area {{ $errors->has('qty') ? 'is-invalid' : '' }}">
                                     <div class="product-quantity">
                                         <div class="qty">
                                             <div class="input-group">
@@ -119,6 +119,7 @@
                                     <p class="product-minimal-quantity">
                                     </p>
                                 </div>
+                                <x-jet-input-error for="qty" />
                             </div>
                         </div>
                     </div>
@@ -168,56 +169,7 @@
                                     <h2>{{ __('Other Products') }}</h2>
                                 </div>
                             </div>
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active show">
-                                    <div class="category-product owl-carousel" wire:ignore>
-
-                                        @foreach ($spices as $spic)
-                                            <div class="item text-center">
-                                                <div class="product-miniature js-product-miniature item-one first-item">
-                                                    <div class="thumbnail-container border border">
-                                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spic->nama)]) }}">
-                                                            <img class="img-fluid" src="{{ asset("storage/images/product/$spic->image") }}" alt="img">
-                                                        </a>
-                                                        {{-- <div class="product-flags discount">-30%</div> --}}
-                                                    </div>
-                                                    <div class="product-description">
-                                                        <div class="product-groups">
-                                                            <div class="product-title">
-                                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spic->nama)]) }}">{{ $spic->nama }}</a>
-                                                            </div>
-                                                            <div class="rating">
-                                                                <div class="star-content">
-                                                                    @for ($i = 0; $i < 5; $i++)
-                                                                        <div class="star{{ $i < $spic->rating_avg ? '' : ' hole' }}">
-                                                                        </div>
-                                                                    @endfor
-                                                                </div>
-                                                            </div>
-                                                            <div class="product-group-price">
-                                                                <div class="product-price-and-shipping">
-                                                                    <span class="price">{{ currency($spic->hrg_jual) }} <small>({{ $spic->unit }})</small></span>
-                                                                    {{-- <del class="regular-price">£28.68</del> --}}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-buttons d-flex justify-content-center">
-                                                            <button type="button" class="add-to-cart" wire:click="addToCart('{{ $spic->id }}')">
-                                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                            </button>
-
-                                                            <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice('{{ $spic->id }}')">
-                                                                <i class="fa fa-eye" aria-hidden="true"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div>
-
+                            @livewire('product-exhibition', ['spices' => $spices])
                         </div>
                     </div>
                 </div>
@@ -225,10 +177,9 @@
         </div>
     </div>
 
-    <x-feedback-cart wire:model="feedbackCartAddModal" :maxWidth="'lg'" :modal="$modal" />
-    <x-detail-cart wire:model="detailModal" :maxWidth="'lg'" :modal="$modal" />
+    <x-feedback-cart wire:model="feedbackDetailModal" :maxWidth="'lg'" :modal="$modal" />
 
-    <x-feedback-modal wire:model="warningModal" :maxWidth="'sm'" :icon="'fas fa-times'">
+    <x-feedback-modal wire:model="warningDetailModal" :maxWidth="'sm'" :icon="'fas fa-times'">
         <x-slot name="title">
             {{ $status_message }}
         </x-slot>

@@ -3,7 +3,7 @@
 <x-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes->merge(['class' => 'quickview in']) }}>
     <div class="modal-content content">
         <div class="modal-header">
-            <button type="button" class="close" aria-label="Close" wire:click="$set('detailModal', false)">
+            <button type="button" class="close" aria-label="Close" wire:click="$set('{{ $attributes['wire:model'] }}', false)">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -13,7 +13,7 @@
                     <div class="col-md-5 col-sm-5 divide-right d-flex align-items-center">
                         <div class="images-container bottom_thumb">
                             <div class="product-cover">
-                                <img class="img-fluid" src="{{ $modal['image'] }}" style="width:100%;">
+                                <img class="img-fluid w-100" src="{{ $modal['image'] }}">
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <span>{{ currency($modal['price']) }} x {{ $modal['qty'] }} :</span>
                                 <span class="price ml-3">{{ currency($modal['price'] * $modal['qty']) }}</span>
                             </div>
-                            <div class="has-border cart-area">
+                            <div class="has-border cart-area {{ $errors->has('modal.qty') ? 'is-invalid' : '' }}">
                                 <div class="product-quantity">
                                     <div class="qty">
                                         <div class="input-group">
@@ -72,6 +72,7 @@
                                 <p class="product-minimal-quantity">
                                 </p>
                             </div>
+                            <x-jet-input-error for="modal.qty" />
                         </div>
 
                     </div>

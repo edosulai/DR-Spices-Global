@@ -13,73 +13,7 @@
             </div>
             {{-- <div id="collapseAddress" class="main-content collapse show" aria-labelledby="headingAddress" data-parent="#checkoutForm"> --}}
             <div class="main-content">
-                @if (count($addresses) < 1)
-                    <div class="mb-3">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body d-flex flex-column align-items-center">
-                                <div class="d-flex justify-content-center">
-                                    <h5 class="font-weight-bold">{{ __('No Address Found') }}</h5>
-                                </div>
-                                <p class="text-center">{{ __('Please add the address first before proceeding with the checkout process') }}</p>
-                                <button class="btn icon-address" wire:click="openModalAddress">
-                                    <span><i class="fas fa-plus"></i></span>
-                                    <h6 class="text-center mt-3">{{ __('Add New Address') }}</h6>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-
-                <div class="row mb-3">
-                    @foreach ($addresses as $address)
-                        <div class="col-md-6 mb-3">
-                            <div class="card shadow-sm h-100{{ $address['primary'] ? ' border-dark' : '' }}">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <h5><b>{{ $address['recipent'] }}</b></h5>
-                                        @if ($address['primary'])
-                                            <span>
-                                                <i class="fas fa-check"></i>
-                                                <span>{{ __('Main') }}</span>
-                                            </span>
-                                        @else
-                                            <button role="button" class="btn p-0 m-0" wire:click="mainAddress('{{ $address['id'] }}')">
-                                                <i class="far fa-square"></i>
-                                            </button>
-                                        @endif
-                                    </div>
-                                    <p>{{ $address['phone'] }}</p>
-                                    <p>{{ $address['street'] }}, {{ $address['other_street'] }}</p>
-                                    <p>{{ $address['countries_nicename'] }}</p>
-                                    <div class="d-flex">
-                                        <a role="button" wire:click="openModalAddress('{{ $address['id'] }}')">
-                                            <i class="fas fa-edit"></i>
-                                            <span>{{ __('Edit Address') }}</span>
-                                        </a>
-                                        <div class="mx-3">|</div>
-                                        <a role="button" wire:click="openDeleteModal('{{ $address['id'] }}')">
-                                            <i class="far fa-trash-alt"></i>
-                                            <span>{{ __('Delete Address') }}</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    @if (count($addresses) % 2 == 1)
-                        <div class="col-md-6 mb-3">
-                            <div class="card shadow-sm h-100">
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <p class="text-center">{{ __('Consider adding another address to continue the checkout process') }}</p>
-                                    <button class="btn icon-address" wire:click="openModalAddress">
-                                        <span><i class="fas fa-plus"></i></span>
-                                        <h6 class="text-center mt-3">{{ __('Add Other Address') }}</h6>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
+                @livewire('address')
             </div>
 
             <div class="checkout-personal-step">
@@ -100,28 +34,28 @@
                     <div class="col-md-6 row mb-5">
                         <div class="my-1 col-md-12">
                             <x-jet-label class="small mb-1" for="name" value="{{ __('Name') }}" />
-                            <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}" wire:model="payment.name" maxlength="20" :disabled="count($addresses) < 1" />
-                            <x-jet-input-error for="name" />
+                            <x-jet-input id="name" type="text" class="{{ $errors->has('payment.name') ? 'is-invalid' : '' }}" wire:model="payment.name" maxlength="20" :disabled="$postage == null" />
+                            <x-jet-input-error for="payment.name" />
                         </div>
 
                         <div class="my-1 col-md-12">
                             <x-jet-label class="small mb-1" for="cardnumber" value="{{ __('Card Number') }}" />
-                            <x-jet-input id="cardnumber" type="text" class="{{ $errors->has('cardnumber') ? 'is-invalid' : '' }}" wire:model="payment.cardnumber" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="count($addresses) < 1" />
+                            <x-jet-input id="cardnumber" type="text" class="{{ $errors->has('payment.cardnumber') ? 'is-invalid' : '' }}" wire:model="payment.cardnumber" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="$postage == null" />
                             <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" wire:ignore>
                             </svg>
-                            <x-jet-input-error for="cardnumber" />
+                            <x-jet-input-error for="payment.cardnumber" />
                         </div>
 
                         <div class="my-1 col-md-7">
                             <x-jet-label class="small mb-1" for="expirationdate" value="{{ __('Expiration (mm/yy)') }}" />
-                            <x-jet-input id="expirationdate" type="text" class="{{ $errors->has('expirationdate') ? 'is-invalid' : '' }}" wire:model="payment.expirationdate" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="count($addresses) < 1" />
-                            <x-jet-input-error for="expirationdate" />
+                            <x-jet-input id="expirationdate" type="text" class="{{ $errors->has('payment.expirationdate') ? 'is-invalid' : '' }}" wire:model="payment.expirationdate" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="$postage == null" />
+                            <x-jet-input-error for="payment.expirationdate" />
                         </div>
 
                         <div class="my-1 col-md-5">
                             <x-jet-label class="small mb-1" for="securitycode" value="{{ __('Security Code') }}" />
-                            <x-jet-input id="securitycode" type="text" class="{{ $errors->has('securitycode') ? 'is-invalid' : '' }}" wire:model="payment.securitycode" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="count($addresses) < 1" />
-                            <x-jet-input-error for="securitycode" />
+                            <x-jet-input id="securitycode" type="text" class="{{ $errors->has('payment.securitycode') ? 'is-invalid' : '' }}" wire:model="payment.securitycode" maxlength="20" pattern="[0-9]*" inputmode="numeric" :disabled="$postage == null" />
+                            <x-jet-input-error for="payment.securitycode" />
                         </div>
                     </div>
                 </div>
@@ -172,14 +106,12 @@
                 </ul>
             </div>
 
-            <div>
-                <a role="button" wire:click="getToken" class="continue btn btn-primary btn-block{{ count($addresses) < 1 ? ' disabled' : '' }}">{{ __('Place Order') }}</a>
-            </div>
+            <x-jet-button class="w-100 d-flex align-items-center justify-content-center continue{{ $postage == null ? ' disabled' : '' }}" wire:loading.attr="disabled" wire:click="getToken">
+                <span wire:loading wire:target="getToken" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                {{ __('Place Order') }}
+            </x-jet-button>
         </div>
     </div>
-
-    <x-query-address wire:model="queryAddressModal" :saveAction="'queryAddress'" :headTitle="$headerAddressModal" :countries="$countries" :modal="$modal" />
-    <x-delete-address wire:model="deleteAddressModal" :deleteAction="'deleteAddress'" />
 
     <x-feedback-modal wire:model="warningModal" :maxWidth="'lg'" :icon="'fas fa-times'">
         <x-slot name="title">

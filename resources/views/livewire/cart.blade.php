@@ -33,7 +33,8 @@
                                         <div class="col-md-4 col">
                                             <div class="label w-100">Qty:</div>
                                             <div class="quantity w-100">
-                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" class="input-group form-control {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}" oninput="if(this.value == '') {this.value = 0}">
+                                                <input min="1" type="number" wire:model="carts.{{ $key }}.qty" class="input-group form-control {{ $errors->has('carts.' . $key . '.qty') ? 'is-invalid' : '' }} {{ $cart['qty'] != '' && $cart['qty'] > 999 ? 'px-2' : 'pr-2' }}" oninput="if(this.value == '') {this.value = 0}">
+                                                <x-jet-input-error for="carts.{{ $key }}.qty" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col">
@@ -70,14 +71,14 @@
             <div class="block-list mt-0">
                 <ul class="p-3">
                     @if ($carts->isNotEmpty())
-                    <li class="py-3">
-                        Total products:
-                        <span class="float-right">{{ currency(
-                            $carts->sum(function ($cart) {
-                                return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
-                            })
-                        ) }}</span>
-                    </li>
+                        <li class="py-3">
+                            Total products:
+                            <span class="float-right">{{ currency(
+                                $carts->sum(function ($cart) {
+                                    return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
+                                }),
+                            ) }}</span>
+                        </li>
                     @endif
                 </ul>
             </div>

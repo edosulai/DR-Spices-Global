@@ -52,7 +52,24 @@
                                 </div>
                             </div>
                         </div>
-                        @livewire('product-exhibition')
+                        <div class="section product-living-room">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="new-arrivals product-tab col">
+                                        <div class="tab-content" id="product-exhibition">
+                                            <div class="title-tab-content product-tab justify-content-between">
+                                                <div class="title-product">
+                                                    <h2>{{ __('Our Product') }}</h2>
+                                                    <p>{{ __('LOREM IPSUM DOLOR SIT AMET CONSECTETUR') }}</p>
+                                                </div>
+                                            </div>
+                                            @livewire('product-exhibition')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <x-about-us />
                         <x-partner />
                     </section>

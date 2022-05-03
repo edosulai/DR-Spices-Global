@@ -20,12 +20,24 @@ class ProductDetail extends Component
     public $qty = 1;
     public $spices;
 
-    public $feedbackCartAddModal = false;
-    public $detailModal = false;
-    public $warningModal = false;
+    public $feedbackDetailModal = false;
+    public $warningDetailModal = false;
     public $status_message;
     public $validation_messages = [];
     public $modal = [];
+
+    protected $rules = [
+        'qty' => 'required|integer|min:1',
+    ];
+
+    protected $validationAttributes = [
+        'qty' => 'Quantity',
+    ];
+
+    public function updated()
+    {
+        $this->validate($this->rules);
+    }
 
     public function mount()
     {
@@ -44,25 +56,25 @@ class ProductDetail extends Component
             ->get();
     }
 
-    public function addToCart($id = null)
+    public function addToCart()
     {
         if (!Auth::check()) {
             return $this->redirectRoute('login');
         }
 
-        $spice = Spice::find($id ?? ($this->detailModal ? $this->modal['id'] : $this->spice->id));
+        $this->validate();
+
+        $spice = Spice::find($this->spice->id);
 
         if ($spice && $spice->stok > 0) {
 
             $this->modal['total'] = 0;
 
-            $qty = $id ? 1 : ($this->detailModal ? $this->modal['qty'] : $this->qty);
-
             Cart::updateOrCreate([
                 'user_id' => Auth::id(),
                 'spice_id' => $spice->id
             ], [
-                'jumlah' => DB::raw('jumlah + ' . $qty),
+                'jumlah' => DB::raw('jumlah + ' . $this->qty),
             ]);
 
             $carts = Cart::where('user_id',  Auth::id())
@@ -74,7 +86,7 @@ class ProductDetail extends Component
             $this->modal['price'] = $spice->hrg_jual;
             $this->modal['unit'] = $spice->unit;
             $this->modal['rating'] = 0;
-            $this->modal['qty'] = $qty;
+            $this->modal['qty'] = $this->qty;
             $this->modal['image'] = asset("/storage/images/product/$spice->image");;
             $this->modal['desc'] = $spice->ket;
             $this->modal['count'] = count($carts);
@@ -84,9 +96,7 @@ class ProductDetail extends Component
                 $this->modal['total'] = $this->modal['total'] + ($cart->spice_price * $cart->jumlah);
             }
 
-            $this->detailModal = false;
-            $this->feedbackCartAddModal = true;
-
+            $this->feedbackDetailModal = true;
             $this->emit('headerMount');
         } else {
             $this->status_message = 'Sold Out';
@@ -94,33 +104,7 @@ class ProductDetail extends Component
                 'Stock is not enough',
                 'Product is not available'
             ];
-            $this->warningModal = true;
-        }
-    }
-
-    public function detailSpice($id)
-    {
-        $spice = Spice::where('spices.id', $id)
-            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
-            ->groupBy('spices.id')
-            ->first();
-
-        if ($spice) {
-
-            $this->modal['total'] = 0;
-            $this->modal['id'] = $spice->id;
-            $this->modal['name'] = $spice->nama;
-            $this->modal['price'] = $spice->hrg_jual;
-            $this->modal['unit'] = $spice->unit;
-            $this->modal['rating'] = $spice->rating_avg;
-            $this->modal['qty'] = 1;
-            $this->modal['image'] = asset("/storage/images/product/$spice->image");
-            $this->modal['desc'] = $spice->ket;
-            $this->modal['count'] = 0;
-            $this->modal['instock'] = $spice->stok > 0 ? true : false;
-
-            $this->detailModal = true;
+            $this->warningDetailModal = true;
         }
     }
 
