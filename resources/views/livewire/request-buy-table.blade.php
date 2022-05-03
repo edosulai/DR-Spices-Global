@@ -28,6 +28,7 @@
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a role="button" class="btn btn-secondary" wire:click="$emit('requestBuyModal', '{{ $row->id }}')" wire:loading.attr="disabled">Kelola</a>
+        <a role="button" class="btn btn-primary m-0 p-2" wire:click="$emit('requestBuyModal', '{{ $row->id }}')" wire:loading.attr="disabled">Kelola</a>
+        <a role="button" class="btn btn-secondary m-0 p-2" wire:click="$emit('requestBuyDetail', '{{ $row->id }}')" wire:loading.attr="disabled">Detail</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

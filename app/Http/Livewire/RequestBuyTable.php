@@ -26,7 +26,7 @@ class RequestBuyTable extends DataTableComponent
             Column::make('Waktu Permintaan', 'created_at')->sortable()->addClass('w-16'),
             Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-7'),
             Column::make('Status', 'statuses_nama')->sortable()->addClass('w-14'),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-12'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-14'),
         ];
     }
 

@@ -247,7 +247,7 @@
                                     <div class="col-md-10">
                                         <div class="row">
                                             <div class="col-md-7">
-                                                <div class="my-2">Produk Total</div>
+                                                <div class="my-2">Product Total</div>
                                                 <div class="my-2">Shipping Cost / ({{ $detailOrder->spice_data[0]['unit'] }})</div>
                                                 <div class="my-2">Total Shipping Cost x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
                                                 <h6 class="my-3">Total Price</h6>

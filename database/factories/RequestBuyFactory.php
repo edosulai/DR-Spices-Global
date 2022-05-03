@@ -95,7 +95,11 @@ class RequestBuyFactory extends Factory
                     "last_name" => $address_lastname,
                     "phone" => $address->phone,
                     "address" =>  $address->street . ", " . $address->other_street . ", " . $address->district . ", " . $address->city . ", " . $address->state . ", " . $address->nicename,
+                    "street" => $address->street,
+                    "other_street" => $address->other_street,
+                    "district" => $address->district,
                     "city" => $address->city,
+                    "state" => $address->state,
                     "postal_code" => $address->zip,
                     "country_code" => $address->iso3,
                     "country_name" => $address->nicename
