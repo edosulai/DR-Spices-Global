@@ -79,13 +79,13 @@ mix.js('resources/js/bootstrap.js', 'js/app.js')
             'yellowdark',
             'lightbluedark',
             'cyandark',
-            'greydark'
+            'greydark',
+            '::-webkit-scrollbar',
+            '::-webkit-scrollbar-track',
+            '::-webkit-scrollbar-thumb',
         ]
     })
 
 if (mix.inProduction()) {
     mix.version()
 }
-
-
-
