@@ -1,5 +1,3 @@
-// @import '../vendor/fontawesome-free/css/all.css';
-
 @import "../vendor/bootstrap/scss/bootstrap.scss";
 
 @import "variables.scss";
@@ -15,15 +13,10 @@
 @import "error.scss";
 @import "footer.scss";
 
-// @import "../vendor/font-material/css/material-design-iconic-font.min.css";
 @import "../vendor/nivo-slider/css/nivo-slider.css";
-@import "../vendor/nivo-slider/css/animate.css";
 @import "../vendor/nivo-slider/css/style.css";
 @import "../vendor/slider-range/css/jslider.css";
-@import "../vendor/owl-carousel/assets/owl.carousel.min.css";
 @import "../vendor/datatables/dataTables.bootstrap4.min.css";
-@import "../vendor/slick-slider/css/slick.css";
-// @import "../vendor/slick-slider/css/slick-theme.css";
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -103,7 +96,7 @@
 @import "responsive.scss";
 @import "modal.scss";
 @import "tab.scss";
-@import "featherlight.scss";
+// @import "featherlight.scss";
 
 html,
 a {

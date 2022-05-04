@@ -1292,7 +1292,7 @@ option {
     }
 }
 
-#tiva-copyright {
+#dr-copyright {
     span {
         line-height: 2;
     }
@@ -1607,7 +1607,7 @@ a {
     }
 }
 
-.tiva-toggle {
+.dr-toggle {
     &:hover {
         .dropdown-content {
             display: block;
@@ -1982,9 +1982,9 @@ textarea {
 }
 
 body {
-    font-family: $font-family_1;
+    // font-family: $font-family_1;
     font-size: 10.5pt;
-    background: #fff;
+    // background: #fff;
     color: $color_5;
 }
 
@@ -2556,9 +2556,9 @@ li {
         }
 
         .groupbanner-special {
-            .tiva-lookbook {
+            .dr-lookbook {
                 .items {
-                    .tiva-content-lookbook {
+                    .dr-content-lookbook {
                         .item-lookbook {
                             .content-lookbook {
                                 .main-lookbook {
@@ -2956,7 +2956,7 @@ li {
             margin-right: 0;
             margin-top: 3rem;
 
-            .tiva-manufacture {
+            .dr-manufacture {
                 .block {
                     border-top-width: 1px;
                     border-top-style: solid;
@@ -4125,7 +4125,7 @@ li {
         }
     }
 
-    .tiva-slideshow-wrapper {
+    .dr-slideshow-wrapper {
         .nivo-controlNav {
             .nivo-control.active {
                 background-color: $background-color_17;
@@ -4323,7 +4323,7 @@ li {
         }
     }
 
-    .tiva-filter {
+    .dr-filter {
         .filter-button {
             span {
                 &:first-child {
@@ -4400,8 +4400,8 @@ li {
     }
 }
 
-#tiva-searchBox {
-    .tiva-seachBoxInner {
+#dr-searchBox {
+    .dr-seachBoxInner {
         .title-search {
             i {
                 font-size: 3.2rem;
@@ -4532,7 +4532,7 @@ li {
     background: rgba(255, 255, 255, .95);
     background: rgba(255, 255, 255, 0.95);
 
-    .tiva-seachBoxClose {
+    .dr-seachBoxClose {
         i {
             font-size: 2.8rem;
         }
@@ -4844,7 +4844,7 @@ li {
         top: 4.1rem;
     }
 
-    .tiva-slideshow-wrapper {
+    .dr-slideshow-wrapper {
         .nivo-controlNav {
             .nivo-control.active {
                 background-color: $background-color_17;
@@ -9094,7 +9094,7 @@ footer {
     }
 }
 
-.tiva-slideshow-wrapper {
+.dr-slideshow-wrapper {
     .nivo-controlNav {
         .nivo-control {
             width: 16px;
@@ -9113,7 +9113,7 @@ footer {
 
 .newsletter {
     .news-content {
-        .tiva-modules {
+        .dr-modules {
             padding-left: .75pt;
             padding-bottom: 84px;
             padding-right: .15625in;
@@ -9352,7 +9352,7 @@ footer {
         background: #eee;
     }
 
-    #tiva-copyright {
+    #dr-copyright {
         padding-left: 0;
         padding-bottom: 15pt;
         padding-right: 0;

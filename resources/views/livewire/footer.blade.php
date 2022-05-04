@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-top col-lg-12 col-xs-12">
                 <div class="row">
-                    <div class="tiva-html col-lg-4 col-md-12 col-xs-12">
+                    <div class="dr-html col-lg-4 col-md-12 col-xs-12">
                         <div class="block">
                             <div class="block-content">
                                 <a href="{{ route('home') }}" class="logo-footer">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tiva-html col-lg-4 col-md-6">
+                    <div class="dr-html col-lg-4 col-md-6">
                         <div class="block m-top">
                             <div class="title-block">
                                 Contact Us
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tiva-modules col-lg-4 col-md-6">
+                    <div class="dr-modules col-lg-4 col-md-6">
                         <div class="block m-top">
                             <div class="block-content">
                                 <div class="title-block">{{ __('Newsletter') }}</div>

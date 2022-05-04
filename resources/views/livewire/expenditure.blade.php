@@ -49,7 +49,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <div class="d-flex">
+            <div class="d-flex d-md-flex">
                 <x-jet-secondary-button class="mr-2" wire:click="$toggle('expenditureModal')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
                 </x-jet-secondary-button>

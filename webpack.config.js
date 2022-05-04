@@ -1,5 +1,5 @@
-const path = require('path')
 const webpack = require('webpack')
+const path = require('path')
 
 module.exports = {
     resolve: {
@@ -7,13 +7,16 @@ module.exports = {
             '@': path.resolve('resources/js'),
         },
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            'window.jQuery': 'jquery'
-        })
-    ],
+    // plugins: [
+    //     new webpack.ProvidePlugin({
+    //         $: "jquery",
+    //         jQuery: "jquery",
+    //         'window.jQuery': 'jquery',
+    //     }),
+    // ],
+    externals: {
+        jquery: '$',
+    },
     module: {
         rules: [
             {

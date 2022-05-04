@@ -23,7 +23,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tiva-html col-lg-4 col-md-4">
+                                    <div class="dr-html col-lg-4 col-md-4">
                                         <div class="block">
                                             <div class="block-content">
                                                 <div class="policy-item">
@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tiva-html col-lg-4 col-md-4">
+                                    <div class="dr-html col-lg-4 col-md-4">
                                         <div class="block">
                                             <div class="block-content">
                                                 <div class="policy-item">

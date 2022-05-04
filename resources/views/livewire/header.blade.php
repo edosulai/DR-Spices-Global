@@ -4,8 +4,8 @@
 
             <div id="mobile_search" class="d-flex">
                 <div class="desktop_cart">
-                    <div class="blockcart block-cart cart-preview tiva-toggle">
-                        <div class="header-cart tiva-toggle-btn">
+                    <div class="blockcart block-cart cart-preview dr-toggle">
+                        <div class="header-cart dr-toggle-btn">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </div>
                         <div class="dropdown-content">
@@ -142,8 +142,8 @@
                         </div>
                     </div>
                     <div class="desktop_cart">
-                        <div class="blockcart block-cart cart-preview tiva-toggle">
-                            <div class="header-cart tiva-toggle-btn">
+                        <div class="blockcart block-cart cart-preview dr-toggle">
+                            <div class="header-cart dr-toggle-btn">
                                 @if ($carts->isNotEmpty())
                                 <span class="cart-products-count">{{ $carts->count() }}</span>
                                 @endif
