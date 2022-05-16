@@ -16,17 +16,17 @@ class Postage extends Component
     ];
 
     protected $rules = [
-        'form.cost' => 'required|integer',
+        'form.cost' => 'required|numeric',
     ];
 
     protected $validationAttributes = [
         'form.cost' => 'Biaya Pengiriman',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function openEditPostageModal($id)
     {

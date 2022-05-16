@@ -7,6 +7,7 @@ use Illuminate\Support\Carbon;
 use App\Models\Expenditure;
 use App\Models\Supplier;
 use App\Models\Spice;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\expenditure>
@@ -24,7 +25,7 @@ class ExpenditureFactory extends Factory
             'supplier_data' => $this->faker->randomElements(Supplier::all()->toArray())[0],
             'spice_data' => $this->faker->randomElements(
                 Spice::selectRaw('spices.*, spice_images.image as image')
-                    ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+                    ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
                     ->get()
                     ->toArray()
             )[0],

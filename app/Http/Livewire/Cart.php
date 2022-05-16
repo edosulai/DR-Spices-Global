@@ -24,10 +24,10 @@ class Cart extends Component
         'carts.*.qty' => 'Quantity',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function mount()
     {
@@ -36,7 +36,7 @@ class Cart extends Component
         $carts = ModelsCart::where('user_id', Auth::id())
             ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spice_images.image as spice_image')
             ->join('spices', 'carts.spice_id', '=', 'spices.id')
-            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` limit 1)"))
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->get();
 
         if ($carts->isNotEmpty()) {

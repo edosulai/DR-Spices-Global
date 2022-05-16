@@ -29,10 +29,10 @@ class User extends Component
         'form.role' => 'Role User',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function mount()
     {

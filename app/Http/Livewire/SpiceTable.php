@@ -33,7 +33,7 @@ class SpiceTable extends DataTableComponent
     {
         DB::statement(DB::raw('set @row:=0'));
         return Spice::selectRaw('spices.*, @row:=@row+1 as no, spice_images.image as image')
-            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->latest();
     }
 

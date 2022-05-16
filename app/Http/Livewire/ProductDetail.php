@@ -36,10 +36,10 @@ class ProductDetail extends Component
         'qty' => 'Quantity',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function mount()
     {
@@ -54,9 +54,12 @@ class ProductDetail extends Component
         $this->spice_image = SpiceImage::where('spice_id', $this->spice->id)->get();
 
         DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')), @row:=0"));
-        $this->spices = Spice::selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
+        $this->spices = Spice::whereNot(function ($query) {
+            $query->where('spices.id', '=', $this->spice->id);
+        })
+            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
             ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->groupBy('spices.id')
             ->get();
     }
@@ -71,7 +74,7 @@ class ProductDetail extends Component
 
         $spice = Spice::where('spices.id', $this->spice->id)
             ->selectRaw('spices.*, spice_images.image as image')
-            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->first();
 
         if ($spice && $spice->stok > 0) {

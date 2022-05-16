@@ -297,7 +297,7 @@
 
         </x-slot>
 
-        @if ($detailOrder && !in_array($detailOrder->statuses_nama, ['Canceled']))
+        @if ($detailOrder && !in_array($detailOrder->statuses_nama, ['Delivered', 'Rated', 'Canceled', 'Rejected']))
             <x-slot name="footer">
                 <x-jet-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="$toggle('cancelModal')">
                     {{ __('Cancel Order') }}

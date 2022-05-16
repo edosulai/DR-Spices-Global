@@ -30,10 +30,10 @@ class ProductExhibition extends Component
         'modal.qty' => 'Quantity',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function mount($spices = null)
     {
@@ -45,7 +45,7 @@ class ProductExhibition extends Component
             DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')), @row:=0"));
             $this->spices = Spice::selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
                 ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-                ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+                ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
                 ->groupBy('spices.id')
                 ->get();
         }
@@ -63,7 +63,7 @@ class ProductExhibition extends Component
 
         $spice = Spice::where('spices.id', $id ?? $this->modal['id'])
             ->selectRaw('spices.*, spice_images.image as image')
-            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->first();
 
         if ($spice && $spice->stok > 0) {
@@ -119,7 +119,7 @@ class ProductExhibition extends Component
         $spice = Spice::where('spices.id', $id)
             ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
             ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->groupBy('spices.id')
             ->first();
 

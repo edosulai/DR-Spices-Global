@@ -20,10 +20,10 @@
 
         <x-slot name="content">
             <div class="row no-gutters">
-                <div class="col-md-4 pr-3">
-                    <x-jet-label class="small" for="image" value="{{ __('Image') }}" />
+                <div class="product-detail col-md-4 pr-3">
+                    <x-jet-label class="small" for="image" value="{{ __('Gambar Rempah') }}" />
 
-                    <div class="card mb-3">
+                    {{-- <div class="card mb-3">
                         <div class="d-flex flex-column align-items-center">
                             @if (array_key_exists('img', $form) && $form['img'] != null && !$errors->has('form.img'))
                                 <img class="img-fluid" src="{{ $form['img']->temporaryUrl() }}">
@@ -42,8 +42,6 @@
                             <x-jet-input-error for="form.img" />
                         </div>
                     </div>
-
-
                     <div class="d-flex align-items-center justify-content-around">
                         @if ((array_key_exists('img', $form) && $form['img'] != null && !$errors->has('form.img')) || (array_key_exists('src', $form) && $form['src'] != null))
                             <label class="text-center cursor-pointer m-0 p-0" for="form.img">
@@ -59,7 +57,67 @@
                                 {{ __('Remove Image') }}
                             </a>
                         @endif
+                    </div> --}}
+
+                    <div class="images-container">
+                        <div class="js-qv-mask mask tab-content border">
+                            @for ($i = 0; $i < 4; $i++)
+                                <div id="item-{{ $i }}" class="tab-pane fade {{ $i == 0 ? 'active show' : '' }}" role="tabpanel">
+                                    @if (array_key_exists('img', $form) && array_key_exists($i, $form['img']) && $form['img'][$i] != '' && !$errors->has('form.img.' . $i))
+                                        <img src="{{ $form['img'][$i]->temporaryUrl() }}">
+                                        <div class="layer-left-top" wire:click="$set('form.img.{{ $i }}', '')">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                        <label class="layer-right-bottom" for="form.img.{{ $i }}">
+                                            <i class="fas fa-edit"></i>
+                                        </label>
+                                    @elseif (array_key_exists('src', $form) && array_key_exists($i, $form['src']) && $form['src'][$i] != '')
+                                        <img src="{{ asset('storage/images/products/' . $form['src'][$i]) }}">
+                                        <div class="layer-left-top" wire:click="removeImage({{ $i }})">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                        <label class="layer-right-bottom" for="form.img.{{ $i }}">
+                                            <i class="fas fa-edit"></i>
+                                        </label>
+                                    @else
+                                        <p class="text-center mt-3">{{ __('No Image Found') }}</p>
+                                        <label class="btn icon-address" for="form.img.{{ $i }}">
+                                            <span><i class="fas fa-plus"></i></span>
+                                            <h6 class="text-center mt-3">{{ __('Add New Image') }}</h6>
+                                        </label>
+                                    @endif
+                                </div>
+                                <input type="file" hidden class="{{ $errors->has('form.img.' . $i) ? 'is-invalid' : '' }}" wire:model="form.img.{{ $i }}" id="form.img.{{ $i }}">
+                                <x-jet-input-error for="form.img.{{ $i }}" />
+                            @endfor
+                        </div>
+                        <ul class="product-tab nav nav-tabs d-flex" role="tablist">
+                            @for ($i = 0; $i < 4; $i++)
+                                @if (array_key_exists('img', $form) && array_key_exists($i, $form['img']) && $form['img'][$i] != '' && !$errors->has('form.img.' . $i))
+                                    <li class="col {{ $i == 0 ? 'active' : '' }}">
+                                        <a href="#item-{{ $i }}" data-toggle="tab" class="{{ $i == 0 ? 'active' : '' }}">
+                                            <img src="{{ $form['img'][$i]->temporaryUrl() }}">
+                                        </a>
+                                    </li>
+                                @elseif (array_key_exists('src', $form) && array_key_exists($i, $form['src']) && $form['src'][$i] != '')
+                                    <li class="col {{ $i == 0 ? 'active' : '' }}">
+                                        <a href="#item-{{ $i }}" data-toggle="tab" class="{{ $i == 0 ? 'active' : '' }}">
+                                            <img src="{{ asset('storage/images/products/' . $form['src'][$i]) }}">
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="col {{ $i == 0 ? 'active' : '' }}">
+                                        <a href="#item-{{ $i }}" data-toggle="tab" class="{{ $i == 0 ? 'active' : '' }}">
+                                            <label class="btn icon-address m-0">
+                                                <span class="w-fit h-fit"><i class="fas fa-image"></i></span>
+                                            </label>
+                                        </a>
+                                    </li>
+                                @endif
+                            @endfor
+                        </ul>
                     </div>
+
                 </div>
                 <div class="col-md-8 pl-4">
                     <div class="mb-3 row">
@@ -83,7 +141,7 @@
                         </div>
                         <div class="col-6">
                             <x-jet-label class="small" for="form.unit" value="{{ __('Unit/Satuan') }}" />
-                            <x-jet-input id="form.unit" type="text" class="{{ $errors->has('form.unit') ? 'is-invalid' : '' }}" wire:model="form.unit" autocomplete="form.unit" />
+                            <x-jet-input id="form.unit" type="text" class="{{ $errors->has('form.unit') ? 'is-invalid' : '' }}" wire:model="form.unit" autocomplete="form.unit" disabled />
                             <x-jet-input-error for="form.unit" />
                         </div>
                     </div>

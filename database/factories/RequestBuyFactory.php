@@ -48,7 +48,7 @@ class RequestBuyFactory extends Factory
         $gross_amount = 0;
 
         $spice = Spice::selectRaw('spices.*, spice_images.image as image')
-            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` limit 1)"))
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->oldest()
             ->get();
 

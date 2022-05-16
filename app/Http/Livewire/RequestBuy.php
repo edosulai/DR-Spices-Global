@@ -31,10 +31,10 @@ class RequestBuy extends Component
         'status_id' => 'Status',
     ];
 
-    public function updated()
-    {
-        $this->validate($this->rules);
-    }
+    // public function updated()
+    // {
+    //     $this->validate($this->rules);
+    // }
 
     public function mount()
     {
@@ -70,6 +70,8 @@ class RequestBuy extends Component
 
     public function editRequestBuy()
     {
+        $this->validate();
+
         $requestBuy = ModelsRequestBuy::where('request_buys.id', $this->detailOrder->id)
             ->selectRaw("statuses.created_at as statuses_created_at, traces.id as traces_id")
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')

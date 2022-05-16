@@ -23,7 +23,7 @@ class MessageTable extends DataTableComponent
             Column::make('Email', 'email')->sortable()->searchable(),
             Column::make('Subjek', 'subject')->sortable()->searchable(),
             Column::make('Waktu', 'created_at')->sortable()->searchable(),
-            Column::make('Aksi')->addClass('no-print')->addClass('w-15'),
+            Column::make('Aksi')->addClass('no-print')->addClass('w-7'),
         ];
     }
 

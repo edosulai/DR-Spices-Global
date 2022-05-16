@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
             $table->string('image');
-            $table->timestamps();
+            $table->timestamps(6);
         });
     }
 

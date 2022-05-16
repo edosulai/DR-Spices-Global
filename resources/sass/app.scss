@@ -83,7 +83,7 @@
 }
 
 .h-fit {
-    width: fit-content !important;
+    height: fit-content !important;
 }
 
 @media (max-width:767px) {
@@ -488,7 +488,7 @@ a {
     i {
         display: table-cell;
         vertical-align: middle;
-        font-size: 25px;
+        font-size: 23px;
     }
 }
 
