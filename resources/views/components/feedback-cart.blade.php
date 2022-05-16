@@ -5,7 +5,7 @@
 
         <div class="modal-header">
             <h4 class="modal-title text-xs-center" id="myModalLabel"><i class="fa fa-check"></i>{{ __('Product successfully added to your shopping cart') }}</h4>
-            <button type="button" class="close" aria-label="Close" wire:click="$set('feedbackCartAddModal', false)">
+            <button type="button" class="close" aria-label="Close" wire:click="$set('{{ $attributes['wire:model'] }}', false)">
                 <i class="fas fa-times"></i>
             </button>
         </div>

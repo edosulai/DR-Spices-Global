@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Cart;
 use App\Models\Review;
 use App\Models\Spice;
+use App\Models\SpiceImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -17,6 +18,7 @@ class ProductDetail extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $spice;
+    public $spice_image;
     public $qty = 1;
     public $spices;
 
@@ -42,16 +44,19 @@ class ProductDetail extends Component
     public function mount()
     {
         $this->spice = Spice::where('nama', 'like', '%' . Str::replace('-', ' ', request()->product) . '%')
-            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
             ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
             ->groupBy('spices.id')
             ->first();
 
         if (!$this->spice) abort(404);
 
-        $this->spices = Spice::whereNot(fn ($query) => $query->where('spices.id', $this->spice->id))
+        $this->spice_image = SpiceImage::where('spice_id', $this->spice->id)->get();
+
+        DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')), @row:=0"));
+        $this->spices = Spice::selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
             ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
-            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
+            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
             ->groupBy('spices.id')
             ->get();
     }
@@ -64,7 +69,10 @@ class ProductDetail extends Component
 
         $this->validate();
 
-        $spice = Spice::find($this->spice->id);
+        $spice = Spice::where('spices.id', $this->spice->id)
+            ->selectRaw('spices.*, spice_images.image as image')
+            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->first();
 
         if ($spice && $spice->stok > 0) {
 
@@ -79,7 +87,7 @@ class ProductDetail extends Component
 
             $carts = Cart::where('user_id',  Auth::id())
                 ->join('spices', 'carts.spice_id', '=', 'spices.id')
-                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
+                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price')
                 ->get();
 
             $this->modal['name'] = $spice->nama;
@@ -87,7 +95,7 @@ class ProductDetail extends Component
             $this->modal['unit'] = $spice->unit;
             $this->modal['rating'] = 0;
             $this->modal['qty'] = $this->qty;
-            $this->modal['image'] = asset("/storage/images/product/$spice->image");;
+            $this->modal['image'] = asset("/storage/images/products/$spice->image");;
             $this->modal['desc'] = $spice->ket;
             $this->modal['count'] = count($carts);
             $this->modal['instock'] = $spice->stok;

@@ -15,7 +15,6 @@ class Spice extends Model
         'hrg_jual',
         'stok',
         'unit',
-        'image',
         'ket'
     ];
 

@@ -53,7 +53,7 @@ class Spice extends Component
     {
         if ($id) {
             $this->form = ModelsSpice::find($id)->toArray();
-            $this->form['src'] = asset('storage/images/product/' . $this->form['image']);
+            $this->form['src'] = asset('storage/images/products/' . $this->form['image']);
             $this->aksiSpiceModal = 'editSpice';
             $this->buttonSpiceModal = 'Edit';
         } else {

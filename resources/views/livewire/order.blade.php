@@ -29,7 +29,7 @@
                                 <div class="col-md-1">
                                     <span class="product-image media-middle">
                                         <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">
-                                            <img class="img-fluid" src="{{ asset('/storage/images/product/' . $spice['image']) }}">
+                                            <img class="img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
                                         </a>
                                     </span>
                                 </div>
@@ -89,7 +89,7 @@
                         <div class="col-md-3 divide-right">
                             <div class="row no-gutters">
                                 <div class="col-md-12">
-                                    <img class="product-image img-fluid" src="{{ asset('/storage/images/product/' . $spice['image']) }}">
+                                    <img class="product-image img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
                                 </div>
                                 <div class="col-md-12">
                                     <h5 class="product-name">{{ $spice['nama'] }}</h5>
@@ -211,7 +211,7 @@
                                         <div class="col-md-2">
                                             <span class="product-image media-middle">
                                                 <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">
-                                                    <img class="img-fluid" src="{{ asset('/storage/images/product/' . $spice['image']) }}">
+                                                    <img class="img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
                                                 </a>
                                             </span>
                                         </div>
@@ -249,7 +249,7 @@
                                             <div class="col-md-7">
                                                 <div class="my-2">Product Total</div>
                                                 <div class="my-2">Shipping Cost / ({{ $detailOrder->spice_data[0]['unit'] }})</div>
-                                                <div class="my-2">Total Shipping Cost x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
+                                                <div class="my-2">Shipping Cost Total x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
                                                 <h6 class="my-3">Total Price</h6>
                                             </div>
                                             <div class="col-md-5">

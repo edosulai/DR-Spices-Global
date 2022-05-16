@@ -7,9 +7,7 @@
                         <div class="block">
                             <div class="block-content">
                                 <a href="{{ route('home') }}" class="logo-footer">
-                                    {{-- <x-jet-application-mark width="36" class="text-black" /> --}}
-                                    {{-- <span class="text-truncate h5 ml-3">{{ config('app.name', 'Laravel') }}</span> --}}
-                                    <img src="{{ $logo }}" alt="img">
+                                    <img class="img-fluid w-40 mb-2" src="{{ $logo }}">
                                 </a>
                                 <p class="content-logo">{{ $short }}</p>
                             </div>
@@ -116,8 +114,10 @@
                             <div class="block-content">
                                 <div class="payment-content">
                                     <div class="title-block">{{ __('Payment accept') }}</div>
-                                    <div class="payment-image">
-                                        <img class="img-fluid" src="{{ $payment }}" alt="img">
+                                    <div class="d-flex">
+                                        @foreach ($payments as $payment)
+                                            <img class="w-15" src="{{ $payment }}">
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

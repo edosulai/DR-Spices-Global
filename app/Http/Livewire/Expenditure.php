@@ -81,7 +81,10 @@ class Expenditure extends Component
 
         ModelsExpenditure::create([
             'supplier_data' => Supplier::find($this->form['supplier_id']),
-            'spice_data' => Spice::find($this->form['spice_id']),
+            'spice_data' => Spice::where('id', $this->form['spice_id'])
+                ->selectRaw('spices.*, spice_images.image as image')
+                ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+                ->first(),
             'jumlah' => $this->form['jumlah'],
         ]);
 
@@ -95,7 +98,10 @@ class Expenditure extends Component
 
         $expenditure = ModelsExpenditure::find($this->form['id']);
         $expenditure->supplier_data = Supplier::find($this->form['supplier_id']);
-        $expenditure->spice_data = Spice::find($this->form['spice_id']);
+        $expenditure->spice_data = Spice::where('id', $this->form['spice_id'])
+            ->selectRaw('spices.*, spice_images.image as image')
+            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->first();
         $expenditure->jumlah = $this->form['jumlah'];
         $expenditure->save();
 

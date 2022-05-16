@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('request_buys', function (Blueprint $table) {
+        Schema::create('spice_images', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('invoice');
-            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->json('spice_data');
-            $table->json('transaction_data');
-            $table->enum('refund', [0, 1, 2])->default(0);
-            $table->timestamps(6);
+            $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_buys');
+        Schema::dropIfExists('spice_images');
     }
 };

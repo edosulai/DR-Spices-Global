@@ -1,14 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ExpenditureController;
-use App\Http\Controllers\IncomeController;
-use App\Http\Controllers\PostageController;
-use App\Http\Controllers\RequestBuyController;
-use App\Http\Controllers\SpiceController;
-use App\Http\Controllers\StatusController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\UserController;
+use Illuminate\Support\Carbon;
+use App\Models\Spice;
+use App\Models\Expenditure;
 use App\Models\Cart;
 use App\Models\RequestBuy;
 use App\Models\Trace;
@@ -29,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', fn () => view('landing'))->name('home');
-Route::get('/contact-us', fn () => view('contact-us', ['title' => 'Contact Us']))->name('contact');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/my-account', fn () => view('my-account'))->name('account');
@@ -74,16 +67,69 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], function () {
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', function ()
+    {
+        $income = RequestBuy::selectRaw("SUM(jt_request_buys.hrg_jual) * SUM(jt_request_buys.jumlah) as income_price")
+            ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
+            ->join('statuses', 'traces.status_id', '=', 'statuses.id')
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
+                $join
+                    ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )
+            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
+                COLUMNS(
+                    NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
+                    NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
+                )) as jt_request_buys"), fn ($join) => $join)
+            ->groupBy('request_buys.id')
+            ->where(
+                fn ($query) =>
+                $query->where('statuses.nama', '=', 'Delivered')->orWhere('statuses.nama', '=', 'Rated')
+            )
+            ->whereYear('traces.created_at', '=', Carbon::now()->year)
+            ->whereMonth('traces.created_at', '=', Carbon::now()->month)
+            ->get()
+            ->sum('income_price');
 
-    Route::resource('/dashboard/tertunda', RequestBuyController::class);
-    Route::resource('/dashboard/pengeluaran', ExpenditureController::class);
-    Route::resource('/dashboard/pendapatan', IncomeController::class);
-    Route::resource('/dashboard/pengguna', UserController::class);
-    Route::resource('/dashboard/pemasok', SupplierController::class);
-    Route::resource('/dashboard/rempah', SpiceController::class);
-    Route::resource('/dashboard/status', StatusController::class);
-    Route::resource('/dashboard/ongkir', PostageController::class);
+        $outcome = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, created_at")
+            ->whereYear('created_at', '=', Carbon::now()->year)
+            ->whereMonth('created_at', '=', Carbon::now()->month)
+            ->get()
+            ->sum('outcome_price');
+
+        $pending = RequestBuy::where('statuses.nama', 'Order Paid')
+            ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
+            ->join('statuses', 'traces.status_id', '=', 'statuses.id')
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
+                $join
+                    ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
+                    ->on('traces.created_at', '=', 'join_traces.traces_created_at')
+            )->count();
+
+        return view('dashboard.index', [
+            'title' => 'Dashboard',
+            'total' => Spice::all()->sum('stok'),
+            'pengeluaran' => $outcome,
+            'pendapatan' => $income,
+            'pending' => $pending
+        ]);
+    })->name('dashboard');
+
+    Route::get('/dashboard/tertunda', fn () => view('dashboard.request-buy', ['title' => 'Permintaan Pembelian']))->name('tertunda.index');
+    Route::get('/dashboard/pengeluaran', fn () => view('dashboard.expenditure', ['title' => 'Pengeluaran']))->name('pengeluaran.index');
+    Route::get('/dashboard/pendapatan', fn () => view('dashboard.income', ['title' => 'Pendapatan']))->name('pendapatan.index');
+    Route::get('/dashboard/pengguna', fn () => view('dashboard.user', ['title' => 'Pengguna']))->name('pengguna.index');
+    Route::get('/dashboard/pemasok', fn () => view('dashboard.supplier', ['title' => 'Pemasok']))->name('pemasok.index');
+    Route::get('/dashboard/rempah', fn () => view('dashboard.spice', ['title' => 'Rempah']))->name('rempah.index');
+    Route::get('/dashboard/pesan', fn () => view('dashboard.message', ['title' => 'Kontak Surat']))->name('pesan.index');
+    Route::get('/dashboard/refund', fn () => view('dashboard.refund', ['title' => 'Pengembalian Dana']))->name('refund.index');
+    Route::get('/dashboard/status', fn () => view('dashboard.status', ['title' => 'Status Pengiriman']))->name('status.index');
+    Route::get('/dashboard/ongkir', fn () => view('dashboard.ongkir', ['title' => 'Ongkos Pengiriman']))->name('ongkir.index');
 });
 
 Route::get('/{product}', fn () => view('detail'))->name('detail');

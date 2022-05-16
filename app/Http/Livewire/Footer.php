@@ -8,7 +8,7 @@ use Livewire\Component;
 class Footer extends Component
 {
     public $logo;
-    public $payment;
+    public $payments;
     public $short;
     public $newsletter;
     public $address;
@@ -36,8 +36,7 @@ class Footer extends Component
 
     public function mount()
     {
-        $this->logo = asset('storage/images/home/logo.png');
-        $this->payment = asset('storage/images/home/payment.png');
+        $this->logo = asset('storage/images/others/logo.png');
         $this->short = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim';
         $this->newsletter = 'Sign up to our newsletter to get the latest articles, lookbooks voucher codes direct to your inbox';
         $this->address = '123 Suspendis matti, Visaosang Building VST District NY Accums, North American';
@@ -78,6 +77,13 @@ class Footer extends Component
                 'icon' => 'fab fa-instagram',
                 'url' => '#',
             ],
+        ];
+
+        $this->payments = [
+            asset('storage/images/others/visa.png'),
+            asset('storage/images/others/mastercard.png'),
+            asset('storage/images/others/jcb.png'),
+            asset('storage/images/others/americanexpress.png'),
         ];
     }
 

@@ -2,26 +2,17 @@
 
 namespace App\Models;
 
-use App\Casts\Json;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class RequestBuy extends Model
+class SpiceImage extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'invoice',
-        'user_id',
-        'spice_data',
-        'transaction_data',
-        'refund',
-    ];
-
-    protected $casts = [
-        'spice_data' => Json::class,
-        'transaction_data' => Json::class,
+        'spice_id',
+        'image',
     ];
 
     protected $keyType = 'string';

@@ -26,14 +26,8 @@ class Order extends Component
     public $feedbackModal = false;
 
     protected $listeners = [
-        // 'orderMount' => 'mount',
         'orderRender' => 'render',
     ];
-
-    // public function mount()
-    // {
-    //     //
-    // }
 
     public function openModalReview($id)
     {
@@ -45,7 +39,9 @@ class Order extends Component
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
             // ->join('reviews', 'request_buys.id', '=', 'reviews.request_buy_id', 'left outer')
-            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), fn ($join) =>
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
@@ -97,7 +93,9 @@ class Order extends Component
             ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), fn ($join) =>
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn ($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
@@ -139,7 +137,9 @@ class Order extends Component
                 ->selectRaw('request_buys.*, statuses.nama as statuses_nama')
                 ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
                 ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-                ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), fn ($join) =>
+                ->join(
+                    DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                    fn ($join) =>
                     $join
                         ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                         ->on('traces.created_at', '=', 'join_traces.traces_created_at')

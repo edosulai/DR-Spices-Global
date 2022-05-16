@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('postages', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('country_id')->constrained('countries')->onDelete('cascade');
-            $table->bigInteger('cost');
+            $table->float('cost');
             $table->timestamps(6);
         });
     }

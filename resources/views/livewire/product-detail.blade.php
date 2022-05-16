@@ -10,36 +10,50 @@
                         <div class="product-detail col-xs-12 col-md-5 col-sm-5">
                             <div class="page-content">
                                 <div class="images-container">
+
                                     <div class="js-qv-mask mask tab-content border">
-                                        <div id="item1" class="tab-pane fade active in show">
-                                            <img src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
-                                        </div>
+                                        @foreach ($spice_image as $key => $image)
+                                            <div id="item-{{ $key }}" class="tab-pane fade {{ $key == 0 ? 'active show' : '' }}" role="tabpanel">
+                                                <img src="{{ asset("storage/images/products/$image->image") }}">
+                                            </div>
+                                        @endforeach
                                         <div class="layer hidden-sm-down" data-toggle="modal" data-target="#product-modal">
                                             <i class="fa fa-expand"></i>
                                         </div>
                                     </div>
+                                    <ul class="product-tab nav nav-tabs d-flex" role="tablist">
+                                        @foreach ($spice_image as $key => $image)
+                                            <li class="col {{ $key == 0 ? 'active' : '' }}">
+                                                <a href="#item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }}">
+                                                    <img src="{{ asset("storage/images/products/$image->image") }}">
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+
                                     <div class="modal fade" id="product-modal" role="dialog">
                                         <div class="modal-dialog">
-
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <div class="modal-body">
                                                         <div class="product-detail">
-                                                            <div>
-                                                                <div class="images-container">
-                                                                    <div class="js-qv-mask mask tab-content">
-                                                                        <div id="modal-item1" class="tab-pane fade active in show">
-                                                                            <img src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
+                                                            <div class="images-container">
+                                                                <div class="js-qv-mask mask tab-content w-100">
+                                                                    @foreach ($spice_image as $key => $image)
+                                                                        <div id="modal-item-{{ $key }}" class="tab-pane fade {{ $key == 0 ? 'active show' : '' }}" role="tabpanel">
+                                                                            <img src="{{ asset("storage/images/products/$image->image") }}">
                                                                         </div>
-                                                                    </div>
-                                                                    <ul class="product-tab nav nav-tabs">
-                                                                        <li class="active">
-                                                                            <a href="#modal-item1" data-toggle="tab" class=" active show">
-                                                                                <img src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
+                                                                    @endforeach
+                                                                </div>
+                                                                <ul class="product-tab mt-0 nav nav-tabs">
+                                                                    @foreach ($spice_image as $key => $image)
+                                                                        <li class="{{ $key == 0 ? 'active' : '' }}">
+                                                                            <a href="#modal-item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }}">
+                                                                                <img src="{{ asset("storage/images/products/$image->image") }}">
                                                                             </a>
                                                                         </li>
-                                                                    </ul>
-                                                                </div>
+                                                                    @endforeach
+                                                                </ul>
                                                             </div>
                                                         </div>
                                                     </div>

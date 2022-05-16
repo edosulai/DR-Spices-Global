@@ -32,7 +32,9 @@ class SpiceTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Spice::query()->selectRaw('*, @row:=@row+1 as no')->latest();
+        return Spice::selectRaw('spices.*, @row:=@row+1 as no, spice_images.image as image')
+            ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+            ->latest();
     }
 
     public function rowView(): string

@@ -2,10 +2,11 @@
 
 
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-        <div class="sidebar-brand-icon rotate-n-15">
+        {{-- <div class="sidebar-brand-icon rotate-n-15">
             <x-jet-application-mark width="36" class="text-light" />
         </div>
-        <div class="sidebar-brand-text mx-3"><small>{{ config('app.name', 'Laravel') }}</small></div>
+        <div class="sidebar-brand-text mx-3"><small>{{ config('app.name', 'Laravel') }}</small></div> --}}
+        <img class="img-fluid w-60" src="{{ asset('storage/images/others/logo.png') }}" alt="logo">
     </a>
 
 
@@ -55,6 +56,24 @@
         <a class="nav-link" href="{{ route('rempah.index') }}">
             <i class="fas fa-fw fa-mortar-pestle"></i>
             <span>{{ __('Rempah') }}</span>
+        </a>
+    </x-jet-nav-link>
+
+    <hr class="sidebar-divider">
+
+    <div class="sidebar-heading">Layanan</div>
+
+    <x-jet-nav-link :active="request()->routeIs('pesan.index')">
+        <a class="nav-link" href="{{ route('pesan.index') }}">
+            <i class="fas fa-envelope-square"></i>
+            <span>{{ __('Daftar Kontak Surat') }}</span>
+        </a>
+    </x-jet-nav-link>
+
+    <x-jet-nav-link :active="request()->routeIs('refund.index')">
+        <a class="nav-link" href="{{ route('refund.index') }}">
+            <i class="fas fa-undo-alt"></i>
+            <span>{{ __('Daftar Refund') }}</span>
         </a>
     </x-jet-nav-link>
 

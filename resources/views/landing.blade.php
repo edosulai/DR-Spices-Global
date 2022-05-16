@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class="blog home3 about-us product-detail">
+    <div class="contact blog home3 about-us product-detail">
         @livewire('header')
         <div class="main-content">
             <x-jumbotron />
@@ -15,7 +15,7 @@
                                             <div class="block-content">
                                                 <div class="policy-item">
                                                     <div class="policy-content iconpolicy1">
-                                                        <img src="{{ asset('storage/images/home/home1-policy.png') }}" alt="img">
+                                                        <img src="{{ asset('storage/images/others/home1-policy.png') }}" alt="img">
                                                         <div class="policy-name mb-5">FREE DELIVERY FROM $ 250</div>
                                                         <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
                                                     </div>
@@ -28,7 +28,7 @@
                                             <div class="block-content">
                                                 <div class="policy-item">
                                                     <div class="policy-content iconpolicy2">
-                                                        <img src="{{ asset('storage/images/home/home1-policy2.png') }}" alt="img">
+                                                        <img src="{{ asset('storage/images/others/home1-policy2.png') }}" alt="img">
                                                         <div class="policy-name mb-5">FREE INSTALLATION</div>
                                                         <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
                                                     </div>
@@ -41,7 +41,7 @@
                                             <div class="block-content">
                                                 <div class="policy-item">
                                                     <div class="policy-content iconpolicy3">
-                                                        <img src="{{ asset('storage/images/home/home1-policy3.png') }}" alt="img">
+                                                        <img src="{{ asset('storage/images/others/home1-policy3.png') }}" alt="img">
                                                         <div class="policy-name mb-5">MONEY BACK GUARANTEED</div>
                                                         <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
                                                     </div>
@@ -71,7 +71,9 @@
                         </div>
 
                         <x-about-us />
-                        <x-partner />
+                        {{-- <x-partner /> --}}
+                        @livewire('contact')
+
                     </section>
                 </div>
             </div>

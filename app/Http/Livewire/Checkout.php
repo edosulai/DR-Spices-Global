@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Midtrans\Config;
 use App\Models\Address;
 use App\Models\Cart;
-use App\Models\Country;
 use App\Models\Postage;
 use App\Models\RequestBuy;
 use App\Models\Spice;
@@ -13,6 +12,7 @@ use App\Models\Status;
 use App\Models\Trace;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
@@ -66,8 +66,9 @@ class Checkout extends Component
         $this->postage = null;
 
         $carts = Cart::where('user_id', Auth::id())
+            ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spice_images.image as spice_image')
             ->join('spices', 'carts.spice_id', '=', 'spices.id')
-            ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` limit 1)"))
             ->get();
 
         if ($carts->isNotEmpty()) {
@@ -79,7 +80,7 @@ class Checkout extends Component
                     'url' => Str::replace(' ', '-', $cart->spice_nama),
                     'qty' => $cart->jumlah,
                     'price' => $cart->spice_price,
-                    'img_src' => asset("storage/images/product/$cart->spice_image"),
+                    'img_src' => asset("storage/images/products/$cart->spice_image"),
                     'unit' => 'KG',
                 ]);
             }
@@ -106,7 +107,7 @@ class Checkout extends Component
             "card_exp_year" => "20" . $expirationdate[1],
             "card_cvv" => $this->payment['securitycode'],
             "secure" => "true",
-            "gross_amount" => $this->carts->sum(fn ($cart) => $cart['qty'] * ($cart['price'] + $this->postage->cost)),
+            "gross_amount" => $this->carts->sum(fn ($cart) => $cart['qty'] * (int) currency($cart['price'] + $this->postage->cost, null, 'IDR', false)),
             "client_key" => env('MIDTRANS_CLIENT_KEY'),
         ]);
 
@@ -129,6 +130,7 @@ class Checkout extends Component
                 $item = str_replace('card_exp_year', 'Card Expire Year', $item);
                 $item = str_replace('card_exp_month', 'Card Expire Month', $item);
                 $item = str_replace('card_cvv', 'Card CVV', $item);
+                $item = str_replace('gross_amount', 'Gross Amount', $item);
                 $item = str_replace('with luhn algorithm', '', $item);
                 return $item;
             });
@@ -145,8 +147,6 @@ class Checkout extends Component
         // Config::$appendNotifUrl = "https://example.com";
         // Config::$overrideNotifUrl = "https://example.com";
         // Config::$paymentIdempotencyKey = "Unique-ID";
-
-        $gross_amount = $this->carts->sum(fn ($cart) => $cart['qty'] * ($cart['price'] + $this->postage->cost));
 
         $expirationdate = explode("/", $this->payment['expirationdate']);
 
@@ -169,13 +169,16 @@ class Checkout extends Component
         foreach ($this->carts as $cart) {
             $item_details[] = [
                 "id" => $cart['spice_id'],
-                "price" => ($cart['price'] + $this->postage->cost),
+                "price" => (int) currency($cart['price'] + $this->postage->cost, null, 'IDR', false),
                 "quantity" => $cart['qty'],
                 "name" => $cart['name'],
                 "url" => url(str_replace(' ', '-', $cart['name']))
             ];
 
-            $spice = Spice::find($cart['spice_id']);
+            $spice = Spice::where('spices.id', $cart['spice_id'])
+                ->selectRaw('spices.*, spice_images.image as image')
+                ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+                ->first();
 
             $spice_data[] = [
                 'id' => $spice->id,
@@ -202,7 +205,7 @@ class Checkout extends Component
             ],
             'transaction_details' => [
                 'order_id' => $order_id,
-                'gross_amount' => $gross_amount,
+                'gross_amount' => $this->carts->sum(fn ($cart) => $cart['qty'] * (int) currency($cart['price'] + $this->postage->cost, null, 'IDR', false))
             ],
             'item_details' => $item_details,
             'customer_details' => [
@@ -239,7 +242,7 @@ class Checkout extends Component
                     ],
                     'transaction_details' => [
                         'order_id' => $order_id,
-                        'gross_amount' => $gross_amount,
+                        'gross_amount' => $this->carts->sum(fn ($cart) => $cart['qty'] * ($cart['price'] + $this->postage->cost)),
                     ],
                     'customer_details' => [
                         "first_name" => $user_firstname,
@@ -261,8 +264,12 @@ class Checkout extends Component
                         ]
                     ],
                     "postage" => $this->postage->toArray(),
-                    "charge_response" => $response
-                ],
+                    "charge_response" => $response,
+                    "currency_exchange" => [
+                        env('DEFAULT_EXCHANGE') => currency(1, null, env('DEFAULT_EXCHANGE'), false),
+                        'IDR' => currency(1, null, 'IDR', false)
+                    ]
+                ]
             ]);
 
             foreach ($request_buy->spice_data as $data) {
@@ -285,7 +292,6 @@ class Checkout extends Component
             }
 
             $this->redirectRoute('purchase', ['invoice' => base64_encode($order_id)]);
-
         } else {
             $this->emit('errorPayment', $response);
         }

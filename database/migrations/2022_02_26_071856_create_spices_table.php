@@ -16,10 +16,9 @@ return new class extends Migration
         Schema::create('spices', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('nama')->unique();
-            $table->integer('hrg_jual');
+            $table->float('hrg_jual');
             $table->integer('stok');
             $table->string('unit');
-            $table->string('image')->unique();
             $table->text('ket')->nullable();
             $table->timestamps(6);
         });

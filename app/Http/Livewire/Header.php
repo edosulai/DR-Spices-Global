@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -35,7 +36,7 @@ class Header extends Component
                 'icon' => 'fas fa-address-card'
             ], [
                 'name' => 'Contact Us',
-                'url' => route('contact'),
+                'url' => route('home') . '/#contact-us',
                 'icon' => 'fas fa-address-book'
             ]
         ];
@@ -51,8 +52,9 @@ class Header extends Component
 
         if (Auth::check()) {
             $carts = Cart::where('user_id', Auth::id())
+                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spice_images.image as spice_image')
                 ->join('spices', 'carts.spice_id', '=', 'spices.id')
-                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spices.image as spice_image')
+                ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` limit 1)"))
                 ->get();
 
             if ($carts->isNotEmpty()) {
@@ -63,7 +65,7 @@ class Header extends Component
                         'url' => Str::replace(' ', '-', $cart->spice_nama),
                         'qty' => $cart->jumlah,
                         'price' => $cart->spice_price,
-                        'img_src' => asset("storage/images/product/$cart->spice_image"),
+                        'img_src' => asset("storage/images/products/$cart->spice_image"),
                         'unit' => 'KG',
                     ]);
                 }

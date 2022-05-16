@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Address;
-use App\Models\Income;
 use App\Models\Postage;
 use App\Models\RequestBuy;
 use App\Models\Review;
@@ -13,7 +12,7 @@ use App\Models\Spice;
 use App\Models\Status;
 use App\Models\Trace;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -48,20 +47,24 @@ class RequestBuyFactory extends Factory
         $spice_data = [];
         $gross_amount = 0;
 
+        $spice = Spice::selectRaw('spices.*, spice_images.image as image')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` limit 1)"))
+            ->oldest()
+            ->get();
+
         for ($i = 0; $i < rand(1, Spice::count()); $i++) {
-            $spice = Spice::oldest()->get()[$i];
             $jumlah = $this->faker->numberBetween(1, 10);
             $spice_data[] = [
-                'id' => $spice->id,
-                'nama' => $spice->nama,
-                'hrg_jual' => $spice->hrg_jual,
+                'id' => $spice[$i]->id,
+                'nama' => $spice[$i]->nama,
+                'hrg_jual' => $spice[$i]->hrg_jual,
                 'jumlah' => $jumlah,
-                'unit' => $spice->unit,
-                'image' => $spice->image,
-                'ket' => $spice->ket,
+                'unit' => $spice[$i]->unit,
+                'image' => $spice[$i]->image,
+                'ket' => $spice[$i]->ket,
             ];
 
-            $gross_amount = $gross_amount + ($jumlah * $spice->hrg_jual) + ($jumlah * $postage->cost);
+            $gross_amount = $gross_amount + ($jumlah * $spice[$i]->hrg_jual) + ($jumlah * $postage->cost);
         }
 
         $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
@@ -125,6 +128,10 @@ class RequestBuyFactory extends Factory
                 "approval_code" => $this->faker->numerify('#############'),
                 "masked_card" => $this->faker->numerify("######-####"),
                 "card_type" => "credit",
+            ],
+            "currency_exchange" => [
+                env('DEFAULT_EXCHANGE') => currency(1, null, env('DEFAULT_EXCHANGE'), false),
+                'IDR' => currency(1, null, 'IDR', false)
             ]
         ];
 
@@ -133,8 +140,8 @@ class RequestBuyFactory extends Factory
             'user_id' => $user->id,
             'spice_data' => $spice_data,
             'transaction_data' => $transaction_data,
-            'created_at' => Carbon::now()->subDay(rand(10, 20)),
-            'updated_at' => Carbon::now()->subDay(rand(10, 20))
+            'created_at' => Carbon::now()->subDay(rand(20, 30)),
+            'updated_at' => Carbon::now()->subDay(rand(20, 30))
         ];
     }
 
@@ -177,6 +184,11 @@ class RequestBuyFactory extends Factory
                         'rating' => $this->faker->numberBetween(1, 5),
                     ]);
                 }
+            }
+
+            if (in_array($statuses[$statusSelected - 1]->nama, ['Rejected', 'Canceled'])) {
+                $request_buy->refund = rand(1, 2);
+                $request_buy->save();
             }
         });
     }

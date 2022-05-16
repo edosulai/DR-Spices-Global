@@ -76,7 +76,7 @@
                             <span class="float-right">{{ currency(
                                 $carts->sum(function ($cart) {
                                     return ($cart['qty'] == '' ? 0 : $cart['qty']) * $cart['price'];
-                                }),
+                                })
                             ) }}</span>
                         </li>
                     @endif

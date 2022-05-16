@@ -6,7 +6,7 @@
                     <div class="product-miniature item-one first-item">
                         <div class="thumbnail-container">
                             <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">
-                                <img class="img-fluid" src="{{ asset("storage/images/product/$spice->image") }}" alt="img">
+                                <img class="img-fluid" src="{{ asset("storage/images/products/$spice->image") }}" alt="img">
                             </a>
                             {{-- <div class="product-flags discount">-30%</div> --}}
                         </div>

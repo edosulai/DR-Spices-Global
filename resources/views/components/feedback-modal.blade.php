@@ -5,7 +5,7 @@
 
         <div class="modal-header">
             <h4 class="modal-title text-xs-center" id="myModalLabel"><i class="{{ $icon }}"></i>{{ $title }}</h4>
-            <button type="button" class="close" aria-label="Close" wire:click="$set('cancelModal', false)">
+            <button type="button" class="close" aria-label="Close" wire:click="$set('{{ $attributes['wire:model'] }}', false)">
                 <i class="fas fa-times"></i>
             </button>
         </div>

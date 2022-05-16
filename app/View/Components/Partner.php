@@ -15,12 +15,12 @@ class Partner extends Component
     public function __construct()
     {
         $this->partner_logos = [
-            asset('storage/images/home/icon-logo1.jpg'),
-            asset('storage/images/home/icon-logo2.jpg'),
-            asset('storage/images/home/icon-logo3.jpg'),
-            asset('storage/images/home/icon-logo4.jpg'),
-            asset('storage/images/home/icon-logo5.jpg'),
-            asset('storage/images/home/icon-logo6.jpg'),
+            asset('storage/images/others/icon-logo1.jpg'),
+            asset('storage/images/others/icon-logo2.jpg'),
+            asset('storage/images/others/icon-logo3.jpg'),
+            asset('storage/images/others/icon-logo4.jpg'),
+            asset('storage/images/others/icon-logo5.jpg'),
+            asset('storage/images/others/icon-logo6.jpg'),
         ];
     }
 

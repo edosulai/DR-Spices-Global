@@ -6,7 +6,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            @livewire('request-buy-table')
+            @livewire('refund-table')
         </div>
     </div>
 
@@ -63,7 +63,7 @@
                     </div>
                     <div class="col-5">
                         <hr>
-                        <h6>{{ __('Shipping Details') }}</h6>
+                        <h6>{{ __('Payment Details') }}</h6>
                         <hr>
                     </div>
                 </div>
@@ -139,39 +139,28 @@
                     <div class="col-5">
                         <div class="row my-0 py-0">
                             <div class="col-4 pr-0 mt-2">
-                                <div class="mb-3 mr-1">Penerima</div>
-                                <div class="mb-3 mr-1">Telepon</div>
-                                <div class="mb-3 mr-1">Alamat 1</div>
-                                <div class="mb-3 mr-1">Alamat 2</div>
-                                <div class="mb-3 mr-1">Daerah</div>
-                                <div class="mb-3 mr-1">Kota/Wilayah</div>
-                                <div class="mb-3 mr-1">Provinsi</div>
-                                <div class="mb-3 mr-1">Postal Code</div>
-                                <div class="mb-3 mr-1">Negara</div>
-                                <div class="mb-3 mr-1">Alamat Lengkap</div>
+                                <div class="mb-3 mr-1">Tipe Kartu</div>
+                                <div class="mb-3 mr-1">Waktu Transaksi</div>
+                                <div class="mb-3 mr-1">Nama Bank</div>
+                                <div class="mb-3 mr-1">Nomor Kartu</div>
+                                <div class="mb-3 mr-1">Exp Kartu</div>
                             </div>
                             <div class="col-8 pl-0 mt-2">
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['first_name'] }} {{ $detailOrder->transaction_data['customer_details']['shipping_address']['last_name'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['phone'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['street'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['other_street'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['district'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['city'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['state'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['postal_code'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['country_name'] }}</div>
-                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['customer_details']['shipping_address']['address'] }}</div>
+                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['charge_response']['card_type'] }}</div>
+                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['charge_response']['transaction_time'] }}</div>
+                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['charge_response']['bank'] }}</div>
+                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['credit_card']['card_number'] }}</div>
+                                <div class="font-italic mb-3">: {{ $detailOrder->transaction_data['credit_card']['card_exp_month'] }}/{{ $detailOrder->transaction_data['credit_card']['card_exp_year'] }}</div>
                             </div>
                         </div>
+
                         <div class="my-3">
-                            <x-jet-label class="small" for="status_id" value="{{ __('Status Pengiriman') }}" />
-                            <select id="status_id" class="form-control form-control-user {{ $errors->has('status_id') ? 'is-invalid' : '' }}" wire:model.defer="status_id" wire:change="editRequestBuy" autocomplete="status_id">
-                                <option disabled>--Please choose an option--</option>
-                                @foreach ($statuses as $status)
-                                <option value="{{ $status->id }}" wire:key="{{ $status->id }}" {!! $status_id == $status->id ? 'selected disabled' : '' !!}>{{ $status->nama }}</option>
-                                @endforeach
-                            </select>
-                            <x-jet-input-error for="status_id" />
+                            <div class="switch">
+                                <input id="refundswitch" type="checkbox" wire:model="refund" wire:click="refundSwitch">
+                                <label for="refundswitch" class="d-flex jc-center">
+                                    <div class="switcher" data-checked="Sudah Refund" data-unchecked="Belum Refund"></div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>

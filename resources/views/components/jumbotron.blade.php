@@ -2,10 +2,10 @@
     <div class="dr-slideshow-wrapper">
         <div class="dr-slideshow nivoSlider">
             <a href="#" role="button">
-                <img class="img-responsive" src="{{ asset('storage/images/home/jumbotron1.jpg') }}" title="#caption1" alt="Slideshowimage">
+                <img class="img-responsive" src="{{ asset('storage/images/others/jumbotron1.jpg') }}" title="#caption1" alt="Slideshowimage">
             </a>
             <a href="#" role="button">
-                <img class="img-responsive" src="{{ asset('storage/images/home/jumbotron2.jpg') }}" title="#caption2" alt="Slideshowimage">
+                <img class="img-responsive" src="{{ asset('storage/images/others/jumbotron2.jpg') }}" title="#caption2" alt="Slideshowimage">
             </a>
         </div>
         <div id="caption1" class="nivo-html-caption">

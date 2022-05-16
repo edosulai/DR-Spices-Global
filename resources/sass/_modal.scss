@@ -163,8 +163,10 @@
     display: none !important;
 }
 
-.layer {
-    display: none;
+.modal {
+    & .layer {
+        display: none;
+    }
 }
 
 .product-actions {

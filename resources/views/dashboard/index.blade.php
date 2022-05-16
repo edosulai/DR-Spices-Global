@@ -3,7 +3,6 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $title }}</h1>
         {{-- <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="cetak"><i class="fas fa-download fa-sm text-white-50"></i> Cetak PDF</button> --}}
-
     </div>
 
     <div id="main_dash">
@@ -13,8 +12,10 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Total Stok (Rempah)') }}</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total }}</div>
+                                <a href="{{ route('rempah.index') }}">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Total Stok (Rempah)') }}</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total }}</div>
+                                </a>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-warehouse fa-2x text-gray-300"></i>

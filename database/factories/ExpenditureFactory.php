@@ -22,7 +22,12 @@ class ExpenditureFactory extends Factory
     {
         return [
             'supplier_data' => $this->faker->randomElements(Supplier::all()->toArray())[0],
-            'spice_data' => $this->faker->randomElements(Spice::all()->toArray())[0],
+            'spice_data' => $this->faker->randomElements(
+                Spice::selectRaw('spices.*, spice_images.image as image')
+                    ->join('spice_images', 'spices.id', '=', 'spice_images.spice_id')
+                    ->get()
+                    ->toArray()
+            )[0],
             'jumlah' => $this->faker->numberBetween(1, 30),
             'created_at' => Carbon::now()->subDay(rand(1, 90)),
             'updated_at' => Carbon::now()->subDay(rand(1, 90))

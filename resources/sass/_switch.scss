@@ -1,0 +1,242 @@
+@mixin switch-branding($switch-off-color: #ee5435, // Off state color
+  $switch-on-color: $light, // On state color
+
+  $switch-transition: cubic-bezier(0.860, 0.000, 0.070, 1.000)) {
+
+  input[type="checkbox"] {
+    ~label {
+      .switchLabel {
+        flex: 1;
+      }
+
+      .switcher {
+        transition: background-color 0.3s $switch-transition;
+        background: lighten($switch-off-color, 5%);
+
+        &:before {
+          color: $switch-on-color;
+        }
+
+        &:after {
+          -webkit-transition: -webkit-transform 0.3s $switch-transition;
+          transition: transform 0.3s $switch-transition;
+          background: lighten($switch-on-color, 5%);
+          color: $switch-off-color;
+        }
+      }
+    }
+
+    // &[disabled]~label {
+    //   color: rgba($switch-off-color, 0.5);
+    // }
+
+    // &:hover~label {
+    //   color: darken($switch-off-color, 5%);
+    // }
+
+    &:focus~label,
+    &:hover~label {
+      .switcher {
+        background-color: $switch-off-color;
+
+        &:after {
+          color: darken($switch-off-color, 10%);
+        }
+      }
+    }
+
+    &:checked {
+      ~label {
+        // &:hover {
+        //   color: darken($switch-on-color, 3%);
+        // }
+
+        .switcher {
+          background-color: lighten($switch-on-color, 5%);
+
+          &:before {
+            color: $switch-off-color;
+          }
+
+          &:after {
+            background: lighten($switch-off-color, 5%);
+            color: darken($switch-on-color, 5%);
+          }
+        }
+      }
+
+      &:focus,
+      &:hover {
+        ~label {
+          .switcher {
+            background-color: $switch-on-color;
+
+            &:after {
+              color: darken($switch-on-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin switch-appearance ($switch-width: 200px, // Toggle width
+  $switch-height: 30px, // Toggle height
+  $switch-border-radius: 60px, // Toggle border radius
+  $switch-offset: 2px, // Offset (distance btw switch and box)
+  $switch-label-font-size: .7rem, // Label font size
+  $switch-switch-font-size: .6rem, // Switch font size
+  $switch-shadow: 0 4px 4px rgba(black, 0.4) // Switch shadow on hover/focus
+
+) {
+  $switch-switch-width: $switch-width/2;
+
+  input[type="checkbox"] {
+
+    &:focus~label,
+    &:hover~label {
+      .switcher {
+        &:after {
+          box-shadow: $switch-shadow;
+        }
+      }
+    }
+
+    &:checked {
+      ~label {
+        .switcher {
+          &:after {
+            transform: translate3d($switch-width - ($switch-switch-width + $switch-offset), 0, 0);
+          }
+        }
+      }
+
+      &:focus,
+      &:hover {
+        ~label {
+          .switcher {
+            &:after {
+              box-shadow: $switch-shadow;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  label {
+    font-size: $switch-label-font-size;
+
+    .switcher {
+      height: $switch-height;
+      flex: 0 0 $switch-width;
+      border-radius: $switch-border-radius;
+
+      &:before {
+        left: $switch-width/2;
+        font-size: $switch-switch-font-size;
+        line-height: $switch-height;
+        width: $switch-width/2;
+        padding: 0 12px;
+      }
+
+      &:after {
+        top: $switch-offset;
+        left: $switch-offset;
+        border-radius: $switch-border-radius/2;
+        width: $switch-switch-width - $switch-offset;
+        line-height: $switch-height - ($switch-offset*2);
+        font-size: $switch-switch-font-size;
+      }
+
+      &:hover {
+        &:after {
+          box-shadow: $switch-shadow;
+        }
+      }
+    }
+  }
+}
+
+.switch {
+  position: relative;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
+  //overflow: hidden;
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &[disabled]~label {
+      pointer-events: none;
+
+      .switcher {
+        opacity: 0.4;
+      }
+    }
+
+    &:checked {
+      ~label {
+        .switcher {
+          &:before {
+            content: attr(data-unchecked);
+            left: 0;
+          }
+
+          &:after {
+            content: attr(data-checked);
+          }
+        }
+      }
+
+      &:focus,
+      &:hover {
+        ~label {}
+      }
+    }
+  }
+
+  label {
+    user-select: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .switchLabel {
+      flex: 1;
+      padding-left: 32px;
+    }
+
+    .switcher {
+      position: relative;
+
+      &:before {
+        content: attr(data-checked);
+        position: absolute;
+        top: 0;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      &:after {
+        content: attr(data-unchecked);
+        position: absolute;
+        z-index: 5;
+        text-transform: uppercase;
+        text-align: center;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  @include switch-branding;
+  @include switch-appearance;
+}

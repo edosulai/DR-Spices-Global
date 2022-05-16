@@ -16,14 +16,14 @@ class AboutUs extends Component
     {
         $this->abouts = [
             [
-                'img_src' => asset('storage/images/other/1.jpg'),
+                'img_src' => asset('storage/images/others/1.jpg'),
                 'title' => 'WHO WE ARE',
                 'desc' => [
                     'Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.',
                     'Proin gravida nibh vel velit auctor aliquet. nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.'
                 ]
             ],[
-                'img_src' => asset('storage/images/other/2.jpg'),
+                'img_src' => asset('storage/images/others/2.jpg'),
                 'title' => 'WHAT WE DO',
                 'desc' => [
                     'Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.',
