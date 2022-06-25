@@ -37,9 +37,9 @@ class Footer extends Component
     public function mount()
     {
         $this->logo = asset('storage/images/others/logo.png');
-        $this->short = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim';
+        $this->short = 'We spice up your life the best we can, We bring you the finest and the purest and the best natural taste enhancers because we care for you.';
         $this->newsletter = 'Sign up to our newsletter to get the latest articles, lookbooks voucher codes direct to your inbox';
-        $this->address = '123 Suspendis matti, Visaosang Building VST District NY Accums, North American';
+        $this->address = 'Jl. Raya Bukittingi - Payakumbuh KM.13, Jorong Baso, Kab. Agam, Sumatera Barat, 26192';
         $this->phone = '+0012-345-67890';
         $this->email = 'support@domain.com';
         $this->opening = [

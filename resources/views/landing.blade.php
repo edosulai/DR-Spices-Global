@@ -16,7 +16,7 @@
                                                 <div class="policy-item">
                                                     <div class="policy-content iconpolicy1">
                                                         <img src="{{ asset('storage/images/others/home1-policy.png') }}" alt="img">
-                                                        <div class="policy-name mb-5">FREE DELIVERY FROM $ 250</div>
+                                                        <div class="policy-name mb-5">FREE DELIVERY FROM $ 0</div>
                                                         <div class="policy-des">Lorem ipsum dolor amet consectetur</div>
                                                     </div>
                                                 </div>
@@ -60,7 +60,7 @@
                                             <div class="title-tab-content product-tab justify-content-between">
                                                 <div class="title-product">
                                                     <h2>{{ __('Our Product') }}</h2>
-                                                    <p>{{ __('LOREM IPSUM DOLOR SIT AMET CONSECTETUR') }}</p>
+                                                    <p>{{ __('A FULL LINE OF OUR SPICES') }}</p>
                                                 </div>
                                             </div>
                                             @livewire('product-exhibition')

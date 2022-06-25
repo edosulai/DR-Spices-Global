@@ -6,7 +6,7 @@
                     <div class="title-tab-content product-tab">
                         <div class="title-product text-center">
                             <h2>{{ __('Contact Us') }}</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <p>{{ $short }}</p>
                         </div>
                     </div>
                     <div class="row-inhert mt-5">
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="input-contact">
-                            <p class="text-intro text-center">{{ $short }}</p>
+                            <p class="text-intro text-center">{{ $message }}</p>
 
                             <p class="icon text-center">
                                 <a href="#">

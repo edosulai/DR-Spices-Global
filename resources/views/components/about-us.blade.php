@@ -6,7 +6,7 @@
                     <div class="title-tab-content product-tab">
                         <div class="title-product text-center">
                             <h2>{{ __('About Us') }}</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+                            <p>Get close from our company.</p>
                         </div>
                     </div>
                     <div class="row mt-5">
