@@ -83,7 +83,7 @@
                 <div class="col-sm-2 col-md-2 d-flex align-items-center">
                     <div id="logo">
                         <a href="{{ route('home') }}">
-                            <img class="img-fluid w-75" src="{{ asset('storage/images/others/logo.png') }}" alt="logo">
+                            <img class="img-fluid w-75" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Maggots Global Logo">
                         </a>
                     </div>
                 </div>

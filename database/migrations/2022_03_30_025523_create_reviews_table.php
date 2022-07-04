@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->foreignUuid('maggot_id')->constrained('maggots')->onDelete('cascade');
             $table->foreignUuid('request_buy_id')->constrained('request_buys')->onDelete('cascade');
             $table->text('summary');
             $table->integer('rating');

@@ -6,7 +6,7 @@
             <x-jet-application-mark width="36" class="text-light" />
         </div>
         <div class="sidebar-brand-text mx-3"><small>{{ config('app.name', 'Laravel') }}</small></div> --}}
-        <img class="img-fluid w-60" src="{{ asset('storage/images/others/logo.png') }}" alt="logo">
+        <img class="img-fluid w-60" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Maggots Global Logo">
     </a>
 
 
@@ -52,10 +52,10 @@
         </div>
     </x-jet-nav-link>
 
-    <x-jet-nav-link :active="request()->routeIs('rempah.index')">
-        <a class="nav-link" href="{{ route('rempah.index') }}">
+    <x-jet-nav-link :active="request()->routeIs('maggot.index')">
+        <a class="nav-link" href="{{ route('maggot.index') }}">
             <i class="fas fa-fw fa-mortar-pestle"></i>
-            <span>{{ __('Rempah') }}</span>
+            <span>{{ __('Maggot') }}</span>
         </a>
     </x-jet-nav-link>
 

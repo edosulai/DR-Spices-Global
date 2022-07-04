@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('invoice');
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->json('spice_data');
+            $table->json('maggot_data');
             $table->json('transaction_data');
             $table->enum('refund', [0, 1, 2])->default(0);
             $table->timestamps(6);

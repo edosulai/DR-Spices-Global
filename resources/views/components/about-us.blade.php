@@ -11,24 +11,24 @@
                     </div>
                     <div class="row mt-5">
                         @foreach ($abouts as $key => $about)
-                        @if ($key % 2 == 0)
-                        <div class="col-lg-6 col-md-6 col-sm-6 right">
-                            <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
-                        </div>
-                        @endif
-                        <div class="col-lg-6 col-md-6 col-sm-6 {{ $key % 2 == 0 ? 'left' : 'right' }}">
-                            <div class="cms-block {{ $key % 2 == 0 ? 'f-right' : 'f-left' }} ">
-                                <h3 class="page-subheading">{{ $about['title'] }}</h3>
-                                @foreach ($about['desc'] as $a)
-                                <p>{{ $a }}</p>
-                                @endforeach
+                            @if ($key % 2 == 0)
+                                <div class="col-lg-6 col-md-6 col-sm-6 right">
+                                    <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
+                                </div>
+                            @endif
+                            <div class="col-lg-6 col-md-6 col-sm-6 {{ $key % 2 == 0 ? 'left' : 'right' }}">
+                                <div class="cms-block {{ $key % 2 == 0 ? 'f-right' : 'f-left' }} ">
+                                    <h3 class="page-subheading {{ $key % 2 == 1 ? 'right' : '' }}">{{ $about['title'] }}</h3>
+                                    @foreach ($about['desc'] as $a)
+                                        <p class="text-lg"><i><q>{{ $a }}</q></i></p>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                        @if ($key % 2 == 1)
-                        <div class="col-lg-6 col-md-6 col-sm-6 left">
-                            <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
-                        </div>
-                        @endif
+                            @if ($key % 2 == 1)
+                                <div class="col-lg-6 col-md-6 col-sm-6 left">
+                                    <img class="img-fluid" src="{{ $about['img_src'] }}" alt="#" width="100%" height="100%" />
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

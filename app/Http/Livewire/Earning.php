@@ -47,7 +47,7 @@ class Earning extends ChartComponent
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
             )
-            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
+            ->join(DB::raw("JSON_TABLE(request_buys.maggot_data,'$[*]'
                 COLUMNS(
                     NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
                     NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
@@ -63,7 +63,7 @@ class Earning extends ChartComponent
             ->orderBy('traces.created_at', 'asc')
             ->get();
 
-        $outcomes = Expenditure::selectRaw("SUM(JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah) as outcome_price, MAX(created_at) as created_at")
+        $outcomes = Expenditure::selectRaw("SUM(JSON_EXTRACT(maggot_data, '$.hrg_jual') * jumlah) as outcome_price, MAX(created_at) as created_at")
             ->whereYear('created_at', '=', Carbon::now()->year)
             ->whereMonth('created_at', '=', Carbon::now()->month)
             ->groupBy(DB::raw('DATE(created_at)'))

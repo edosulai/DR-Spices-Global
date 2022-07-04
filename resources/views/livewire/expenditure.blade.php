@@ -31,14 +31,14 @@
             </div>
 
             <div class="mb-3">
-                <x-jet-label class="small" for="form.spice_id" value="{{ __('Jenis Supplier') }}" />
-                <select id="form.spice_id" class="form-control form-control-user {{ $errors->has('form.spice_id') ? 'is-invalid' : '' }}" wire:model.defer="form.spice_id" autocomplete="form.spice_id">
-                    <option {!! array_key_exists('spice_id', $form) ? 'disabled' : 'selected' !!}>--Please choose an option--</option>
-                    @foreach ($spices as $spice)
-                        <option value="{{ $spice->id }}" wire:key="{{ $spice->id }}" {!! array_key_exists('spice_id', $form) ? ($form['spice_id'] == $spice->id ? 'selected' : '') : '' !!}>{{ $spice->nama }}</option>
+                <x-jet-label class="small" for="form.maggot_id" value="{{ __('Jenis Supplier') }}" />
+                <select id="form.maggot_id" class="form-control form-control-user {{ $errors->has('form.maggot_id') ? 'is-invalid' : '' }}" wire:model.defer="form.maggot_id" autocomplete="form.maggot_id">
+                    <option {!! array_key_exists('maggot_id', $form) ? 'disabled' : 'selected' !!}>--Please choose an option--</option>
+                    @foreach ($maggots as $maggot)
+                        <option value="{{ $maggot->id }}" wire:key="{{ $maggot->id }}" {!! array_key_exists('maggot_id', $form) ? ($form['maggot_id'] == $maggot->id ? 'selected' : '') : '' !!}>{{ $maggot->nama }}</option>
                     @endforeach
                 </select>
-                <x-jet-input-error for="form.spice_id" />
+                <x-jet-input-error for="form.maggot_id" />
             </div>
 
             <div class="mb-3">

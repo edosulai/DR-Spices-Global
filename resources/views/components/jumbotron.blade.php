@@ -12,7 +12,7 @@
             <div class="dr-caption">
                 <div class="left-right hidden-xs">
                     <p class="caption-2">
-                        <span class="text-1">The Natural Spice</span>
+                        <span class="text-1">The Natural Maggot</span>
                         <span class="text-2">To Enhance</span>
                         <span class="text-3">Your Life</span>
                     </p>
@@ -23,7 +23,7 @@
             <div class="dr-caption">
                 <div class="left-right hidden-xs">
                     <p class="caption-3">
-                        <span class="text-1">We Spice Up Your Life</span>
+                        <span class="text-1">We Maggot Up Your Life</span>
                         <span class="text-2">The Best</span>
                         <span class="text-3">We Can</span>
                     </p>

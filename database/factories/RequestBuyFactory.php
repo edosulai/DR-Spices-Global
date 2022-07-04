@@ -8,7 +8,7 @@ use App\Models\RequestBuy;
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-use App\Models\Spice;
+use App\Models\Maggot;
 use App\Models\Status;
 use App\Models\Trace;
 use Illuminate\Support\Carbon;
@@ -44,27 +44,27 @@ class RequestBuyFactory extends Factory
         $address_lastname = array_pop($parts);
         $address_firstname = implode(" ", $parts);
 
-        $spice_data = [];
+        $maggot_data = [];
         $gross_amount = 0;
 
-        $spice = Spice::selectRaw('spices.*, spice_images.image as image')
-            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
+        $maggot = Maggot::selectRaw('maggots.*, maggot_images.image as image')
+            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
             ->oldest()
             ->get();
 
-        for ($i = 0; $i < rand(1, Spice::count()); $i++) {
+        for ($i = 0; $i < rand(1, Maggot::count()); $i++) {
             $jumlah = $this->faker->numberBetween(1, 10);
-            $spice_data[] = [
-                'id' => $spice[$i]->id,
-                'nama' => $spice[$i]->nama,
-                'hrg_jual' => $spice[$i]->hrg_jual,
+            $maggot_data[] = [
+                'id' => $maggot[$i]->id,
+                'nama' => $maggot[$i]->nama,
+                'hrg_jual' => $maggot[$i]->hrg_jual,
                 'jumlah' => $jumlah,
-                'unit' => $spice[$i]->unit,
-                'image' => $spice[$i]->image,
-                'ket' => $spice[$i]->ket,
+                'unit' => $maggot[$i]->unit,
+                'image' => $maggot[$i]->image,
+                'ket' => $maggot[$i]->ket,
             ];
 
-            $gross_amount = $gross_amount + ($jumlah * $spice[$i]->hrg_jual) + ($jumlah * $postage->cost);
+            $gross_amount = $gross_amount + ($jumlah * $maggot[$i]->hrg_jual) + ($jumlah * $postage->cost);
         }
 
         $order_id = "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999));
@@ -138,7 +138,7 @@ class RequestBuyFactory extends Factory
         return [
             'invoice' => "INV/" . Carbon::now()->format('Ymd') . '/' . sprintf('%09d', rand(0, 999999999)),
             'user_id' => $user->id,
-            'spice_data' => $spice_data,
+            'maggot_data' => $maggot_data,
             'transaction_data' => $transaction_data,
             'created_at' => Carbon::now()->subDay(rand(20, 30)),
             'updated_at' => Carbon::now()->subDay(rand(20, 30))
@@ -153,10 +153,10 @@ class RequestBuyFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (RequestBuy $request_buy) {
-            foreach ($request_buy->spice_data as $data) {
-                $spice = Spice::find($data['id']);
-                $spice->stok = $spice->stok - $data['jumlah'];
-                $spice->save();
+            foreach ($request_buy->maggot_data as $data) {
+                $maggot = Maggot::find($data['id']);
+                $maggot->stok = $maggot->stok - $data['jumlah'];
+                $maggot->save();
             }
 
             $statuses = Status::oldest()->get();
@@ -175,10 +175,10 @@ class RequestBuyFactory extends Factory
             Trace::insert($trace);
 
             if (in_array($statuses[$statusSelected - 1]->nama, ['Rated'])) {
-                foreach ($request_buy->spice_data as $data) {
+                foreach ($request_buy->maggot_data as $data) {
                     Review::create([
                         'user_id' => $request_buy->user_id,
-                        'spice_id' => $data['id'],
+                        'maggot_id' => $data['id'],
                         'request_buy_id' => $request_buy->id,
                         'summary' => $this->faker->paragraph(),
                         'rating' => $this->faker->numberBetween(1, 5),

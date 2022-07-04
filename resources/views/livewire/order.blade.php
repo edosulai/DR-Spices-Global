@@ -24,12 +24,12 @@
                             </div>
                         </div>
 
-                        @foreach ($order['spice_data'] as $spice)
+                        @foreach ($order['maggot_data'] as $maggot)
                             <div class="row my-4">
                                 <div class="col-md-1">
                                     <span class="product-image media-middle">
-                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">
-                                            <img class="img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
+                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">
+                                            <img class="img-fluid" src="{{ asset('/storage/images/products/' . $maggot['image']) }}">
                                         </a>
                                     </span>
                                 </div>
@@ -37,16 +37,16 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h6 class="product-name">
-                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">{{ $spice['nama'] }}</a>
+                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">{{ $maggot['nama'] }}</a>
                                             </h6>
                                             <div class="product-meta">
-                                                <span class="product-price">{{ $spice['jumlah'] }} x {{ currency($spice['hrg_jual']) }}</span>
+                                                <span class="product-price">{{ $maggot['jumlah'] }} x {{ currency($maggot['hrg_jual']) }}</span>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="border-left pl-3">
                                                 <div>Total</div>
-                                                <div>{{ currency($spice['hrg_jual'] * $spice['jumlah']) }}</div>
+                                                <div>{{ currency($maggot['hrg_jual'] * $maggot['jumlah']) }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -84,17 +84,17 @@
 
         <x-slot name="content">
             @if ($detailOrder)
-                @foreach ($detailOrder->spice_data as $spice)
+                @foreach ($detailOrder->maggot_data as $maggot)
                     <div class="row p-0">
                         <div class="col-md-3 divide-right">
                             <div class="row no-gutters">
                                 <div class="col-md-12">
-                                    <img class="product-image img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
+                                    <img class="product-image img-fluid" src="{{ asset('/storage/images/products/' . $maggot['image']) }}">
                                 </div>
                                 <div class="col-md-12">
-                                    <h5 class="product-name">{{ $spice['nama'] }}</h5>
-                                    <div class="product-price">{{ currency($spice['hrg_jual']) }} <small>({{ $spice['unit'] }})</small></div>
-                                    <p>Quantity:&nbsp;{{ $spice['jumlah'] }}</p>
+                                    <h5 class="product-name">{{ $maggot['nama'] }}</h5>
+                                    <div class="product-price">{{ currency($maggot['hrg_jual']) }} <small>({{ $maggot['unit'] }})</small></div>
+                                    <p>Quantity:&nbsp;{{ $maggot['jumlah'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -104,24 +104,24 @@
                                     <label class="spr-form-label">Your Rating</label>
                                     <div class="d-flex justify-content-center">
                                         <fieldset class="ratings">
-                                            <input type="radio" id="star5-{{ $spice['id'] }}" name="rating-{{ $spice['id'] }}" wire:model.defer="ratings.{{ $spice['id'] }}" value="5">
-                                            <label class="full" for="star5-{{ $spice['id'] }}" title="Awesome - 5 stars"></label>
-                                            <input type="radio" id="star4-{{ $spice['id'] }}" name="rating-{{ $spice['id'] }}" wire:model.defer="ratings.{{ $spice['id'] }}" value="4">
-                                            <label class="full" for="star4-{{ $spice['id'] }}" title="Pretty Good - 4 stars"></label>
-                                            <input type="radio" id="star3-{{ $spice['id'] }}" name="rating-{{ $spice['id'] }}" wire:model.defer="ratings.{{ $spice['id'] }}" value="3">
-                                            <label class="full" for="star3-{{ $spice['id'] }}" title="Meh - 3 stars"></label>
-                                            <input type="radio" id="star2-{{ $spice['id'] }}" name="rating-{{ $spice['id'] }}" wire:model.defer="ratings.{{ $spice['id'] }}" value="2">
-                                            <label class="full" for="star2-{{ $spice['id'] }}" title="Kinda Bad - 2 stars"></label>
-                                            <input type="radio" id="star1-{{ $spice['id'] }}" name="rating-{{ $spice['id'] }}" wire:model.defer="ratings.{{ $spice['id'] }}" value="1">
-                                            <label class="full" for="star1-{{ $spice['id'] }}" title="Sucks Big Time - 1 star"></label>
+                                            <input type="radio" id="star5-{{ $maggot['id'] }}" name="rating-{{ $maggot['id'] }}" wire:model.defer="ratings.{{ $maggot['id'] }}" value="5">
+                                            <label class="full" for="star5-{{ $maggot['id'] }}" title="Awesome - 5 stars"></label>
+                                            <input type="radio" id="star4-{{ $maggot['id'] }}" name="rating-{{ $maggot['id'] }}" wire:model.defer="ratings.{{ $maggot['id'] }}" value="4">
+                                            <label class="full" for="star4-{{ $maggot['id'] }}" title="Pretty Good - 4 stars"></label>
+                                            <input type="radio" id="star3-{{ $maggot['id'] }}" name="rating-{{ $maggot['id'] }}" wire:model.defer="ratings.{{ $maggot['id'] }}" value="3">
+                                            <label class="full" for="star3-{{ $maggot['id'] }}" title="Meh - 3 stars"></label>
+                                            <input type="radio" id="star2-{{ $maggot['id'] }}" name="rating-{{ $maggot['id'] }}" wire:model.defer="ratings.{{ $maggot['id'] }}" value="2">
+                                            <label class="full" for="star2-{{ $maggot['id'] }}" title="Kinda Bad - 2 stars"></label>
+                                            <input type="radio" id="star1-{{ $maggot['id'] }}" name="rating-{{ $maggot['id'] }}" wire:model.defer="ratings.{{ $maggot['id'] }}" value="1">
+                                            <label class="full" for="star1-{{ $maggot['id'] }}" title="Sucks Big Time - 1 star"></label>
                                         </fieldset>
                                     </div>
                                 </div>
                                 <div class="spr-form-review-body">
                                     <div class="spr-form-input">
-                                        <x-jet-label for="review-{{ $spice['id'] }}" value="{{ __('Write a Review') }}" />
-                                        <textarea id="review-{{ $spice['id'] }}" type="text" class="{{ $errors->has('review') ? 'is-invalid' : '' }} form-control form-control-user rounded-sm" wire:model.defer="reviews.{{ $spice['id'] }}"></textarea>
-                                        <x-jet-input-error for="review-{{ $spice['id'] }}" />
+                                        <x-jet-label for="review-{{ $maggot['id'] }}" value="{{ __('Write a Review') }}" />
+                                        <textarea id="review-{{ $maggot['id'] }}" type="text" class="{{ $errors->has('review') ? 'is-invalid' : '' }} form-control form-control-user rounded-sm" wire:model.defer="reviews.{{ $maggot['id'] }}"></textarea>
+                                        <x-jet-input-error for="review-{{ $maggot['id'] }}" />
                                     </div>
                                 </div>
                             </div>
@@ -205,13 +205,13 @@
                     <div class="col-7">
                         {{-- <div class="row my-0 py-0 overflow-auto" style="height: 150px"> --}}
                         <div class="row my-0 py-0">
-                            @foreach ($detailOrder->spice_data as $spice)
+                            @foreach ($detailOrder->maggot_data as $maggot)
                                 <div class="col-12">
                                     <div class="row my-0 py-0">
                                         <div class="col-md-2">
                                             <span class="product-image media-middle">
-                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">
-                                                    <img class="img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
+                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">
+                                                    <img class="img-fluid" src="{{ asset('/storage/images/products/' . $maggot['image']) }}">
                                                 </a>
                                             </span>
                                         </div>
@@ -220,16 +220,16 @@
                                             <div class="row">
                                                 <div class="col-md-7">
                                                     <h6 class="product-name">
-                                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">{{ $spice['nama'] }}</a>
+                                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">{{ $maggot['nama'] }}</a>
                                                     </h6>
                                                     <div class="product-meta">
-                                                        <span class="product-price">{{ $spice['jumlah'] }} x {{ currency($spice['hrg_jual']) }}</span>
+                                                        <span class="product-price">{{ $maggot['jumlah'] }} x {{ currency($maggot['hrg_jual']) }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5 d-flex align-items-center">
                                                     <div class="border-left pl-3">
                                                         <div>Total</div>
-                                                        <div class="font-italic">{{ currency($spice['hrg_jual'] * $spice['jumlah']) }}</div>
+                                                        <div class="font-italic">{{ currency($maggot['hrg_jual'] * $maggot['jumlah']) }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,18 +248,18 @@
                                         <div class="row">
                                             <div class="col-md-7">
                                                 <div class="my-2">Product Total</div>
-                                                <div class="my-2">Shipping Cost / ({{ $detailOrder->spice_data[0]['unit'] }})</div>
-                                                <div class="my-2">Shipping Cost Total x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
+                                                <div class="my-2">Shipping Cost / ({{ $detailOrder->maggot_data[0]['unit'] }})</div>
+                                                <div class="my-2">Shipping Cost Total x {{ collect($detailOrder->maggot_data)->sum('jumlah') }}</div>
                                                 <h6 class="my-3">Total Price</h6>
                                             </div>
                                             <div class="col-md-5">
                                                 <div class="font-italic my-2">: <span class="pl-3">{{ currency(
-                                                    collect($detailOrder->spice_data)->sum(function ($spice) {
-                                                        return $spice['hrg_jual'] * $spice['jumlah'];
+                                                    collect($detailOrder->maggot_data)->sum(function ($maggot) {
+                                                        return $maggot['hrg_jual'] * $maggot['jumlah'];
                                                     }),
                                                 ) }}</span></div>
                                                 <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost']) }}</span></div>
-                                                <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost'] * collect($detailOrder->spice_data)->sum('jumlah')) }}</span></div>
+                                                <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost'] * collect($detailOrder->maggot_data)->sum('jumlah')) }}</span></div>
                                                 <h6 class="font-italic font-weight-bold my-3"> <span class="pl-3">{{ currency($detailOrder->transaction_data['transaction_details']['gross_amount']) }}</span></h6>
                                             </div>
                                         </div>

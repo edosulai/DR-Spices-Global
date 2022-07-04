@@ -34,10 +34,6 @@ class Header extends Component
                 'name' => 'About Us',
                 'url' => route('home') . '/#about-us',
                 'icon' => 'fas fa-address-card'
-            ], [
-                'name' => 'Contact Us',
-                'url' => route('home') . '/#contact-us',
-                'icon' => 'fas fa-address-book'
             ]
         ];
 
@@ -52,20 +48,20 @@ class Header extends Component
 
         if (Auth::check()) {
             $carts = Cart::where('user_id', Auth::id())
-                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spice_images.image as spice_image')
-                ->join('spices', 'carts.spice_id', '=', 'spices.id')
-                ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
+                ->selectRaw('carts.*, maggots.nama as maggot_nama, maggots.hrg_jual as maggot_price, maggot_images.image as maggot_image')
+                ->join('maggots', 'carts.maggot_id', '=', 'maggots.id')
+                ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
                 ->get();
 
             if ($carts->isNotEmpty()) {
                 foreach ($carts as $cart) {
                     $this->carts->push([
                         'id' => $cart->id,
-                        'name' => $cart->spice_nama,
-                        'url' => Str::replace(' ', '-', $cart->spice_nama),
+                        'name' => $cart->maggot_nama,
+                        'url' => Str::replace(' ', '-', $cart->maggot_nama),
                         'qty' => $cart->jumlah,
-                        'price' => $cart->spice_price,
-                        'img_src' => asset("storage/images/products/$cart->spice_image"),
+                        'price' => $cart->maggot_price,
+                        'img_src' => asset("storage/images/products/$cart->maggot_image"),
                         'unit' => 'KG',
                     ]);
                 }

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Cart;
-use App\Models\Spice;
+use App\Models\Maggot;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

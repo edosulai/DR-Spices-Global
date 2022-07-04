@@ -34,7 +34,7 @@ mix.js('resources/js/bootstrap.js', 'js/app.js')
             'owl-nav',
             'owl-prev',
             'owl-next',
-            'nivoSlider',    
+            'nivoSlider',
             'nivo-main-image',
             'nivo-imageLink',
             'nivo-slice',

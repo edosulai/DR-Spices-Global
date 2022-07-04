@@ -19,15 +19,13 @@ class AboutUs extends Component
                 'img_src' => asset('storage/images/others/1.jpg'),
                 'title' => 'WHO WE ARE',
                 'desc' => [
-                    'Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.',
-                    'Proin gravida nibh vel velit auctor aliquet. nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.'
+                    'We are from the global DR Maggots Company or better known as an international export company, and we provide a wide variety of maggots that are ready to be exported to your country.'
                 ]
             ],[
                 'img_src' => asset('storage/images/others/2.jpg'),
                 'title' => 'WHAT WE DO',
                 'desc' => [
-                    'Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis biben dum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.',
-                    'Proin gravida nibh vel velit auctor aliquet. nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vultate cursus a sit amet mauris. Duis sed odio sit amet nibh vultate cursus a sit amet mauris.'
+                    'We from the global DR Maggots Company export maggots to your country, to launch new opportunities and expand the domestic market, investment, and foreign exchange, as well as strengthen relations between countries.',
                 ]
             ]
         ];

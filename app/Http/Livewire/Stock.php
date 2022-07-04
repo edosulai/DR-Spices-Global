@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Charts\StockChart;
-use App\Models\Spice;
+use App\Models\Maggot;
 use App\Support\Livewire\ChartComponent;
 use App\Support\Livewire\ChartComponentData;
 use Faker\Generator;
@@ -34,24 +34,24 @@ class Stock extends ChartComponent
      */
     protected function chartData(): ChartComponentData
     {
-        $spices = Spice::all();
+        $maggots = Maggot::all();
 
-        $labels = $spices->map(function (Spice $spice, $key) {
-            return $spice->nama;
+        $labels = $maggots->map(function (Maggot $maggot, $key) {
+            return $maggot->nama;
         });
 
         $randomColors = new Collection();
         $randomHoverColors = new Collection();
 
-        for ($i = 0; $i < $spices->count(); $i++) {
+        for ($i = 0; $i < $maggots->count(); $i++) {
             $hexnum = rand(0x000000, 0xFFFFFF);
             $randomColors->push("#" . dechex($hexnum));
             $randomHoverColors->push("#" . dechex($hexnum - 10));
         }
 
         $datasets = new Collection([
-            'spices' => $spices->map(function (Spice $spice, $key) {
-                return $spice->stok;
+            'maggots' => $maggots->map(function (Maggot $maggot, $key) {
+                return $maggot->stok;
             }),
             'colors' => $randomColors->all(),
             'hover' => $randomHoverColors->all()

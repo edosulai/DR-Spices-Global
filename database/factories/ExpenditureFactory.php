@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 use App\Models\Expenditure;
 use App\Models\Supplier;
-use App\Models\Spice;
+use App\Models\Maggot;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -23,9 +23,9 @@ class ExpenditureFactory extends Factory
     {
         return [
             'supplier_data' => $this->faker->randomElements(Supplier::all()->toArray())[0],
-            'spice_data' => $this->faker->randomElements(
-                Spice::selectRaw('spices.*, spice_images.image as image')
-                    ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
+            'maggot_data' => $this->faker->randomElements(
+                Maggot::selectRaw('maggots.*, maggot_images.image as image')
+                    ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
                     ->get()
                     ->toArray()
             )[0],
@@ -43,9 +43,9 @@ class ExpenditureFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Expenditure $expenditure) {
-            $spice = Spice::find($expenditure->spice_data['id']);
-            $spice->stok = $spice->stok + $expenditure->jumlah;
-            $spice->save();
+            $maggot = Maggot::find($expenditure->maggot_data['id']);
+            $maggot->stok = $maggot->stok + $expenditure->jumlah;
+            $maggot->save();
         });
     }
 }

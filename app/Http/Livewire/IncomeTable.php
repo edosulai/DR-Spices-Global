@@ -37,7 +37,7 @@ class IncomeTable extends DataTableComponent
                 request_buys.invoice as invoice,
                 traces.created_at as created_at
             ")
-            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
+            ->join(DB::raw("JSON_TABLE(request_buys.maggot_data,'$[*]'
                 COLUMNS(
                     NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
                     NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')

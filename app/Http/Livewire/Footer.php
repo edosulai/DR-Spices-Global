@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\NewsSub;
 use Livewire\Component;
 
 class Footer extends Component
@@ -10,7 +9,6 @@ class Footer extends Component
     public $logo;
     public $payments;
     public $short;
-    public $newsletter;
     public $address;
     public $phone;
     public $email;
@@ -37,11 +35,10 @@ class Footer extends Component
     public function mount()
     {
         $this->logo = asset('storage/images/others/logo.png');
-        $this->short = 'We spice up your life the best we can, We bring you the finest and the purest and the best natural taste enhancers because we care for you.';
-        $this->newsletter = 'Sign up to our newsletter to get the latest articles, lookbooks voucher codes direct to your inbox';
+        $this->short = 'We maggot up your life the best we can, We bring you the finest and the purest and the best natural taste enhancers because we care for you.';
         $this->address = 'Jl. Raya Bukittingi - Payakumbuh KM.13, Jorong Baso, Kab. Agam, Sumatera Barat, 26192';
-        $this->phone = '+0012-345-67890';
-        $this->email = 'support@domain.com';
+        $this->phone = '+628-576-080-0434';
+        $this->email = 'support@drmaggotsglobal.com';
         $this->opening = [
             'Monday - Sunday / 08.00AM - 19.00',
             '(Except Holidays)'
@@ -85,13 +82,6 @@ class Footer extends Component
             asset('storage/images/others/jcb.png'),
             asset('storage/images/others/americanexpress.png'),
         ];
-    }
-
-    public function send()
-    {
-        $this->validate();
-        NewsSub::firstOrCreate($this->form);
-        $this->feedbackModal = true;
     }
 
     public function render()

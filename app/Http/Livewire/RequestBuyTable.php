@@ -22,7 +22,7 @@ class RequestBuyTable extends DataTableComponent
             Column::make('No.', 'no')->sortable()->addClass('w-5'),
             Column::make('Invoice', 'invoice')->sortable()->addClass('w-15'),
             Column::make('Pengguna', 'users_name')->sortable(),
-            Column::make('Rempah', 'spice_nama')->sortable()->addClass('w-12'),
+            Column::make('Maggot', 'maggot_nama')->sortable()->addClass('w-12'),
             Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-7'),
             Column::make('Status', 'statuses_nama')->sortable()->addClass('w-14'),
             Column::make('Waktu Permintaan', 'created_at')->sortable()->addClass('w-16'),
@@ -37,8 +37,8 @@ class RequestBuyTable extends DataTableComponent
                 request_buys.*,
                 @row:=@row+1 as no,
                 users.name as users_name,
-                REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') as spice_nama,
-                JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') as jumlah,
+                REPLACE(JSON_EXTRACT(request_buys.maggot_data, '$[*].nama'), '\"', '') as maggot_nama,
+                JSON_EXTRACT(request_buys.maggot_data, '$[*].jumlah') as jumlah,
                 statuses.nama as statuses_nama
             ")
             ->join('users', 'request_buys.user_id', '=', 'users.id')
@@ -57,8 +57,8 @@ class RequestBuyTable extends DataTableComponent
                     ->where('invoice', 'like', "%" . trim($term) . "%")
                     ->orWhere('users.name', 'like', "%" . trim($term) . "%")
                     ->orWhere('statuses.nama', 'like', "%" . trim($term) . "%")
-                    ->orWhereRaw("REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') like '%" . trim($term) . "%'")
-                    ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("REPLACE(JSON_EXTRACT(request_buys.maggot_data, '$[*].nama'), '\"', '') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(request_buys.maggot_data, '$[*].jumlah') like '%" . trim($term) . "%'")
             );
     }
 

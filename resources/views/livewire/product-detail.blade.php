@@ -1,6 +1,6 @@
 <div class="page-home">
 
-    <x-breadcrumb :navs="[['title' => 'Home', 'url' => route('home')], ['title' => $this->spice->nama, 'url' => route('detail', ['product' => str_replace(' ', '-', $this->spice->nama)])]]" />
+    <x-breadcrumb :navs="[['title' => 'Home', 'url' => route('home')], ['title' => $this->maggot->nama, 'url' => route('detail', ['product' => str_replace(' ', '-', $this->maggot->nama)])]]" />
 
     <div class="container">
         <div class="content">
@@ -9,7 +9,7 @@
                     <div class="images-container">
 
                         <div class="js-qv-mask mask tab-content border">
-                            @foreach ($spice_image as $key => $image)
+                            @foreach ($maggot_image as $key => $image)
                                 <div id="item-{{ $key }}" class="tab-pane fade {{ $key == 0 ? 'active show' : '' }}" role="tabpanel">
                                     <img src="{{ asset("storage/images/products/$image->image") }}">
                                 </div>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <ul class="product-tab nav nav-tabs d-flex" role="tablist">
-                            @foreach ($spice_image as $key => $image)
+                            @foreach ($maggot_image as $key => $image)
                                 <li class="col {{ $key == 0 ? 'active' : '' }}">
                                     <a href="#item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }}">
                                         <img src="{{ asset("storage/images/products/$image->image") }}">
@@ -36,14 +36,14 @@
                                             <div class="product-detail">
                                                 <div class="images-container">
                                                     <div class="js-qv-mask mask tab-content w-100">
-                                                        @foreach ($spice_image as $key => $image)
+                                                        @foreach ($maggot_image as $key => $image)
                                                             <div id="modal-item-{{ $key }}" class="tab-pane fade {{ $key == 0 ? 'active show' : '' }}" role="tabpanel">
                                                                 <img src="{{ asset("storage/images/products/$image->image") }}">
                                                             </div>
                                                         @endforeach
                                                     </div>
                                                     <ul class="product-tab mt-0 nav nav-tabs">
-                                                        @foreach ($spice_image as $key => $image)
+                                                        @foreach ($maggot_image as $key => $image)
                                                             <li class="{{ $key == 0 ? 'active' : '' }}">
                                                                 <a href="#modal-item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }}">
                                                                     <img src="{{ asset("storage/images/products/$image->image") }}">
@@ -64,21 +64,21 @@
                 <div class="product-info col-xs-12 col-md-7 col-sm-7">
                     <div class="detail-description">
                         <div class="mb-5">
-                            <h2>{{ $this->spice->nama }}</h2>
+                            <h2>{{ $this->maggot->nama }}</h2>
                         </div>
                         <div>
-                            <span class="price">{{ currency($spice->hrg_jual) }}</span>
+                            <span class="price">{{ currency($maggot->hrg_jual) }}</span>
                             <span class="float-right">
                                 <span class="availb">Availability: </span>
-                                <span class="check {{ $spice->stok > 0 ? 'availb' : 'sold' }}">
-                                    <i class="fas {{ $spice->stok > 0 ? 'fa-check-square' : 'fa-times' }}"></i> {{ $spice->stok > 0 ? 'IN STOCK' : 'SOLD OUT' }}
+                                <span class="check {{ $maggot->stok > 0 ? 'availb' : 'sold' }}">
+                                    <i class="fas {{ $maggot->stok > 0 ? 'fa-check-square' : 'fa-times' }}"></i> {{ $maggot->stok > 0 ? 'IN STOCK' : 'SOLD OUT' }}
                                 </span>
                             </span>
                         </div>
-                        <p class="description">{{ $spice->ket }}</p>
+                        <p class="description">{{ $maggot->ket }}</p>
                         <div class="option has-border d-lg-flex">
                             <span>Unit :</span>
-                            <span>{{ $spice->unit }}</span>
+                            <span>{{ $maggot->unit }}</span>
                         </div>
                         <div class="rating-comment has-border d-flex">
                             <div class="review-description d-flex">
@@ -86,11 +86,11 @@
                                 <div class="rating" wire:ignore>
                                     <div class="star-content">
                                         @for ($i = 0; $i < 5; $i++)
-                                            <div class="star{{ $i < $spice->rating_avg ? '' : ' hole' }}">
+                                            <div class="star{{ $i < $maggot->rating_avg ? '' : ' hole' }}">
                                             </div>
                                         @endfor
                                     </div>
-                                    <small>({{ round($spice->rating_avg, 1) }})</small>
+                                    <small>({{ round($maggot->rating_avg, 1) }})</small>
                                 </div>
                             </div>
                             <div class="read after-has-border">
@@ -102,11 +102,11 @@
                         </div>
                         <div class="option has-border d-lg-flex">
                             <span>Stok :</span>
-                            <span>{{ $spice->stok }} ({{ $spice->unit }})</span>
+                            <span>{{ $maggot->stok }} ({{ $maggot->unit }})</span>
                         </div>
                         <div class="option has-border d-flex align-items-center">
-                            <span>{{ currency($spice->hrg_jual) }} x {{ $qty }} :</span>
-                            <span class="price ml-3">{{ currency($spice->hrg_jual * $qty) }}</span>
+                            <span>{{ currency($maggot->hrg_jual) }} x {{ $qty }} :</span>
+                            <span class="price ml-3">{{ currency($maggot->hrg_jual * $qty) }}</span>
                         </div>
                         <div class="has-border cart-area {{ $errors->has('qty') ? 'is-invalid' : '' }}">
                             <div class="product-quantity">
@@ -178,7 +178,7 @@
                             <h2>{{ __('Other Products') }}</h2>
                         </div>
                     </div>
-                    @livewire('product-exhibition', ['spices' => $spices])
+                    @livewire('product-exhibition', ['maggots' => $maggots])
                 </div>
             </div>
         </div>

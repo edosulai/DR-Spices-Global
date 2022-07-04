@@ -21,11 +21,13 @@ class UserSeeder extends Seeder
     {
         $admin = User::create([
             'name' => 'Edo Sulai',
-            'email' => 'ngufeel@gmail.com',
-            'password' => bcrypt('password'),
-            'remember_token' => Str::random(10),
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'email' => 'edo.sulai@drmaggotsglobal.com',
+            'password' => bcrypt('9arin.Dev'),
+            // 'remember_token' => Str::random(10),
+            // 'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+
+        $admin->markEmailAsVerified();
 
         $admin->assignRole('admin');
 
@@ -43,6 +45,6 @@ class UserSeeder extends Seeder
             'primary' => true,
         ]);
 
-        User::factory(9)->create();
+        // User::factory(9)->create();
     }
 }

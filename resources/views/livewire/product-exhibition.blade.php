@@ -1,40 +1,40 @@
 <div class="tab-content">
     <div class="tab-pane fade in active show">
         <div class="category-product owl-carousel" wire:ignore>
-            @foreach ($spices as $spice)
+            @foreach ($maggots as $maggot)
                 <div class="item text-center">
                     <div class="product-miniature item-one first-item">
                         <div class="thumbnail-container">
-                            <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">
-                                <img class="img-fluid" src="{{ asset("storage/images/products/$spice->image") }}" alt="img">
+                            <a href="{{ url(str_replace(' ', '-', $maggot->nama)) }}">
+                                <img class="img-fluid" src="{{ asset("storage/images/products/$maggot->image") }}" alt="img">
                             </a>
                             {{-- <div class="product-flags discount">-30%</div> --}}
                         </div>
                         <div class="product-description">
                             <div class="product-groups">
                                 <div class="product-title">
-                                    <a href="{{ url(str_replace(' ', '-', $spice->nama)) }}">{{ $spice->nama }}</a>
+                                    <a href="{{ url(str_replace(' ', '-', $maggot->nama)) }}">{{ $maggot->nama }}</a>
                                 </div>
                                 <div class="rating">
                                     <div class="star-content">
                                         @for ($i = 0; $i < 5; $i++)
-                                            <div class="star{{ $i < $spice->rating_avg ? '' : ' hole' }}"></div>
+                                            <div class="star{{ $i < $maggot->rating_avg ? '' : ' hole' }}"></div>
                                         @endfor
                                     </div>
                                 </div>
                                 <div class="product-group-price">
                                     <div class="product-price-and-shipping">
-                                        <span class="price">{{ currency($spice->hrg_jual) }} <small>({{ $spice->unit }})</small></span>
+                                        <span class="price">{{ currency($maggot->hrg_jual) }} <small>({{ $maggot->unit }})</small></span>
                                         {{-- <del class="regular-price">£28.68</del> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="product-buttons d-flex justify-content-center">
-                                <button type="button" class="add-to-cart" wire:click="addToCart('{{ $spice->id }}')">
+                                <button type="button" class="add-to-cart" wire:click="addToCart('{{ $maggot->id }}')">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                 </button>
 
-                                <button type="button" class="quick-view hidden-sm-down" wire:click="detailSpice('{{ $spice->id }}')">
+                                <button type="button" class="quick-view hidden-sm-down" wire:click="detailMaggot('{{ $maggot->id }}')">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </button>
                             </div>

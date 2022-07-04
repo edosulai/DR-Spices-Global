@@ -12,8 +12,8 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <a href="{{ route('rempah.index') }}">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Total Stok (Rempah)') }}</div>
+                                <a href="{{ route('maggot.index') }}">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Total Stok (Maggot)') }}</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total }}</div>
                                 </a>
                             </div>
