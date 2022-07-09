@@ -21,10 +21,8 @@ class UserSeeder extends Seeder
     {
         $admin = User::create([
             'name' => 'Edo Sulai',
-            'email' => 'edo.sulai@drmaggotsglobal.com',
-            'password' => bcrypt('9arin.Dev'),
-            // 'remember_token' => Str::random(10),
-            // 'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'email' => 'admin@drspicesglobal.com',
+            'password' => bcrypt('zzSa6e8UAbnu')
         ]);
 
         $admin->markEmailAsVerified();
@@ -33,15 +31,15 @@ class UserSeeder extends Seeder
 
         Address::create([
             'user_id' => $admin->id,
-            'recipent' => 'Edo Sulaiman',
-            'street' => 'Jl. Ikua Koto',
-            'other_street' => 'Jorong Ampang Gadang',
+            'recipent' => 'DANI AFRIANTO',
+            'street' => 'Jl. Raya Bukittingi - Payakumbuh KM.13',
+            'other_street' => 'Jorong Baso',
             'district' => 'Kec. Ampek Angkek',
             'city' => 'Kab. Agam',
             'state' => 'Sumatera Barat',
-            'zip' => '26191',
+            'zip' => '26192',
             'country_id' => Country::where('name', 'INDONESIA')->first()->id,
-            'phone' => '+6282386007722',
+            'phone' => '+628-576-080-0434',
             'primary' => true,
         ]);
 

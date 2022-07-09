@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Carbon;
-use App\Models\Maggot;
+use App\Models\Spice;
 use App\Models\Expenditure;
 use App\Models\Cart;
 use App\Models\RequestBuy;
@@ -79,7 +79,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
             )
-            ->join(DB::raw("JSON_TABLE(request_buys.maggot_data,'$[*]'
+            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
                 COLUMNS(
                     NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
                     NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
@@ -94,7 +94,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
             ->get()
             ->sum('income_price');
 
-        $outcome = Expenditure::selectRaw("JSON_EXTRACT(maggot_data, '$.hrg_jual') * jumlah as outcome_price, created_at")
+        $outcome = Expenditure::selectRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * jumlah as outcome_price, created_at")
             ->whereYear('created_at', '=', Carbon::now()->year)
             ->whereMonth('created_at', '=', Carbon::now()->month)
             ->get()
@@ -113,7 +113,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
 
         return view('dashboard.index', [
             'title' => 'Dashboard',
-            'total' => Maggot::all()->sum('stok'),
+            'total' => Spice::all()->sum('stok'),
             'pengeluaran' => $outcome,
             'pendapatan' => $income,
             'pending' => $pending
@@ -125,7 +125,7 @@ Route::group(['middleware' => ['role:admin', 'auth:sanctum', 'verified']], funct
     Route::get('/dashboard/pendapatan', fn () => view('dashboard.income', ['title' => 'Pendapatan']))->name('pendapatan.index');
     Route::get('/dashboard/pengguna', fn () => view('dashboard.user', ['title' => 'Pengguna']))->name('pengguna.index');
     Route::get('/dashboard/pemasok', fn () => view('dashboard.supplier', ['title' => 'Pemasok']))->name('pemasok.index');
-    Route::get('/dashboard/maggot', fn () => view('dashboard.maggot', ['title' => 'Maggot']))->name('maggot.index');
+    Route::get('/dashboard/rempah', fn () => view('dashboard.spice', ['title' => 'Rempah']))->name('rempah.index');
     Route::get('/dashboard/pesan', fn () => view('dashboard.message', ['title' => 'Kontak Surat']))->name('pesan.index');
     Route::get('/dashboard/refund', fn () => view('dashboard.refund', ['title' => 'Pengembalian Dana']))->name('refund.index');
     Route::get('/dashboard/status', fn () => view('dashboard.status', ['title' => 'Status Pengiriman']))->name('status.index');

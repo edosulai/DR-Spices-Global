@@ -4,8 +4,8 @@ namespace App\Http\Livewire;
 
 use App\Models\Cart;
 use App\Models\Review;
-use App\Models\Maggot;
-use App\Models\MaggotImage;
+use App\Models\Spice;
+use App\Models\SpiceImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -17,10 +17,10 @@ class ProductDetail extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $maggot;
-    public $maggot_image;
+    public $spice;
+    public $spice_image;
     public $qty = 1;
-    public $maggots;
+    public $spices;
 
     public $feedbackDetailModal = false;
     public $warningDetailModal = false;
@@ -43,24 +43,24 @@ class ProductDetail extends Component
 
     public function mount()
     {
-        $this->maggot = Maggot::where('nama', 'like', '%' . Str::replace('-', ' ', request()->product) . '%')
-            ->selectRaw('maggots.*, AVG(reviews.rating) as rating_avg')
-            ->join('reviews', 'maggots.id', '=', 'reviews.maggot_id', 'left outer')
-            ->groupBy('maggots.id')
+        $this->spice = Spice::where('nama', 'like', '%' . Str::replace('-', ' ', request()->product) . '%')
+            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg')
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
+            ->groupBy('spices.id')
             ->first();
 
-        if (!$this->maggot) abort(404);
+        if (!$this->spice) abort(404);
 
-        $this->maggot_image = MaggotImage::where('maggot_id', $this->maggot->id)->get();
+        $this->spice_image = SpiceImage::where('spice_id', $this->spice->id)->get();
 
         DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY','')), @row:=0"));
-        $this->maggots = Maggot::whereNot(function ($query) {
-            $query->where('maggots.id', '=', $this->maggot->id);
+        $this->spices = Spice::whereNot(function ($query) {
+            $query->where('spices.id', '=', $this->spice->id);
         })
-            ->selectRaw('maggots.*, AVG(reviews.rating) as rating_avg, maggot_images.image as image')
-            ->join('reviews', 'maggots.id', '=', 'reviews.maggot_id', 'left outer')
-            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
-            ->groupBy('maggots.id')
+            ->selectRaw('spices.*, AVG(reviews.rating) as rating_avg, spice_images.image as image')
+            ->join('reviews', 'spices.id', '=', 'reviews.spice_id', 'left outer')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
+            ->groupBy('spices.id')
             ->get();
     }
 
@@ -72,39 +72,39 @@ class ProductDetail extends Component
 
         $this->validate();
 
-        $maggot = Maggot::where('maggots.id', $this->maggot->id)
-            ->selectRaw('maggots.*, maggot_images.image as image')
-            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+        $spice = Spice::where('spices.id', $this->spice->id)
+            ->selectRaw('spices.*, spice_images.image as image')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->first();
 
-        if ($maggot && $maggot->stok > 0) {
+        if ($spice && $spice->stok > 0) {
 
             $this->modal['total'] = 0;
 
             Cart::updateOrCreate([
                 'user_id' => Auth::id(),
-                'maggot_id' => $maggot->id
+                'spice_id' => $spice->id
             ], [
                 'jumlah' => DB::raw('jumlah + ' . $this->qty),
             ]);
 
             $carts = Cart::where('user_id',  Auth::id())
-                ->join('maggots', 'carts.maggot_id', '=', 'maggots.id')
-                ->selectRaw('carts.*, maggots.nama as maggot_nama, maggots.hrg_jual as maggot_price')
+                ->join('spices', 'carts.spice_id', '=', 'spices.id')
+                ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price')
                 ->get();
 
-            $this->modal['name'] = $maggot->nama;
-            $this->modal['price'] = $maggot->hrg_jual;
-            $this->modal['unit'] = $maggot->unit;
+            $this->modal['name'] = $spice->nama;
+            $this->modal['price'] = $spice->hrg_jual;
+            $this->modal['unit'] = $spice->unit;
             $this->modal['rating'] = 0;
             $this->modal['qty'] = $this->qty;
-            $this->modal['image'] = asset("/storage/images/products/$maggot->image");;
-            $this->modal['desc'] = $maggot->ket;
+            $this->modal['image'] = asset("/storage/images/products/$spice->image");;
+            $this->modal['desc'] = $spice->ket;
             $this->modal['count'] = count($carts);
-            $this->modal['instock'] = $maggot->stok;
+            $this->modal['instock'] = $spice->stok;
 
             foreach ($carts as $cart) {
-                $this->modal['total'] = $this->modal['total'] + ($cart->maggot_price * $cart->jumlah);
+                $this->modal['total'] = $this->modal['total'] + ($cart->spice_price * $cart->jumlah);
             }
 
             $this->feedbackDetailModal = true;
@@ -122,7 +122,7 @@ class ProductDetail extends Component
     public function render()
     {
         return view('livewire.product-detail', [
-            'reviews' => Review::where('maggot_id', $this->maggot->id)
+            'reviews' => Review::where('spice_id', $this->spice->id)
                 ->join('users', 'reviews.user_id', '=', 'users.id')
                 ->selectRaw('reviews.*, users.name as users_name')
                 ->latest()

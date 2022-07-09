@@ -6,20 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Maggot extends Model
+class ContactUs extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nama',
-        'hrg_jual',
-        'stok',
-        'unit',
-        'ket'
+        'name',
+        'email',
+        'subject',
+        'message',
+        'readed',
     ];
 
     protected $keyType = 'string';
-    protected $dateFormat = 'Y-m-d H:i:s.u';
 
     public $incrementing = false;
 

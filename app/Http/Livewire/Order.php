@@ -53,13 +53,13 @@ class Order extends Component
 
             if ($review) {
                 $review->each(function ($item) {
-                    $this->ratings[$item->maggot_id] = $item->rating;
-                    $this->reviews[$item->maggot_id] = $item->summary;
+                    $this->ratings[$item->spice_id] = $item->rating;
+                    $this->reviews[$item->spice_id] = $item->summary;
                 });
             } else {
-                foreach ($this->detailOrder->maggot_data as $maggot) {
-                    $this->ratings[$maggot['id']] = 5;
-                    $this->reviews[$maggot['id']] = ' ';
+                foreach ($this->detailOrder->spice_data as $spice) {
+                    $this->ratings[$spice['id']] = 5;
+                    $this->reviews[$spice['id']] = ' ';
                 }
             }
 
@@ -69,13 +69,13 @@ class Order extends Component
 
     public function submitReview()
     {
-        foreach ($this->detailOrder->maggot_data as $maggot) {
+        foreach ($this->detailOrder->spice_data as $spice) {
             Review::create([
                 'user_id' => Auth::id(),
-                'maggot_id' => $maggot['id'],
+                'spice_id' => $spice['id'],
                 'request_buy_id' => $this->detailOrder->id,
-                'summary' => $this->reviews[$maggot['id']],
-                'rating' => $this->ratings[$maggot['id']],
+                'summary' => $this->reviews[$spice['id']],
+                'rating' => $this->ratings[$spice['id']],
             ]);
         }
 

@@ -18,11 +18,13 @@ class DatabaseSeeder extends Seeder
         $this->call(PostageSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(MaggotSeeder::class);
+        $this->call(SpiceSeeder::class);
         $this->call(StatusSeeder::class);
         $this->call(SupplierSeeder::class);
-        $this->call(ExpenditureSeeder::class);
-        $this->call(RequestBuySeeder::class);
-        $this->call(CartSeeder::class);
+        // $this->call(ExpenditureSeeder::class);
+        // $this->call(RequestBuySeeder::class);
+        // $this->call(CartSeeder::class);
+        // $this->call(NewsSubSeeder::class);
+        // $this->call(ContactUsSeeder::class);
     }
 }

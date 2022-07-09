@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Maggot;
+use App\Models\SpiceImage;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MaggotPolicy
+class SpiceImagePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class MaggotPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Maggot  $maggot
+     * @param  \App\Models\SpiceImage  $spiceImage
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Maggot $maggot)
+    public function view(User $user, SpiceImage $spiceImage)
     {
         //
     }
@@ -48,10 +48,10 @@ class MaggotPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Maggot  $maggot
+     * @param  \App\Models\SpiceImage  $spiceImage
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Maggot $maggot)
+    public function update(User $user, SpiceImage $spiceImage)
     {
         //
     }
@@ -60,10 +60,10 @@ class MaggotPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Maggot  $maggot
+     * @param  \App\Models\SpiceImage  $spiceImage
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Maggot $maggot)
+    public function delete(User $user, SpiceImage $spiceImage)
     {
         //
     }
@@ -72,10 +72,10 @@ class MaggotPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Maggot  $maggot
+     * @param  \App\Models\SpiceImage  $spiceImage
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Maggot $maggot)
+    public function restore(User $user, SpiceImage $spiceImage)
     {
         //
     }
@@ -84,10 +84,10 @@ class MaggotPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Maggot  $maggot
+     * @param  \App\Models\SpiceImage  $spiceImage
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Maggot $maggot)
+    public function forceDelete(User $user, SpiceImage $spiceImage)
     {
         //
     }

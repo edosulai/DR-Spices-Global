@@ -6,13 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class MaggotImage extends Model
+class Spice extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'maggot_id',
-        'image',
+        'nama',
+        'hrg_jual',
+        'stok',
+        'unit',
+        'ket'
     ];
 
     protected $keyType = 'string';

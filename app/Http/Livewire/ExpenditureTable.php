@@ -20,7 +20,7 @@ class ExpenditureTable extends DataTableComponent
         return [
             Column::make('No.', 'no')->sortable()->addClass('w-7'),
             Column::make('Supplier', "supplier_nama")->sortable(),
-            Column::make('Maggot', "maggot_nama")->sortable()->addClass('w-15'),
+            Column::make('Rempah', "spice_nama")->sortable()->addClass('w-15'),
             Column::make('Jumlah', 'jumlah')->sortable()->addClass('w-10'),
             Column::make('Harga Satuan', "hrg_jual")->sortable()->addClass('w-15'),
             Column::make('Pengeluaran', 'outcome_price')->sortable()->addClass('w-15'),
@@ -35,10 +35,10 @@ class ExpenditureTable extends DataTableComponent
         return Expenditure::selectRaw("
                 *,
                 @row:=@row+1 as no,
-                JSON_EXTRACT(maggot_data, '$.hrg_jual') as hrg_jual,
-                JSON_EXTRACT(maggot_data, '$.hrg_jual') * expenditures.jumlah as outcome_price,
+                JSON_EXTRACT(spice_data, '$.hrg_jual') as hrg_jual,
+                JSON_EXTRACT(spice_data, '$.hrg_jual') * expenditures.jumlah as outcome_price,
                 JSON_UNQUOTE(JSON_EXTRACT(supplier_data, '$.nama')) as supplier_nama,
-                JSON_UNQUOTE(JSON_EXTRACT(maggot_data, '$.nama')) as maggot_nama
+                JSON_UNQUOTE(JSON_EXTRACT(spice_data, '$.nama')) as spice_nama
             ")
             ->latest()
             ->when(
@@ -47,9 +47,9 @@ class ExpenditureTable extends DataTableComponent
                 $query
                     ->where('jumlah', 'like', "%" . trim($term) . "%")
                     ->orWhereRaw("JSON_UNQUOTE(JSON_EXTRACT(supplier_data, '$.nama')) like '%" . trim($term) . "%'")
-                    ->orWhereRaw("JSON_EXTRACT(maggot_data, '$.hrg_jual') like '%" . trim($term) . "%'")
-                    ->orWhereRaw("JSON_UNQUOTE(JSON_EXTRACT(maggot_data, '$.nama')) like '%" . trim($term) . "%'")
-                    ->orWhereRaw("JSON_EXTRACT(maggot_data, '$.hrg_jual') * expenditures.jumlah like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_UNQUOTE(JSON_EXTRACT(spice_data, '$.nama')) like '%" . trim($term) . "%'")
+                    ->orWhereRaw("JSON_EXTRACT(spice_data, '$.hrg_jual') * expenditures.jumlah like '%" . trim($term) . "%'")
             );
     }
 

@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Maggot;
+use App\Models\Spice;
 
-class MaggotSeeder extends Seeder
+class SpiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class MaggotSeeder extends Seeder
      */
     public function run()
     {
-        Maggot::factory(1)->create();
+        Spice::factory(1)->create();
     }
 }

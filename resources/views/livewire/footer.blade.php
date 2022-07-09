@@ -71,6 +71,25 @@
                         </div>
                     </div>
                     <div class="dr-modules col-lg-4 col-md-6">
+                        <div class="block m-top">
+                            <div class="block-content">
+                                <div class="title-block">{{ __('Newsletter') }}</div>
+                                <div class="sub-title">{{ $newsletter }}</div>
+                                <div class="block-newsletter">
+                                    <form wire:submit.prevent="send">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control {{ $errors->has('form.email') ? 'is-invalid' : '' }}" wire:model="form.email" placeholder="Enter Your Email">
+                                            <span class="input-group-btn">
+                                                <button class="effect-btn btn btn-secondary" type="submit">
+                                                    <span>{{ __('subscribe') }}</span>
+                                                </button>
+                                            </span>
+                                            <x-jet-input-error for="form.email" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                         <div class="block m-top1">
                             <div class="block-content">
                                 <div class="social-content">
@@ -108,4 +127,21 @@
             </div>
         </div>
     </div>
+
+    <x-feedback-modal wire:model="feedbackModal">
+        <x-slot name="title">
+            {{ __('Subscribe successfully') }}
+        </x-slot>
+
+        <x-slot name="content">
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1 text-center">
+                    <p class="icon-addcart">
+                        <span><i class="fas fa-check"></i></span>
+                    </p>
+                    <h6 class="mb-4">{{ __('You have successfully subscribed to the latest news from us') }}</h6>
+                </div>
+            </div>
+        </x-slot>
+    </x-feedback-modal>
 </footer>

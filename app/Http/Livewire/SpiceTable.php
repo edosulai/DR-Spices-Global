@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Maggot;
+use App\Models\Spice;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
-class MaggotTable extends DataTableComponent
+class SpiceTable extends DataTableComponent
 {
     protected $listeners = [
-        'maggotTableColumns' => 'columns',
+        'spiceTableColumns' => 'columns',
     ];
 
     public function columns(): array
@@ -32,13 +32,13 @@ class MaggotTable extends DataTableComponent
     public function query(): Builder
     {
         DB::statement(DB::raw('set @row:=0'));
-        return Maggot::selectRaw('maggots.*, @row:=@row+1 as no, maggot_images.image as image')
-            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+        return Spice::selectRaw('spices.*, @row:=@row+1 as no, spice_images.image as image')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->latest();
     }
 
     public function rowView(): string
     {
-        return 'livewire.maggot-table';
+        return 'livewire.spice-table';
     }
 }

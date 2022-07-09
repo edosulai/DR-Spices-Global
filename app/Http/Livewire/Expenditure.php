@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Expenditure as ModelsExpenditure;
-use App\Models\Maggot;
+use App\Models\Spice;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -13,7 +13,7 @@ class Expenditure extends Component
     public $title;
     public $form = [];
     public $suppliers;
-    public $maggots;
+    public $spices;
     public $expenditureModal = false;
     public $deleteExpenditureModal = false;
     public $aksiExpenditureModal = 'tambahExpenditure';
@@ -26,13 +26,13 @@ class Expenditure extends Component
 
     protected $rules = [
         'form.supplier_id' => 'required|exists:suppliers,id',
-        'form.maggot_id' => 'required|exists:maggots,id',
+        'form.spice_id' => 'required|exists:spices,id',
         'form.jumlah' => 'required|integer',
     ];
 
     protected $validationAttributes = [
         'form.supplier_id' => 'Supplier',
-        'form.maggot_id' => 'Maggot',
+        'form.spice_id' => 'Rempah',
         'form.jumlah' => 'Jumlah',
     ];
 
@@ -44,14 +44,14 @@ class Expenditure extends Component
     public function mount()
     {
         $this->suppliers = Supplier::all();
-        $this->maggots = Maggot::all();
+        $this->spices = Spice::all();
     }
 
     public function openExpenditureModal($id = null)
     {
         if ($id) {
             $this->form = ModelsExpenditure::where('id', $id)
-                ->selectRaw("id, JSON_UNQUOTE(JSON_EXTRACT(supplier_data, '$.id')) as supplier_id, JSON_UNQUOTE(JSON_EXTRACT(maggot_data, '$.id')) as maggot_id, jumlah")
+                ->selectRaw("id, JSON_UNQUOTE(JSON_EXTRACT(supplier_data, '$.id')) as supplier_id, JSON_UNQUOTE(JSON_EXTRACT(spice_data, '$.id')) as spice_id, jumlah")
                 ->first()
                 ->toArray();
             $this->aksiExpenditureModal = 'editExpenditure';
@@ -70,7 +70,7 @@ class Expenditure extends Component
     public function openDeleteExpenditureModal($id)
     {
         $this->form = ModelsExpenditure::where('id', $id)
-            ->selectRaw("id, JSON_EXTRACT(supplier_data, '$.nama') as nama, JSON_UNQUOTE(JSON_EXTRACT(maggot_data, '$.id')) as maggot_id, jumlah")
+            ->selectRaw("id, JSON_EXTRACT(supplier_data, '$.nama') as nama, JSON_UNQUOTE(JSON_EXTRACT(spice_data, '$.id')) as spice_id, jumlah")
             ->first()
             ->toArray();
         $this->deleteExpenditureModal = true;
@@ -82,14 +82,14 @@ class Expenditure extends Component
 
         ModelsExpenditure::create([
             'supplier_data' => Supplier::find($this->form['supplier_id']),
-            'maggot_data' => Maggot::where('maggots.id', $this->form['maggot_id'])
-                ->selectRaw('maggots.*, maggot_images.image as image')
-                ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+            'spice_data' => Spice::where('spices.id', $this->form['spice_id'])
+                ->selectRaw('spices.*, spice_images.image as image')
+                ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
                 ->first(),
             'jumlah' => $this->form['jumlah'],
         ]);
 
-        Maggot::where('id', $this->form['maggot_id'])->increment('stok', $this->form['jumlah']);
+        Spice::where('id', $this->form['spice_id'])->increment('stok', $this->form['jumlah']);
 
         $this->expenditureModal = false;
         $this->emit('expenditureTableColumns');
@@ -101,13 +101,13 @@ class Expenditure extends Component
 
         $expenditure = ModelsExpenditure::find($this->form['id']);
 
-        Maggot::where('id', $this->form['maggot_id'])->decrement('stok', $expenditure->jumlah);
-        Maggot::where('id', $this->form['maggot_id'])->increment('stok', $this->form['jumlah']);
+        Spice::where('id', $this->form['spice_id'])->decrement('stok', $expenditure->jumlah);
+        Spice::where('id', $this->form['spice_id'])->increment('stok', $this->form['jumlah']);
 
         $expenditure->supplier_data = Supplier::find($this->form['supplier_id']);
-        $expenditure->maggot_data = Maggot::where('maggots.id', $this->form['maggot_id'])
-            ->selectRaw('maggots.*, maggot_images.image as image')
-            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+        $expenditure->spice_data = Spice::where('spices.id', $this->form['spice_id'])
+            ->selectRaw('spices.*, spice_images.image as image')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->first();
         $expenditure->jumlah = $this->form['jumlah'];
         $expenditure->save();
@@ -118,7 +118,7 @@ class Expenditure extends Component
 
     public function deleteExpenditure()
     {
-        Maggot::where('id', $this->form['maggot_id'])->decrement('stok', $this->form['jumlah']);
+        Spice::where('id', $this->form['spice_id'])->decrement('stok', $this->form['jumlah']);
         ModelsExpenditure::destroy($this->form['id']);
         $this->deleteExpenditureModal = false;
         $this->emit('expenditureTableColumns');

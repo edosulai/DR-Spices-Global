@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\MaggotImage;
+use App\Models\ContactUs;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MaggotImagePolicy
+class ContactUsPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class MaggotImagePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MaggotImage  $maggotImage
+     * @param  \App\Models\ContactUs  $contactUs
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, MaggotImage $maggotImage)
+    public function view(User $user, ContactUs $contactUs)
     {
         //
     }
@@ -48,10 +48,10 @@ class MaggotImagePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MaggotImage  $maggotImage
+     * @param  \App\Models\ContactUs  $contactUs
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, MaggotImage $maggotImage)
+    public function update(User $user, ContactUs $contactUs)
     {
         //
     }
@@ -60,10 +60,10 @@ class MaggotImagePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MaggotImage  $maggotImage
+     * @param  \App\Models\ContactUs  $contactUs
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, MaggotImage $maggotImage)
+    public function delete(User $user, ContactUs $contactUs)
     {
         //
     }
@@ -72,10 +72,10 @@ class MaggotImagePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MaggotImage  $maggotImage
+     * @param  \App\Models\ContactUs  $contactUs
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, MaggotImage $maggotImage)
+    public function restore(User $user, ContactUs $contactUs)
     {
         //
     }
@@ -84,10 +84,10 @@ class MaggotImagePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MaggotImage  $maggotImage
+     * @param  \App\Models\ContactUs  $contactUs
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, MaggotImage $maggotImage)
+    public function forceDelete(User $user, ContactUs $contactUs)
     {
         //
     }

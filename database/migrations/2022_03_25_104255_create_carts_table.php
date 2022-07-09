@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignUuid('maggot_id')->constrained('maggots')->onDelete('cascade');
+            $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
             $table->integer('jumlah');
             $table->timestamps(6);
         });

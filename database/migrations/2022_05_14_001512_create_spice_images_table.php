@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('maggots', function (Blueprint $table) {
+        Schema::create('spice_images', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nama')->unique();
-            $table->float('hrg_jual');
-            $table->integer('stok');
-            $table->string('unit');
-            $table->text('ket')->nullable();
+            $table->foreignUuid('spice_id')->constrained('spices')->onDelete('cascade');
+            $table->string('image');
             $table->timestamps(6);
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maggots');
+        Schema::dropIfExists('spice_images');
     }
 };

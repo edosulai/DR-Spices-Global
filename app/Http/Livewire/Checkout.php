@@ -7,7 +7,7 @@ use App\Models\Address;
 use App\Models\Cart;
 use App\Models\Postage;
 use App\Models\RequestBuy;
-use App\Models\Maggot;
+use App\Models\Spice;
 use App\Models\Status;
 use App\Models\Trace;
 use Illuminate\Support\Carbon;
@@ -66,21 +66,21 @@ class Checkout extends Component
         $this->postage = null;
 
         $carts = Cart::where('user_id', Auth::id())
-            ->selectRaw('carts.*, maggots.nama as maggot_nama, maggots.hrg_jual as maggot_price, maggot_images.image as maggot_image')
-            ->join('maggots', 'carts.maggot_id', '=', 'maggots.id')
-            ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+            ->selectRaw('carts.*, spices.nama as spice_nama, spices.hrg_jual as spice_price, spice_images.image as spice_image')
+            ->join('spices', 'carts.spice_id', '=', 'spices.id')
+            ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
             ->get();
 
         if ($carts->isNotEmpty()) {
             foreach ($carts as $cart) {
                 $this->carts->push([
                     'id' => $cart->id,
-                    'maggot_id' => $cart->maggot_id,
-                    'name' => $cart->maggot_nama,
-                    'url' => Str::replace(' ', '-', $cart->maggot_nama),
+                    'spice_id' => $cart->spice_id,
+                    'name' => $cart->spice_nama,
+                    'url' => Str::replace(' ', '-', $cart->spice_nama),
                     'qty' => $cart->jumlah,
-                    'price' => $cart->maggot_price,
-                    'img_src' => asset("storage/images/products/$cart->maggot_image"),
+                    'price' => $cart->spice_price,
+                    'img_src' => asset("storage/images/products/$cart->spice_image"),
                     'unit' => 'KG',
                 ]);
             }
@@ -164,30 +164,30 @@ class Checkout extends Component
         $address_firstname = implode(" ", $parts);
 
         $item_details = [];
-        $maggot_data = [];
+        $spice_data = [];
 
         foreach ($this->carts as $cart) {
             $item_details[] = [
-                "id" => $cart['maggot_id'],
+                "id" => $cart['spice_id'],
                 "price" => (int) currency($cart['price'] + $this->postage->cost, null, 'IDR', false),
                 "quantity" => $cart['qty'],
                 "name" => $cart['name'],
                 "url" => url(str_replace(' ', '-', $cart['name']))
             ];
 
-            $maggot = Maggot::where('maggots.id', $cart['maggot_id'])
-                ->selectRaw('maggots.*, maggot_images.image as image')
-                ->join('maggot_images', 'maggot_images.id', '=', DB::raw("(select id from `maggot_images` where `maggot_id` = `maggots`.`id` order by created_at limit 1)"))
+            $spice = Spice::where('spices.id', $cart['spice_id'])
+                ->selectRaw('spices.*, spice_images.image as image')
+                ->join('spice_images', 'spice_images.id', '=', DB::raw("(select id from `spice_images` where `spice_id` = `spices`.`id` order by created_at limit 1)"))
                 ->first();
 
-            $maggot_data[] = [
-                'id' => $maggot->id,
-                'nama' => $maggot->nama,
-                'hrg_jual' => $maggot->hrg_jual,
+            $spice_data[] = [
+                'id' => $spice->id,
+                'nama' => $spice->nama,
+                'hrg_jual' => $spice->hrg_jual,
                 'jumlah' => $cart['qty'],
-                'unit' => $maggot->unit,
-                'image' => $maggot->image,
-                'ket' => $maggot->ket,
+                'unit' => $spice->unit,
+                'image' => $spice->image,
+                'ket' => $spice->ket,
             ];
         }
 
@@ -229,7 +229,7 @@ class Checkout extends Component
             $request_buy = RequestBuy::create([
                 'invoice' => $order_id,
                 'user_id' => Auth::id(),
-                'maggot_data' => $maggot_data,
+                'spice_data' => $spice_data,
                 'transaction_data' => [
                     'payment_type' => 'credit_card',
                     'credit_card'  => [
@@ -272,10 +272,10 @@ class Checkout extends Component
                 ]
             ]);
 
-            foreach ($request_buy->maggot_data as $data) {
-                $maggot = Maggot::find($data['id']);
-                $maggot->stok = $maggot->stok - $data['jumlah'];
-                $maggot->save();
+            foreach ($request_buy->spice_data as $data) {
+                $spice = Spice::find($data['id']);
+                $spice->stok = $spice->stok - $data['jumlah'];
+                $spice->save();
             }
 
             foreach ($this->carts as $cart) {

@@ -79,13 +79,13 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="row my-0 py-0">
-                                                    @foreach ($detailOrder->maggot_data as $maggot)
+                                                    @foreach ($detailOrder->spice_data as $spice)
                                                         <div class="col-12">
                                                             <div class="row my-0 py-0">
                                                                 <div class="col-md-2">
                                                                     <span class="product-image media-middle">
-                                                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">
-                                                                            <img class="img-fluid" src="{{ asset('/storage/images/products/' . $maggot['image']) }}">
+                                                                        <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">
+                                                                            <img class="img-fluid" src="{{ asset('/storage/images/products/' . $spice['image']) }}">
                                                                         </a>
                                                                     </span>
                                                                 </div>
@@ -94,16 +94,16 @@
                                                                     <div class="row">
                                                                         <div class="col-md-7">
                                                                             <h6 class="product-name">
-                                                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $maggot['nama'])]) }}">{{ $maggot['nama'] }}</a>
+                                                                                <a href="{{ route('detail', ['product' => str_replace(' ', '-', $spice['nama'])]) }}">{{ $spice['nama'] }}</a>
                                                                             </h6>
                                                                             <div class="product-meta">
-                                                                                <span class="product-price">{{ $maggot['jumlah'] }} x {{ currency($maggot['hrg_jual']) }}</span>
+                                                                                <span class="product-price">{{ $spice['jumlah'] }} x {{ currency($spice['hrg_jual']) }}</span>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-5 d-flex align-items-center">
                                                                             <div class="border-left pl-3">
                                                                                 <div>Total</div>
-                                                                                <div class="font-italic">{{ currency($maggot['hrg_jual'] * $maggot['jumlah']) }}</div>
+                                                                                <div class="font-italic">{{ currency($spice['hrg_jual'] * $spice['jumlah']) }}</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -122,18 +122,18 @@
                                                                 <div class="row">
                                                                     <div class="col-md-7">
                                                                         <div class="my-2">Product Total</div>
-                                                                        <div class="my-2">Shipping Cost / ({{ $detailOrder->maggot_data[0]['unit'] }})</div>
-                                                                        <div class="my-2">Shipping Cost Total x {{ collect($detailOrder->maggot_data)->sum('jumlah') }}</div>
+                                                                        <div class="my-2">Shipping Cost / ({{ $detailOrder->spice_data[0]['unit'] }})</div>
+                                                                        <div class="my-2">Shipping Cost Total x {{ collect($detailOrder->spice_data)->sum('jumlah') }}</div>
                                                                         <h6 class="my-3">Total Price</h6>
                                                                     </div>
                                                                     <div class="col-md-5">
                                                                         <div class="font-italic my-2">: <span class="pl-3">{{ currency(
-                                                                            collect($detailOrder->maggot_data)->sum(function ($maggot) {
-                                                                                return $maggot['hrg_jual'] * $maggot['jumlah'];
+                                                                            collect($detailOrder->spice_data)->sum(function ($spice) {
+                                                                                return $spice['hrg_jual'] * $spice['jumlah'];
                                                                             }),
                                                                         ) }}</span></div>
                                                                         <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost']) }}</span></div>
-                                                                        <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost'] * collect($detailOrder->maggot_data)->sum('jumlah')) }}</span></div>
+                                                                        <div class="font-italic my-2">: <span class="pl-3">{{ currency($detailOrder->transaction_data['postage']['cost'] * collect($detailOrder->spice_data)->sum('jumlah')) }}</span></div>
                                                                         <h6 class="font-italic font-weight-bold my-3"> <span class="pl-3">{{ currency($detailOrder->transaction_data['transaction_details']['gross_amount']) }}</span></h6>
                                                                     </div>
                                                                 </div>

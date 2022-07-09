@@ -2,26 +2,26 @@
     <div class="card-header py-3">
         <div class="row align-items-center px-3">
             <h6 class="m-0 font-weight-bold text-primary mr-auto">Data {{ $title }}</h6>
-            <x-jet-button wire:click="openMaggotModal" wire:loading.attr="disabled">
+            <x-jet-button wire:click="openSpiceModal" wire:loading.attr="disabled">
                 Tambah Data
             </x-jet-button>
         </div>
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            @livewire('maggot-table')
+            @livewire('spice-table')
         </div>
     </div>
 
-    <x-jet-dialog-modal wire:model="maggotModal" :maxWidth="'lg'">
+    <x-jet-dialog-modal wire:model="spiceModal" :maxWidth="'lg'">
         <x-slot name="title">
-            {{ __($buttonMaggotModal . ' Data Maggot') }}
+            {{ __($buttonSpiceModal . ' Data Rempah') }}
         </x-slot>
 
         <x-slot name="content">
             <div class="row no-gutters">
                 <div class="product-detail col-md-4 pr-3">
-                    <x-jet-label class="small" for="image" value="{{ __('Gambar Maggot') }}" />
+                    <x-jet-label class="small" for="image" value="{{ __('Gambar Rempah') }}" />
 
                     {{-- <div class="card mb-3">
                         <div class="d-flex flex-column align-items-center">
@@ -122,7 +122,7 @@
                 <div class="col-md-8 pl-4">
                     <div class="mb-3 row">
                         <div class="col-6">
-                            <x-jet-label class="small" for="form.nama" value="{{ __('Nama Maggot') }}" />
+                            <x-jet-label class="small" for="form.nama" value="{{ __('Nama Rempah') }}" />
                             <x-jet-input id="form.nama" type="text" class="{{ $errors->has('form.nama') ? 'is-invalid' : '' }}" wire:model="form.nama" autocomplete="form.nama" />
                             <x-jet-input-error for="form.nama" />
                         </div>
@@ -157,34 +157,34 @@
 
         <x-slot name="footer">
             <div class="d-flex">
-                <x-jet-secondary-button class="mr-2" wire:click="$toggle('maggotModal')" wire:loading.attr="disabled">
+                <x-jet-secondary-button class="mr-2" wire:click="$toggle('spiceModal')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
                 </x-jet-secondary-button>
 
-                <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiMaggotModal }}" wire:loading.attr="disabled">
-                    <span wire:loading wire:target="{{ $aksiMaggotModal }}" class="spinner-border spinner-border-sm mr-2" role="status"></span>
-                    {{ __($buttonMaggotModal) }}
+                <x-jet-button class="d-flex align-items-center" wire:click="{{ $aksiSpiceModal }}" wire:loading.attr="disabled">
+                    <span wire:loading wire:target="{{ $aksiSpiceModal }}" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+                    {{ __($buttonSpiceModal) }}
                 </x-jet-button>
             </div>
         </x-slot>
     </x-jet-dialog-modal>
 
-    <x-jet-confirmation-modal wire:model="deleteMaggotModal">
+    <x-jet-confirmation-modal wire:model="deleteSpiceModal">
         <x-slot name="title">
-            {{ __('Hapus Data Maggot ') }}<i>{{ array_key_exists('nama', $form) ? $form['nama'] : '' }}</i>
+            {{ __('Hapus Data Rempah ') }}<i>{{ array_key_exists('nama', $form) ? $form['nama'] : '' }}</i>
         </x-slot>
 
         <x-slot name="content">
-            {{ __('Apakah Anda yakin ingin menghapus data maggot ') }}<i>{{ array_key_exists('nama', $form) ? $form['nama'] : '' }} ?</i>
+            {{ __('Apakah Anda yakin ingin menghapus data rempah ') }}<i>{{ array_key_exists('nama', $form) ? $form['nama'] : '' }} ?</i>
         </x-slot>
 
         <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('deleteMaggotModal')" wire:loading.attr="disabled">
+            <x-jet-secondary-button wire:click="$toggle('deleteSpiceModal')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
             </x-jet-secondary-button>
 
-            <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteMaggot">
-                <span wire:loading wire:target="deleteMaggot" class="spinner-border spinner-border-sm mr-2" role="status"></span>
+            <x-jet-danger-button class="d-flex align-items-center" wire:loading.attr="disabled" wire:click="deleteSpice">
+                <span wire:loading wire:target="deleteSpice" class="spinner-border spinner-border-sm mr-2" role="status"></span>
                 {{ __('Delete') }}
             </x-jet-danger-button>
         </x-slot>

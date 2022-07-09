@@ -13,13 +13,13 @@ class Expenditure extends Model
 
     protected $fillable = [
         'supplier_data',
-        'maggot_data',
+        'spice_data',
         'jumlah',
     ];
 
     protected $casts = [
         'supplier_data' => Json::class,
-        'maggot_data' => Json::class,
+        'spice_data' => Json::class,
     ];
 
     protected $keyType = 'string';

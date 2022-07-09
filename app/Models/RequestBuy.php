@@ -14,13 +14,13 @@ class RequestBuy extends Model
     protected $fillable = [
         'invoice',
         'user_id',
-        'maggot_data',
+        'spice_data',
         'transaction_data',
         'refund',
     ];
 
     protected $casts = [
-        'maggot_data' => Json::class,
+        'spice_data' => Json::class,
         'transaction_data' => Json::class,
     ];
 

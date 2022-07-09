@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('maggot_images', function (Blueprint $table) {
+        Schema::create('spices', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('maggot_id')->constrained('maggots')->onDelete('cascade');
-            $table->string('image');
+            $table->string('nama')->unique();
+            $table->float('hrg_jual');
+            $table->integer('stok');
+            $table->string('unit');
+            $table->text('ket')->nullable();
             $table->timestamps(6);
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('maggot_images');
+        Schema::dropIfExists('spices');
     }
 };

@@ -7,7 +7,7 @@
 
         </div>
 
-        @livewire('maggot', ['title' => $title])
+        @livewire('spice', ['title' => $title])
     </div>
 
 </x-app-layout>

@@ -28,7 +28,7 @@
 
 <x-livewire-tables::bs4.table.cell class="no-print">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <a role="button" class="btn btn-success m-0 p-2" wire:click="$emit('maggotModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
-        <a role="button" class="btn btn-danger m-0 p-2" wire:click="$emit('deleteMaggotModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
+        <a role="button" class="btn btn-success m-0 p-2" wire:click="$emit('spiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Edit</a>
+        <a role="button" class="btn btn-danger m-0 p-2" wire:click="$emit('deleteSpiceModal', '{{ $row->id }}')" wire:loading.attr="disabled">Hapus</a>
     </div>
 </x-livewire-tables::bs4.table.cell>

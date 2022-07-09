@@ -47,7 +47,7 @@ class StockChart extends Chart
 
         $this->labels($data->labels());
 
-        $this->dataset("Stock", "pie", $data->datasets()['maggots'])->options([
+        $this->dataset("Stock", "pie", $data->datasets()['spices'])->options([
             'backgroundColor' => $data->datasets()['colors'],
             'hoverBackgroundColor' => $data->datasets()['hover'],
             'hoverBorderColor' => "rgba(234, 236, 244, 1)",
