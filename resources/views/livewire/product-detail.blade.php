@@ -45,7 +45,7 @@
                                                     <ul class="product-tab mt-0 nav nav-tabs">
                                                         @foreach ($spice_image as $key => $image)
                                                             <li class="{{ $key == 0 ? 'active' : '' }}">
-                                                                <a href="#modal-item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }}">
+                                                                <a href="#modal-item-{{ $key }}" data-toggle="tab" class="{{ $key == 0 ? 'active' : '' }} detail">
                                                                     <img src="{{ asset("storage/images/products/$image->image") }}">
                                                                 </a>
                                                             </li>

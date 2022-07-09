@@ -6666,8 +6666,19 @@ footer {
                         }
                     }
 
+                    img {
+                        margin: 0;
+                        position: absolute;
+                        top: 50%;
+                        -ms-transform: translateY(-50%);
+                        transform: translateY(-50%);
+                    }
+
                     position: relative;
                     display: block;
+                    height: 15rem;
+                    background-color: #ffffff;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23000000' fill-opacity='0.16'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
 
                     .image-cover {
                         opacity: 1;
@@ -7047,7 +7058,10 @@ footer {
                         padding-top: .010416667in;
                     }
 
-                    width: 100%;
+                    &.detail {
+                        width: 5.125pc;
+                    }
+
                     display: inline-block;
                     border-left-width: 1px;
                     border-bottom-width: .010416667in;

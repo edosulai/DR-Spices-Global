@@ -12,7 +12,7 @@
                     <div class="row-inhert mt-5">
                         <div class="header-contact">
                             <div class="row">
-                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="col-sm-12 col-md-4">
                                     <div class="item d-flex">
                                         <div class="item-left">
                                             <div class="icon">
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="col-sm-12 col-md-4">
                                     <div class="item d-flex">
                                         <div class="item-left">
                                             <div class="icon">
@@ -40,7 +40,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="col-sm-12 col-md-4">
                                     <div class="item d-flex justify-content-end  last">
                                         <div class="item-left">
                                             <div class="icon">

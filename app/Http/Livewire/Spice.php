@@ -87,16 +87,22 @@ class Spice extends Component
     public function tambahSpice()
     {
         $this->validate();
-        $this->form['img']->store('public/images/product');
 
-        ModelsSpice::create([
+        $spice = ModelsSpice::create([
             'nama' => $this->form['nama'],
             'hrg_jual' => $this->form['hrg_jual'],
             'stok' => $this->form['stok'],
             'unit' => $this->form['unit'],
-            'image' => $this->form['img']->hashName(),
             'ket' => $this->form['ket'],
         ]);
+
+        foreach ($this->form['img'] as $key => $image) {
+            $image->store('public/images/products');
+            SpiceImage::create([
+                'spice_id' => $spice->id,
+                'image' => $image->hashName()
+            ]);
+        }
 
         $this->spiceModal = false;
         $this->emit('spiceTableColumns');
