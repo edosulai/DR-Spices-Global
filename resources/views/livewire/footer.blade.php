@@ -7,7 +7,7 @@
                         <div class="block">
                             <div class="block-content">
                                 <a href="{{ route('home') }}" class="logo-footer">
-                                    <img class="img-fluid w-40 mb-2" src="{{ $logo }}">
+                                    <img class="img-fluid w-55 mb-2" src="{{ $logo }}">
                                 </a>
                                 <p class="content-logo">{{ $short }}</p>
                             </div>

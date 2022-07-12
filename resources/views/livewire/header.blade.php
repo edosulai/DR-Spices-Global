@@ -65,7 +65,7 @@
 
             <div class="mobile-logo">
                 <a href="{{ route('home') }}">
-                    <img class="logo-mobile img-fluid" src="{{ asset('storage/images/others/logo-mobie.png') }}">
+                    <img class="logo-mobile img-fluid" src="{{ asset('storage/images/others/logo.png') }}">
                 </a>
             </div>
 
@@ -83,7 +83,7 @@
                 <div class="col-sm-2 col-md-2 d-flex align-items-center">
                     <div id="logo">
                         <a href="{{ route('home') }}">
-                            <img class="img-fluid w-75" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Spices Global Logo">
+                            <img class="img-fluid" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Spices Global Logo">
                         </a>
                     </div>
                 </div>

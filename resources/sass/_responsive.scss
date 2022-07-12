@@ -1728,7 +1728,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
         header {
             .header-mobile {
                 padding: 10px 20px;
-                background: #343434;
+                background: $color_3;
                 -webkit-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
                 -moz-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
                 -ms-box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.3);
@@ -1752,7 +1752,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
                     height: 30px;
                     text-align: center;
                     line-height: 30px;
-                    background-color: $background-color_1;
+                    background-color: #75422f;
                     border-radius: 50%;
                     cursor: pointer;
                     position: relative;
@@ -2163,7 +2163,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
         #mobile_search_content {
             border-radius: 17px;
             margin: 16px 31px 8px 0;
-            background: #fff;
+            background: $color_3;
             overflow: hidden;
             position: relative;
             width: 100%;
@@ -2510,7 +2510,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
                 width: 16px;
                 height: 16px;
                 line-height: 16px;
-                background: #ff5151;
+                background: #75422f;
                 color: $color_9;
                 border-radius: 50%;
                 font-size: 13px;
@@ -2519,7 +2519,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
 
             i {
                 font-size: 21px;
-                color: $color_3;
+                color: #75422f;
             }
         }
     }
@@ -3363,7 +3363,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
         #mobile_search_content {
             border-radius: 17px;
             margin: 16px 27px 9px;
-            background: #fff;
+            background: $color_3;
             overflow: hidden;
             position: relative;
             width: 68%;
@@ -3616,7 +3616,7 @@ $border-color_1: transparent transparent #eaeaea transparent;
         #mobile_search_content {
             border-radius: 17px;
             margin: 16px 16px 8px;
-            background: #fff;
+            background: $color_3;
             overflow: hidden;
             position: relative;
             width: 72%;

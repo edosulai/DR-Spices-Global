@@ -15,7 +15,7 @@ $color_14: #a0a0a0;
 $color_15: red;
 $color_16: #403e3e;
 $color_17: #909090;
-$color_18: #ff5151;
+$color_18: #75422f;
 $color_19: #343434;
 $color_20: #848484;
 $color_21: #676767;
@@ -74,7 +74,7 @@ $background-color_13: #7a4040;
 $background-color_14: #f780c0;
 $background-color_15: transparent;
 $background-color_16: rgba(255, 255, 255, .5);
-$background-color_17: #ff5151;
+$background-color_17: #75422f;
 $background-color_18: #eee;
 $background-color_19: white;
 $background-color_20: #ffacac;
@@ -104,7 +104,7 @@ $border-top-color_15: #e0e6ec;
 $border-top-color_16: #ccc;
 $border-top-color_17: #d6d4d4;
 $border-top-color_18: #ced4da;
-$border-top-color_19: #ff5151;
+$border-top-color_19: #75422f;
 $border-top-color_20: #d4d4d4;
 $border-top-color_21: rgba(0, 0, 0, .15);
 $border-top-color_22: black;
@@ -147,7 +147,7 @@ $border-right-color_16: #ddd;
 $border-right-color_17: #fff;
 $border-right-color_18: #ced4da;
 $border-right-color_19: #d6d4d4;
-$border-right-color_20: #ff5151;
+$border-right-color_20: #75422f;
 $border-right-color_21: #d4d4d4;
 $border-right-color_22: #848484;
 $border-right-color_23: rgba(0, 0, 0, .15);
@@ -194,7 +194,7 @@ $border-bottom-color_21: #e0e6ec;
 $border-bottom-color_22: #ddd;
 $border-bottom-color_23: #fff;
 $border-bottom-color_24: #d6d4d4;
-$border-bottom-color_25: #ff5151;
+$border-bottom-color_25: #75422f;
 $border-bottom-color_26: #d4d4d4;
 $border-bottom-color_27: rgba(0, 0, 0, .15);
 $border-bottom-color_28: #ececec;
@@ -238,7 +238,7 @@ $border-left-color_16: #d6d4d4;
 $border-left-color_17: #fff;
 $border-left-color_18: #ddd;
 $border-left-color_19: #e0e6ec;
-$border-left-color_20: #ff5151;
+$border-left-color_20: #75422f;
 $border-left-color_21: #ececec;
 $border-left-color_22: rgba(0, 0, 0, .15);
 $border-left-color_23: black;
@@ -495,7 +495,7 @@ input {
                     border-radius: .25rem;
 
                     &:hover {
-                        background: #ff5151;
+                        background: #75422f;
                     }
                 }
 
@@ -629,7 +629,7 @@ h4 {
 
         &:hover {
             color: $color_9;
-            background: #ff5151;
+            background: #75422f;
             border-left-color: $border-left-color_20;
             border-bottom-color: $border-bottom-color_25;
             border-right-color: $border-right-color_20;
@@ -638,7 +638,7 @@ h4 {
 
         &:focus {
             color: $color_9;
-            background: #ff5151;
+            background: #75422f;
             border-left-color: $border-left-color_20;
             border-bottom-color: $border-bottom-color_25;
             border-right-color: $border-right-color_20;
@@ -1077,7 +1077,7 @@ h4 {
             .cart-button {
                 a {
                     &:hover {
-                        background: #ff5151;
+                        background: #75422f;
                     }
 
                     padding-left: .260416667in;
@@ -2144,7 +2144,7 @@ body {
     z-index: 9;
 
     &:hover {
-        background: #ff5151;
+        background: #75422f;
     }
 
     .zmdi-plus {
@@ -2170,7 +2170,7 @@ body {
 }
 
 .collapse-icons[aria-expanded="true"] {
-    background: #ff5151;
+    background: #75422f;
 }
 
 li {
@@ -2445,7 +2445,7 @@ li {
 
                                 &:hover {
                                     color: $color_2 !important;
-                                    background: #ff5151;
+                                    background: #75422f;
                                 }
                             }
                         }
@@ -2594,7 +2594,7 @@ li {
                                                 white-space: nowrap;
 
                                                 &:hover {
-                                                    background: #ff5151;
+                                                    background: #75422f;
                                                     color: $color_2;
                                                 }
                                             }
@@ -2663,7 +2663,7 @@ li {
 
                             .number-lookbook {
                                 &:hover {
-                                    background: #ff5151;
+                                    background: #75422f;
                                     animation: Animationlookbook .5s ease-out infinite;
                                 }
 
@@ -2872,7 +2872,7 @@ li {
 
             .owl-dots {
                 .owl-dot.active {
-                    background: #ff5151;
+                    background: #75422f;
                 }
 
                 .owl-dot {
@@ -3570,7 +3570,7 @@ li {
 
             .open {
                 #dropdownMenuButton {
-                    background: #ff5151;
+                    background: #75422f;
                     padding-left: 1.90625pc;
                     padding-bottom: .489583333in;
                     padding-right: 1.90625pc;
@@ -4027,7 +4027,7 @@ li {
                 margin-bottom: 1.5pt;
                 margin-right: 1.5pt;
                 margin-top: 1.5pt;
-                background: #ff5151;
+                background: #75422f;
             }
 
             .owl-dot {
@@ -4461,7 +4461,7 @@ li {
 
                 button {
                     &:hover {
-                        background: #ff5151;
+                        background: #75422f;
                     }
 
                     background: #3c3838;
@@ -6052,7 +6052,7 @@ li {
             }
 
             font-size: 1.3125pc;
-            color: $color_6;
+            color: #75422f;
         }
 
         position: relative;
@@ -6078,7 +6078,7 @@ li {
             width: 14.25pt;
             height: 1.1875pc;
             line-height: 14.25pt;
-            background: #ff5151;
+            background: #75422f;
             color: $color_9;
             -webkit-border-radius: 50%;
             -moz-border-radius: 50%;
@@ -7833,7 +7833,7 @@ footer {
             a {
                 &:hover {
                     color: $color_9;
-                    background: #ff5151;
+                    background: #75422f;
 
                     i {
                         color: $color_2;
@@ -8684,7 +8684,7 @@ footer {
                 }
 
                 .collapse-icons[aria-expanded="true"] {
-                    background: #ff5151;
+                    background: #75422f;
                 }
 
                 .arrow {
@@ -8703,7 +8703,7 @@ footer {
                     cursor: pointer;
 
                     &:hover {
-                        background: #ff5151;
+                        background: #75422f;
                     }
 
                     .zmdi-minus {
@@ -9078,7 +9078,7 @@ footer {
 
 #nav_icon3.open {
     padding-top: 71%;
-    background: #ff5151;
+    background: #75422f;
 
     span {
         &:nth-child(1) {
@@ -9182,7 +9182,7 @@ footer {
                 }
 
                 &:hover {
-                    background: #ff5151;
+                    background: #75422f;
                     border-left-width: .010416667in;
                     border-bottom-width: .0625pc;
                     border-right-width: .0625pc;
@@ -9476,7 +9476,7 @@ footer {
     .btn {
         &:hover {
             border-left-width: .010416667in;
-            background: #ff5151;
+            background: #75422f;
             border-bottom-width: .0625pc;
             border-right-width: .0625pc;
             border-top-width: .0625pc;

@@ -6,7 +6,7 @@
             <x-jet-application-mark width="36" class="text-light" />
         </div>
         <div class="sidebar-brand-text mx-3"><small>{{ config('app.name', 'Laravel') }}</small></div> --}}
-        <img class="img-fluid w-60" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Spices Global Logo">
+        <img class="img-fluid" src="{{ asset('storage/images/others/logo.png') }}" alt="DR Spices Global Logo">
     </a>
 
 
