@@ -56,10 +56,14 @@ class Checkout extends Component
     public function mount()
     {
         $this->payment = [
-            'name' => 'Edo Sulaiman',
-            'cardnumber' => '4811111111111114',
-            'expirationdate' => '12/24',
-            'securitycode' => '123'
+            // 'name' => 'Edo Sulaiman',
+            // 'cardnumber' => '4811111111111114',
+            // 'expirationdate' => '12/24',
+            // 'securitycode' => '123'
+            'name' => '',
+            'cardnumber' => '',
+            'expirationdate' => '',
+            'securitycode' => ''
         ];
 
         $this->carts = collect();

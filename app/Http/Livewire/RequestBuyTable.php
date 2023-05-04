@@ -37,14 +37,16 @@ class RequestBuyTable extends DataTableComponent
                 request_buys.*,
                 @row:=@row+1 as no,
                 users.name as users_name,
-                REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') as spice_nama,
-                JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') as jumlah,
+                REPLACE(SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.spice_data, '\"nama\":\"', -1), '\",\"', 1), '\"', '') as spice_nama,
+                SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.spice_data, '\"jumlah\":', -1), ',', 1) as jumlah,
                 statuses.nama as statuses_nama
             ")
             ->join('users', 'request_buys.user_id', '=', 'users.id')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
-            ->join(DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"), fn ($join) =>
+            ->join(
+                DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
+                fn($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
@@ -52,13 +54,13 @@ class RequestBuyTable extends DataTableComponent
             ->orderBy('request_buys.updated_at', 'desc')
             ->when(
                 $this->getFilter('search'),
-                fn ($query, $term) =>
+                fn($query, $term) =>
                 $query
                     ->where('invoice', 'like', "%" . trim($term) . "%")
                     ->orWhere('users.name', 'like', "%" . trim($term) . "%")
                     ->orWhere('statuses.nama', 'like', "%" . trim($term) . "%")
-                    ->orWhereRaw("REPLACE(JSON_EXTRACT(request_buys.spice_data, '$[*].nama'), '\"', '') like '%" . trim($term) . "%'")
-                    ->orWhereRaw("JSON_EXTRACT(request_buys.spice_data, '$[*].jumlah') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("REPLACE(SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.spice_data, '\"nama\":\"', -1), '\",\"', 1), '\"', '') like '%" . trim($term) . "%'")
+                    ->orWhereRaw("SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.spice_data, '\"jumlah\":', -1), ',', 1) like '%" . trim($term) . "%'")
             );
     }
 

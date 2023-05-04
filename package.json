@@ -14,6 +14,7 @@
         "@popperjs/core": "^2.5.3",
         "alpinejs": "^3.2.6",
         "axios": "^0.25",
+        "datatables.net": "^1.13.4",
         "featherlight": "^1.7.14",
         "imask": "^3.4.0",
         "laravel-mix": "^6.0.6",
@@ -27,6 +28,6 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.49.8",
         "sass-loader": "^12.1.0",
-        "startbootstrap-sb-admin-2": "^4.1.4"
+        "startbootstrap-sb-admin-2": "^3.3.7"
     }
 }

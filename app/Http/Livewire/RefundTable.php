@@ -32,7 +32,7 @@ class RefundTable extends DataTableComponent
     {
         DB::statement(DB::raw("set @row:=0"));
         return RequestBuy::where(
-            fn ($query) =>
+            fn($query) =>
             $query->where('statuses.nama', '=', 'Rejected')->orWhere('statuses.nama', '=', 'Canceled')
         )->whereNot(function ($query) {
             $query->where('request_buys.refund', '=', 0);
@@ -42,14 +42,14 @@ class RefundTable extends DataTableComponent
                 @row:=@row+1 as no,
                 users.name as users_name,
                 statuses.nama as statuses_nama,
-                JSON_UNQUOTE(JSON_EXTRACT(request_buys.transaction_data, '$.transaction_details.gross_amount')) as refund_total
+                SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.transaction_data, '\"gross_amount\":\"', -1), '\",\"', 1) as refund_total
             ")
             ->join('users', 'request_buys.user_id', '=', 'users.id')
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
             ->join(
                 DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
-                fn ($join) =>
+                fn($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
@@ -58,12 +58,12 @@ class RefundTable extends DataTableComponent
             ->orderBy('request_buys.refund', 'asc')
             ->when(
                 $this->getFilter('search'),
-                fn ($query, $term) =>
+                fn($query, $term) =>
                 $query
                     ->where('invoice', 'like', "%" . trim($term) . "%")
                     ->orWhere('users.name', 'like', "%" . trim($term) . "%")
                     ->orWhere('statuses.nama', 'like', "%" . trim($term) . "%")
-                    ->orWhereRaw("JSON_UNQUOTE(JSON_EXTRACT(request_buys.transaction_data, '$.transaction_details.gross_amount')) like '%" . trim($term) . "%'")
+                    ->orWhereRaw("SUBSTRING_INDEX(SUBSTRING_INDEX(request_buys.transaction_data, '\"gross_amount\":\"', -1), '\",\"', 1) like '%" . trim($term) . "%'")
             );
     }
 

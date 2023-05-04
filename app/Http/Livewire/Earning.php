@@ -37,29 +37,21 @@ class Earning extends ChartComponent
     protected function chartData(): ChartComponentData
     {
         DB::statement(DB::raw("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))"));
-        $incomes = RequestBuy::selectRaw("SUM(jt_request_buys.hrg_jual) * SUM(jt_request_buys.jumlah) as income_price, MAX(traces.created_at) as created_at")
+        $incomes = RequestBuy::selectRaw("SUM(CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(SUBSTRING_INDEX(spice_data, '\"jumlah\":', -1), '}', 1), ',', 1) AS DECIMAL)) as jumlah")
             ->join('traces', 'request_buys.id', '=', 'traces.request_buy_id')
             ->join('statuses', 'traces.status_id', '=', 'statuses.id')
             ->join(
                 DB::raw("(select traces.request_buy_id, MAX(traces.created_at) as traces_created_at from `request_buys` inner join `traces` on `request_buys`.`id` = `traces`.`request_buy_id` group by traces.request_buy_id) join_traces"),
-                fn ($join) =>
+                fn($join) =>
                 $join
                     ->on('traces.request_buy_id', '=', 'join_traces.request_buy_id')
                     ->on('traces.created_at', '=', 'join_traces.traces_created_at')
             )
-            ->join(DB::raw("JSON_TABLE(request_buys.spice_data,'$[*]'
-                COLUMNS(
-                    NESTED PATH '$.hrg_jual' COLUMNS (hrg_jual DECIMAL PATH '$'),
-                    NESTED PATH '$.jumlah' COLUMNS (jumlah DECIMAL PATH '$')
-                )) as jt_request_buys"), fn ($join) => $join)
-            ->groupBy(DB::raw('DATE(traces.created_at)'))
-            // ->groupBy('request_buys.id')
+            ->groupBy(DB::raw('MONTH(traces.created_at)'))
             ->where(
-                fn ($query) =>
+                fn($query) =>
                 $query->where('statuses.nama', '=', 'Delivered')->orWhere('statuses.nama', '=', 'Rated')
             )
-            ->whereYear('traces.created_at', '=', Carbon::now()->year)
-            ->whereMonth('traces.created_at', '=', Carbon::now()->month)
             ->orderBy('traces.created_at', 'asc')
             ->get();
 
